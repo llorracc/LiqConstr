@@ -1,6 +1,6 @@
 \input{./econtexRoot.tex}\input{./econtexPaths.tex}
 \documentclass[titlepage]{\econtex}
-\providecommand{\texname}{LiqConstr}
+\providecommand{\texname}{LiqConstr}% Keyname for the bibtex entry corresponding to this paper
 \usepackage{vmargin}
 \usepackage{\econtexSetup}\usepackage{\econtexShortcuts}
 
@@ -13,15 +13,15 @@
 }{}
 
 
-\newboolean{verbatimwriteOn}        %%
-\setboolean{verbatimwriteOn}{true}  %%
-\setboolean{verbatimwriteOn}{false} %%
-\newcommand{\ifVerbatimWrite}{\ifthenelse{\boolean{verbatimwriteOn}}} %%
-\ifVerbatimWrite{}{ %%
-  \renewenvironment{verbatimwrite}[1]{} %%
-} %%
+\newboolean{verbatimwriteOn}        %
+\setboolean{verbatimwriteOn}{true}  %
+\setboolean{verbatimwriteOn}{false} %
+\newcommand{\ifVerbatimWrite}{\ifthenelse{\boolean{verbatimwriteOn}}} %
+\ifVerbatimWrite{}{ %
+  \renewenvironment{verbatimwrite}[1]{} %
+} %
 
-\newenvironment{Private}{} %%
+\newenvironment{Private}{} %
 
 \providecommand{\wAlt}{\omega}
 \providecommand{\sConst}{\varsigma}
@@ -44,16 +44,17 @@
 \usepackage[en-US]{datetime2}\DTMlangsetup{showdayofmonth=true}
 \renewcommand{\cite}{\citeyear}
 
-\setmarginsrb{1in}{1in}{1in}{1.4in}{0pt}{0pt}{0pt}{.3in} %%
+\setmarginsrb{1in}{1in}{1in}{1.4in}{0pt}{0pt}{0pt}{.3in} %
+% {left}{top}{right}{bottom} %
 
-\provideboolean{bigdouble}    %%
-\setboolean{bigdouble}{true}  %%
-\setboolean{bigdouble}{false} %%
+\provideboolean{bigdouble}    %
+\setboolean{bigdouble}{true}  %
+\setboolean{bigdouble}{false} %
 
-\ifthenelse{\boolean{bigdouble}}{ 
-  \setmarginsrb{0.40in}{0.8in}{0.40in}{0.8in}{0pt}{0pt}{0pt}{0.2in} %%
-  
-}{} %%
+\ifthenelse{\boolean{bigdouble}}{ % Margins must be set before begin document command  %
+  \setmarginsrb{0.40in}{0.8in}{0.40in}{0.8in}{0pt}{0pt}{0pt}{0.2in} %
+  % {left}{top}{right}{bottom} %
+}{} %
 
 \begin{document}\bibliographystyle{\econtexBibStyle}
 
@@ -79,8 +80,9 @@
   \and
   Miles S. Kimball\authNum \\ {\small University of Colorado at Boulder}
 }
-} 
+} % End ifWeb
 
+% \date{January 22, 2019}
 \date{\today}
 \maketitle
 
@@ -91,9 +93,9 @@
 
 \hypertarget{Abstract}{}
 \begin{abstract}
-    \begin{verbatimwrite}{./\texname-abstract.metadata} %%
+    \begin{verbatimwrite}{./\texname-abstract.metadata} %
       We provide the analytical explanation of strong interactions between precautionary saving and liquidity constraints that are regularly observed in numerical solutions to consumption/saving models.  The effects of constraints and of uncertainty spring from the same cause: concavification of the consumption function, which can be induced either by constraints or by uncertainty.  Concavification propagates back to consumption functions in prior periods.  But, surprisingly, once a linear consumption function has been concavified by the presence of either risks or constraints, the introduction of \textit{additional} concavifiers in a given period can \textit{reduce} the precautionary motive in earlier periods at some levels of wealth.  
-  \end{verbatimwrite}\ifVerbatimWrite{\input{./\texname-abstract.metadata}}{} %%
+  \end{verbatimwrite}\ifVerbatimWrite{\input{./\texname-abstract.metadata}}{} %
 \end{abstract}
 
 
@@ -101,9 +103,12 @@
 \parbox{\textwidth}{
   \begin{center}
 \begin{tabbing}
-  \texttt{Econ-ARK:~} \= \= \url{http://econ.jhu.edu/people/ccarroll/papers/LiqConstr.pdf} \kill \\  
+  \texttt{Econ-ARK:~} \= \= \url{http://econ.jhu.edu/people/ccarroll/papers/LiqConstr.pdf} \kill \\  % This line establishes the locations of the tabs, but is not printed because of the \kill directive
 \texttt{~~~~Repo:~} \= \= \url{https://github.com/llorracc/LiqConstr}  \\
+%\texttt{~~~~~PDF:~} \> \> \url{http://econ.jhu.edu/people/ccarroll/papers/LiqConstr.pdf} \\
 \texttt{~~~~~Web:~} \> \> \url{http://econ.jhu.edu/people/ccarroll/papers/LiqConstr/} \\
+%\texttt{~BibTeX:~} \> \> \url{http://econ.jhu.edu/people/ccarroll/papers/LiqConstr.bib} \\
+%\texttt{Archive:~} \> \> \url{http://econ.jhu.edu/people/ccarroll/papers/LiqConstr.zip} \\
 \texttt{~~Slides:~} \> \> \url{http://econ.jhu.edu/people/ccarroll/papers/LiqConstr/LiqConstr-Slides.pdf} \\
 \texttt{Econ-ARK:~} \> \> \url{http://github.com/Econ-ARK/REMARK/tree/master/REMARKs/LiqConstr.md} \\
 \texttt{~Jupyter:~} \> \> \href{https://mybinder.org/v2/gh/econ-ark/REMARK/LiqConstr?filepath=REMARKs\%2FLiqConstr\%2FLiqConstr.ipynb}{Live MyBinder.org Jupyter notebook producing the figures} \\
@@ -137,9 +142,15 @@
 
 \hypertarget{Introduction}{}
 \section{Introduction}\label{sec:Intro}
-\ifthenelse{\boolean{bigdouble}}{\large}{} %%
+\ifthenelse{\boolean{bigdouble}}{\large}{} %
 
-\begin{verbatimwrite}{./Sections/Intro.tex} %%
+
+  % \hypertarget{MainMessage}{}
+  % \begin{verbatimwrite}{./Highlighted/MainMessage}
+  %   This is where we will put the ``main message''
+  %   \end{verbatimwrite}
+
+    \begin{verbatimwrite}{./Sections/Intro.tex} %
 
   Numerical solutions have now supplanted analytical methods for modeling consumption/saving choices, because analytical solutions are not available for realistic descriptions of utility, uncertainty, and constraints.
 
@@ -151,7 +162,7 @@ This paper provides the theoretical tools to make sense of the interactions betw
 
 For example, one of the paper's main results is a proof that when a liquidity constraint is added to a standard consumption problem, the resulting value function exhibits increased `prudence' (a greater precautionary motive) around the level of wealth where the constraint becomes binding.\footnote{\citet{kimball:smallandlarge} defines prudence of the value function and shows that it is the key theoretical requirement to produce precautionary saving.} Constraints induce precaution because constrained agents have less flexibility in responding to shocks when the effects of the shocks cannot be spread out over time. We show that the precautionary motive is heightened by the desire (in the face of risk) to make future constraints less likely to bind.\footnote{To be clear, the liquidity constraint we analyze here must be satisfied in each period (one-period bonds). This implies that the interactions between constraints and income volatility where some households may prefer to increase (credit card) debt today because they expect tighter credit conditions in the future are ruled out \citep{fulford2015important,druedahl2018precautionary}.} 
 
-At a deeper level, we show that the effect of a constraint on prudence is an example of a general theoretical result: Prudence is induced by concavity of the consumption function. Since a constraint creates consumption concavity around the point where the constraint binds,\footnote{Since the first version of this paper, the connection between constraints and consumption concavity has been explored in more specific settings (see e.g. \citet{park2006analytical} for CRRA utility,  \citet{nishiyama2012concavity} for quadratic utility, and \citet{holm2018consumption} for the case with infinitely-lived households with HARA utility).} adding a constraint necessarily boosts prudence around that point.\footnote{A relationship between constraints and prudence has also been noted by \citet{lee2007degree} and documented empirically in \citet{lee2010precautionary}.} We show that this concavity-boosts-prudence result holds for any utility function with non-negative third derivative; ``prudence'' in the \textit{utility} function as in  \citet{kimball:smallandlarge} is not necessary, because prudence is created by consumption concavity.
+At a deeper level, we show that the effect of a constraint on prudence is an example of a general theoretical result: Prudence is induced by concavity of the consumption function. Since a constraint creates consumption concavity around the point where the constraint binds,\footnote{Since the first version of this paper, the connection between constraints and consumption concavity has been explored in more specific settings (see e.g. \citet{park2006analytical} for CRRA utility,  \citet{seater1997optimal} for the case where time-discounting equals the interest rate, \citet{nishiyama2012concavity} for quadratic utility, and \citet{holm2018consumption} for the case with infinitely-lived households with HARA utility). The main contribution of the current paper is to derive the implications of liquidity constraints on consumption concavity in a life-cycle setting and to derive the implications of additional constraints at specific points in time on consumption concavity.} adding a constraint necessarily boosts prudence around that point.\footnote{A relationship between constraints and prudence has also been noted by \citet{lee2007degree} and documented empirically in \citet{lee2010precautionary}.} We show that this concavity-boosts-prudence result holds for any utility function with non-negative third derivative; ``prudence'' in the \textit{utility} function as in  \citet{kimball:smallandlarge} is not necessary, because prudence is created by consumption concavity.
 
 These results connect closely to \citet{carroll&kimball:concavity}'s demonstration that, within the HARA utility class, the introduction of uncertainty causes the consumption function to become strictly concave (in the absence of constraints) for all but a few knife-edge combinations of utility function and structure of risk.  Taken together, this paper and \citet{carroll&kimball:concavity} can be seen as establishing rigorously the sense in which precautionary saving and liquidity  constraints are substitutes.\footnote{See \citet{fernandez-corugedo:softlc} for a related demonstration that `soft' liquidity constraints bear an even closer resemblance to precautionary behavior. \citet{MendelsonAmihud:consumption} provide an impressive treatment of a similar problem.} To illustrate this point, we provide an example of a specific kind of uncertainty that (under CRRA utility, in the limit) induces a consumption function that is point-wise identical to the consumption function that would be induced by the addition of a liquidity constraint.
 
@@ -161,18 +172,28 @@ Our final theoretical contribution is to show that the introduction of further l
 
 Our analysis proceeds in five steps. We present our general theoretical framework in the next section. We then show that consumption concavity increases prudence (Section \ref{sec:PrudAndCC}); that concavity, once created, propagates to previous periods (Section \ref{sec:Aggregation}); that constraints cause consumption concavity (Section \ref{sec:Precaution}); and when additional constraints or risks increase the precautionary saving motive (Section \ref{sec:ConstrRisksCPPandPS}). The final section concludes.
 
+%There are three steps: consumption concavity increases prudence (), liquidity constraints cause consumption concavity 
+%
+%
+%The rest of the paper is structured as follows. To fix notation and ideas, the next section sets out our general theoretical framework. The third section shows that concavity of the consumption function heightens prudence.  The fourth section shows how concavity, whether induced by constraints or uncertainty, propagates to previous periods. Section 5 shows how the introduction of a constraint creates a precautionary saving motive. The sixth section shows when the introduction of additional liquidity constraints beyond the first constraint increases the precautionary motive at any given level of wealth.  The fact that this does not always occur means that the introduction of constraints or uncertainty can weaken the effects of pre-existing constraints or uncertainty. The final section concludes.
 
-\end{verbatimwrite}\ifVerbatimWrite{\input{./Sections/Intro.tex}}{} %%
+\end{verbatimwrite}\ifVerbatimWrite{\input{./Sections/Intro.tex}}{} %
 
+\hypertarget{SetupIntro}{}
 \section{The Setup}\label{sec:Setup}
-\begin{verbatimwrite}{Sections/Setup} %%
+%\subfile{Sections/Setup}
+\begin{verbatimwrite}{Sections/Setup-Intro} %
+  Here we explain the setup intuitively 
+  \end{verbatimwrite}
+
+  \begin{verbatimwrite}{Sections/Setup} %
   
 Consider a consumer who faces some future risks but is not subject to any current or future liquidity constraints.  The consumer is maximizing the time-additive present discounted value of utility from consumption $u(c)$.  With interest and time preference factors $R \in (0,\infty)$ and $\beta \in (0,\infty)$, and labeling consumption $c$, stochastic labor income $y$, and gross wealth (inclusive of period-t labor income) $w_{t}$, the consumer's problem can be written as
 \begin{eqnarray*}
 V_{t}(w_{t}) &=&
                  \max_{c} \Ex_{t}\left[\sum_{k=0}^{T-t}\beta^{k} u({c_{t+k}})\right]   \label{eq:valuefn} \\
    & s.t. &  \nonumber
-\\              w_{t+1} & = & (w_{t}-c_{t})R+y_{t+1} %%
+\\              w_{t+1} & = & (w_{t}-c_{t})R+y_{t+1} %
 \nonumber
 \end{eqnarray*}
 where in some (but not all) of our results we consider utility functions of the HARA class
@@ -196,13 +217,19 @@ as the end-of-period value function where $s_t = w_t - c_t$ is the portion of pe
 \begin{eqnarray*}  \label{eq:subphi}
 V_{t}(w_{t}) & = & \max_{c} ~ u(c) + \Omega_{t}(w_t - c).
 \end{eqnarray*}
+%Throughout the paper, we distinguish between two different consumption functions, $c_t(w)$ and $\chi_t(s)$. $c_t(w)$ is the beginning-of-period consumption function and implicitly defined by the envelope conditions with respect to the current value function: $u'(c_t(w)) = V'(w)$. $\chi_t(s)$ is the end-of-period consumption function implicitly defined by the envelope condition with respect to expected value: $u'(\chi_t(s)) = \Omega_{t}'(s)$.
 
-\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/Setup}}{} %%
+\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/Setup}}{} %
+
+\section{Consumption Concavity and Prudence}\label{sec:PrudAndCC}
+\hypertarget{PrudAndCCIntro}{}
+\begin{verbatimwrite}{Sections/PrudAndCC-Intro} %
+  Here we explain prudence and consumption concavity intuitively
+  \end{verbatimwrite}
+
 
 \hypertarget{PrudAndCC}{}
-\section{Consumption Concavity and Prudence}\label{sec:PrudAndCC}
-
-\begin{verbatimwrite}{Sections/PrudAndCC} %%
+\begin{verbatimwrite}{Sections/PrudAndCC} %
 
   Our ultimate goal is to understand the relationship between liquidity constraints and precautionary saving. In this section we describe the relationship between consumption concavity and prudence; Kimball (\citeyear{kimball:smallandlarge}) shows that prudence induces precautionary saving, and below we that consumption concavity is induced by either liquidity constraints or precautionary saving.
 
@@ -214,7 +241,7 @@ V_{t}(w_{t}) & = & \max_{c} ~ u(c) + \Omega_{t}(w_t - c).
 Our approach shows that the crucial question is whether the value function exhibits a property we call consumption concavity (CC). So we define property CC first, and then we define a \textit{counterclockwise concavification} which captures a specific class of transformations of a consumption function that make the modified function globally ``more'' concave.
 
 \begin{defn}\label{defn:IntervalStrictCC} (Local Consumption Concavity.) \\ In relation to a
-	utility function $u(c)$ with non-negative, non-increasing prudence, a function $V(w)$ has property CC (alternately, strict CC) over the
+	utility function $u(c)$ with non-negative ($u''' \geq 0$) and non-increasing prudence, a function $V(w)$ has property CC (alternately, strict CC) over the
 	interval between $w_{1}$ and $w_{2}$, where $w_2 >w_{1}$, if
 	\[
 	V'(w) = u'(c(w))
@@ -278,14 +305,18 @@ See Appendix \ref{app:counterclockwise} for the proof. A counterclockwise concav
 \subsection{Consumption Concavity and Prudence}
 The section above established all the tools necessary to show the relationship between consumption concavity and prudence. Our method in this section is to compare prudence in a \textit{baseline} case where the consumption function is $c(w)$ to prudence in a \textit{modified} situation in which the consumption function $\hat{c}(w)$ is a counterclockwise concavification of the baseline consumption function. 
 
-To understand the effects on prudence of a counterclockwise concavification, note that for a twice differentiable consumption function and thrice differentiable utility function, absolute prudence is defined as
-$$ -\frac{V'''(w)}{V''(w)} = - \frac{u'''(c(w))}{u''(c(w))}c'(w) - \frac{c''(w)}{c'(w)}$$
-by the envelope condition. The results we are about to derive in Theorem \ref{thm:CCToPrud} then follow easily. Theorem \ref{thm:CCToPrud} itself handles cases where the consumption function is not necessarily twice differentiable. 
+Our first result relates to the effects of a counterclockwise concavification on the absolute prudence of the value function. 
+\begin{defn}\label{defn:prudence}(Absolute Prudence of the Value Function.) \\
+	Absolute prudence of the value function is defined as $-\frac{V'''(w)}{V''(w)}$.
+\end{defn}
 
+To understand the effects on prudence of a counterclockwise concavification, note that for a twice differentiable consumption function and thrice differentiable utility function, absolute prudence of the value function is defined as
+\begin{equation} -\frac{V'''(w)}{V''(w)} = - \frac{u'''(c(w))}{u''(c(w))}c'(w) - \frac{c''(w)}{c'(w)} \label{eq:prudence}\end{equation}
+by the envelope condition. The results we are about to derive in Theorem \ref{thm:CCToPrud} then follow easily. Theorem \ref{thm:CCToPrud} itself handles cases where the consumption function is not necessarily twice differentiable. 
 
 \begin{theorem}\label{thm:CCToPrud}  (Counterclockwise Concavification and Prudence.) \\
 	Consider an agent who has a utility function %of the HARA class \eqref{eq:HARA}
-	with $u' > 0$, $u'' < 0$, $u''' \geq 0$, and non-increasing absolute prudence $-u'''/u''$. If $c(w)$ is concave and $\hat{c}(w)$ is a counterclockwise concavification of $c(w)$, then the value function associated with $\hat{c}(w)$ exhibits greater prudence than the value function associated with $c(w)$ for all $w$.
+	with $u' > 0$, $u'' < 0$, $u''' \geq 0$, and non-increasing absolute prudence ($-u'''/u''$). If $c(w)$ is concave and $\hat{c}(w)$ is a counterclockwise concavification of $c(w)$, then the value function associated with $\hat{c}(w)$ exhibits greater absolute prudence than the value function associated with $c(w)$ for all $w$.
 \end{theorem}
 \noindent See Appendix \ref{app:CCToPrud} for the proof.
 There are three channels through which a counterclockwise concavification heightens prudence. First, the increase in consumption concavity from the counterclockwise concavification itself heightens prudence. Second, if the absolute prudence of the utility function is non-increasing, then the reduction in consumption (in some states) from the counterclockwise concavification makes agents more prudent at those states. And third, the higher marginal propensity to consume (MPC) from the counterclockwise concavification means that any given variation in wealth results in larger variation in consumption, increasing prudence. The channels operate separately, implying that a counterclockwise concavification heightens prudence \textit{even if absolute prudence is zero} as in the quadratic case.\footnote{cf.\ Nishiyama (\citeyear{nishiyama2012concavity})}
@@ -293,30 +324,30 @@ There are three channels through which a counterclockwise concavification height
 Theorem \ref{thm:CCToPrud} only provides conditions for when the value function exhibits greater prudence, but not \textit{strictly} greater prudence. In particular, the value function associated with $\hat{c}(w)$ will in some cases exhibit equal prudence for many values of $w$ and strictly greater prudence only for some values of $w$. In Corollary \ref{cor:ccandstrictprud}, we provide conditions for when the value function exhibits strictly greater prudence.
 
 \begin{corollary} \label{cor:ccandstrictprud}(Counterclockwise Concavification and Strictly Greater Prudence.)\\
-	Consider an agent who has a utility function with $u' > 0$, $u'' < 0$, $u''' \geq 0$, and non-increasing absolute prudence $-u'''/u''$. If $c(w)$ is concave and $\hat{c}(w)$ is a counterclockwise concavification of $c(w)$ around $w^{\#}$, then the value function associated with $\hat{c}(w)$ exhibits strictly greater prudence than the value function associated with $c(w)$ if the utility function satisfies $u''' > 0$ and $w < w^{\#}$ or the utility function is quadratic ($u''' = 0$) and $\frac{\hat{c}'(w)}{c'(w)}$ strictly declines at $w$.
+	Consider an agent who has a utility function with $u' > 0$, $u'' < 0$, $u''' \geq 0$, and non-increasing absolute prudence ($-u'''/u''$). If $c(w)$ is concave and $\hat{c}(w)$ is a counterclockwise concavification of $c(w)$ around $w^{\#}$, then the value function associated with $\hat{c}(w)$ exhibits strictly greater prudence than the value function associated with $c(w)$ if the utility function satisfies $u''' > 0$ and $w < w^{\#}$ or the utility function is quadratic ($u''' = 0$) and $\frac{\hat{c}'(w)}{c'(w)}$ strictly declines at $w$.
 \end{corollary}
 \noindent See Appendix \ref{app:ccandstrictprud} for the proof. For prudent agents ($u''' > 0$), the value function exhibits strictly greater prudence for all levels of wealth where the counterclockwise concavification affects consumption. This is because a reduction in consumption and higher marginal propensity to consume heighten prudence if the utility function has a positive third derivative and prudence is non-increasing. If the utility function instead is quadratic, the third derivative is zero and the absolute prudence of the utility function does not depend on the level of consumption or the marginal propensity to consume. In this case, the counterclockwise concavification only affects prudence at the kink points in the consumption function, i.e. where $\frac{\hat{c}'(w)}{c'(w)}$ strictly declines at $w$.
 
-\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/PrudAndCC}}{} %%
+\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/PrudAndCC}}{} %
 
 \section{Recursive Propagation of Consumption Concavity}\label{sec:Aggregation} 
 
-\begin{verbatimwrite}{Sections/Recursive} %%
+\begin{verbatimwrite}{Sections/Recursive} %
   
 Section \ref{sec:PrudAndCC} defined conditions under which consumption concavity heightens prudence, by comparing value functions and consumption functions at a specific point in time. In this section, we provide conditions guaranteeing that if the consumption function is concave in period $t+1$, it will be concave in period $t$ and earlier, whatever the source of that concavity may be.
 
 \begin{theorem}\label{thm:recursive}(Recursive Propagation of Consumption Concavity.) \\
-	Consider an agent with a HARA utility function satisfying $u' > 0$, $u'' < 0$, $u''' \geq 0$ and non-increasing absolute prudence $-u'''/u''$. Assume that no liquidity constraint applies at the end of period $t$ and that the agent faces income risk $y_{t+1} \in [\underline{y},\bar{y}]$. If $V_{t+1}(w_{t+1})$ exhibits property consumption concavity for all $w_{t+1} \in [Rs_t + \underline{y}, Rs_t + \bar{y}]$, then $V_t(w_t)$ exhibits property consumption concavity at the level of wealth $w_t$ such that optimal consumption yields $s_t = w_t - c_t(w_t)$.
+	Consider an agent with a HARA utility function satisfying $u' > 0$, $u'' < 0$, $u''' \geq 0$ and non-increasing absolute prudence ($-u'''/u''$). Assume that no liquidity constraint applies at the end of period $t$ and that the agent faces income risk $y_{t+1} \in [\underline{y},\bar{y}]$. If $V_{t+1}(w_{t+1})$ exhibits property (local) consumption concavity for all $w_{t+1} \in [Rs_t + \underline{y}, Rs_t + \bar{y}]$, then $V_t(w_t)$ exhibits property (local) consumption concavity at the level of wealth $w_t$ such that optimal consumption yields $s_t = w_t - c_t(w_t)$.
 
 	\medskip
-	If also $V_{t+1}(w_{t+1})$ exhibits property strict consumption concavity for at least one $w_{t+1} \in [Rs_t + \underline{y}, Rs_t + \bar{y}]$, then $V_t(w_t)$ exhibits property strict consumption concavity at the level of wealth $w_t$ where optimal consumption yields $s_t = w_t - c_t(w_t)$.
+	If also $V_{t+1}(w_{t+1})$ exhibits property strict (local) consumption concavity for at least one $w_{t+1} \in [Rs_t + \underline{y}, Rs_t + \bar{y}]$, then $V_t(w_t)$ exhibits property strict (local) consumption concavity at the level of wealth $w_t$ where optimal consumption yields $s_t = w_t - c_t(w_t)$.
 \end{theorem}
 See Appendix \ref{app:recursive} for the proof. Theorem \ref{thm:recursive} presents conditions to ensure that the consumption function is concave today if the consumption function is concave in the future. The basic insight is that as long as the future consumption function is concave for all realizations of $y_{t+1}$, then it is also concave today. Additionally, if the the future consumption function is strictly concave for at least one realization of ${y}_{t+1}$, then the consumption function is strictly concave also today. 
 
-\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/Recursive}}{} %%
+\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/Recursive}}{} %
 
 \section{Liquidity Constraints and Consumption Concavity}\label{sec:Precaution} 
-\begin{verbatimwrite}{Sections/LCandCC} %%
+\begin{verbatimwrite}{Sections/LCandCC} %
 
 We now move on to the sources of consumption concavity. In our setting, there are two sources of consumption concavity: risk and constraints. The properties of consumption under risk have already been derived in \citet{carroll&kimball:concavity}. We therefore restrict our attention to showing how liquidity constraints make the consumption function concave. Once the relationship between liquidity constraints and consumption concavity is established, we use the results on consumption concavity and prudence to show under which conditions liquidity constraints heighten prudence.
 
@@ -356,7 +387,7 @@ See Appendix \ref{app:pfclc} for the proof. Theorem \ref{thm:pfclc} shows that w
 Since the consumption function is piecewise linear, the new consumption function, $c_{t,n+1}(w)$ is not necessarily strictly more concave than $c_{t,n}(w)$ for all $w$. This is where the concept of counterclockwise concavification is useful. Even though $c_{t,n+1}(w)$ is not strictly more concave than $c_{t,n}(w)$ everywhere, it is a counterclockwise concavification and we can apply Theorem \ref{thm:CCToPrud} to derive the consequences of imposing one more constraint on prudence.
 
 \begin{theorem}\label{thm:lcip} (Liquidity Constraints Increase Prudence.) \\
-	Consider an agent in period $t$ who has a utility function with $u' > 0$, $u'' < 0$, $u''' \geq 0$ and non-increasing absolute prudence $-u'''/u''$, faces constant income ${y}$, and is impatient, $\beta R < 1$. Assume that the agent faces a set $\mathcal{T}$ of $N$ relevant constraints. When $n \leq N-1$ constraints have been imposed, the imposition of constraint $n+1$ strictly increases absolute prudence of the agent's value function if $u''' > 0$ and $w_t < \wAlt_{t,n+1}$ or if $u''' = 0$ and $\frac{c'_{t,n+1}}{c'_{t,n}}$ strictly declines at $w$.
+	Consider an agent in period $t$ who has a utility function with $u' > 0$, $u'' < 0$, $u''' \geq 0$ and non-increasing absolute prudence ($-u'''/u''$), faces constant income ${y}$, and is impatient, $\beta R < 1$. Assume that the agent faces a set $\mathcal{T}$ of $N$ relevant constraints. When $n \leq N-1$ constraints have been imposed, the imposition of constraint $n+1$ strictly increases absolute prudence of the agent's value function if $u''' > 0$ and $w_t < \wAlt_{t,n+1}$ or if $u''' = 0$ and $\frac{c'_{t,n+1}}{c'_{t,n}}$ strictly declines at $w$.
 \end{theorem}
 \begin{proof}
 	By Theorem \ref{thm:pfclc}, the imposition of constraint $n+1$ constitutes a counterclockwise concavification of $c_{t,n}(w)$. By Theorem \ref{thm:CCToPrud} and Corollary \ref{cor:ccandstrictprud}, such a concavification strictly increases absolute prudence of the value function for the cases in Corollary \ref{cor:ccandstrictprud}.
@@ -426,19 +457,19 @@ If this set of procedures is followed until the chronologically earliest relevan
 
 The preceding discussion thus establishes the following result:
 \begin{theorem}\label{thm:lcip2} (Liquidity Constraints Increase Prudence.) \\
-	Consider an agent in period $t$ who has a utility function with $u' > 0$, $u'' < 0$, $u''' \geq 0$, and non-increasing absolute prudence $-u'''/u''$. Assume that the agent faces a set $\mathcal{T}$ of $N$ relevant constraints. When $n \leq N-1$ constraints have been imposed, the imposition of constraint $n+1$ strictly increases absolute prudence of the agent's value function if the utility function satisfies $u''' > 0$ and $w_t < \wAlt_{t,n+1}$ or if $u''' = 0$ and $\frac{c'_{t,n+1}}{c'_{t,n}}$ strictly declines at $w$.
+	Consider an agent in period $t$ who has a utility function with $u' > 0$, $u'' < 0$, $u''' \geq 0$, and non-increasing absolute prudence ($-u'''/u''$). Assume that the agent faces a set $\mathcal{T}$ of $N$ relevant constraints. When $n \leq N-1$ constraints have been imposed, the imposition of constraint $n+1$ strictly increases absolute prudence of the agent's value function if the utility function satisfies $u''' > 0$ and $w_t < \wAlt_{t,n+1}$ or if $u''' = 0$ and $\frac{c'_{t,n+1}}{c'_{t,n}}$ strictly declines at $w$.
 \end{theorem}
 
 Theorem \ref{thm:lcip2} is a generalization of Theorem \ref{thm:lcip}. Even if we relax the assumptions that income is constant and the agent is impatient, the imposition of an extra constraint increases absolute prudence of the value function as long as we are careful when we select the set $\mathcal{T}$ of relevant constraints.
 
 Finally, consider adding a new constraint to the problem and call the new set of constraints $\hat{\mathcal{T}}$.  Suppose the new constraint applies in period $\hat{\tau}$.  Then the analysis of the new situation will be like the analysis of an added constraint in the simpler case in section \ref{subsec:IncreaseNumConstr} if the new constraint is relevant given the constraints that apply after period $\hat{\tau}$ and the new constraint does not render any of those later constraints irrelevant. If the new constraint fails either of these tests, the analysis of $\hat{\mathcal{T}}$ can proceed from the ground up as described above.
 
-\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/LCandCC}}{} %%
+\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/LCandCC}}{} %
 
 \section{Liquidity Constraints and Precautionary Saving}
 \label{sec:ConstrRisksCPPandPS}
 
-\begin{verbatimwrite}{Sections/LCandPS} %%
+\begin{verbatimwrite}{Sections/LCandPS} %
 In the three previous sections, we have derived the relationships between liquidity constraints, consumption concavity, and prudence. It is now time to be explicit about the last step: the relationship between liquidity constraints and precautionary saving. We first explain the relationship between the precautionary premium and absolute prudence. We then use this result to show how the introduction of an additional constraint induces agents to increase precautionary saving when they face a current risk. Next, we explain why the result cannot be generalized to an added risk or liquidity constraint in a later time period. We end this section by showing our most general result on liquidity constraints and precautionary saving: The introduction of a risk has a greater precautionary effect in the presence of all future risks and constraints than in the absence of any future risks or constraints.
 
 \subsection{Notation}\label{subsec:PrudAndCPP}
@@ -464,11 +495,17 @@ We now take up the question of how the introduction of a risk $\zeta_{t+1}$ that
 Assume that the realization of the risk $\zeta_{t+1}$ will be some value $\zeta$ with support [$\underline{\zeta}$,$\bar{\zeta}$], and signify a decision rule that takes account of the presence of the immediate risk by a $\sim$.  Thus, the perfect foresight unconstrained consumption function is $c_{t,0}(w)$, the perfect foresight consumption function in the presence of the constraint is $c_{t,1}(w)$, the consumption function with no constraint but with the risk is $\tilde{c}_{t,0}(w)$ and the consumption function with both the risk and the constraint is $\tilde{c}_{t,1}(w)$.  (Corresponding notation applies to the other functions below). We now define the level of wealth such that liquidity constraint $n+1$ never binds for a consumer facing the risk whose wealth is higher than that limit:
 
 \begin{defn}(Wealth Limit.)\\
+%	\begin{enumerate}
+%		\item ${\underline{\wAlt}}_{t,n+1}$ is the level of wealth such that an agent who faces risk $\zeta_{t+1}$ and $n+1$ constraints saves so little that constraint $n+1$ will always bind in period $t+1$, defined as
+%	\begin{eqnarray}
+%	{\underline{\wAlt}}_{t,n+1} & = & \left(\tilde{V}_{t,n+1}'\right)^{-1}(\tilde{\Omega}_{t,n+1}^{\prime}(\wAlt_{t+1,n+1}-({y}+\bar{\zeta}))).
+%	\end{eqnarray}
 	${\bar{\wAlt}}_{t,n+1}$ is the level of wealth such that an agent who faces risk $\zeta_{t+1}$ and $n+1$ constraints saves enough to guarantee that constraint $n+1$ will never bind in period $t+1$.  Its value is given by:
 	\begin{eqnarray}
 	{\bar{\wAlt}}_{t,n+1} & = & \left(\tilde{V}_{t,n+1}'\right)^{-1}(\tilde{\Omega}_{t,n+1}^{\prime}(\wAlt_{t+1,n+1}-({y}+\underline{\zeta}))) \label{eq:tildeomegabar}
 	\end{eqnarray}
 	How to read this limit: $\wAlt_{t+1,n+1}$ is the level of wealth at which constraint $n+1$ makes the transition from binding to not binding in period $t+1$. $\wAlt_{t+1,n+1} - ({y} + \underline{\zeta})$ is the level of wealth in period $t+1$ that ensures that constraint $n+1$ does not bind in period $t+1$ even with the worst possible draw, $\underline{\zeta}$.
+%	\end{enumerate}
       \end{defn}
 
 We must be careful to check that $\wAlt_{t+1,n+1}-({y}+\underline{\zeta})$ is inside the realm of feasible values of $s_{t}$, in the sense of values that permit the consumer to guarantee that future levels of consumption will be within the permissible range (e.g.\ positive for consumers with CRRA utility). If this is not true for some level of wealth, then any constraint that binds at or below that level of wealth is irrelevant, because the restriction on wealth imposed by the risk is more stringent than the restriction imposed by the constraint.
@@ -479,7 +516,7 @@ We must be careful to check that $\wAlt_{t+1,n+1}-({y}+\underline{\zeta})$ is in
 We are now in the position to analyze the relationship between precautionary saving and liquidity constraints. Our first result regards the effect of an additional constraint on the precautionary saving of a household facing risk at the beginning of period $t+1$ (before any choices are made in that period).
 
 \begin{theorem}\label{thm:riskandconstraints} (Precautionary Saving with Liquidity Constraints.) \\
-	Consider an agent who has a utility function with $u'> 0$, $u''< 0$, $u''' > 0$, and non-increasing absolute prudence $-u'''/u''$, and who faces the risk, $\zeta_{t+1}$. Assume that the agent faces a set $\mathcal{T}$ of N relevant constraints and $n \leq N-1$. Then
+	Consider an agent who has a utility function with $u'> 0$, $u''< 0$, $u''' > 0$, and non-increasing absolute prudence ($-u'''/u''$), and who faces the risk, $\zeta_{t+1}$. Assume that the agent faces a set $\mathcal{T}$ of N relevant constraints and $n \leq N-1$. Then
 	\begin{equation}
 	c_{t,n+1}(w) - \tilde{c}_{t,n+1}(w) \geq c_{t,n}(w)-\tilde{c}_{t,n}(w), \label{eq:ineq}
 	\end{equation}
@@ -545,7 +582,7 @@ The answer again is ``not necessarily.''  To see why, we present an example in A
 It might seem that the previous subsection implies that little useful can be said about the precautionary effects of introducing a new risk in the presence of preexisting constraints and risks. It turns out, however, that there is at least one strong result.
 
 \begin{theorem}\label{thm:CCandPS}
-	Consider an agent who has a utility function with $u'> 0$, $u''< 0$, $u''' > 0$, and non-increasing absolute prudence $-u'''/u''$. Then the introduction of a risk $\zeta_{t+1}$ has a greater precautionary effect on period $t$ consumption in the presence of all future risks and constraints than in the absence of any future risks and constraints, i.e.
+	Consider an agent who has a utility function with $u'> 0$, $u''< 0$, $u''' > 0$, and non-increasing absolute prudence ($-u'''/u''$). Then the introduction of a risk $\zeta_{t+1}$ has a greater precautionary effect on period $t$ consumption in the presence of all future risks and constraints than in the absence of any future risks and constraints, i.e.
 	\begin{eqnarray}
 	c_{t,n}^{m-1}(w) - c_{t,n}^{m}(w) & > & c_{t,0}^0(w)-c^{1}_{t,0}(w) \label{eq:whatcanbesaid}
 	\end{eqnarray}
@@ -554,7 +591,7 @@ It might seem that the previous subsection implies that little useful can be sai
 
 Appendix \ref{app:CCandPS} presents the proof. It seems to us that a fair summary of this theorem is that in most circumstances the presence of future constraints and risks does increase the amount of precautionary saving induced by the introduction of a given new risk.  The primary circumstance under which this should not be expected is for levels of wealth at which the consumer was constrained even in the absence of the new risk. There is no guarantee that the new risk will produce a sufficiently intense precautionary saving motive to move the initially-constrained consumer off his constraint.  If it does, the effect will be precautionary, but it is possible that no effect will occur.
 
-\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/LCandPS}}{} %%
+\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/LCandPS}}{} %
 
 \section{Conclusion}
 
@@ -569,7 +606,7 @@ In addition, we provide an explanation of the apparently contradictory results t
 \vfill\eject
 \appendix
 
-\begin{verbatimwrite}{Sections/Proofs} %%
+\begin{verbatimwrite}{Sections/Proofs} %
  
 
 \section{Proof of Lemma \ref{lem:counterclockwise}} \label{app:counterclockwise}
@@ -679,6 +716,9 @@ In addition, we provide an explanation of the apparently contradictory results t
 	\[\left\{\Ex_t\left[c_{t+1}(s_t + {y}_{t+1})^{-\frac{1}{a}}\right]\right\}^{-a} \geq \left\{\Ex_t\left[\left\{pc_{t+1}(s_1 + {y}_{t+1}) + (1-p) c_{t+1}(s_2 + {y}_{t+1})\right\}^{-\frac{1}{a}}\right]\right\}^{-a}\]
 	We now apply Minkowski's inequality (see e.g.\ \citealp[Theorem 3]{beckenbach1983inequalities}) which says that for $u,v \geq 0$ and a scalar $k < 1\ (k \neq 0)$
 	\[\left\{\Ex[(u + v)^{k}]\right\}^{1/k} \geq \left\{\Ex[u^{k}]\right\}^{1/k} + \left\{\Ex[v^{k}]\right\}^{1/k}.\]
+%	
+%	
+%	\[\left\{\Ex[(u + v)^{-k}]\right\}^{-1/k} \geq \left\{\Ex[u^{-k}]\right\}^{-1/k} + \left\{\Ex[v^{-k}]\right\}^{-1/k}.\]
 	This implies that for $a \in (0,\infty)$ (CRRA)
 	\[\left\{\Ex[(u + v)^{-\frac{1}{a}}]\right\}^{-a} \geq \left\{\Ex[u^{-\frac{1}{a}}]\right\}^{-a} + \left\{\Ex[v^{-\frac{1}{a}}]\right\}^{-a}\]
 	if $u\geq 0$ and $v\geq 0$. Thus
@@ -762,7 +802,7 @@ In addition, we provide an explanation of the apparently contradictory results t
 	\begin{align}
 	\chi_t(ps_1 + (1-p)s_2) \geq p\chi_t(s_1) + (1-p)\chi_t(s_2) \label{eq:hor_conc}
 	\end{align}
-	for any $0 < p < 1$, and $s_1 < s_t < s_2$. 
+	for any $0 < p < 1$, and $s_1 < s_t < s_2$. % ($|s_2 - s_1|< \delta$ for any $\delta > 0$). 
 	
 	In addition, we know that the first order condition holds with equality such that $\Omega_t'(s_t) = u'(c_t(w_t)) = u'(\chi_t(s_t))$ which implies that $s_t = \chi_t^{-1}(c_t)$. Using this equation, we get
 	\begin{align*}
@@ -881,7 +921,15 @@ where the second equality follows because a consumer with total resources $y$, c
 \section{Proof of Theorem \ref{thm:riskandconstraints}}\label{app:riskandconstraints}
 
 \begin{proof}
+%We prove Theorem \ref{thm:riskandconstraints} by induction. We first show that it holds when we introduce the first constraint, before we show that it holds when we introduce constraint number $n+1$ when $n$ constraints already exist. 
 
+%\begin{lemma}(Precautionary Saving with one Liquidity Constraint.) \label{lem:pslc}\\
+%	Consider an agent who has a utility function with $u'> 0$, $u''< 0$, $u''' > 0$, and non-increasing absolute prudence ($-u'''/u''$). Then 
+%	\begin{equation}
+%	c_{t,1}(w) - \tilde{c}_{t,1}(w) \geq c_{t,0}(w)-\tilde{c}_{t,0}(w), \label{eq:ineq2}
+%	\end{equation}
+%	and the inequality is strict if $w_t < \bar{\wAlt}_{t,1}$.
+%\end{lemma}
 
 Our proof proceeds by constructing the behavior of consumers facing the risk from the behavior of the corresponding perfect foresight consumers.  We consider matters from the perspective of some level of wealth ${w}$ for the perfect foresight consumers.  Because the same marginal utility function $u'$ applies to all four consumption rules, the Compensating Precautionary Premia, $\kappa_{t,n}$ and $\kappa_{t,n+1}$, associated with the introduction of the risk $\zeta_{t+1}$  must satisfy
 \begin{eqnarray}
@@ -917,6 +965,7 @@ so the difference between precautionary saving for the consumer facing $n$ const
 \psi_{t,n+1}&({w}+\kappa_{t,n+1}) - \psi_{t,n}({w}+\kappa_{t,n+1}) = \nonumber\\ 
 &= \psi_{t,n+1}({w}+\kappa_{t,n+1}) - \psi_{t,n}({w}+\kappa_{t,n}) + \psi_{t,n}({w}+\kappa_{t,n})- \psi_{t,n}({w}+\kappa_{t,n+1}) \nonumber
 \\ &=\int_{{w}}^{{w}+\kappa_{t,n+1}} c_{t,n+1}^{\prime}(\upsilon)d\upsilon - \int^{{w}+\kappa_{t,n}}_{{w}} c_{t,n}^{\prime}(\upsilon) d\upsilon + \int^{{w}+\kappa_{t,n+1}}_{{w}+\kappa_{t,n}} (\tilde{c}_{t,n}^{\prime}(\upsilon)-c_{t,n}^{\prime}(\upsilon)) d\upsilon \nonumber\\
+%&=\int_{{w}}^{{w}+\kappa_{t,n}} (c_{t,n+1}^{\prime}(\upsilon)-c_{t,n}^{\prime}(\upsilon))d\upsilon+\int^{{w}+\kappa_{t,n+1}}_{{w}+\kappa_{t,n}} \left(c_{t,n+1}^{\prime}(\upsilon)+(\tilde{c}_{t,n}^{\prime}(\upsilon)-c_{t,n}^{\prime}(\upsilon)) \right) d\upsilon \nonumber \\
 &= \int_{{w}}^{{w}+\kappa_{t,n+1}}
 (c_{t,n+1}^{\prime}(\upsilon)-c_{t,n}^{\prime}(\upsilon))d\upsilon +\int^{{w}+\kappa_{t,n+1}}_{{w}+\kappa_{t,n}}
 \tilde{c}_{t,n}^{\prime}(\upsilon) d\upsilon \label{eq:psidiffint}
@@ -935,6 +984,10 @@ number for all feasible levels of ${w}$ satisfying ${w} < {\bar{\wAlt}}_{t,n+1}$
 	
 	%We will prove this by using a proof by showing that assuming $\kappa_{t,n+1} \leq \kappa_{t,n}$ leads to the conclusion that $\kappa_{t,n+1} > \kappa_{t,n}$. 
 	
+%	First define $\hat{\zeta}$ as the realization of $\zeta$ such that 
+%	$$ s_{t,n+1} + y + \kappa_{t,n+1} + \zeta = \omega_{t,n+1}.$$
+%	In words, $\hat{\zeta}$ is the value of $\zeta$ that cancels the values of $s_{t,n+1}$ and $\kappa_{t,n+1}$ relative to the $n+1$'st constraint in the sense that given the level of savings and precautionary premia, a draw if $\zeta = \hat{\zeta}$ restores wealth to exactly the value at which constraint $n+1$ stops binding. 
+%	XXXXX
 	
 	
 	
@@ -953,6 +1006,33 @@ number for all feasible levels of ${w}$ satisfying ${w} < {\bar{\wAlt}}_{t,n+1}$
 	
 	For all levels of wealth below this limit (${w} < {\bar{\wAlt}}_{t+1,n+1}$), there exist realizations of $\zeta$ such that constraint $n+1$ will bind in period $t+1$. The agent will require a higher precautionary premia when facing constraint $n+1$ in addition to the $n$ constraints already in the set, implying that $\kappa_{t,n+1} > \kappa_{t,n}$. Equation \eqref{eq:psidiffint} is therefore strictly positive if ${w} < {\bar{\wAlt}}_{t+1,n+1}$ and we have proven Theorem \ref{thm:riskandconstraints}. 
 	
+%\subsection*{The $n+1$'st constraint}
+%Consider now the case where we have imposed $n$ constraints and are considering imposing constraint $n+1$ and where constraint $n+1$ applies at the end of some future period. Similar to the introduction of the first constraint, we need to show that the following equation is strictly positive:
+%\begin{align}
+%\psi_{t,n+1}&({w}+\kappa_{t,n+1}) - \psi_{t,n}({w}+\kappa_{t,n+1}) = \nonumber\\ &=\int_{{w}}^{{w}+\kappa_{t,n}} (c_{t,n+1}^{\prime}(\upsilon)-c_{t,n}^{\prime}(\upsilon))d\upsilon+\int^{{w}+\kappa_{t,n+1}}_{{w}+\kappa_{t,n}} \left(c_{t,n+1}^{\prime}(\upsilon)+(\tilde{c}_{t,n}^{\prime}(\upsilon)-c_{t,n}^{\prime}(\upsilon)) \right) d\upsilon \nonumber \\
+%&= \int_{{w}}^{{w}+\kappa_{t,n+1}}
+%(c_{t,n+1}^{\prime}(\upsilon)-c_{t,n}^{\prime}(\upsilon))d\upsilon +\int^{{w}+\kappa_{t,n+1}}_{{w}+\kappa_{t,n}}
+%\tilde{c}_{t,n}^{\prime}(\upsilon) d\upsilon \label{eq:psidiffint2}
+%\end{align}
+%The sufficient conditions for \eqref{eq:psidiffint2} to be strictly positive are
+%\begin{enumerate}
+%	\item $\kappa_{t,n+1} > 0$ or $\kappa_{t,n} > 0$, and $c_{t,n+1}'(\upsilon) > c_{t,n}'(\upsilon)$
+%	\item $\kappa_{t,n+1} > \kappa_{t,n}$
+%\end{enumerate}
+%	Now since $u'''>0$, we know that $\kappa_{t,n} > 0$ from Jensen's inequality and Lemma \ref{lemma:kimpratt}. The first integral in \eqref{eq:psidiffint2} is therefore strictly positive as long as $c_{t,n+1}' > c_{t,n}'$, which is true for ${w} < \wAlt_{t,n+1}$ (Theorem \ref{thm:pfclc}). 
+%	
+%	For ${w} \geq \wAlt_{t,n+1}$, we know that $c_{t,n+1}' = c_{t,n}'$ so the first integral in \eqref{eq:psidiffint2} is always zero. For the second integral in \eqref{eq:psidiffint2} to be strictly positive, we need to show that $\kappa_{t,n+1} > \kappa_{t,n}$. Recall the definition of $\kappa_{t,n}$ and $\kappa_{t,n+1}$:
+%	\begin{eqnarray*}
+%		u'({c}_{t,n}) & = & \Ex_{t}[u'(c(\kappa_{t,n}+\zeta))]
+%		\\  u'({c}_{t,n+1}) & = & \Ex_{t}[u'(\hat{c}(\kappa_{t,n+1}+\zeta))],
+%	\end{eqnarray*}
+%	where the two consumption functions are defined as
+%	\begin{eqnarray}
+%	c(\kappa_{t,n}+\zeta) & = & c_{t+1,n}(\overbrace{{s}_{t,n}}^{={s}_{t,n+1}}+{y}+\kappa_{t,n}+\zeta) \label{eq:cnoconstr2}
+%	\\  \hat{c}(\kappa_{t,n+1}+\zeta) & = & c_{t+1,n+1}({s}_{t,n+1}+{y}+\kappa_{t,n+1}+\zeta)\label{eq:gravecnoconstr2}.
+%	\end{eqnarray}
+%	Now recall that Lemma~\ref{lemma:kimpratt} tells us that if absolute prudence of $u'(c(\kappa_{t,n}+\zeta))$ is identical to absolute prudence of $u'(\hat{c}(\kappa_{t,n+1}+\zeta))$ for every realization of $\zeta$, then $\kappa_{t,n}=\kappa_{t,n+1}$. This can only be true if $w_{t+1} \geq \wAlt_{t+1,n+1}$ for any realization of $\zeta \in (\underline{\zeta}, \bar{\zeta})$. We defined this limit as $w_{t+1} \geq {\bar{\wAlt}}_{t,n+1}$. We therefore know that $\kappa_{t,n+1}  = \kappa_{t,n}$ if ${w} \geq {\bar{\wAlt}}_{t,n+1}$ and $\kappa_{t,n+1} > \kappa_{t,n}$ if ${w} < {\bar{\wAlt}}_{t,n+1}$. Equation \eqref{eq:psidiffint2} is therefore strictly positive if ${w} < {\bar{\wAlt}}_{t,n+1}$ and we have proven Theorem \ref{thm:riskandconstraints}.
+%	
 \end{proof}
 
 \section{Resemblance Between Precautionary Saving and a Liquidity Constraint} \label{app:similar}
@@ -1058,7 +1138,7 @@ Thus, we have shown that for $w \leq 1 $ and for $w > 1$ in the limit as $p \dow
 	
 \end{proof}
 
-\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/Proofs}}{} %%
+\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/Proofs}}{} %
 
 \end{document}
 

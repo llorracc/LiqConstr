@@ -1,0 +1,12 @@
+ %
+
+Section \ref{sec:PrudAndCC} defined conditions under which consumption concavity heightens prudence, by comparing value functions and consumption functions at a specific point in time. In this section, we provide conditions guaranteeing that if the consumption function is concave in period $t+1$, it will be concave in period $t$ and earlier, whatever the source of that concavity may be.
+
+\begin{theorem}\label{thm:recursive}(Recursive Propagation of Consumption Concavity.) \\
+	Consider an agent with a HARA utility function satisfying $u' > 0$, $u'' < 0$, $u''' \geq 0$ and non-increasing absolute prudence ($-u'''/u''$). Assume that no liquidity constraint applies at the end of period $t$ and that the agent faces income risk $y_{t+1} \in [\underline{y},\bar{y}]$. If $V_{t+1}(w_{t+1})$ exhibits property (local) consumption concavity for all $w_{t+1} \in [Rs_t + \underline{y}, Rs_t + \bar{y}]$, then $V_t(w_t)$ exhibits property (local) consumption concavity at the level of wealth $w_t$ such that optimal consumption yields $s_t = w_t - c_t(w_t)$.
+
+	\medskip
+	If also $V_{t+1}(w_{t+1})$ exhibits property strict (local) consumption concavity for at least one $w_{t+1} \in [Rs_t + \underline{y}, Rs_t + \bar{y}]$, then $V_t(w_t)$ exhibits property strict (local) consumption concavity at the level of wealth $w_t$ where optimal consumption yields $s_t = w_t - c_t(w_t)$.
+\end{theorem}
+See Appendix \ref{app:recursive} for the proof. Theorem \ref{thm:recursive} presents conditions to ensure that the consumption function is concave today if the consumption function is concave in the future. The basic insight is that as long as the future consumption function is concave for all realizations of $y_{t+1}$, then it is also concave today. Additionally, if the the future consumption function is strictly concave for at least one realization of ${y}_{t+1}$, then the consumption function is strictly concave also today.
+

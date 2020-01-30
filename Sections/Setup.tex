@@ -1,0 +1,33 @@
+ %
+
+Consider a consumer who faces some future risks but is not subject to any current or future liquidity constraints.  The consumer is maximizing the time-additive present discounted value of utility from consumption $u(c)$.  With interest and time preference factors $R \in (0,\infty)$ and $\beta \in (0,\infty)$, and labeling consumption $c$, stochastic labor income $y$, and gross wealth (inclusive of period-t labor income) $w_{t}$, the consumer's problem can be written as
+\begin{eqnarray*}
+V_{t}(w_{t}) &=&
+                 \max_{c} \Ex_{t}\left[\sum_{k=0}^{T-t}\beta^{k} u({c_{t+k}})\right]   \label{eq:valuefn} \\
+   & s.t. &  \nonumber
+\\              w_{t+1} & = & (w_{t}-c_{t})R+y_{t+1} %
+\nonumber
+\end{eqnarray*}
+where in some (but not all) of our results we consider utility functions of the HARA class
+\begin{equation}\label{eq:HARA}
+  u(c) = \begin{cases} \frac{1}{a - 1}\left(ac + b\right)^{\frac{a-1}{a}} & a \neq 0,1 \\
+-be^{-c/b} & a = 0 \\
+\log(c + b) & a = 1 \end{cases} \end{equation}
+with $b > \max\{- ac,0\}$. Note that that \eqref{eq:HARA} nests the case with quadratic utility ($a = -1$).
+
+As usual, the recursive nature of the problem makes this equivalent to the Bellman equation:
+\begin{eqnarray*}  \label{eq:recursiveV}
+V_{t}(w_{t}) & = & \max_{c} ~ u(c) + \Ex_{t} [{\beta}
+V_{t+1}(%
+{R}(w_t - c) + {y}_{t+1})].
+\end{eqnarray*}
+We define
+\begin{equation*} \label{eq:OmegaEV}
+\Omega_t(s_t) = \Ex_t [ \beta V_{t+1}(R s_t + y_{t+1})]
+\end{equation*}
+as the end-of-period value function where $s_t = w_t - c_t$ is the portion of period t resources saved. We can then rewrite the problem as\footnote{For notational simplicity we express the value function $V_t(w)$ and the expected discounted value function $\Omega_{t}(s)$ as functions simply of wealth and savings, but implicitly these functions reflect the entire information set as of time t; if, for example, the income process is not i.i.d., then information on lagged income or income shocks could be important in determining current optimal consumption.  In the remainder of the paper the dependence of functions on the entire information set as of time $t$ will be unobtrusively indicated, as here, by the presence of the $t$ subscript. For example, we will call the policy rule in period $t$ which indicates the optimal value of consumption $c_{t}(w)$. In contrast, because we assume that the utility function is the same from period to period, the utility function has no $t$ subscript.}
+\begin{eqnarray*}  \label{eq:subphi}
+V_{t}(w_{t}) & = & \max_{c} ~ u(c) + \Omega_{t}(w_t - c).
+\end{eqnarray*}
+%Throughout the paper, we distinguish between two different consumption functions, $c_t(w)$ and $\chi_t(s)$. $c_t(w)$ is the beginning-of-period consumption function and implicitly defined by the envelope conditions with respect to the current value function: $u'(c_t(w)) = V'(w)$. $\chi_t(s)$ is the end-of-period consumption function implicitly defined by the envelope condition with respect to expected value: $u'(\chi_t(s)) = \Omega_{t}'(s)$.
+
