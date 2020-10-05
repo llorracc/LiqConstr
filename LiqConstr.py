@@ -2,11 +2,12 @@
 # jupyter:
 #   jupytext:
 #     formats: ipynb,py:light
+#     notebook_metadata_filter: all
 #     text_representation:
 #       extension: .py
 #       format_name: light
-#       format_version: '1.3'
-#       jupytext_version: 0.8.3
+#       format_version: '1.5'
+#       jupytext_version: 1.6.0
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -20,7 +21,7 @@
 #     name: python
 #     nbconvert_exporter: python
 #     pygments_lexer: ipython3
-#     version: 3.6.6
+#     version: 3.7.4
 #   varInspector:
 #     cols:
 #       lenName: 16
@@ -55,12 +56,12 @@
 # | Path | Content | 
 # | --- | --- |
 # |./Figures/       | Figures created by the code |
-# | do_all.py | iPython-runnable |
+# | reproduce.sh | bash file to reproduce this notebook |
 # | LiqConstr.tex | LaTeX to create the paper |
 #
 #
 
-# + {"code_folding": [0, 9]}
+# + code_folding=[0, 9]
 # This cell does some setup and imports generic tools used to produce the figures
 
 # Import related generic python packages
@@ -123,13 +124,13 @@ from HARK.ConsumptionSaving.ConsIndShockModel import IndShockConsumerType
 # Define all parameters of three type of settings that we need to produce the three figures in the paper. 
 #
 
-# + {"code_folding": [0]}
+# + code_folding=[0]
 # Common parameters for all models (the initialized lifecycle perfect foresight type with no borrowing constraint)
 
 # load default parameteres from the lifecycle model in the HARK toolbox
-from HARK.ConsumptionSaving.ConsumerParameters import init_lifecycle
+from HARK.ConsumptionSaving.ConsIndShockModel import init_lifecycle
 
-# remove all risk and growth factors, borrowing constraints, and set the solver to always use the cubic tool
+# remove all risk and growth factors, borrowing constraints, and set the solver to always use linear interpolation
 init_lifecycle["PermGroFac"] = [1,1,1,1,1,1,1,1,1,1]
 init_lifecycle["LivPrb"] = [1,1,1,1,1,1,1,1,1,1]
 init_lifecycle["DiscFac"] = 1/1.03
@@ -138,7 +139,7 @@ init_lifecycle["UnempPrb"] = 0
 init_lifecycle["TranShkStd"] = [0,0,0,0,0,0,0,0,0,0,0]
 init_lifecycle["PermShkStd"] = [0,0,0,0,0,0,0,0,0,0,0]
 init_lifecycle["BoroCnstArt"] = [None,None,None,None,None,None,None,None,None,None]
-init_lifecycle["CubicTool"] = True  
+init_lifecycle["CubicBool"] = False
 
 # add the second type of lifecycle agent with unemployment risk
 init_lifecycle_risk1 = dict(init_lifecycle)
@@ -153,7 +154,7 @@ init_lifecycle_risk2["TranShkStd"] = [0,0.5,0,0,0,0,0,0,0,0,0]
 # ## Counterclockwise Concavification
 #
 
-# + {"code_folding": [0]}
+# + code_folding=[0]
 # This figure illustrates how both risks and constraints are examples of counterclockwise concavifications. 
 # It plots three lines: the linear consumption function of a perfect foresight consumer, the kinked consumption 
 # function of a consumer who faces a constraint, and the curved consumption function of a consumer that faces risk. 
@@ -164,23 +165,20 @@ CCC_unconstr = IndShockConsumerType(**init_lifecycle)
 CCC_unconstr.delFromTimeInv('BoroCnstArt')
 CCC_unconstr.addToTimeVary('BoroCnstArt')
 CCC_unconstr.solve()
-CCC_unconstr.unpackcFunc()
-CCC_unconstr.timeFwd()
+CCC_unconstr.unpack("cFunc")
 
 CCC_constraint = IndShockConsumerType(**init_lifecycle)
 CCC_constraint.delFromTimeInv('BoroCnstArt')
 CCC_constraint.addToTimeVary('BoroCnstArt')
-CCC_constraint(BoroCnstArt = [None,-1,None,None,None,None,None,None,None,None])       
+CCC_constraint.BoroCnstArt = [None,-1,None,None,None,None,None,None,None,None]
 CCC_constraint.solve()
-CCC_constraint.unpackcFunc()
-CCC_constraint.timeFwd()
+CCC_constraint.unpack("cFunc")
 
 CCC_risk = IndShockConsumerType(**init_lifecycle_risk1)
 CCC_risk.delFromTimeInv('BoroCnstArt')
 CCC_risk.addToTimeVary('BoroCnstArt')
 CCC_risk.solve()
-CCC_risk.unpackcFunc()
-CCC_risk.timeFwd()
+CCC_risk.unpack("cFunc")
 
 # save the data in a txt file for later plotting in Matlab
 x = np.linspace(-1,1,500,endpoint=True)
@@ -223,7 +221,7 @@ f.savefig(os.path.join(figures_dir, 'CounterclockwiseConcavifications.svg'))
 # ## How a current constraint can hide a future kink
 #
 
-# + {"code_folding": [0]}
+# + code_folding=[0]
 # This figure illustrates how a the introduction of a current constraint can hide/move a kink that was induced by a future constraint. 
 
 # To construct this figure, we plot two consumption functions: 
@@ -237,19 +235,17 @@ f.savefig(os.path.join(figures_dir, 'CounterclockwiseConcavifications.svg'))
 Bcons1 = IndShockConsumerType(**init_lifecycle)
 Bcons1.delFromTimeInv('BoroCnstArt')
 Bcons1.addToTimeVary('BoroCnstArt')
-Bcons1(BoroCnstArt = [None,0,None,None,None,None,None,None,None,None])       
+Bcons1.BoroCnstArt = [None,0,None,None,None,None,None,None,None,None]
 Bcons1.solve()
-Bcons1.unpackcFunc()
-Bcons1.timeFwd()
+Bcons1.unpack("cFunc")
 
 # Make and solve the consumer with more than one binding borrowing constraint
 BCons2 = IndShockConsumerType(**init_lifecycle)
 BCons2.delFromTimeInv('BoroCnstArt')
 BCons2.addToTimeVary('BoroCnstArt')
-BCons2(BoroCnstArt = [None,0,0.02,None,None,None,None,None,None,None])
+BCons2.BoroCnstArt = [None,0,0.02,None,None,None,None,None,None,None]
 BCons2.solve()
-BCons2.unpackcFunc()
-BCons2.timeFwd()    
+BCons2.unpack("cFunc")
 
 # save the data in a txt file
 x = np.linspace(1,1.2,500,endpoint=True)
@@ -301,7 +297,7 @@ f.savefig(os.path.join(figures_dir, 'CurrConstrHidesFutKink.svg'))
 
 # ## Consumption function with and without a constraint and a risk
 
-# + {"code_folding": [0]}
+# + code_folding=[0]
 # This figure illustrates how the effect of risk is greater if there already exists a constraint. 
 
 # Initialize four types: unconstrained perfect foresight, unconstrained with risk, constrained perfect foresight, and constrained with risk. 
@@ -310,32 +306,28 @@ WwCR_unconstr = IndShockConsumerType(**init_lifecycle)
 WwCR_unconstr.delFromTimeInv('BoroCnstArt')
 WwCR_unconstr.addToTimeVary('BoroCnstArt')
 WwCR_unconstr.solve()
-WwCR_unconstr.unpackcFunc()
-WwCR_unconstr.timeFwd()
+WwCR_unconstr.unpack("cFunc")
 
 WwCR_risk = IndShockConsumerType(**init_lifecycle_risk2)
 WwCR_risk.delFromTimeInv('BoroCnstArt')
 WwCR_risk.addToTimeVary('BoroCnstArt')
 WwCR_risk.solve()
-WwCR_risk.unpackcFunc()
-WwCR_risk.timeFwd()
+WwCR_risk.unpack("cFunc")
 
 WwCR_constr = IndShockConsumerType(**init_lifecycle)
 WwCR_constr.cycles = 1 # Make this consumer live a sequence of periods exactly once
 WwCR_constr.delFromTimeInv('BoroCnstArt')
 WwCR_constr.addToTimeVary('BoroCnstArt')
-WwCR_constr(BoroCnstArt = [None,None,-6,None,None,None,None,None,None,None])
+WwCR_constr.BoroCnstArt = [None,None,-6,None,None,None,None,None,None,None]
 WwCR_constr.solve()
-WwCR_constr.unpackcFunc()
-WwCR_constr.timeFwd()
+WwCR_constr.unpack("cFunc")
 
 WwCR_constr_risk = IndShockConsumerType(**init_lifecycle_risk2)
 WwCR_constr_risk.delFromTimeInv('BoroCnstArt')
 WwCR_constr_risk.addToTimeVary('BoroCnstArt')
-WwCR_constr_risk(BoroCnstArt = [None,None,-6,None,None,None,None,None,None,None])
+WwCR_constr_risk.BoroCnstArt = [None,None,-6,None,None,None,None,None,None,None]
 WwCR_constr_risk.solve()
-WwCR_constr_risk.unpackcFunc()
-WwCR_constr_risk.timeFwd()
+WwCR_constr_risk.unpack("cFunc")
 
 # save the data in a txt file
 x = np.linspace(-8,-4,1000,endpoint=True)
