@@ -13,7 +13,18 @@
 }{}
 
 
+%%% Private: The stuff below switches on and off the creation of the files in the "Sections" subdirectory
+%%% Sections was useful when constructing the paper so that individual parts could be edited independently
+%%% It is now a legacy and is preserved mainly as a template for how to do this for future projects
+\newboolean{verbatimwriteOn}        %%% Private
+\setboolean{verbatimwriteOn}{false}  %%% Private
+% \setboolean{verbatimwriteOn}{false} %%% Private
+\newcommand{\ifVerbatimWrite}{\ifthenelse{\boolean{verbatimwriteOn}}} %%% Private
+\ifVerbatimWrite{}{ %%% Private 
+  \renewenvironment{verbatimwrite}[1]{} %%% Private 
+} %%% Private
 
+\newenvironment{Private}{} %%% Private 
 
 \providecommand{\wAlt}{\omega}
 \providecommand{\sConst}{\varsigma}
@@ -36,8 +47,17 @@
 \usepackage[en-US]{datetime2}\DTMlangsetup{showdayofmonth=true}
 \renewcommand{\cite}{\citeyear}
 
+\setmarginsrb{1in}{1in}{1in}{1.4in}{0pt}{0pt}{0pt}{.3in} %%% Private : Large font for easy viewing and editing on small screen 
+% {left}{top}{right}{bottom} %%% Private
 
+\provideboolean{bigdouble}    %%% Private : Large font for easy viewing and editing on small screen
+\setboolean{bigdouble}{true}  %%% Private : Large font for easy viewing and editing on small screen
+\setboolean{bigdouble}{false} %%% Private : Large font for easy viewing and editing on small screen
 
+\ifthenelse{\boolean{bigdouble}}{ % Margins must be set before begin document command  %%% Private : Large font for easy viewing and editing on small screen
+  \setmarginsrb{0.40in}{0.8in}{0.40in}{0.8in}{0pt}{0pt}{0pt}{0.2in} %%% Private : Large font for easy viewing and editing on small screen
+  % {left}{top}{right}{bottom} %%% Private : Large font for easy viewing and editing on small screen
+}{} %%% Private : Large font for easy viewing and editing on small screen
 
 \begin{document}\bibliographystyle{\econtexBibStyle}
 
@@ -77,7 +97,9 @@
 
 \hypertarget{Abstract}{}
 \begin{abstract}
+  \begin{verbatimwrite}{./\texname-abstract.metadata} %%% Private
     We provide the analytical explanation of strong interactions between precautionary saving and liquidity constraints that are regularly observed in numerical solutions to consumption/saving models.  The effects of constraints and of uncertainty spring from the same cause: counterclockwise concavification of the consumption function, which can be induced either by constraints or by uncertainty.  Such concavification propagates back to consumption functions in prior periods.  But, surprisingly, once a linear consumption function has been concavified by the presence of either risks or constraints, the introduction of \textit{additional} concavifiers in a given period can \textit{reduce} the precautionary motive in earlier periods at some levels of wealth.  
+  \end{verbatimwrite}\ifVerbatimWrite{\input{./\texname-abstract.metadata}}{} %%% Private
 \end{abstract}
 
 
@@ -135,6 +157,8 @@
 %     \thankstext \medskip \medskip \medskip
 %   }}{\pagebreak 
 % } % \end{Web}
+%%% \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}}{\pagebreak } % \end{Web}
+
 \titlepagefinish
 \setcounter{page}{1}
 
@@ -146,7 +170,8 @@
 \hypertarget{Introduction}{}
 \section{Introduction}\label{sec:Intro}
 
-\begin{CDCPrivate}
+\begin{Private}
+  \ifthenelse{\boolean{bigdouble}}{\large}{} %%% Private
 
 
   \hypertarget{MainMessage}{}
@@ -160,8 +185,9 @@
     \item At last, the most general results: the consumption function is concave in the presence of all future risks and constraints; thus precautionary saving is higher in a model with risks and constraints than in a setting where there are no constraints or risks. 
     \end{enumerate}
   \end{verbatimwrite}
-\end{CDCPrivate}
+\end{Private}
 
+\begin{verbatimwrite}{./Sections/Intro.tex} %%% Private
 
   Numerical solutions have supplanted analytical methods for modeling consumption/saving choices because analytical solutions are not available for realistic descriptions of utility, uncertainty, and constraints.
 
@@ -188,13 +214,16 @@
   % 
   % The rest of the paper is structured as follows. To fix notation and ideas, the next section sets out our general theoretical framework. The third section shows that concavity of the consumption function heightens prudence.  The fourth section shows how concavity, whether induced by constraints or uncertainty, propagates to previous periods. Section 5 shows how the introduction of a constraint creates a precautionary saving motive. The sixth section shows when the introduction of additional liquidity constraints beyond the first constraint increases the precautionary motive at any given level of wealth.  The fact that this does not always occur means that the introduction of constraints or uncertainty can weaken the effects of pre-existing constraints or uncertainty. The final section concludes.
 
+\end{verbatimwrite}\ifVerbatimWrite{\input{./Sections/Intro.tex}}{} %%% Private
 
 \hypertarget{SetupIntro}{}
 \section{The Setup}\label{sec:Setup}
 % \subfile{Sections/Setup}
+\begin{verbatimwrite}{Sections/Setup-Intro} %%% Private
   In this section, we present the consumer framework underlying the results. We consider a finitely-lived consumer living from period $t$ to $T$ who faces some future risks and liquidity constraints. The consumer is maximizing the time-additive present discounted value of utility from consumption $u(c)$.  With interest and time preference factors $R \in (0,\infty)$ and $\beta \in (0,\infty)$, and labeling consumption $c$, stochastic labor income $y$, savings $s$, liquidity constraint $\sConst$, and gross wealth (inclusive of period-t labor income) $w_{t}$, the consumer's problem can be written as
 \end{verbatimwrite}
 
+\begin{verbatimwrite}{Sections/Setup} %%% Private
   
 
   \begin{eqnarray*}
@@ -203,6 +232,7 @@
                  & s.t. &  \nonumber
     \\              w_{t+1} & = & (w_{t}-c_{t})R+y_{t+1}  \\ 
     s_t &=& w_{t} - c_t \\
+    s_t &\geq& \sConst_t%%% Private CDC20190605 moved R after w-c because it is increasingly common for R to be specified as a function of (w-c) and we want to be clear that we are NOT doing that 
                \nonumber
   \end{eqnarray*}
   where in some (but not all) of our results we consider utility functions of the HARA class
@@ -228,17 +258,20 @@
   \end{eqnarray*}
   % Throughout the paper, we distinguish between two different consumption functions, $c_t(w)$ and $\chi_t(s)$. $c_t(w)$ is the beginning-of-period consumption function and implicitly defined by the envelope conditions with respect to the current value function: $u'(c_t(w)) = V'(w)$. $\chi_t(s)$ is the end-of-period consumption function implicitly defined by the envelope condition with respect to expected value: $u'(\chi_t(s)) = \Omega_{t}'(s)$.
 
+\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/Setup}}{} %%% Private
 
 
 \section{Consumption Concavity and Prudence}\label{sec:PrudAndCC}
 
 
 \hypertarget{PrudAndCCIntro}{}
+\begin{verbatimwrite}{Sections/PrudAndCC-Intro} %%% Private
   This section provides a set of tools necessary to prove our main results. We first define what we mean by consumption concavity. Next, we define an operation we call a `counterclockwise concavification,' which describes how either a liquidity constraint or a risk affects the consumption function. The advantage of defining a counterclockwise concavification in such general terms is that we can show that it heightens prudence of the value function irrespective of the source of concavification. Since the relationship between prudence and precautionary saving has already been established in the literature \citep{kimball:smallandlarge}, the tools in this section allows us to later establish how liquidity constraints affect precautionary saving, via consumption concavity and prudence. 
 \end{verbatimwrite}
 
 
 \hypertarget{PrudAndCC}{}
+\begin{verbatimwrite}{Sections/PrudAndCC} %%% Private
 
 
   \subsection{Consumption Concavity}\label{sec:def_CC}
@@ -361,12 +394,14 @@
   \end{lemma}
   \noindent See Appendix \ref{app:ccandstrictprud} for the proof. For prudent agents ($u''' > 0$), the value function exhibits strictly greater prudence for all levels of wealth where the counterclockwise concavification affects consumption. This is because a reduction in consumption and higher marginal propensity to consume heighten prudence if the utility function has a positive third derivative and prudence is non-increasing. If the utility function instead is quadratic, the third derivative is zero and the absolute prudence of the utility function does not depend on the level of consumption or the marginal propensity to consume. In this case, the counterclockwise concavification only affects prudence at the kink points in the consumption function, i.e. where $\frac{\hat{c}'(w)}{c'(w)}$ strictly declines at $w$.
 
+\end{verbatimwrite} %%% Private
 
 
 
 \section{Liquidity Constraints and Consumption Concavity}\label{sec:LCandCC} 
 
 \hypertarget{LCandCCIntro}{}
+\begin{verbatimwrite}{Sections/LCandCC-Intro} %%% Private
   This section shows under which conditions liquidity constraints cause consumption concavity. The main conceptual issue with liquidity constraints is that the effects of constraints depend on already existing constraints. A constraint introduces a kink in the consumption function at the wealth level where the constraint becomes binding. The introduction of an additional constraint may move or even remove already existing kinks in the consumption function, potentially eliminate local consumption concavity. To get around this issue, we introduce the concept of an \textit{ordered} set of \textit{relevant} constraints. This allows us to add additional constraints in a way that does affect existing kinks in the consumption function. Our main result (Theorem \ref{thm:lcip2}) is that the introduction of the next constraint from the ordered set of relevant constraints causes a counterclockwise concavification of the consumption function. In other words, liquidity constraints cause consumption concavity.  %It follows immediately from Lemma \ref{lem:CCToPrud} and \ref{lem:ccandstrictprud} that liquidity constraints also heighten prudence. 
 \end{verbatimwrite}
 
@@ -375,6 +410,7 @@
 
 
 
+\begin{verbatimwrite}{Sections/LCandCC} %%% Private
   
 
 
@@ -515,6 +551,7 @@
 
 
 
+\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/LCandCC}}{} %%% Private
 
 \section{Liquidity Constraints and Precautionary Saving}
 \label{sec:LCandPS}
@@ -522,6 +559,7 @@
 
 
 \hypertarget{LCandPSIntro}{}
+\begin{verbatimwrite}{Sections/LCandPS-Intro} %%% Private
   Section \ref{sec:LCandCC} established the relationship between liquidity constraints, consumption concavity, and prudence. This section takes the last step and derives the relationship between liquidity constraints and precautionary saving. First, we explain the relationship between the precautionary premium and absolute prudence. Next, we show how the introduction of an additional constraint induces agents to increase precautionary saving when they face a \textit{current} risk in Theorem \ref{thm:riskandconstraints}. Unfortunately, the results in Theorem \ref{thm:riskandconstraints} cannot be generalized to an added risk or liquidity constraint in a later time period because it may hide or transform the effects of current constraints or risks, and thereby affect local precautionary saving. However, we still derive our most general results on liquidity constraints and precautionary saving in Theorem \ref{thm:CCandPS}: the introduction of a risk has a greater precautionary effect in the presence of all future risks and constraints than in the absence of any future risks or constraints. Or in other words (Corollary \ref{cor:CCRISK}), the consumption function is strictly concave in the presence of all future risks and constraints. 
   
   % The main step in the proof was to be careful in defining an ordered set of relevant constraints. We are now going to be explicit about the effects of current risk on precautionary saving in the presence of all future risks and constraints. 
@@ -534,6 +572,7 @@
 
 
 
+\begin{verbatimwrite}{Sections/LCandPS} %%% Private
 
   \subsection{Notation}\label{subsec:PrudAndCPP}
 
@@ -665,6 +704,7 @@
 
 
 
+\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/LCandPS}}{} %%% Private
 
 \section{Conclusion}
 
@@ -679,6 +719,7 @@ In addition, we provide an explanation of the apparently contradictory results t
 \vfill\eject
 \appendix
 
+\begin{verbatimwrite}{Sections/Proofs} %%% Private
   
 
 
@@ -1213,6 +1254,7 @@ In addition, we provide an explanation of the apparently contradictory results t
     
   \end{proof}
 
+\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/Proofs}}{} %%% Private
 
 \end{document}
 
