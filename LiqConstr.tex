@@ -90,7 +90,7 @@
 \maketitle
 
 \jelclass{C6, D91, E21\\
-  \href{https://econ-ark.org}{\includegraphics[width=0.2\textwidth]{./Figures/PoweredByEconARK}}}
+  \href{https://econ-ark.org}{\includegraphics{./Figures/PoweredByEconARK}}}
 
 \keywords{liquidity constraints, uncertainty, precautionary saving}
 
@@ -98,7 +98,7 @@
 \hypertarget{Abstract}{}
 \begin{abstract}
   \begin{verbatimwrite}{./\texname-abstract.metadata} %%% Private
-    We provide the analytical explanation of strong interactions between precautionary saving and liquidity constraints that are regularly observed in numerical solutions to consumption/saving models.  The effects of constraints and of uncertainty spring from the same cause: concavification of the consumption function, which can be induced either by constraints or by uncertainty.  Concavification propagates back to consumption functions in prior periods.  But, surprisingly, once a linear consumption function has been concavified by the presence of either risks or constraints, the introduction of \textit{additional} concavifiers in a given period can \textit{reduce} the precautionary motive in earlier periods at some levels of wealth.  
+    We provide the analytical explanation of strong interactions between precautionary saving and liquidity constraints that are regularly observed in numerical solutions to consumption/saving models.  The effects of constraints and of uncertainty spring from the same cause: counterclockwise concavification of the consumption function, which can be induced either by constraints or by uncertainty.  Such concavification propagates back to consumption functions in prior periods.  But, surprisingly, once a linear consumption function has been concavified by the presence of either risks or constraints, the introduction of \textit{additional} concavifiers in a given period can \textit{reduce} the precautionary motive in earlier periods at some levels of wealth.  
   \end{verbatimwrite}\ifVerbatimWrite{\input{./\texname-abstract.metadata}}{} %%% Private
 \end{abstract}
 
@@ -181,17 +181,14 @@
     \item Hence, liquidity constraints also cause more precautionary saving to an immediate risk. 
     \item At last, the most general results: the consumption function is concave in the presence of all future risks and constraints; thus precautionary saving is higher in a model with risks and constraints than in a setting where there are no constraints or risks. 
     \end{enumerate}
-    
-    
-    
   \end{verbatimwrite}
 \end{Private}
 
 \begin{verbatimwrite}{./Sections/Intro.tex} %%% Private
 
-  Numerical solutions have now supplanted analytical methods for modeling consumption/saving choices, because analytical solutions are not available for realistic descriptions of utility, uncertainty, and constraints.
+  Numerical solutions have supplanted analytical methods for modeling consumption/saving choices because analytical solutions are not available for realistic descriptions of utility, uncertainty, and constraints.
 
-  A large literature in both micro and macroeconomics has demonstrated that numerical models that take constraints and uncertainty seriously can yield quite different conclusions than those obtainable for traditional models. For example, in heterogeneous agent New Keynesian models (e.g. \citealp{kmvHANK}), a major transmission mechanism for monetary policy is the indirect income effect because a substantial share of households have high marginal propensities to consume -- a channel that is of minimal importance in perfect foresight unconstrained models. And \citet{glLiq} and \citet{blPrecautionary} show that tightened borrowing capacity and heightened income risk may be important explanatory factors behind the consumption decline during the great recession. Further, \citet{kmpHandbook} show that numerically realistic models can match the empirical finding that the drop in consumption spending during the great recession was heavily concentrated in the middle class.
+  A large literature in both micro and macroeconomics has demonstrated that numerical models that take constraints and uncertainty seriously can yield quite different conclusions than those obtainable for traditional models. For example, in heterogeneous agent New Keynesian models (e.g. \citealp{kmvHANK}), a major transmission mechanism for monetary policy is the indirect income effect that comes about because a substantial share of households have high marginal propensities to consume -- a channel that is of negligible importance in perfect foresight unconstrained models. And \citet{glLiq} and \citet{blPrecautionary} show that tightened borrowing capacity and heightened income risk may be important explanatory factors behind the consumption decline during the great recession. Further, a recent survey in the \textit{Handbook of Macroeconomics} by \citet{kmpHandbook} shows that numerically realistic models can match the empirical finding that the drop in consumption spending during the great recession was heavily concentrated in the middle class.
 
   But a drawback to numerical solutions is that it is often difficult to know why results come out the way they do.  A leading example is in the complex relationship between precautionary saving behavior and liquidity constraints.  At least since \citet{zeldes:thesis}, economists working with numerical solutions have known that liquidity constraints can strictly increase precautionary saving under very general circumstances - even for consumers with a quadratic utility function that generates no intrinsic precautionary saving motive.\footnote{For the seminal numerical examination of some of the interactions between precautionary saving and liquidity constraints, see \citet{deatonLiqConstr}.} On the other hand, simulation results have often found circumstances under which liquidity constraints and precautionary saving are substitutes rather than complements.  In an early example, \citet{samwick:pensions} showed that unconstrained consumers with a precautionary saving motive in a retirement saving model behave in ways qualitatively and quantitatively similar to the behavior of liquidity constrained consumers facing no uncertainty.
 
