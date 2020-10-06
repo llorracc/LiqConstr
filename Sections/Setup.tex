@@ -1,11 +1,11 @@
- %%% Private
+ %
 
 Consider a consumer who faces some future risks but is not subject to any current or future liquidity constraints.  The consumer is maximizing the time-additive present discounted value of utility from consumption $u(c)$.  With interest and time preference factors $R \in (0,\infty)$ and $\beta \in (0,\infty)$, and labeling consumption $c$, stochastic labor income $y$, and gross wealth (inclusive of period-t labor income) $w_{t}$, the consumer's problem can be written as
 \begin{eqnarray*}
 V_{t}(w_{t}) &=&
                  \max_{c} \Ex_{t}\left[\sum_{k=0}^{T-t}\beta^{k} u({c_{t+k}})\right]   \label{eq:valuefn} \\
    & s.t. &  \nonumber
-\\              w_{t+1} & = & (w_{t}-c_{t})R+y_{t+1} %%% Private CDC20190605 moved R after w-c because it is increasingly common for R to be specified as a function of (w-c) and we want to be clear that we are NOT doing that
+\\              w_{t+1} & = & (w_{t}-c_{t})R+y_{t+1} %
 \nonumber
 \end{eqnarray*}
 where in some (but not all) of our results we consider utility functions of the HARA class
