@@ -156,25 +156,24 @@
 % % \begin{Web}
 % %   If web version, then just incorporate thanks at beginning of text
 % %   instead of in frontmatter
-%   \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\tiny
-%   \thankstext \medskip \medskip \medskip
-% }}{\pagebreak 
+% \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\tiny
+%     \thankstext \medskip \medskip \medskip
+%   }}{\pagebreak 
 % } % \end{Web}
-%%%   \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}}{\pagebreak } % \end{Web}
+%%% \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}}{\pagebreak } % \end{Web}
 
 \titlepagefinish
 \setcounter{page}{1}
 
 \setcounter{footnote}{0}
 
-% \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext} \\ \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}{\pagebreak } % \end{Web}
+%\ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext} \\ \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}{\pagebreak } % \end{Web}
 
 % If web version, then just incorporate thanks at beginning of text instead of in frontmatter
-% \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext} \\  {\centering \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}}{\pagebreak } % \end{Web}
+%\ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext} \\  {\centering \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}}{\pagebreak } % \end{Web}
 
-\ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext} \\  \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}{\pagebreak } % \end{Web}
+\ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext} \\  {\centering \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}}{\pagebreak } % \end{Web}
 
-\noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax
 \hypertarget{Introduction}{}
 \section{Introduction}\label{sec:Intro}
 
@@ -608,14 +607,14 @@
     %	\begin{enumerate}
     % \item ${\underline{\wAlt}}_{t,n+1}$ is the level of wealth such that an agent who faces risk $\zeta_{t+1}$ and $n+1$ constraints saves so little that constraint $n+1$ will always bind in period $t+1$, defined as
     %   \begin{eqnarray}
-          %           {\underline{\wAlt}}_{t,n+1} & = & \left(\tilde{V}_{t,n+1}'\right)^{-1}(\tilde{\Omega}_{t,n+1}^{\prime}(\wAlt_{t+1,n+1}-({y}+\bar{\zeta}))).
-                                                        %         \end{eqnarray}
+    %     {\underline{\wAlt}}_{t,n+1} & = & \left(\tilde{V}_{t,n+1}'\right)^{-1}(\tilde{\Omega}_{t,n+1}^{\prime}(\wAlt_{t+1,n+1}-({y}+\bar{\zeta}))).
+    %   \end{eqnarray}
     ${\bar{\wAlt}}_{t,n+1}$ is the level of wealth such that an agent who faces risk $\zeta_{t+1}$ and $n+1$ constraints saves enough to guarantee that constraint $n+1$ will never bind in period $t+1$.  Its value is given by:
     \begin{eqnarray}
       {\bar{\wAlt}}_{t,n+1} & = & \left(\tilde{V}_{t,n+1}'\right)^{-1}(\tilde{\Omega}_{t,n+1}^{\prime}(\wAlt_{t+1,n+1}-({y}+\underline{\zeta}))) \label{eq:tildeomegabar}
     \end{eqnarray}
     How to read this limit: $\wAlt_{t+1,n+1}$ is the level of wealth at which constraint $n+1$ makes the transition from binding to not binding in period $t+1$. $\wAlt_{t+1,n+1} - ({y} + \underline{\zeta})$ is the level of wealth in period $t+1$ that ensures that constraint $n+1$ does not bind in period $t+1$ even with the worst possible draw, $\underline{\zeta}$.
-                                  %                                   \end{enumerate}
+    % \end{enumerate}
   \end{defn}
 
   \noindent We must be careful to check that $\wAlt_{t+1,n+1}-({y}+\underline{\zeta})$ is inside the realm of feasible values of $s_{t}$, in the sense of values that permit the consumer to guarantee that future levels of consumption will be within the permissible range (e.g.\ positive for consumers with CRRA utility). If this is not true for some level of wealth, then any constraint that binds at or below that level of wealth is irrelevant, because the restriction on wealth imposed by the risk is more stringent than the restriction imposed by the constraint.
@@ -727,8 +726,6 @@ In addition, we provide an explanation of the apparently contradictory results t
 \vfill\eject
 \appendix
 
-\centerline{\LARGE \textbf{Appendices}} \medskip
-
 \begin{verbatimwrite}{Sections/Proofs} %%% Private
   
 
@@ -742,9 +739,9 @@ In addition, we provide an explanation of the apparently contradictory results t
     \bigskip
     \noindent \textbf{Step 1: Vertical aggregation} \\ 
     \noindent We show that consumption concavity is preserved under vertical aggregation for three cases of the HARA utility function with $u''' \geq 0$ ($a \geq -1$) and non-increasing absolute prudence ($a \notin (-1,0)$). The three cases are
-    \begin{equation}\label{eq:HARAmu}u'(c) = \begin{cases} \text{ CARA } & \left(ac + b\right)^{-1/a} \text{~for~}  a \in (0,\infty) \\
-	\text{ CARA} & e^{-c/b} \text{~for~} a = 0 \\
-        \text{ Quadratic} & ac + b \text{~for~}  a = -1\end{cases} \end{equation}
+    \begin{equation}\label{eq:HARAmu}u'(c) = \begin{cases} \left(ac + b\right)^{-1/a} & a \in (0,\infty) \text{ (CRRA)} \\
+	e^{-c/b} & a = 0 \text{ (CARA)}\\
+	ac + b & a = -1 \text{ (Quadratic)}\end{cases} \end{equation}
     
     \bigskip
     \noindent \textbf{Case I ($a > 0$, CRRA.)} 	We will show that concavity is preserved under vertical aggregation for $c^{-1/a}$ to avoid clutter, but the results hold for all affine transformations, $ac + b$, with $a>0$. Concavity of $c_{t+1}(s_t + {y}_{t+1})$ implies that
@@ -753,9 +750,9 @@ In addition, we provide an explanation of the apparently contradictory results t
     \[\left\{\Ex_t\left[c_{t+1}(s_t + {y}_{t+1})^{-\frac{1}{a}}\right]\right\}^{-a} \geq \left\{\Ex_t\left[\left\{pc_{t+1}(s_1 + {y}_{t+1}) + (1-p) c_{t+1}(s_2 + {y}_{t+1})\right\}^{-\frac{1}{a}}\right]\right\}^{-a}\]
     We now apply Minkowski's inequality (see e.g.\ \citealp[Theorem 3]{beckenbach1983inequalities}) which says that for $u,v \geq 0$ and a scalar $k < 1\ (k \neq 0)$
     \[\left\{\Ex[(u + v)^{k}]\right\}^{1/k} \geq \left\{\Ex[u^{k}]\right\}^{1/k} + \left\{\Ex[v^{k}]\right\}^{1/k}.\]
-                            %                             
-                            %                             
-                            %                             \[\left\{\Ex[(u + v)^{-k}]\right\}^{-1/k} \geq \left\{\Ex[u^{-k}]\right\}^{-1/k} + \left\{\Ex[v^{-k}]\right\}^{-1/k}.\]
+    %	
+    %	
+    %	\[\left\{\Ex[(u + v)^{-k}]\right\}^{-1/k} \geq \left\{\Ex[u^{-k}]\right\}^{-1/k} + \left\{\Ex[v^{-k}]\right\}^{-1/k}.\]
     This implies that for $a \in (0,\infty)$ (CRRA)
     \[\left\{\Ex[(u + v)^{-\frac{1}{a}}]\right\}^{-a} \geq \left\{\Ex[u^{-\frac{1}{a}}]\right\}^{-a} + \left\{\Ex[v^{-\frac{1}{a}}]\right\}^{-a}\]
     if $u\geq 0$ and $v\geq 0$. Thus
@@ -1047,15 +1044,15 @@ In addition, we provide an explanation of the apparently contradictory results t
   \section{Proof of Theorem \ref{thm:riskandconstraints}}\label{app:riskandconstraints}
 
   \begin{proof}
-                               %                                We prove Theorem \ref{thm:riskandconstraints} by induction. We first show that it holds when we introduce the first constraint, before we show that it holds when we introduce constraint number $n+1$ when $n$ constraints already exist. 
+    % We prove Theorem \ref{thm:riskandconstraints} by induction. We first show that it holds when we introduce the first constraint, before we show that it holds when we introduce constraint number $n+1$ when $n$ constraints already exist. 
 
-                               %                                \begin{lemma}(Precautionary Saving with one Liquidity Constraint.) \label{lem:pslc}\\
-          %           Consider an agent who has a utility function with $u'> 0$, $u''< 0$, $u''' > 0$, and non-increasing absolute prudence ($-u'''/u''$). Then 
-          %           \begin{equation}
-          %           c_{t,1}(w) - \tilde{c}_{t,1}(w) \geq c_{t,0}(w)-\tilde{c}_{t,0}(w), \label{eq:ineq2}
-          %           \end{equation}
-          %           and the inequality is strict if $w_t < \bar{\wAlt}_{t,1}$.
-          %           \end{lemma}
+    % \begin{lemma}(Precautionary Saving with one Liquidity Constraint.) \label{lem:pslc}\\
+    %   Consider an agent who has a utility function with $u'> 0$, $u''< 0$, $u''' > 0$, and non-increasing absolute prudence ($-u'''/u''$). Then 
+    %   \begin{equation}
+    %     c_{t,1}(w) - \tilde{c}_{t,1}(w) \geq c_{t,0}(w)-\tilde{c}_{t,0}(w), \label{eq:ineq2}
+    %   \end{equation}
+    %   and the inequality is strict if $w_t < \bar{\wAlt}_{t,1}$.
+    % \end{lemma}
 
     Our proof proceeds by constructing the behavior of consumers facing the risk from the behavior of the corresponding perfect foresight consumers.  We consider matters from the perspective of some level of wealth ${w}$ for the perfect foresight consumers.  Because the same marginal utility function $u'$ applies to all four consumption rules, the Compensating Precautionary Premia, $\kappa_{t,n}$ and $\kappa_{t,n+1}$, associated with the introduction of the risk $\zeta_{t+1}$  must satisfy
     \begin{eqnarray}
@@ -1108,12 +1105,12 @@ In addition, we provide an explanation of the apparently contradictory results t
     
     For ${w} \geq \wAlt_{t,n+1}$, we know that $c_{t,n+1}' = c_{t,n}'$ so the first integral in \eqref{eq:psidiffint} is always zero. For the second integral in \eqref{eq:psidiffint} to be strictly positive, we need to show that $\kappa_{t,n+1} > \kappa_{t,n}$. 
     
-                    %                     We will prove this by using a proof by showing that assuming $\kappa_{t,n+1} \leq \kappa_{t,n}$ leads to the conclusion that $\kappa_{t,n+1} > \kappa_{t,n}$. 
+    % We will prove this by using a proof by showing that assuming $\kappa_{t,n+1} \leq \kappa_{t,n}$ leads to the conclusion that $\kappa_{t,n+1} > \kappa_{t,n}$. 
     
-                    %                     First define $\hat{\zeta}$ as the realization of $\zeta$ such that 
-                    %                     $$ s_{t,n+1} + y + \kappa_{t,n+1} + \zeta = \omega_{t,n+1}.$$
-                    %                     In words, $\hat{\zeta}$ is the value of $\zeta$ that cancels the values of $s_{t,n+1}$ and $\kappa_{t,n+1}$ relative to the $n+1$'st constraint in the sense that given the level of savings and precautionary premia, a draw if $\zeta = \hat{\zeta}$ restores wealth to exactly the value at which constraint $n+1$ stops binding. 
-                    %                     XXXXX
+    %	First define $\hat{\zeta}$ as the realization of $\zeta$ such that 
+    %	$$ s_{t,n+1} + y + \kappa_{t,n+1} + \zeta = \omega_{t,n+1}.$$
+    %	In words, $\hat{\zeta}$ is the value of $\zeta$ that cancels the values of $s_{t,n+1}$ and $\kappa_{t,n+1}$ relative to the $n+1$'st constraint in the sense that given the level of savings and precautionary premia, a draw if $\zeta = \hat{\zeta}$ restores wealth to exactly the value at which constraint $n+1$ stops binding. 
+    %	XXXXX
     
     
     
@@ -1132,33 +1129,33 @@ In addition, we provide an explanation of the apparently contradictory results t
     
     For all levels of wealth below this limit (${w} < {\bar{\wAlt}}_{t+1,n+1}$), there exist realizations of $\zeta$ such that constraint $n+1$ will bind in period $t+1$. The agent will require a higher precautionary premia when facing constraint $n+1$ in addition to the $n$ constraints already in the set, implying that $\kappa_{t,n+1} > \kappa_{t,n}$. Equation \eqref{eq:psidiffint} is therefore strictly positive if ${w} < {\bar{\wAlt}}_{t+1,n+1}$ and we have proven Theorem \ref{thm:riskandconstraints}. 
     
-                                %                                 \subsection*{The $n+1$'st constraint}
-                                %                                 Consider now the case where we have imposed $n$ constraints and are considering imposing constraint $n+1$ and where constraint $n+1$ applies at the end of some future period. Similar to the introduction of the first constraint, we need to show that the following equation is strictly positive:
-                                %                                 \begin{align}
-                                %                                 \psi_{t,n+1}&({w}+\kappa_{t,n+1}) - \psi_{t,n}({w}+\kappa_{t,n+1}) = \nonumber\\ &=\int_{{w}}^{{w}+\kappa_{t,n}} (c_{t,n+1}^{\prime}(\upsilon)-c_{t,n}^{\prime}(\upsilon))d\upsilon+\int^{{w}+\kappa_{t,n+1}}_{{w}+\kappa_{t,n}} \left(c_{t,n+1}^{\prime}(\upsilon)+(\tilde{c}_{t,n}^{\prime}(\upsilon)-c_{t,n}^{\prime}(\upsilon)) \right) d\upsilon \nonumber \\
-          %                                                   &= \int_{{w}}^{{w}+\kappa_{t,n+1}}
-                                                                %                                                                 (c_{t,n+1}^{\prime}(\upsilon)-c_{t,n}^{\prime}(\upsilon))d\upsilon +\int^{{w}+\kappa_{t,n+1}}_{{w}+\kappa_{t,n}}
-                                                                %                                                                 \tilde{c}_{t,n}^{\prime}(\upsilon) d\upsilon \label{eq:psidiffint2}
-                                                                %         \end{align}
-                                                                %                                                                 The sufficient conditions for \eqref{eq:psidiffint2} to be strictly positive are
-                                                                %                                                                 \begin{enumerate}
-                                                                %                                                                 \item $\kappa_{t,n+1} > 0$ or $\kappa_{t,n} > 0$, and $c_{t,n+1}'(\upsilon) > c_{t,n}'(\upsilon)$
-                                                                %                                                                 \item $\kappa_{t,n+1} > \kappa_{t,n}$
-                                                                %                                                                 \end{enumerate}
-                                                                %                                                                 Now since $u'''>0$, we know that $\kappa_{t,n} > 0$ from Jensen's inequality and Lemma \ref{lemma:kimpratt}. The first integral in \eqref{eq:psidiffint2} is therefore strictly positive as long as $c_{t,n+1}' > c_{t,n}'$, which is true for ${w} < \wAlt_{t,n+1}$ (Theorem \ref{thm:pfclc}). 
-                                                                %                                                                 
-                                                                %                                                                 For ${w} \geq \wAlt_{t,n+1}$, we know that $c_{t,n+1}' = c_{t,n}'$ so the first integral in \eqref{eq:psidiffint2} is always zero. For the second integral in \eqref{eq:psidiffint2} to be strictly positive, we need to show that $\kappa_{t,n+1} > \kappa_{t,n}$. Recall the definition of $\kappa_{t,n}$ and $\kappa_{t,n+1}$:
-                                                                %                                                                 \begin{eqnarray*}
-                                                                %                                                                 u'({c}_{t,n}) & = & \Ex_{t}[u'(c(\kappa_{t,n}+\zeta))]
-                                                                                                                                                      %           \\  u'({c}_{t,n+1}) & = & \Ex_{t}[u'(\hat{c}(\kappa_{t,n+1}+\zeta))],
-                                                                                                                                                                                            %         \end{eqnarray*}
-                                                                                                                                                                                            %                                                                                                                                                                                             where the two consumption functions are defined as
-                                                                                                                                                                                            %                                                                                                                                                                                             \begin{eqnarray}
-                                                                                                                                                                                            %                                                                                                                                                                                             c(\kappa_{t,n}+\zeta) & = & c_{t+1,n}(\overbrace{{s}_{t,n}}^{={s}_{t,n+1}}+{y}+\kappa_{t,n}+\zeta) \label{eq:cnoconstr2}
-                                                                                                                                                                                                                                                                                                                                                                                                                      %           \\  \hat{c}(\kappa_{t,n+1}+\zeta) & = & c_{t+1,n+1}({s}_{t,n+1}+{y}+\kappa_{t,n+1}+\zeta)\label{eq:gravecnoconstr2}.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                          %         \end{eqnarray}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                          %                                                                                                                                                                                                                                                                                                                                                                                                                                                                           Now recall that Lemma~\ref{lemma:kimpratt} tells us that if absolute prudence of $u'(c(\kappa_{t,n}+\zeta))$ is identical to absolute prudence of $u'(\hat{c}(\kappa_{t,n+1}+\zeta))$ for every realization of $\zeta$, then $\kappa_{t,n}=\kappa_{t,n+1}$. This can only be true if $w_{t+1} \geq \wAlt_{t+1,n+1}$ for any realization of $\zeta \in (\underline{\zeta}, \bar{\zeta})$. We defined this limit as $w_{t+1} \geq {\bar{\wAlt}}_{t,n+1}$. We therefore know that $\kappa_{t,n+1}  = \kappa_{t,n}$ if ${w} \geq {\bar{\wAlt}}_{t,n+1}$ and $\kappa_{t,n+1} > \kappa_{t,n}$ if ${w} < {\bar{\wAlt}}_{t,n+1}$. Equation \eqref{eq:psidiffint2} is therefore strictly positive if ${w} < {\bar{\wAlt}}_{t,n+1}$ and we have proven Theorem \ref{thm:riskandconstraints}.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                          %                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+    % \subsection*{The $n+1$'st constraint}
+    % Consider now the case where we have imposed $n$ constraints and are considering imposing constraint $n+1$ and where constraint $n+1$ applies at the end of some future period. Similar to the introduction of the first constraint, we need to show that the following equation is strictly positive:
+    % \begin{align}
+    %   \psi_{t,n+1}&({w}+\kappa_{t,n+1}) - \psi_{t,n}({w}+\kappa_{t,n+1}) = \nonumber\\ &=\int_{{w}}^{{w}+\kappa_{t,n}} (c_{t,n+1}^{\prime}(\upsilon)-c_{t,n}^{\prime}(\upsilon))d\upsilon+\int^{{w}+\kappa_{t,n+1}}_{{w}+\kappa_{t,n}} \left(c_{t,n+1}^{\prime}(\upsilon)+(\tilde{c}_{t,n}^{\prime}(\upsilon)-c_{t,n}^{\prime}(\upsilon)) \right) d\upsilon \nonumber \\
+    %   &= \int_{{w}}^{{w}+\kappa_{t,n+1}}
+    %   (c_{t,n+1}^{\prime}(\upsilon)-c_{t,n}^{\prime}(\upsilon))d\upsilon +\int^{{w}+\kappa_{t,n+1}}_{{w}+\kappa_{t,n}}
+    %   \tilde{c}_{t,n}^{\prime}(\upsilon) d\upsilon \label{eq:psidiffint2}
+    % \end{align}
+    % The sufficient conditions for \eqref{eq:psidiffint2} to be strictly positive are
+    % \begin{enumerate}
+    %	\item $\kappa_{t,n+1} > 0$ or $\kappa_{t,n} > 0$, and $c_{t,n+1}'(\upsilon) > c_{t,n}'(\upsilon)$
+    %	\item $\kappa_{t,n+1} > \kappa_{t,n}$
+    % \end{enumerate}
+    %	Now since $u'''>0$, we know that $\kappa_{t,n} > 0$ from Jensen's inequality and Lemma \ref{lemma:kimpratt}. The first integral in \eqref{eq:psidiffint2} is therefore strictly positive as long as $c_{t,n+1}' > c_{t,n}'$, which is true for ${w} < \wAlt_{t,n+1}$ (Theorem \ref{thm:pfclc}). 
+    %	
+    %	For ${w} \geq \wAlt_{t,n+1}$, we know that $c_{t,n+1}' = c_{t,n}'$ so the first integral in \eqref{eq:psidiffint2} is always zero. For the second integral in \eqref{eq:psidiffint2} to be strictly positive, we need to show that $\kappa_{t,n+1} > \kappa_{t,n}$. Recall the definition of $\kappa_{t,n}$ and $\kappa_{t,n+1}$:
+    %	\begin{eqnarray*}
+    %   u'({c}_{t,n}) & = & \Ex_{t}[u'(c(\kappa_{t,n}+\zeta))]
+    %   \\  u'({c}_{t,n+1}) & = & \Ex_{t}[u'(\hat{c}(\kappa_{t,n+1}+\zeta))],
+    %	\end{eqnarray*}
+    %	where the two consumption functions are defined as
+    %	\begin{eqnarray}
+    %   c(\kappa_{t,n}+\zeta) & = & c_{t+1,n}(\overbrace{{s}_{t,n}}^{={s}_{t,n+1}}+{y}+\kappa_{t,n}+\zeta) \label{eq:cnoconstr2}
+    %   \\  \hat{c}(\kappa_{t,n+1}+\zeta) & = & c_{t+1,n+1}({s}_{t,n+1}+{y}+\kappa_{t,n+1}+\zeta)\label{eq:gravecnoconstr2}.
+    %	\end{eqnarray}
+    %	Now recall that Lemma~\ref{lemma:kimpratt} tells us that if absolute prudence of $u'(c(\kappa_{t,n}+\zeta))$ is identical to absolute prudence of $u'(\hat{c}(\kappa_{t,n+1}+\zeta))$ for every realization of $\zeta$, then $\kappa_{t,n}=\kappa_{t,n+1}$. This can only be true if $w_{t+1} \geq \wAlt_{t+1,n+1}$ for any realization of $\zeta \in (\underline{\zeta}, \bar{\zeta})$. We defined this limit as $w_{t+1} \geq {\bar{\wAlt}}_{t,n+1}$. We therefore know that $\kappa_{t,n+1}  = \kappa_{t,n}$ if ${w} \geq {\bar{\wAlt}}_{t,n+1}$ and $\kappa_{t,n+1} > \kappa_{t,n}$ if ${w} < {\bar{\wAlt}}_{t,n+1}$. Equation \eqref{eq:psidiffint2} is therefore strictly positive if ${w} < {\bar{\wAlt}}_{t,n+1}$ and we have proven Theorem \ref{thm:riskandconstraints}.
+    %	
   \end{proof}
 
   \section{Resemblance Between Precautionary Saving and a Liquidity Constraint} \label{app:similar}
