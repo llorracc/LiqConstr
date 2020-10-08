@@ -7,8 +7,8 @@
 #     text_representation:
 #       extension: .py
 #       format_name: light
-#       format_version: '1.4'
-#       jupytext_version: 1.2.1
+#       format_version: '1.5'
+#       jupytext_version: 1.6.0
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -22,7 +22,7 @@
 #     name: python
 #     nbconvert_exporter: python
 #     pygments_lexer: ipython3
-#     version: 3.6.9
+#     version: 3.7.4
 #   toc:
 #     base_numbering: 1
 #     nav_menu: {}
@@ -68,7 +68,7 @@
 
 # + {"code_folding": []}
 # Some setup stuff
-import Dashboard.dashboard_widget as liqConstr
+import dashboard.dashboard_widget as LiqConstr
 # The warnings package allows us to ignore some harmless but alarming warning messages
 from ipywidgets import interactive
 import warnings
@@ -85,9 +85,9 @@ warnings.filterwarnings("ignore")
 # and the consumption function is strictly more concave.
 
 # + {"code_folding": []}
-interactive(liqConstr.make_concavification_figure,
-           in_BoroCnstArt=liqConstr.BoroCnstArt_widget[0],
-           in_UnempProb=liqConstr.UnempProb_widget)
+interactive(LiqConstr.make_concavification_figure,
+           in_BoroCnstArt=LiqConstr.BoroCnstArt_widget[0],
+           in_UnempProb=LiqConstr.UnempProb_widget)
 
 
 # -
@@ -123,8 +123,8 @@ interactive(liqConstr.make_concavification_figure,
 # levels of wealth than before, e.g. the first constraint causes a kink at $\hat{\omega}_{t,2}$ rather than at $\omega_{t,1}$.
 
 # + {"code_folding": []}
-interactive(liqConstr.make_future_kink,
-           in_BoroCnstArt=liqConstr.BoroCnstArt_widget[1])
+interactive(LiqConstr.make_future_kink,
+           in_BoroCnstArt=LiqConstr.BoroCnstArt_widget[1])
 # -
 
 # **Notes:** $c_{t,1}$ is the original consumption function with one constraint that induces a kink point at $\omega_{t,1}$.
@@ -152,9 +152,9 @@ interactive(liqConstr.make_future_kink,
 # liquidity constraint and the precautionary motive.
 
 # + {"code_folding": []}
-interactive(liqConstr.make_cons_func,
-           in_BoroCnstArt=liqConstr.BoroCnstArt_widget[2],
-            in_TranShkStd=liqConstr.TranShkStd_widget)
+interactive(LiqConstr.make_cons_func,
+           in_BoroCnstArt=LiqConstr.BoroCnstArt_widget[2],
+            in_TranShkStd=LiqConstr.TranShkStd_widget)
 
 # -
 
