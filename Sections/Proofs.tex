@@ -125,7 +125,6 @@
 	\chi_{t}(s_{t}) \geq p \chi_{t}(s_{1}) + (1-p) \chi_{t}(s_{2})
 	\end{align*}
 	for all $s_{t}$, where the inequality is strict if $c_{t+1}$ is strictly concave for at least one realization of ${y}_{t+1}$.
-	
 	\bigskip
 	\noindent \textbf{Case II ($a = 0$, CARA)}. For the exponential case, property CC holds at $s_{t}$ if
 	\begin{eqnarray*}
@@ -138,13 +137,11 @@
 	\\ & = & c_{t+1}(s_{t}+\bar{y}) - \log \Ex_{t}[e^{-({y}_{t+1}-\bar{y}) c_{t+1}^{'}}] \label{eq:expcdrops}
 	\end{eqnarray}
 	which is linear in $s_{t}$ since the second term is a constant.
-	
 	Now consider a value of $s_{t}$ for which $c_{t+1}(s_{t}+{y}_{t+1})$ is strictly concave for at least one realization of ${y}_{t+1}$. Global weak concavity of $c_{t+1}$ tells us that for every ${y}_{t+1}$
 	\begin{eqnarray}
 	-c_{t+1}(s_{t}+{y}_{t+1}) & \leq & -((1-p)c_{t+1}(s_1+{y}_{t+1})+pc_{t+1}(s_{2}+{y}_{t+1})) \nonumber
 	\\ \Ex_{t}[e^{-c_{t+1}(s_{t}+{y}_{t+1})}] & \leq & \Ex_{t}[e^{-((1-p)c_{t+1}(s_1+{y}_{t+1})+pc_{t+1}(s_{2}+{y}_{t+1}))}]. \label{eq:expconc}
 	\end{eqnarray}
-	
 	Meanwhile, the arithmetic-geometric mean inequality states that for positive $u$ and $v$, if $\bar u = \Ex_t [ u]$ and $\bar v = \Ex_t [ v]$, then
 	\begin{equation*}
 	\Ex_t\left[( u/\bar u)^p ( v/\bar v)^{1-p}\right]
@@ -507,7 +504,6 @@ Thus, we have shown that for $w \leq 1 $ and for $w > 1$ in the limit as $p \dow
 		\begin{align*}c_{T-1,2}^1(w) &\leq c_{T-1,2}(w) - c_{T-1,1}(w) + c_{T-1,1}^1(w) \\ &\leq c_{T-1,1}(w) - c_{T-1,1}(w) + c_{T-1,1}(w) = c_{T-1,1}(w) \leq c_{T-1,0}(w). \end{align*}
 	Third, $c_{T-1,2}^1(w) < c_{T-1,0}(w)$,  $\lim_{w\rightarrow\infty} c_{T-1,2}^1(w) - c_{T-1,0}(w) = 0$, and we know that if $c_{T-1,2}^1(w)$ is concave while $c_{T-1,0}(w)$ is linear, then $c_{T-1,2}'^{1}(w) \geq c_{T-1,0}'(w)$. $c_{T-1,2}^1(w)$ which is a counterclockwise concavification of $c_{T-1,0}(w)$ around the minimum level of wealth at which the first constraint will never impinge on time $T-1$ consumption, $\bar{\wAlt}_{T-1,1}^1$, and the new set is
 	\[\mathcal{P}_{T-1,2}^1 = \{w_{T-1}| w_{T-1} \leq \bar{\wAlt}_{T-1,1}^1 \wedge c_{T-1,2}^1(w) > w_{T-1} \}.\]
-	
 	It is now time to add the next risk. The argument is similar. We still know that (strict) consumption concavity is recursively propagated and that $\lim_{w\rightarrow \infty} c_{T-2,2}^2(w) - c_{T-2,0}(w) = 0$. Further, we can think of the addition of two risks over two periods as adding one risk that is realized over two periods. Hence, the results from Theorem \ref{thm:riskandconstraints} must hold also for the addition of multiple risks so we have
 	\begin{align*}c_{T-2,2}^2(w) &\leq c_{T-2,2}(w) - c_{T-2,1}(w) + c_{T-2,1}^2(w) \\ &\leq c_{T-2,1}(w) - c_{T-2,1}(w) + c_{T-2,1}(w) = c_{T-2,1}(w) \leq c_{T-2,0}(w). \end{align*}
 	Hence, we again know that $c_{T-2,2}'^{2}(w) \geq c_{T-2,0}'(w)$. $c_{T-2,2}^2(w)$ is thus a counterclockwise concavification of $c_{T-2,0}(w)$ around the level of wealth at minimum value of wealth when the last constraint will never bind. The new set is therefore
