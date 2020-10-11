@@ -42,6 +42,7 @@
     for all ${a}_{t}$, where the inequality is strict if $c_{t+1}$ is strictly concave for at least one realization of ${y}_{t+1}$.
 
     \bigskip
+
     \noindent \textbf{Case II ($a = 0$, CARA)}. For the exponential case, property CC holds at ${a}_{t}$ if
     \begin{eqnarray*}
       \exp(-\chi_{t}({a}_{t})/b) & = & \Ex_{t}[ \exp(-c_{t+1}({a}_{t}+{y}_{t+1})/b)]
@@ -90,6 +91,7 @@
     where the inequality is strict for an ${a}_{t}$ from which $c_{t+1}$ is strictly concave for some realization of ${y}_{t+1}$.
 
     \bigskip
+
     \noindent \textbf{Case III ($a = -1$, Quadratic)}.
     In the quadratic case, linearity of marginal utility implies that
     \begin{eqnarray*}
@@ -170,6 +172,7 @@
     \end{align*}
 
     \bigskip
+
     \noindent \textbf{\textit{Case II:}} ($c''({m})$ does not exist.)\\
     Informally, if nonexistence is caused by a constraint binding at ${m}$, the effect will be a discrete decline in the marginal propensity to consume at ${m}$, which can be thought of as $c''({m}) = -\infty$, implying positive infinite prudence at that point (see \eqref{eq:absprudence}). Formally, if $c''({m})$ does not exist, greater prudence of $\hat{V}$ than $V$ is given by $\frac{\hat{V}''({m})}{V''({m})}$ being a decreasing function of ${m}$. This is defined as
     \[\frac{\hat{V}''({m})}{V''({m})} \equiv
@@ -204,6 +207,7 @@
     We prove each statement in Lemma \ref{lem:ccandstrictprud} separately.
 
     \bigskip
+
     \noindent \textbf{\textit{Case I:}} ($ u ''' > 0$.) \\
     If $u''' > 0$, a counterclockwise concavification around ${m}^{\#}$ implies that $\hat{c}({m}) < c({m})$ and $\hat{c}'({m}) > c'({m})$ for all ${m} < {m}^{\#}$. Then \[-\frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m})}\hat{c}'({m}) > -\frac{u'''({c}({m}))}{u''({c}({m}))}{c}'({m}) \text{ for } {m} < {m}^{\#} \]
     Note that this condition is sufficient to prove Lemma \ref{lem:ccandstrictprud} for the case where $c''({m})$ does not exist since it then satisfies \eqref{eq:prudcond}. In the case where $c''({m})$ does exist, we know that
@@ -216,6 +220,7 @@
     and Lemma \ref{lem:ccandstrictprud} holds in the case with $u''' > 0$ and ${m} < {m}^{\#}$.
 
     \bigskip
+
     \noindent \textbf{\textit{Case II:}} ($u''' = 0$.) \\
     The quadratic case requires a different approach. Note first that the conditions in Lemma \ref{lem:ccandstrictprud} hold only below the bliss point for quadratic utility. In addition, since $u'''(\cdot) = 0$, strict inequality between the prudence of $\hat{V}$ and the prudence of $V$ hold only at those points where $\hat{c}(\cdot)$ is strictly concave.
 
@@ -498,8 +503,8 @@
       {m} 	\}\end{align*}
     where we add the last condition, $c_{t,n}^{m-1}({m}) > w$ to avoid the possibility that some constraint binds such that the agent does not increase precautionary saving. In words: $\mathcal{P}_{t,n}^{m-1}$ is the set where the consumption function is a counterclockwise concavification of $c_{t,0}({m})$ and no constraint is strictly binding. We construct the set recursively for two different cases: CARA and all other type of utility functions. We start with the non-CARA utility functions.
 
-    First add the last constraint. The set $\mathcal{P}_{T,1}^0$ is then
-    \[\mathcal{P}_{T,1}^0 = \emptyset \]%\left\{ w| {m} < \omega_{T,1}  \right\}\]
+    First add the last constraint. The set $\mathcal{P}^{0}_{T,1}$ is then
+    \[\mathcal{P}^{0}_{T,1} = \emptyset \] %\[\left\{ w| {m} < \omega_{T,1}  \right\}\]
     since we know that $c_{T,1}({m})$ is a counterclockwise concavification of $c_{T,0}({m})$ around $\wAlt_{T,1}$ but that the consumer is constrained below this point.
 
     We next add the risk at the beginning of period $T$. To construct the new set, we note three things. First, by Lemma \ref{lem:recursive},  (strict) consumption concavity is recursively propagated for all values of wealth where there is a positive probability that the constraint can bind, i.e.

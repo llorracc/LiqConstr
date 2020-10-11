@@ -23,8 +23,8 @@
 %% Sections was useful when constructing the paper so that individual parts could be edited independently
 %% It is now a legacy and is preserved mainly as a template for how to do this for future projects
 \newboolean{verbatimwriteOn}        %% Private
-\setboolean{verbatimwriteOn}{true}  %% Private
-% \setboolean{verbatimwriteOn}{false} %% Private
+%\setboolean{verbatimwriteOn}{true}  %% Private
+\setboolean{verbatimwriteOn}{false} %% Private
 \newcommand{\ifVerbatimWrite}{\ifthenelse{\boolean{verbatimwriteOn}}} %% Private
 \ifVerbatimWrite{}{ %% Private 
   \renewenvironment{verbatimwrite}[1]{} %% Private 
@@ -64,7 +64,7 @@
   % {left}{top}{right}{bottom} %% Private : Large font for easy viewing and editing on small screen
 }{} %% Private : Large font for easy viewing and editing on small screen
 
-\begin{document}%\bibliographystyle{\econtexBibStyle}
+\begin{document}\bibliographystyle{\econtexBibStyle}
 
 \hfill{\tiny \texname~\versn~\today~{at} \DTMcurrenttime, \input{.git-source-commit}~~\input{.git-public-commit}}
 
