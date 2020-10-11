@@ -66,64 +66,6 @@
 
   \begin{document}
   
-  \section{Proof of Lemma \ref{lem:counterclockwise}} \label{app:counterclockwise}
-  \begin{proof} First, condition 2 and 4 in Definition \ref{defn:cconcavification} imply that $\hat{c}'({m}) > c'({m})$ for ${m} = {m}^{\#} - \epsilon$ for a small $\epsilon > 0$. Condition 3 then ensures that $\lim_{\mu \uparrow {m}} \hat{c}'(\mu) > \lim_{\mu \uparrow {m}} c'(\mu)$ holds for all ${m} \leq {m}^{\#}-\epsilon$ (equivalently ${m} < {m}^{\#}$). Second, condition 1 and the fact that $\lim_{\mu \uparrow {m}} \hat{c}'(\mu) > \lim_{\mu \uparrow {m}} c'(\mu)$ for ${m} < {m}^{\#}$ implies that $\lim_{\mu \uparrow {m}} \hat{c}(\mu) < \lim_{\mu \uparrow {m}}c(\mu)$ for ${m} < {m}^{\#}$. Third, condition 3 in Definition \ref{defn:cconcavification} implies that $$\lim_{\mu \uparrow {m}}\hat{c}''(\mu) \leq \lim_{\mu \uparrow {m}} c''(\mu)\frac{\hat{c}'(\mu)}{c'(\mu)}$$ for ${m} < {m}^{\#}$. Then $$\lim_{\mu \uparrow {m}} \hat{c}''(\mu) \leq \lim_{\mu \uparrow {m}} c''(\mu)$$ since $\lim_{\mu \uparrow {m}}\hat{c}'(\mu) > \lim_{\mu \uparrow {m}} c'(\mu)$ for ${m} < {m}^{\#}$. Note that the inequality is not strict since $c''(\mu)$ could be 0.  
-  \end{proof}
-
-
-  \section{Proof of Lemma \ref{lem:CCToPrud}} \label{app:CCToPrud}
-  \begin{proof}
-    By the envelope theorem, we know that 
-    \[ V'({m}) = u'(c({m}))\]
-    Differentiating with respect to ${m}$ yields
-    \begin{equation}\label{eq:diff2}
-      V''({m}) = u''(c({m}))c'({m})
-    \end{equation}
-    Since $c({m})$ is concave, it has left-hand and right-hand derivatives at every point, though the left-hand and right-hand derivatives may not be equal. Equation \eqref{eq:diff2} should be interpreted as applying the left-hand and right-hand derivatives separately. (Reading \eqref{eq:diff2} in this way implies that $c'({m}^-) \geq c'({m}^+)$; therefore $V''({m}^-) \leq V''({m}^+)$). Taking another derivative can run afoul of the possible discontinuity in $c'({m})$ that we will show below can arise from liquidity constraints. We therefore consider two cases: (i) $c''({m})$ exists and (ii) $c''({m})$ does not exist. 
-    
-    \bigskip
-    \noindent \textbf{\textit{Case I:}} ($c''({m})$ exists.)\\
-    In the case where $c''({m})$ exists, we can take another derivative
-    \[V'''({m}) = u'''(c({m}))[c'({m})]^2 + u''(c({m}))c''({m})\]
-    Absolute prudence of the value function is thus defined as
-    \begin{align}-\frac{V'''({m})}{V''({m})} &= -\frac{u'''(c({m}))[c'({m})]^2 + u''(c({m}))c''({m})}{u''(c({m}))c'({m})} \nonumber \\
-      -\frac{V'''({m})}{V''({m})} &= -\frac{u'''(c({m}))}{u''(c({m}))}c'({m}) - \frac{c''({m})}{c'({m})}\label{eq:absprudence}\end{align}
-    From the assumption that $\hat{c}({m})$ is a counterclockwise concavification of $c({m})$, we know from Lemma \ref{lem:counterclockwise} that  $\hat{c}({m}) \leq c({m})$ and $\hat{c}'({m}) \geq c'({m})$. Furthermore, since $-\frac{u'''(c({m}))}{u''(c({m}))}$ is non-increasing, we know that $-\frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m}))} \geq -\frac{u'''(c({m}))}{u''(c({m}))}$. As a result, $-\frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m}))}\hat{c}'({m}) \geq -\frac{u'''(c({m}))}{u''(c({m}))}c'({m})$. 
-    
-    The second part of the absolute prudence expression, $-\frac{c''({m})}{c'({m})}$, is a measure of the curvature of the consumption function. Since the consumption function is concave, $-\frac{c''({m})}{c'({m})}$ is a measure of the degree of concavity. Formally, if one has two functions, $f(x)$ and $g(x)$, that are both increasing and concave functions, then the concave transformation $g(f(x))$ always has more curvature than $f$.\footnote{To see this, compute \[-\frac{\frac{d^2}{dx^2} g(f(x))}{\frac{d}{dx}g(f(x))} = - \frac{g''f'}{g'} - \frac{f''}{f'} \geq - \frac{f''}{f'}\] where the inequality holds since $f' \geq 0$, $g' \geq 0$, and $g'' \leq 0$.} A counterclockwise concavification is an example of such a $g$. Hence, $-\frac{\hat{c}''({m})}{\hat{c}'({m})} \geq -\frac{c''({m})}{c'({m})}$. Then
-    \begin{align*}
-      -\frac{\hat{V}'''({m})}{\hat{V}''({m})} &= -\frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m}))}\hat{c}'({m}) - \frac{\hat{c}''({m})}{\hat{c}'({m})} \\ 
-                                              &\geq -\frac{u'''(c({m}))}{u''(c({m}))}c'({m}) - \frac{c''({m})}{c'({m})} = -\frac{V'''({m})}{V''({m})}
-    \end{align*}
-    
-    \bigskip
-    \noindent \textbf{\textit{Case II:}} ($c''({m})$ does not exist.)\\
-    Informally, if nonexistence is caused by a constraint binding at ${m}$, the effect will be a discrete decline in the marginal propensity to consume at ${m}$, which can be thought of as $c''({m}) = -\infty$, implying positive infinite prudence at that point (see \eqref{eq:absprudence}). Formally, if $c''({m})$ does not exist, greater prudence of $\hat{V}$ than $V$ is given by $\frac{\hat{V}''({m})}{V''({m})}$ being a decreasing function of ${m}$. This is defined as
-    \[\frac{\hat{V}''({m})}{V''({m})} \equiv 
-      \left(\frac{u''(\hat c({m}))}{u''(c({m}))} \right)
-      \left(\frac{\hat{c}'({m})}{c'({m})}\right)\]
-    The second factor, $\frac{\hat{c}'({m})}{c'({m})}$, is weakly decreasing in ${m}$ by the property of a counterclockwise concavification. At any specific value of ${m}$ where
-    $\hat{c}''({m})$ does not exist because the left and right hand
-    values of $\hat{c}'$ are different, we say that $\hat{c}'$
-    is decreasing if
-    \begin{eqnarray}
-      \lim_{{m}^{-} \rightarrow {m}} \hat{c}'({m}) & > & \lim_{{m}^{+} \rightarrow {m}} \hat{c}'({m}).
-    \end{eqnarray}
-    
-    As for the first factor, note that nonexistence of 	$\hat{V}'''({m})$ and/or $\hat{c}''({m})$ do not spring from nonexistence of either $u'''(c)$ or $\lim_{{m} \uparrow {m}} \hat{c}'({m})$ (for our purposes, when the left and right derivatives of $\hat{c}({m})$ differ at a point, the relevant derivative is the one coming from the left; rather than carry around the cumbersome limit notation, read the following derivation as applying to the left derivative).  To discover whether $\frac{\hat {V}''({m})}{V''({m})}$ is decreasing we differentiate $\log\left(\frac{u''(\hat{c}({m}))}{ u''(c({m}))}\right)$ (recall that the log is a monotonically decreasing transformation so the derivative of the log of a function always has the same sign as the derivative of the function):
-    \begin{align*}
-      \frac{d}{d {m}}\left( \log(u''(\hat{c}({m})) - \log(u''(c({m})))\right) = \frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m}))}\hat{c}'({m}) -  \frac{u'''(c({m}))}{u''(c({m}))}c'({m}).
-    \end{align*}
-    This will be negative if
-    \begin{align}
-      \frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m}))}\hat{c}'({m}) & \leq  \frac{u'''(c({m}))}{u''(c({m}))}c'({m}) \nonumber
-      \\ \Rightarrow  -\frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m}))}\hat{c}'({m}) & \geq  -\frac{u'''(c({m}))}{u''(c({m}))} c'({m}) \label{eq:prudcond} .
-    \end{align}
-    
-    Recall from Lemma \ref{lem:counterclockwise} that $\hat{c}'({m}) \geq c'({m})$ and $\hat{c}({m}) \leq c({m})$ so non-increasing absolute prudence of the utility function ensures that $-\frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m}))} \geq  -\frac{u'''(c({m}))}{u''(c({m}))}$. Hence the LHS is always greater or equal to the RHS of equation \eqref{eq:prudcond}. 
-    
-  \end{proof}
-
   \bibliography{LiqConstr,LiqConstr-Add,economics}\end{document}    
 
 
