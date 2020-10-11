@@ -23,7 +23,7 @@
 %% Sections was useful when constructing the paper so that individual parts could be edited independently
 %% It is now a legacy and is preserved mainly as a template for how to do this for future projects
 \newboolean{verbatimwriteOn}        %% Private
-\setboolean{verbatimwriteOn}{false}  %% Private
+\setboolean{verbatimwriteOn}{true}  %% Private
 % \setboolean{verbatimwriteOn}{false} %% Private
 \newcommand{\ifVerbatimWrite}{\ifthenelse{\boolean{verbatimwriteOn}}} %% Private
 \ifVerbatimWrite{}{ %% Private 
@@ -102,9 +102,9 @@
 
 \hypertarget{Abstract}{}
 \begin{abstract}
-  \begin{verbatimwrite}{./\texname-abstract.metadata} %% Private
-    We provide the analytical explanation of strong interactions between precautionary saving and liquidity constraints that are regularly observed in numerical solutions to consumption/saving models.  The effects of constraints and of uncertainty spring from the same cause: counterclockwise concavification of the consumption function, which can be induced either by constraints or by uncertainty.  Such concavification propagates back to consumption functions in prior periods.  But, surprisingly, once a linear consumption function has been concavified by the presence of either risks or constraints, the introduction of \textit{additional} concavifiers in a given period can \textit{reduce} the precautionary motive in earlier periods at some levels of wealth.  
-  \end{verbatimwrite}\ifVerbatimWrite{\input{./\texname-abstract.metadata}}{} %% Private
+  %%% \begin{verbatimwrite}{./\texname-abstract.metadata} %% Private
+  We provide the analytical explanation of strong interactions between precautionary saving and liquidity constraints that are regularly observed in numerical solutions to consumption/saving models.  The effects of constraints and of uncertainty spring from the same cause: counterclockwise concavification of the consumption function, which can be induced either by constraints or by uncertainty.  Such concavification propagates back to consumption functions in prior periods.  But, surprisingly, once a linear consumption function has been concavified by the presence of either risks or constraints, the introduction of \textit{additional} concavifiers in a given period can \textit{reduce} the precautionary motive in earlier periods at some levels of wealth.  
+  %%% \end{verbatimwrite}\ifVerbatimWrite{\input{./\texname-abstract.metadata}}{} %% Private
 \end{abstract}
 
 
@@ -218,6 +218,8 @@
 
   %% Old: The link between constraints and consumption concavity is closely related to \citet{carroll&kimball:concavity}'s demonstration that, within the HARA utility class, the introduction of uncertainty causes the consumption function to become strictly concave (in the absence of constraints) for all but a few knife-edge combinations of utility function and the structure of risk.
 
+  \end{verbatimwrite}\ifVerbatimWrite{\input{./Sections/Intro.tex}}{} %% Private
+
   \hypertarget{MainMessage}{}
 
   \begin{verbatimwrite}{./Highlighted/MainMessage} %% Private
@@ -236,17 +238,16 @@
   %% Old: 
   %% Old: The rest of the paper is structured as follows. To fix notation and ideas, the next section sets out our general theoretical framework. The third section shows that concavity of the consumption function heightens prudence.  The fourth section shows how concavity, whether induced by constraints or uncertainty, propagates to previous periods. Section 5 shows how the introduction of a constraint creates a precautionary saving motive. The sixth section shows when the introduction of additional liquidity constraints beyond the first constraint increases the precautionary motive at any given level of wealth.  The fact that this does not always occur means that the introduction of constraints or uncertainty can weaken the effects of pre-existing constraints or uncertainty. The final section concludes.
 
-\end{verbatimwrite}\ifVerbatimWrite{\input{./Sections/Intro.tex}}{} %% Private
 
 \clearpage\pagebreak
 
 \hypertarget{SetupIntro}{}
 \section{The Setup}\label{sec:Setup}
 % \subfile{Sections/Setup}
-\begin{verbatimwrite}{Sections/Setup-Intro} %% Private
+\begin{verbatimwrite}{./Sections/Setup-Intro} %% Private
   In this section we present the consumer framework underlying all results. We consider a finitely-lived consumer living from period $t$ to $T$ who faces some future risks and liquidity constraints. The consumer is maximizing the time-additive present discounted value of utility from consumption $u(c)$.  With interest and time preference factors $R \in (0,\infty)$ and $\beta \in (0,\infty)$, and labeling consumption $c$, stochastic labor income $y$, end-of-period assets ${a}$, liquidity constraint $\sConst$, and `market resources' (the sum of current income and spendable wealth from the past) ${m}_{t}$, the consumer's problem can be written as
 \end{verbatimwrite} %% Private 
-\begin{verbatimwrite}{Sections/Setup} %% Private
+\begin{verbatimwrite}{./Sections/Setup} %% Private
   \begin{eqnarray*}
     V_{t}({m}_{t}) &=&
                        \max_{c} ~\Ex_{t}\left[\sum_{k=0}^{T-t}\beta^{k} u({c_{t+k}})\right]   \label{eq:valuefn} \\
@@ -277,19 +278,19 @@
 
 \end{verbatimwrite}\ifVerbatimWrite{\input{Sections/Setup}}{} %% Private
 
-%\bibliography{LiqConstr,LiqConstr-Add,economics}\end{document}
+% \bibliography{LiqConstr,LiqConstr-Add,economics}\end{document}
 
 \section{Consumption Concavity and Prudence}\label{sec:PrudAndCC}
 
 
 \hypertarget{PrudAndCCIntro}{}
-\begin{verbatimwrite}{Sections/PrudAndCC-Intro} %% Private
+\begin{verbatimwrite}{./Sections/PrudAndCC-Intro} %% Private
   This section provides a set of tools necessary to prove our main results. We first define what we mean by consumption concavity and show that consumption concavity, once established, propagates back to prior periods. Next, we define an operation we call a `counterclockwise concavification' which describes how either a liquidity constraint or a risk affects the consumption function. The advantage of defining a counterclockwise concavification in such general terms is that we can show that it heightens prudence of the value function irrespective of the source of concavification. Since the relationship between prudence and precautionary saving has already been established in the literature \citep{kimball:smallandlarge}, the tools in this section allow us to establish how liquidity constraints affect precautionary saving in the subsequent sections. 
 \end{verbatimwrite} %% Private 
 
 
 \hypertarget{PrudAndCC}{}
-\begin{verbatimwrite}{Sections/PrudAndCC} %% Private
+\begin{verbatimwrite}{./Sections/PrudAndCC} %% Private
 
 
   \subsection{Consumption Concavity}\label{sec:def_CC}
@@ -389,8 +390,8 @@
 
   The first result relates to the effects of a counterclockwise concavification on the absolute prudence of the value function, $-\frac{V'''({m})}{V''({m})}$. 
   %% Old: \begin{defn}\label{defn:prudence}(Absolute Prudence of the Value Function.) \\
-  %% Old:   Absolute prudence of the value function is defined as $-\frac{V'''({m})}{V''({m})}$.
-  %% Old: \end{defn}
+  %%   Old:   Absolute prudence of the value function is defined as $-\frac{V'''({m})}{V''({m})}$.
+  %%   Old: \end{defn}
   %% Old: 
 
 
@@ -419,11 +420,11 @@
 \end{verbatimwrite} %% Private
 
 
+\hypertarget{LCandCCIntro}{}
 
 \section{Liquidity Constraints and Consumption Concavity}\label{sec:LCandCC} 
 
-\hypertarget{LCandCCIntro}{}
-\begin{verbatimwrite}{Sections/LCandCC-Intro} %% Private
+\begin{verbatimwrite}{./Sections/LCandCC-Intro} %% Private
   This section shows under which conditions liquidity constraints cause consumption concavity. The main conceptual difficulty with liquidity constraints is that the effect of introducing a new constraint depends on already existing constraints. To get around this issue, we introduce the concept of an \textit{ordered} set of \textit{relevant} constraints. This allows us to add constraints in such a way that the next constraint does not affect behavior related to pre-existing constraints. Our main result (Theorem \ref{thm:lcip2}) is that the introduction of the next constraint from the ordered set of relevant constraints causes a counterclockwise concavification of the consumption function. It then follows from the results in Section \ref{sec:PrudAndCC} that the introduction of the next constraint also heightens prudence of the value function. 
 \end{verbatimwrite} %% Private 
 
@@ -432,7 +433,7 @@
 
 
 
-\begin{verbatimwrite}{Sections/LCandCC} %% Private
+\begin{verbatimwrite}{./Sections/LCandCC} %% Private
   
 
 
@@ -544,15 +545,15 @@
 
 
   %% Old: \begin{theorem}\label{thm:lcip2} (Liquidity Constraints Increase Prudence.) \\
-  %% Old:   Consider an agent in period $t$ who has a utility function with $u' > 0$, $u'' < 0$, $u''' \geq 0$, and non-increasing absolute prudence ($-u'''/u''$). Assume that the agent faces a set $\mathcal{T}$ of $N$ relevant constraints. When $n \leq N-1$ constraints have been imposed, the imposition of constraint $n+1$ strictly increases absolute prudence of the agent's value function if the utility function satisfies $u''' > 0$ and ${m}_{t} < \wAlt_{t,n+1}$ or if $u''' = 0$ and $\frac{c'_{t,n+1}}{c'_{t,n}}$ strictly declines at ${m}$.
-  %% Old: \end{theorem}
+  %%   Old:   Consider an agent in period $t$ who has a utility function with $u' > 0$, $u'' < 0$, $u''' \geq 0$, and non-increasing absolute prudence ($-u'''/u''$). Assume that the agent faces a set $\mathcal{T}$ of $N$ relevant constraints. When $n \leq N-1$ constraints have been imposed, the imposition of constraint $n+1$ strictly increases absolute prudence of the agent's value function if the utility function satisfies $u''' > 0$ and ${m}_{t} < \wAlt_{t,n+1}$ or if $u''' = 0$ and $\frac{c'_{t,n+1}}{c'_{t,n}}$ strictly declines at ${m}$.
+  %%   Old: \end{theorem}
 
   \noindent Theorem \ref{thm:lcip2} is a generalization of Lemma \ref{lem:LcAndCc}. Even if we relax the assumptions that income is constant and the agent is impatient, the imposition of an extra (more general) constraint increases absolute prudence of the value function as long as we are careful when we select the set $\mathcal{T}$ of relevant constraints.
 
   For an agent that only faces liquidity constraints, but no risk, the shape of the consumption function is piecewise linear. 
   %% Old: \begin{corollary}(Piecewise Linear Consumption Function.) \\
-  %% Old:   Consider an agent who has a utility function with $u'> 0$ and $u'' < 0$, faces constant income ${y}$, and is impatient. Assume that the agent faces a set $\mathcal{T}$ of $N$  constraints. When $n \leq N$ constraints have been imposed, $c_{t,n}({m})$ is a piecewise linear increasing concave function with kink points at successively larger values of wealth at which future constraints stop impinging on current consumption.
-  %% Old: \end{corollary}
+  %%   Old:   Consider an agent who has a utility function with $u'> 0$ and $u'' < 0$, faces constant income ${y}$, and is impatient. Assume that the agent faces a set $\mathcal{T}$ of $N$  constraints. When $n \leq N$ constraints have been imposed, $c_{t,n}({m})$ is a piecewise linear increasing concave function with kink points at successively larger values of wealth at which future constraints stop impinging on current consumption.
+  %%   Old: \end{corollary}
   Since the consumption function is piecewise linear, the new consumption function, $c_{t,n+1}({m})$ is not necessarily strictly more concave than $c_{t,n}({m})$ for all ${m}$. This is where the concept of counterclockwise concavification is useful. Even though $c_{t,n+1}({m})$ is not strictly more concave than $c_{t,n}({m})$ everywhere, it is a counterclockwise concavification and we can apply Lemma \ref{lem:CCToPrud} and \ref{lem:ccandstrictprud} to show that the introduction of the next liquidity constraint increases absolute prudence of the value function. 
 
   \begin{corollary}\label{cor:lcip} (Liquidity Constraints Increase Prudence.) \\
@@ -575,7 +576,7 @@
 
 
 \hypertarget{LCandPSIntro}{}
-\begin{verbatimwrite}{Sections/LCandPS-Intro} %% Private
+\begin{verbatimwrite}{./Sections/LCandPS-Intro} %% Private
   The preceding sections established the relationship between liquidity constraints, consumption concavity, and prudence. This section derives the last step to understand the relationship between liquidity constraints and precautionary saving. First, we explain how prudence of the value function affects precautionary saving. Theorem \ref{thm:riskandconstraints} then shows how the introduction of an additional constraint induces agents to increase precautionary saving when they face a \textit{current} risk. The results in Theorem \ref{thm:riskandconstraints} cannot be generalized to an added risk or liquidity constraint in a later time period because it may hide or alter the effects of current constraints or risks and thereby affect local precautionary saving. The main conceptual issue with having both risks and constraints is that the trick with the \textit{relevant} constraints applied in Section \ref{sec:LCandCC} no longer applies in a setting with risk because constraints may be relevant for some sample paths. However, we still derive our most general result in Theorem \ref{thm:CCandPS}: the introduction of an additional risk results in more precautionary saving in the presence of \textit{all} future risks and constraints than in the case with no future risks and constraints. %In other words (Corollary \ref{cor:CCRISK}), the consumption function is concave in the presence of all future risks and constraints. 
   
   %% Old: The main step in the proof was to be careful in defining an ordered set of relevant constraints. We are now going to be explicit about the effects of current risk on precautionary saving in the presence of all future risks and constraints. 
@@ -588,7 +589,7 @@
 
 
 
-\begin{verbatimwrite}{Sections/LCandPS} %% Private
+\begin{verbatimwrite}{./Sections/LCandPS} %% Private
 
   \subsection{Notation}\label{subsec:PrudAndCPP}
 
@@ -613,16 +614,16 @@
 
   \begin{defn}(Wealth Limit.)\\
     %%%	\begin{enumerate}
-    %% Old: \item ${\underline{\wAlt}}_{t,n+1}$ is the level of wealth such that an agent who faces risk $\zeta_{t+1}$ and $n+1$ constraints saves so little that constraint $n+1$ will always bind in period $t+1$, defined as
-    %% Old:   \begin{eqnarray}
-    %% Old:     {\underline{\wAlt}}_{t,n+1} & = & \left(\tilde{V}_{t,n+1}'\right)^{-1}(\tilde{\Omega}_{t,n+1}^{\prime}(\wAlt_{t+1,n+1}-({y}+\bar{\zeta}))).
-    %% Old:   \end{eqnarray}
+    %%   Old: \item ${\underline{\wAlt}}_{t,n+1}$ is the level of wealth such that an agent who faces risk $\zeta_{t+1}$ and $n+1$ constraints saves so little that constraint $n+1$ will always bind in period $t+1$, defined as
+    %%   Old:   \begin{eqnarray}
+                  %%                   Old:     {\underline{\wAlt}}_{t,n+1} & = & \left(\tilde{V}_{t,n+1}'\right)^{-1}(\tilde{\Omega}_{t,n+1}^{\prime}(\wAlt_{t+1,n+1}-({y}+\bar{\zeta}))).
+                                                                                  %%                                                                                   Old:   \end{eqnarray}
     ${\bar{\wAlt}}_{t,n+1}$ is the level of wealth such that an agent who faces risk $\zeta_{t+1}$ and $n+1$ constraints saves enough to guarantee that constraint $n+1$ will never bind in period $t+1$.  Its value is given by:
     \begin{eqnarray}
       {\bar{\wAlt}}_{t,n+1} & = & \left(\tilde{V}_{t,n+1}'\right)^{-1}(\tilde{\Omega}_{t,n+1}^{\prime}(\wAlt_{t+1,n+1}-({y}+\underline{\zeta}))) \label{eq:tildeomegabar}
     \end{eqnarray}
     How to read this limit: $\wAlt_{t+1,n+1}$ is the level of wealth at which constraint $n+1$ makes the transition from binding to not binding in period $t+1$. $\wAlt_{t+1,n+1} - ({y} + \underline{\zeta})$ is the level of wealth in period $t+1$ that ensures that constraint $n+1$ does not bind in period $t+1$ even with the worst possible draw, $\underline{\zeta}$.
-    %% Old: \end{enumerate}
+                                  %%                                   Old: \end{enumerate}
   \end{defn}
 
   \noindent We must be careful to check that $\wAlt_{t+1,n+1}-({y}+\underline{\zeta})$ is inside the set of feasible values of ${a}_{t}$ (e.g.\ positive for consumers with CRRA utility). If this is not true for some level of market resources, then the constraint is irrelevant because the restriction imposed by the risk is more stringent than the restriction imposed by the constraint.
@@ -682,10 +683,10 @@
   Consider now the question of how the addition of a risk $\zeta_{t}$ that will be realized at the beginning of period $t$ affects the consumption function at the beginning of period $t-1$, in the absence of any constraint at the beginning of period $t$. The question is whether we can say that the introduction of the risk $\zeta_{t}$ has a greater precautionary effect on consumption in the presence of the subsequent risk $\zeta_{t+1}$ than in its absence?
 
   %% Old: \begin{eqnarray}
-  %% Old:   \label{eq:earlierrisk}
-  %% Old:   c_{t-1,0}^{1}({m})-c_{t-1,0}^{2}({m}) & \geq & c_{t-1,0}^0({m})-c^{1}_{t-1,0}({m});
-  %% Old: \end{eqnarray}
-  %% Old: that is, does 
+            %%             Old:   \label{eq:earlierrisk}
+            %%             Old:   c_{t-1,0}^{1}({m})-c_{t-1,0}^{2}({m}) & \geq & c_{t-1,0}^0({m})-c^{1}_{t-1,0}({m});
+                                                                                 %%                                                                                  Old: \end{eqnarray}
+                                                                                 %%                                                                                  Old: that is, does 
 
   The answer again is ``not necessarily.''  To see why, we present an example in Appendix \ref{app:similar} of a CRRA utility problem in which in a certain limit the introduction of a risk produced an effect on the consumption function that is indistinguishable from the effect of a liquidity constraint.  If the risk $\zeta_{t}$ is of this liquidity-constraint-indistinguishable form, then the logic of the previous subsection applies: For some levels of wealth, the introduction of the risk at $t$ can weaken the precautionary effect of any risks at $t+1$ or later.
 
@@ -730,7 +731,7 @@ In addition, we provide an explanation of the apparently contradictory results t
 \centerline{\LARGE Appendix}
 \medskip
 
-\begin{verbatimwrite}{Sections/Proofs} %% Private
+\begin{verbatimwrite}{./Sections/Proofs} %% Private
   
 
 
@@ -1048,15 +1049,15 @@ In addition, we provide an explanation of the apparently contradictory results t
   \section{Proof of Theorem \ref{thm:riskandconstraints}}\label{app:riskandconstraints}
 
   \begin{proof}
-    %% Old: We prove Theorem \ref{thm:riskandconstraints} by induction. We first show that it holds when we introduce the first constraint, before we show that it holds when we introduce constraint number $n+1$ when $n$ constraints already exist. 
+                               %%                                Old: We prove Theorem \ref{thm:riskandconstraints} by induction. We first show that it holds when we introduce the first constraint, before we show that it holds when we introduce constraint number $n+1$ when $n$ constraints already exist. 
 
-    %% Old: \begin{lemma}(Precautionary Saving with one Liquidity Constraint.) \label{lem:pslc}\\
-    %% Old:   Consider an agent who has a utility function with $u'> 0$, $u''< 0$, $u''' > 0$, and non-increasing absolute prudence ($-u'''/u''$). Then 
-    %% Old:   \begin{equation}
-    %% Old:     c_{t,1}({m}) - \tilde{c}_{t,1}({m}) \geq c_{t,0}({m})-\tilde{c}_{t,0}({m}), \label{eq:ineq2}
-    %% Old:   \end{equation}
-    %% Old:   and the inequality is strict if ${m}_{t} < \bar{\wAlt}_{t,1}$.
-    %% Old: \end{lemma}
+                               %%                                Old: \begin{lemma}(Precautionary Saving with one Liquidity Constraint.) \label{lem:pslc}\\
+                  %%                   Old:   Consider an agent who has a utility function with $u'> 0$, $u''< 0$, $u''' > 0$, and non-increasing absolute prudence ($-u'''/u''$). Then 
+                  %%                   Old:   \begin{equation}
+                  %%                   Old:     c_{t,1}({m}) - \tilde{c}_{t,1}({m}) \geq c_{t,0}({m})-\tilde{c}_{t,0}({m}), \label{eq:ineq2}
+                  %%                   Old:   \end{equation}
+                  %%                   Old:   and the inequality is strict if ${m}_{t} < \bar{\wAlt}_{t,1}$.
+                  %%                   Old: \end{lemma}
 
     Our proof proceeds by constructing the behavior of consumers facing the risk from the behavior of the corresponding perfect foresight consumers.  We consider matters from the perspective of some level of wealth ${{m}}$ for the perfect foresight consumers.  Because the same marginal utility function $u'$ applies to all four consumption rules, the Compensating Precautionary Premia, $\kappa_{t,n}$ and $\kappa_{t,n+1}$, associated with the introduction of the risk $\zeta_{t+1}$  must satisfy
     \begin{eqnarray}
@@ -1109,12 +1110,12 @@ In addition, we provide an explanation of the apparently contradictory results t
     
     For ${{m}} \geq \wAlt_{t,n+1}$, we know that $c_{t,n+1}' = c_{t,n}'$ so the first integral in \eqref{eq:psidiffint} is always zero. For the second integral in \eqref{eq:psidiffint} to be strictly positive, we need to show that $\kappa_{t,n+1} > \kappa_{t,n}$. 
     
-    %% Old: We will prove this by using a proof by showing that assuming $\kappa_{t,n+1} \leq \kappa_{t,n}$ leads to the conclusion that $\kappa_{t,n+1} > \kappa_{t,n}$. 
+                    %%                     Old: We will prove this by using a proof by showing that assuming $\kappa_{t,n+1} \leq \kappa_{t,n}$ leads to the conclusion that $\kappa_{t,n+1} > \kappa_{t,n}$. 
     
-    %	First define $\hat{\zeta}$ as the realization of $\zeta$ such that 
-    %	$$ {a}_{t,n+1} + y + \kappa_{t,n+1} + \zeta = \omega_{t,n+1}.$$
-    %	In words, $\hat{\zeta}$ is the value of $\zeta$ that cancels the values of ${a}_{t,n+1}$ and $\kappa_{t,n+1}$ relative to the $n+1$'st constraint in the sense that given the level of savings and precautionary premia, a draw if $\zeta = \hat{\zeta}$ restores wealth to exactly the value at which constraint $n+1$ stops binding. 
-    %	XXXXX
+                    %                     First define $\hat{\zeta}$ as the realization of $\zeta$ such that 
+                    %                     $$ {a}_{t,n+1} + y + \kappa_{t,n+1} + \zeta = \omega_{t,n+1}.$$
+                    %                     In words, $\hat{\zeta}$ is the value of $\zeta$ that cancels the values of ${a}_{t,n+1}$ and $\kappa_{t,n+1}$ relative to the $n+1$'st constraint in the sense that given the level of savings and precautionary premia, a draw if $\zeta = \hat{\zeta}$ restores wealth to exactly the value at which constraint $n+1$ stops binding. 
+                    %                     XXXXX
     
     
     
@@ -1132,33 +1133,33 @@ In addition, we provide an explanation of the apparently contradictory results t
     Now recall that Lemma~\ref{lemma:kimpratt} tells us that if absolute prudence of $u'(c(\kappa_{t,n}+\zeta))$ is identical to absolute prudence of $u'({c}(\kappa_{t,n+1}+\zeta))$ for every realization of $\zeta$, then $\kappa_{t,n}=\kappa_{t,n+1}$. This is true if ${m}_{t+1} \geq \wAlt_{t+1,n+1}$ for all possible realizations of $\zeta \in (\underline{\zeta}, \bar{\zeta})$, i.e. that the agent is unconstrained for all realizations of the risk. We defined this limit as ${m}_{t+1} \geq {\bar{\wAlt}}_{t+1,n+1}$. We therefore know that $\kappa_{t,n+1}  = \kappa_{t,n}$ if ${{m}} \geq {\bar{\wAlt}}_{t+1,n+1}$. 
     
     For all levels of wealth below this limit (${{m}} < {\bar{\wAlt}}_{t+1,n+1}$), there exist realizations of $\zeta$ such that constraint $n+1$ will bind in period $t+1$. The agent will require a higher precautionary premia when facing constraint $n+1$ in addition to the $n$ constraints already in the set, implying that $\kappa_{t,n+1} > \kappa_{t,n}$. Equation \eqref{eq:psidiffint} is therefore strictly positive if ${{m}} < {\bar{\wAlt}}_{t+1,n+1}$ and we have proven Theorem \ref{thm:riskandconstraints}. 
-    %% Old: \subsection*{The $n+1$'st constraint}
-    %% Old: Consider now the case where we have imposed $n$ constraints and are considering imposing constraint $n+1$ and where constraint $n+1$ applies at the end of some future period. Similar to the introduction of the first constraint, we need to show that the following equation is strictly positive:
-    %% Old: \begin{align}
-    %% Old:   \psi_{t,n+1}&({{m}}+\kappa_{t,n+1}) - \psi_{t,n}({{m}}+\kappa_{t,n+1}) = \nonumber\\ &=\int_{{{m}}}^{{{m}}+\kappa_{t,n}} (c_{t,n+1}^{\prime}(\mu)-c_{t,n}^{\prime}(\mu))d\mu+\int^{{{m}}+\kappa_{t,n+1}}_{{{m}}+\kappa_{t,n}} \left(c_{t,n+1}^{\prime}(\mu)+(\tilde{c}_{t,n}^{\prime}(\mu)-c_{t,n}^{\prime}(\mu)) \right) d\mu \nonumber \\
-    %% Old:   &= \int_{{{m}}}^{{{m}}+\kappa_{t,n+1}}
-    %% Old:   (c_{t,n+1}^{\prime}(\mu)-c_{t,n}^{\prime}(\mu))d\mu +\int^{{{m}}+\kappa_{t,n+1}}_{{{m}}+\kappa_{t,n}}
-    %% Old:   \tilde{c}_{t,n}^{\prime}(\mu) d\mu \label{eq:psidiffint2}
-    %% Old: \end{align}
-    %% Old: The sufficient conditions for \eqref{eq:psidiffint2} to be strictly positive are
-    %% Old: \begin{enumerate}
-    %% Old:  \item $\kappa_{t,n+1} > 0$ or $\kappa_{t,n} > 0$, and $c_{t,n+1}'(\mu) > c_{t,n}'(\mu)$
-    %% Old:  \item $\kappa_{t,n+1} > \kappa_{t,n}$
-    %% Old: \end{enumerate}
-    %% Old:  Now since $u'''>0$, we know that $\kappa_{t,n} > 0$ from Jensen's inequality and Lemma \ref{lemma:kimpratt}. The first integral in \eqref{eq:psidiffint2} is therefore strictly positive as long as $c_{t,n+1}' > c_{t,n}'$, which is true for ${{m}} < \wAlt_{t,n+1}$ (Theorem \ref{thm:pfclc}). 
-    %% Old:  
-    %% Old:  For ${{m}} \geq \wAlt_{t,n+1}$, we know that $c_{t,n+1}' = c_{t,n}'$ so the first integral in \eqref{eq:psidiffint2} is always zero. For the second integral in \eqref{eq:psidiffint2} to be strictly positive, we need to show that $\kappa_{t,n+1} > \kappa_{t,n}$. Recall the definition of $\kappa_{t,n}$ and $\kappa_{t,n+1}$:
-    %% Old:  \begin{eqnarray*}
-    %% Old:   u'({c}_{t,n}) & = & \Ex_{t}[u'(c(\kappa_{t,n}+\zeta))]
-    %% Old:   \\  u'({c}_{t,n+1}) & = & \Ex_{t}[u'(\hat{c}(\kappa_{t,n+1}+\zeta))],
-    %% Old:  \end{eqnarray*}
-    %% Old:  where the two consumption functions are defined as
-    %% Old:  \begin{eqnarray}
-    %% Old:   c(\kappa_{t,n}+\zeta) & = & c_{t+1,n}(\overbrace{{s}_{t,n}}^{={s}_{t,n+1}}+{y}+\kappa_{t,n}+\zeta) \label{eq:cnoconstr2}
-    %% Old:   \\  \hat{c}(\kappa_{t,n+1}+\zeta) & = & c_{t+1,n+1}({s}_{t,n+1}+{y}+\kappa_{t,n+1}+\zeta)\label{eq:gravecnoconstr2}.
-    %% Old:  \end{eqnarray}
-    %% Old:	Now recall that Lemma~\ref{lemma:kimpratt} tells us that if absolute prudence of $u'(c(\kappa_{t,n}+\zeta))$ is identical to absolute prudence of $u'(\hat{c}(\kappa_{t,n+1}+\zeta))$ for every realization of $\zeta$, then $\kappa_{t,n}=\kappa_{t,n+1}$. This can only be true if ${m}_{t+1} \geq \wAlt_{t+1,n+1}$ for any realization of $\zeta \in (\underline{\zeta}, \bar{\zeta})$. We defined this limit as ${m}_{t+1} \geq {\bar{\wAlt}}_{t,n+1}$. We therefore know that $\kappa_{t,n+1}  = \kappa_{t,n}$ if ${{m}} \geq {\bar{\wAlt}}_{t,n+1}$ and $\kappa_{t,n+1} > \kappa_{t,n}$ if ${{m}} < {\bar{\wAlt}}_{t,n+1}$. Equation \eqref{eq:psidiffint2} is therefore strictly positive if ${{m}} < {\bar{\wAlt}}_{t,n+1}$ and we have proven Theorem \ref{thm:riskandconstraints}.
-    %% 
+                                %%                                 Old: \subsection*{The $n+1$'st constraint}
+                                %%                                 Old: Consider now the case where we have imposed $n$ constraints and are considering imposing constraint $n+1$ and where constraint $n+1$ applies at the end of some future period. Similar to the introduction of the first constraint, we need to show that the following equation is strictly positive:
+                                %%                                 Old: \begin{align}
+                                %%                                 Old:   \psi_{t,n+1}&({{m}}+\kappa_{t,n+1}) - \psi_{t,n}({{m}}+\kappa_{t,n+1}) = \nonumber\\ &=\int_{{{m}}}^{{{m}}+\kappa_{t,n}} (c_{t,n+1}^{\prime}(\mu)-c_{t,n}^{\prime}(\mu))d\mu+\int^{{{m}}+\kappa_{t,n+1}}_{{{m}}+\kappa_{t,n}} \left(c_{t,n+1}^{\prime}(\mu)+(\tilde{c}_{t,n}^{\prime}(\mu)-c_{t,n}^{\prime}(\mu)) \right) d\mu \nonumber \\
+                  %%                   Old:   &= \int_{{{m}}}^{{{m}}+\kappa_{t,n+1}}
+                                                %%                                                 Old:   (c_{t,n+1}^{\prime}(\mu)-c_{t,n}^{\prime}(\mu))d\mu +\int^{{{m}}+\kappa_{t,n+1}}_{{{m}}+\kappa_{t,n}}
+                                                %%                                                 Old:   \tilde{c}_{t,n}^{\prime}(\mu) d\mu \label{eq:psidiffint2}
+                                                %%                                                 Old: \end{align}
+                                                %%                                                 Old: The sufficient conditions for \eqref{eq:psidiffint2} to be strictly positive are
+                                                %%                                                 Old: \begin{enumerate}
+                                                %%                                                 Old:  \item $\kappa_{t,n+1} > 0$ or $\kappa_{t,n} > 0$, and $c_{t,n+1}'(\mu) > c_{t,n}'(\mu)$
+                                                %%                                                 Old:  \item $\kappa_{t,n+1} > \kappa_{t,n}$
+                                                %%                                                 Old: \end{enumerate}
+                                                %%                                                 Old:  Now since $u'''>0$, we know that $\kappa_{t,n} > 0$ from Jensen's inequality and Lemma \ref{lemma:kimpratt}. The first integral in \eqref{eq:psidiffint2} is therefore strictly positive as long as $c_{t,n+1}' > c_{t,n}'$, which is true for ${{m}} < \wAlt_{t,n+1}$ (Theorem \ref{thm:pfclc}). 
+                                                %%                                                 Old:  
+                                                %%                                                 Old:  For ${{m}} \geq \wAlt_{t,n+1}$, we know that $c_{t,n+1}' = c_{t,n}'$ so the first integral in \eqref{eq:psidiffint2} is always zero. For the second integral in \eqref{eq:psidiffint2} to be strictly positive, we need to show that $\kappa_{t,n+1} > \kappa_{t,n}$. Recall the definition of $\kappa_{t,n}$ and $\kappa_{t,n+1}$:
+                                                %%                                                 Old:  \begin{eqnarray*}
+                                                %%                                                 Old:   u'({c}_{t,n}) & = & \Ex_{t}[u'(c(\kappa_{t,n}+\zeta))]
+                                                                                                                              %%                                                                                                                               Old:   \\  u'({c}_{t,n+1}) & = & \Ex_{t}[u'(\hat{c}(\kappa_{t,n+1}+\zeta))],
+                                                                                                                                                                                                                                                                                                %%                                                                                                                                                                                                                                                                                                 Old:  \end{eqnarray*}
+                                                                                                                                                                                                                                                                                                %%                                                                                                                                                                                                                                                                                                 Old:  where the two consumption functions are defined as
+                                                                                                                                                                                                                                                                                                %%                                                                                                                                                                                                                                                                                                 Old:  \begin{eqnarray}
+                                                                                                                                                                                                                                                                                                %%                                                                                                                                                                                                                                                                                                 Old:   c(\kappa_{t,n}+\zeta) & = & c_{t+1,n}(\overbrace{{s}_{t,n}}^{={s}_{t,n+1}}+{y}+\kappa_{t,n}+\zeta) \label{eq:cnoconstr2}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      %%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       Old:   \\  \hat{c}(\kappa_{t,n+1}+\zeta) & = & c_{t+1,n+1}({s}_{t,n+1}+{y}+\kappa_{t,n+1}+\zeta)\label{eq:gravecnoconstr2}.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              %%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               Old:  \end{eqnarray}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              %%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               Old:	Now recall that Lemma~\ref{lemma:kimpratt} tells us that if absolute prudence of $u'(c(\kappa_{t,n}+\zeta))$ is identical to absolute prudence of $u'(\hat{c}(\kappa_{t,n+1}+\zeta))$ for every realization of $\zeta$, then $\kappa_{t,n}=\kappa_{t,n+1}$. This can only be true if ${m}_{t+1} \geq \wAlt_{t+1,n+1}$ for any realization of $\zeta \in (\underline{\zeta}, \bar{\zeta})$. We defined this limit as ${m}_{t+1} \geq {\bar{\wAlt}}_{t,n+1}$. We therefore know that $\kappa_{t,n+1}  = \kappa_{t,n}$ if ${{m}} \geq {\bar{\wAlt}}_{t,n+1}$ and $\kappa_{t,n+1} > \kappa_{t,n}$ if ${{m}} < {\bar{\wAlt}}_{t,n+1}$. Equation \eqref{eq:psidiffint2} is therefore strictly positive if ${{m}} < {\bar{\wAlt}}_{t,n+1}$ and we have proven Theorem \ref{thm:riskandconstraints}.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              %%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
   \end{proof}
 
   \section{Resemblance Between Precautionary Saving and a Liquidity Constraint} \label{app:similar}
