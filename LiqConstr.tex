@@ -4,7 +4,7 @@
 \usepackage{vmargin}
 \usepackage{\econtexSetup}\usepackage{\econtexShortcuts}
 
-%\begin{document}\bibliographystyle{\econtexBibStyle}\citet{kmvHANK}\bibliography{LiqConstr,LiqConstr-Add,economics}\end{document}
+\usepackage[en-US]{datetime2}\DTMlangsetup{showdayofmonth=true}
 
 \provideboolean{ifWeb} 
 \setboolean{ifWeb}{false}
@@ -13,6 +13,8 @@
 \ifthenelse{\boolean{ifWeb}}{\usepackage{grfext}
 \PrependGraphicsExtensions*{.svg,.jpg,.JPG,.png,.PNG,.pdf,.PDF}
 }{}
+\providecommand{\versn}{} % Version; like, web or pdf or journal submission
+\ifthenelse{\boolean{ifWeb}}{  \renewcommand{\ushort}{\underline}\renewcommand{\versn}{Web} }{} % ushort does not work in tex4ht
 
 
 %%% Private: The stuff below switches on and off the creation of the files in the "Sections" subdirectory
@@ -46,7 +48,6 @@
 \newtheorem{corollary}{Corollary}
 \newtheorem{prop}{Proposition}
 
-\usepackage[en-US]{datetime2}\DTMlangsetup{showdayofmonth=true}
 \renewcommand{\cite}{\citeyear}
 
 \setmarginsrb{1in}{1in}{1in}{1.4in}{0pt}{0pt}{0pt}{.3in} %%% Private : Large font for easy viewing and editing on small screen 
@@ -63,7 +64,7 @@
 
 \begin{document}\bibliographystyle{\econtexBibStyle}
 
-\hfill{\tiny \texname}
+\hfill{\tiny \texname~\versn~\today~{at} \DTMcurrenttime, \input{.git-source-commit}~~\input{.git-public-commit}}
 
 \title{Liquidity Constraints \\ and Precautionary Saving}
 
@@ -88,10 +89,11 @@
 } % End ifWeb
 
 % \date{January 22, 2019}
-\date{\today}
+\date{October 11, 2020}
 \maketitle
 
-\jelclass{C6, D91, E21}
+\jelclass{C6, D91, E21\\
+  \href{https://econ-ark.org}{\includegraphics{./Figures/PoweredByEconARK}}}
 
 \keywords{liquidity constraints, uncertainty, precautionary saving}
 
@@ -99,29 +101,10 @@
 \hypertarget{Abstract}{}
 \begin{abstract}
     \begin{verbatimwrite}{./\texname-abstract.metadata} %%% Private
-    \noindent   We provide the analytical explanation of the interactions between precautionary saving and liquidity constraints that are regularly observed in numerical solutions to consumption/saving models. The effects of constraints and uncertainty spring from the same cause: concavification of the consumption function, which can be induced either by constraints, uncertainty, or both. But surprisingly, once a linear consumption function has been concavified, the introduction of \textit{additional} risks or constraints can \textit{reduce} the precautionary motive at some levels of wealth.  
+    We provide the analytical explanation of strong interactions between precautionary saving and liquidity constraints that are regularly observed in numerical solutions to consumption/saving models.  The effects of constraints and of uncertainty spring from the same cause: counterclockwise concavification of the consumption function, which can be induced either by constraints or by uncertainty.  Such concavification propagates back to consumption functions in prior periods.  But, surprisingly, once a linear consumption function has been concavified by the presence of either risks or constraints, the introduction of \textit{additional} concavifiers in a given period can \textit{reduce} the precautionary motive in earlier periods at some levels of wealth.  
   \end{verbatimwrite}\ifVerbatimWrite{\input{./\texname-abstract.metadata}}{} %%% Private
 \end{abstract}
 
-
-\ifthenelse{\boolean{ifWeb}}{}{\begin{small}}
-%\parbox{\textwidth}{
-  \begin{center}
-\begin{tabbing}
-%  \texttt{Econ-ARK:~} \= \= \url{http://econ.jhu.edu/people/ccarroll/papers/LiqConstr.pdf} \kill \\  % This line establishes the locations of the tabs, but is not printed because of the \kill directive
-\texttt{~~~~Repo:~} \= \= \url{https://github.com/llorracc/LiqConstr}  \\
-%\texttt{~~~~~PDF:~} \> \> \url{http://econ.jhu.edu/people/ccarroll/papers/LiqConstr.pdf} \\
-\texttt{~~~~~Web:~} \> \> \url{http://econ.jhu.edu/people/ccarroll/papers/LiqConstr/} \\
-%\texttt{~BibTeX:~} \> \> \url{http://econ.jhu.edu/people/ccarroll/papers/LiqConstr.bib} \\
-%\texttt{Archive:~} \> \> \url{http://econ.jhu.edu/people/ccarroll/papers/LiqConstr.zip} \\
-\texttt{~~Slides:~} \> \> \url{http://econ.jhu.edu/people/ccarroll/papers/LiqConstr/LiqConstr-Slides.pdf} \\
-\texttt{Econ-ARK:~} \> \> \url{http://github.com/Econ-ARK/REMARK/tree/master/REMARKs/LiqConstr.md} \\
-\texttt{~Jupyter:~} \> \> \href{https://mybinder.org/v2/gh/econ-ark/REMARK/LiqConstr?filepath=REMARKs\%2FLiqConstr\%2FLiqConstr.ipynb}{Live MyBinder.org Jupyter notebook producing the figures} \\
-\end{tabbing}
-\end{center}
-%}
-
-\ifthenelse{\boolean{ifWeb}}{}{\end{small}}
 
 \hypersetup{pdfauthor={Christopher Carroll <ccarroll@jhu.edu>, Martin Holm <martin.b.holm@outlook.com>, Miles Kimball <miles.kimball@colorado.edu>},
             pdftitle={Liquidity Constraints and Precautionary Saving},
@@ -138,21 +121,74 @@
 
 \name{Kimball: Department of Economics, University of Colorado at Boulder, email:  \href{mailto:miles.kimball@colorado.edu}{\texttt{miles.kimball@colorado.edu}}}
 \end{authorsinfo}
-\thanks{This paper supercedes NBER working paper no.\ 8496 from 2001. We are grateful to Mark Huggett for suggesting the current proof of one of our lemmas, Luigi Pistaferri, Misuka Otsuka, and to conference participants in the conferences ``Macroeconomics and Household Borrowing'' sponsored by the Finance and Consumption program and the European University in May 2005 and ``Household Choice of Consumption, Housing, and Portfolio'' at CAM in Copenhagen in June 2005. Kimball is grateful to the National Institute on Aging for research support via grant P01-AG10179 to the University of Michigan.}
+% Various resources 
+\hypertarget{links}{}
+\begin{small}
+  \parbox{\textwidth}{
+    \begin{center}
+      \begin{tabbing}
+        % \texttt{~Archive:~} \= \= \url{https://www.econ2.jhu.edu/people/ccarroll/LiqConstr.zip} \\  %
+        \texttt{Dashboard:~} \= \= \url{https://econ-ark.org/materials/LiqConstr?dashboard} \\
+        \texttt{~~~~~~PDF:~} \> \> \url{https://llorracc.github.io/LiqConstr/LiqConstr.pdf} \\
+        \texttt{~~~Slides:~} \> \> \url{https://llorracc.github.io/LiqConstr/LiqConstr-Slides.pdf} \\
+        \texttt{~~~~~html:~} \> \> \url{https://llorracc.github.io/LiqConstr/LiqConstr/}    \\
+        \texttt{~~~bibtex:~} \> \> \url{https://llorracc.github.io/LiqConstr/LiqConstr-Self.bib}  \\
+        \texttt{~~~GitHub:~} \> \> \url{https://github.com/llorracc/LiqConstr} \\
+        % \texttt{~~~~~~~~~~} \> \> \textit{(In GitHub repo, see \texttt{/Code} for tools for solving and simulating the model)} \\
+      \end{tabbing}
+    \end{center}
+
+    The \href{https://econ-ark.org/materials/LiqConstr?dashboard}{dashboard} will launch a live interactive \href{https://en.wikipedia.org/wiki/Project\_Jupyter\#Jupyter_Notebook}{Jupyter Notebook} that uses the \href{https://econ-ark/HARK}{Econ-ARK/HARK} toolkit to produce all of the paper's figures (warning: the dashboard may take several minutes to launch).
+  } % end parbox{\textwidth}
+\end{small}
+
+
+
+\newcommand{\thankstext}{This paper supercedes NBER working paper no.\ 8496 from 2001. We are grateful to Mark Huggett for suggesting the current proof of one of our lemmas, Luigi Pistaferri, Misuka Otsuka, and to conference participants in the conferences ``Macroeconomics and Household Borrowing'' sponsored by the Finance and Consumption program and the European University in May 2005 and ``Household Choice of Consumption, Housing, and Portfolio'' at CAM in Copenhagen in June 2005. Kimball is grateful to the National Institute on Aging for research support via grant P01-AG10179 to the University of Michigan.  }
+
+\ifthenelse{\boolean{ifWeb}}{}{\thanks{\thankstext}} % If not web, put on title page
 
 \titlepagefinish
+% % \begin{Web}
+% %   If web version, then just incorporate thanks at beginning of text
+% %   instead of in frontmatter
+%   \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\tiny
+%   \thankstext \medskip \medskip \medskip
+% }}{\pagebreak 
+% } % \end{Web}
+%%%   \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}}{\pagebreak } % \end{Web}
 \setcounter{page}{1}
 
 \setcounter{footnote}{0}
 
+% \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext} \\ \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}{\pagebreak } % \end{Web}
+
+% If web version, then just incorporate thanks at beginning of text instead of in frontmatter
+% \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext} \\  {\centering \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}}{\pagebreak } % \end{Web}
+
+\ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext} \\  \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}{\pagebreak } % \end{Web}
+
+\noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax
 \hypertarget{Introduction}{}
 \section{Introduction}\label{sec:Intro}
+\begin{Private}
 \ifthenelse{\boolean{bigdouble}}{\large}{} %%% Private
 
 
   \hypertarget{MainMessage}{}
-  \begin{verbatimwrite}{./Sections/Intro.tex} %%% Private
+  \begin{verbatimwrite}{./Highlighted/MainMessage}
+    This is where we will put the ``main message''.
     
+    \begin{enumerate}
+    \item Result 1: Liquidity constraints cause consumption concavity. 
+    \item Implication: Liquidity constraints and risks are very similar, both cause consumption concavity - and consumption concavity is what causes prudence and precautionary saving.
+    \item Hence, liquidity constraints also cause more precautionary saving to an immediate risk. 
+    \item At last, the most general results: the consumption function is concave in the presence of all future risks and constraints; thus precautionary saving is higher in a model with risks and constraints than in a setting where there are no constraints or risks. 
+    \end{enumerate}
+  \end{verbatimwrite}
+\end{Private}
+
+  \begin{verbatimwrite}{./Sections/Intro.tex} %%% Private
 %Numerical solutions have now supplanted analytical methods for modeling consumption/saving choices, because analytical solutions are not available for realistic descriptions of utility, uncertainty, and constraints.
 A large literature has shown that numerical models that take constraints and uncertainty seriously can yield different conclusions than those that characterize traditional models. For example, \citet{kmvHANK} show that when sufficiently many households have high marginal propensities to consume (MPC's), a major transmission channel of monetary policy is the `indirect income effect' -- a channel of minimal importance in traditional macro models. Similarly, \citet{glLiq} and \citet{blPrecautionary} show that tightened borrowing conditions and heightened income risk can help explain the consumption decline during the great recession. 
 % Further, \citet{kmpHandbook} show that numerically realistic models can match the empirical finding that the drop in consumption spending during the great recession was heavily concentrated in the middle class.
@@ -213,6 +249,8 @@ The rest of the paper is structured as follows. To fix notation and ideas, the n
 
 \end{verbatimwrite}\ifVerbatimWrite{\input{./Sections/Intro.tex}}{} %%% Private
 
+\clearpage\pagebreak
+
 \hypertarget{SetupIntro}{}
 \section{The Setup}\label{sec:Setup}
 %\subfile{Sections/Setup}
@@ -254,6 +292,8 @@ with $\alpha_2  > \max\{- \alpha_1 c,0\}$. Note that that \eqref{eq:HARA} also c
 
 
 \end{verbatimwrite}\ifVerbatimWrite{\input{Sections/Setup}}{} %%% Private
+
+\bibliography{LiqConstr,LiqConstr-Add,economics}\end{document}
 
 
 \section{Consumption Concavity and Prudence}\label{sec:PrudAndCC}
@@ -1252,4 +1292,22 @@ Thus, we have shown that for ${m} \leq 1 $ and for ${m} > 1$ in the limit as $p 
 
 
 \end{document}
-
+% Local Variables:
+% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) ./LaTeX/%s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) ./LaTeX/%s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) LaTeX/%s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) LaTeX/%s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "bibtex LaTeX/%s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "bibtex LaTeX/%s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") TeX-command-list))
+% eval: (add-to-list 'TeX-command-list	'("BibTeX" "%(bibtex) %s" TeX-run-BibTeX nil t :help "Run BibTeX") t)
+% TeX-PDF-mode: t
+% TeX-file-line-error: t
+% TeX-debug-warnings: t
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) %S%(PDFout)"))
+% TeX-source-correlate-mode: t
+% TeX-source-correlate-start-server: 0
+% TeX-parse-self: t
+% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n %o %b"))))))
+% TeX-parse-all-errors: t
+% End:
