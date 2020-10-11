@@ -20,8 +20,8 @@
 
 
 %% Private: The stuff below switches on and off the creation of the files in the "Sections" subdirectory
-%%% Sections was useful when constructing the paper so that individual parts could be edited independently
-%%% It is now a legacy and is preserved mainly as a template for how to do this for future projects
+%% Sections was useful when constructing the paper so that individual parts could be edited independently
+%% It is now a legacy and is preserved mainly as a template for how to do this for future projects
 \newboolean{verbatimwriteOn}        %% Private
 \setboolean{verbatimwriteOn}{false}  %% Private
 % \setboolean{verbatimwriteOn}{false} %% Private
@@ -90,7 +90,7 @@
   }
 } % End ifWeb
 
-%%% \date{January 22, 2019}
+%% \date{January 22, 2019}
 \date{October 11, 2020}
 \maketitle
 
@@ -151,22 +151,22 @@
 \ifthenelse{\boolean{ifWeb}}{}{\thanks{\thankstext}} % If not web, put on title page
 
 \titlepagefinish
-%%% % \begin{Web}
-%%% %   If web version, then just incorporate thanks at beginning of text
-%%% %   instead of in frontmatter
-%%%   \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\tiny
-%%%   \thankstext \medskip \medskip \medskip
-%%% }}{\pagebreak 
-%%% } % \end{Web}
-%%%   \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}}{\pagebreak } % \end{Web}
+%% % \begin{Web}
+%% %   If web version, then just incorporate thanks at beginning of text
+%% %   instead of in frontmatter
+%%   \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\tiny
+%%   \thankstext \medskip \medskip \medskip
+%% }}{\pagebreak 
+%% } % \end{Web}
+%%   \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}}{\pagebreak } % \end{Web}
 \setcounter{page}{1}
 
 \setcounter{footnote}{0}
 
 % \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext} \\ \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}{\pagebreak } % \end{Web}
 
-%%% If web version, then just incorporate thanks at beginning of text instead of in frontmatter
-%%% \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext} \\  {\centering \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}}{\pagebreak } % \end{Web}
+%% If web version, then just incorporate thanks at beginning of text instead of in frontmatter
+%% \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext} \\  {\centering \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}}{\pagebreak } % \end{Web}
 
 \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext} \\  \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}{\pagebreak } % \end{Web}
 
@@ -234,7 +234,7 @@
   %% Old: 
   %% Old: The rest of the paper is structured as follows. To fix notation and ideas, the next section sets out our general theoretical framework. The third section shows that concavity of the consumption function heightens prudence.  The fourth section shows how concavity, whether induced by constraints or uncertainty, propagates to previous periods. Section 5 shows how the introduction of a constraint creates a precautionary saving motive. The sixth section shows when the introduction of additional liquidity constraints beyond the first constraint increases the precautionary motive at any given level of wealth.  The fact that this does not always occur means that the introduction of constraints or uncertainty can weaken the effects of pre-existing constraints or uncertainty. The final section concludes.
 
-\end{verbatimwrite}\ifVerbatimWrite{\input{./Sections/Intro.tex}}{} %%%% Old: Private
+\end{verbatimwrite}\ifVerbatimWrite{\input{./Sections/Intro.tex}}{} %%% Old: Private
 
 \clearpage\pagebreak
 
@@ -1156,7 +1156,7 @@ In addition, we provide an explanation of the apparently contradictory results t
     %% Old:   \\  \hat{c}(\kappa_{t,n+1}+\zeta) & = & c_{t+1,n+1}({s}_{t,n+1}+{y}+\kappa_{t,n+1}+\zeta)\label{eq:gravecnoconstr2}.
     %% Old:  \end{eqnarray}
     %% Old:	Now recall that Lemma~\ref{lemma:kimpratt} tells us that if absolute prudence of $u'(c(\kappa_{t,n}+\zeta))$ is identical to absolute prudence of $u'(\hat{c}(\kappa_{t,n+1}+\zeta))$ for every realization of $\zeta$, then $\kappa_{t,n}=\kappa_{t,n+1}$. This can only be true if ${m}_{t+1} \geq \wAlt_{t+1,n+1}$ for any realization of $\zeta \in (\underline{\zeta}, \bar{\zeta})$. We defined this limit as ${m}_{t+1} \geq {\bar{\wAlt}}_{t,n+1}$. We therefore know that $\kappa_{t,n+1}  = \kappa_{t,n}$ if ${{m}} \geq {\bar{\wAlt}}_{t,n+1}$ and $\kappa_{t,n+1} > \kappa_{t,n}$ if ${{m}} < {\bar{\wAlt}}_{t,n+1}$. Equation \eqref{eq:psidiffint2} is therefore strictly positive if ${{m}} < {\bar{\wAlt}}_{t,n+1}$ and we have proven Theorem \ref{thm:riskandconstraints}.
-    %%% 
+    %% 
   \end{proof}
 
   \section{Resemblance Between Precautionary Saving and a Liquidity Constraint} \label{app:similar}
