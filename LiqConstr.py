@@ -2,12 +2,11 @@
 # jupyter:
 #   jupytext:
 #     formats: ipynb,py:light
-#     notebook_metadata_filter: all
 #     text_representation:
 #       extension: .py
 #       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.6.0
+#       format_version: '1.3'
+#       jupytext_version: 0.8.3
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -21,7 +20,7 @@
 #     name: python
 #     nbconvert_exporter: python
 #     pygments_lexer: ipython3
-#     version: 3.7.4
+#     version: 3.6.6
 #   varInspector:
 #     cols:
 #       lenName: 16
@@ -44,7 +43,7 @@
 #     - builtin_function_or_method
 #     - instance
 #     - _Feature
-#     window_display: false
+#     windo{m}_display: false
 # ---
 
 # # Liquidity Constraints and Precautionary Saving
@@ -56,12 +55,12 @@
 # | Path | Content | 
 # | --- | --- |
 # |./Figures/       | Figures created by the code |
-# | reproduce.sh | bash file to reproduce this notebook |
+# | do_all.py | iPython-runnable |
 # | LiqConstr.tex | LaTeX to create the paper |
 #
 #
 
-# + code_folding=[0, 9]
+# + {"code_folding": [0, 9]}
 # This cell does some setup and imports generic tools used to produce the figures
 
 # Import related generic python packages
@@ -124,13 +123,13 @@ from HARK.ConsumptionSaving.ConsIndShockModel import IndShockConsumerType
 # Define all parameters of three type of settings that we need to produce the three figures in the paper. 
 #
 
-# + code_folding=[0]
+# + {"code_folding": [0]}
 # Common parameters for all models (the initialized lifecycle perfect foresight type with no borrowing constraint)
 
 # load default parameteres from the lifecycle model in the HARK toolbox
-from HARK.ConsumptionSaving.ConsIndShockModel import init_lifecycle
+from HARK.ConsumptionSaving.ConsumerParameters import init_lifecycle
 
-# remove all risk and growth factors, borrowing constraints, and set the solver to always use linear interpolation
+# remove all risk and growth factors, borrowing constraints, and set the solver to always use the cubic tool
 init_lifecycle["PermGroFac"] = [1,1,1,1,1,1,1,1,1,1]
 init_lifecycle["LivPrb"] = [1,1,1,1,1,1,1,1,1,1]
 init_lifecycle["DiscFac"] = 1/1.03
@@ -139,7 +138,7 @@ init_lifecycle["UnempPrb"] = 0
 init_lifecycle["TranShkStd"] = [0,0,0,0,0,0,0,0,0,0,0]
 init_lifecycle["PermShkStd"] = [0,0,0,0,0,0,0,0,0,0,0]
 init_lifecycle["BoroCnstArt"] = [None,None,None,None,None,None,None,None,None,None]
-init_lifecycle["CubicBool"] = False
+init_lifecycle["CubicTool"] = True  
 
 # add the second type of lifecycle agent with unemployment risk
 init_lifecycle_risk1 = dict(init_lifecycle)
@@ -150,11 +149,25 @@ init_lifecycle_risk1["UnempPrb"] = 0.05
 init_lifecycle_risk2 = dict(init_lifecycle)
 init_lifecycle_risk2["TranShkStd"] = [0,0.5,0,0,0,0,0,0,0,0,0]
 
+# the lifecycle type with only one-period future transitory risk
+init_lifecycle_risk3 = dict(init_lifecycle)
+init_lifecycle_risk3["TranShkStd"] = [0,0,0,0.5,0,0,0,0,0,0,0]
+#
+init_lifecycle_risk4 = dict(init_lifecycle)
+init_lifecycle_risk4["TranShkStd"] = [0,0,0.5,0,0,0,0,0,0,0,0]
+
+init_lifecycle_risk5 = dict(init_lifecycle)
+init_lifecycle_risk5["TranShkStd"] = [0,0.5,0,0,0,0,0,0,0,0,0]
+
+init_lifecycle_risk6 = dict(init_lifecycle)
+init_lifecycle_risk6["TranShkStd"] = [0,0.5,0.5,0,0,0,0,0,0,0,0]
+
+
 # -
 # ## Counterclockwise Concavification
 #
 
-# + code_folding=[0]
+# + {"code_folding": [0]}
 # This figure illustrates how both risks and constraints are examples of counterclockwise concavifications. 
 # It plots three lines: the linear consumption function of a perfect foresight consumer, the kinked consumption 
 # function of a consumer who faces a constraint, and the curved consumption function of a consumer that faces risk. 
@@ -165,20 +178,23 @@ CCC_unconstr = IndShockConsumerType(**init_lifecycle)
 CCC_unconstr.delFromTimeInv('BoroCnstArt')
 CCC_unconstr.addToTimeVary('BoroCnstArt')
 CCC_unconstr.solve()
-CCC_unconstr.unpack("cFunc")
+CCC_unconstr.unpackcFunc()
+CCC_unconstr.timeFwd()
 
 CCC_constraint = IndShockConsumerType(**init_lifecycle)
 CCC_constraint.delFromTimeInv('BoroCnstArt')
 CCC_constraint.addToTimeVary('BoroCnstArt')
-CCC_constraint.BoroCnstArt = [None,-1,None,None,None,None,None,None,None,None]
+CCC_constraint(BoroCnstArt = [None,-1,None,None,None,None,None,None,None,None])       
 CCC_constraint.solve()
-CCC_constraint.unpack("cFunc")
+CCC_constraint.unpackcFunc()
+CCC_constraint.timeFwd()
 
 CCC_risk = IndShockConsumerType(**init_lifecycle_risk1)
 CCC_risk.delFromTimeInv('BoroCnstArt')
 CCC_risk.addToTimeVary('BoroCnstArt')
 CCC_risk.solve()
-CCC_risk.unpack("cFunc")
+CCC_risk.unpackcFunc()
+CCC_risk.timeFwd()
 
 # save the data in a txt file for later plotting in Matlab
 x = np.linspace(-1,1,500,endpoint=True)
@@ -200,8 +216,8 @@ plt.plot(x,y3,color="black",linestyle="--")
 plt.tick_params(labelbottom=False, labelleft=False,left='off',right='off',bottom='off',top='off')    
 
 plt.text(-1.2,1.0,"$c$",fontsize=14)    
-plt.text(1.12,0.42,"$w$",fontsize=14) 
-plt.text(-0.25,0.42,"$w^{\#}$",fontsize=14) 
+plt.text(1.12,0.42,"${m}$",fontsize=14) 
+plt.text(-0.25,0.42,"${m}^{\#}$",fontsize=14) 
 plt.plot([-0.23, -0.23],[0.45,0.87],color="black",linestyle=":",linewidth=1)
 plt.ylim(0.465,1.0)
 
@@ -221,7 +237,7 @@ f.savefig(os.path.join(figures_dir, 'CounterclockwiseConcavifications.svg'))
 # ## How a current constraint can hide a future kink
 #
 
-# + code_folding=[0]
+# + {"code_folding": [0]}
 # This figure illustrates how a the introduction of a current constraint can hide/move a kink that was induced by a future constraint. 
 
 # To construct this figure, we plot two consumption functions: 
@@ -235,17 +251,19 @@ f.savefig(os.path.join(figures_dir, 'CounterclockwiseConcavifications.svg'))
 Bcons1 = IndShockConsumerType(**init_lifecycle)
 Bcons1.delFromTimeInv('BoroCnstArt')
 Bcons1.addToTimeVary('BoroCnstArt')
-Bcons1.BoroCnstArt = [None,0,None,None,None,None,None,None,None,None]
+Bcons1(BoroCnstArt = [None,0,None,None,None,None,None,None,None,None])       
 Bcons1.solve()
-Bcons1.unpack("cFunc")
+Bcons1.unpackcFunc()
+Bcons1.timeFwd()
 
 # Make and solve the consumer with more than one binding borrowing constraint
 BCons2 = IndShockConsumerType(**init_lifecycle)
 BCons2.delFromTimeInv('BoroCnstArt')
 BCons2.addToTimeVary('BoroCnstArt')
-BCons2.BoroCnstArt = [None,0,0.02,None,None,None,None,None,None,None]
+BCons2(BoroCnstArt = [None,0,0.02,None,None,None,None,None,None,None])
 BCons2.solve()
-BCons2.unpack("cFunc")
+BCons2.unpackcFunc()
+BCons2.timeFwd()    
 
 # save the data in a txt file
 x = np.linspace(1,1.2,500,endpoint=True)
@@ -273,15 +291,15 @@ plt.ylim(0.98,1.025)
 plt.tick_params(labelbottom=False, labelleft=False,left='off',right='off',bottom='off',top='off')    
 
 plt.text(0.99,1.025,"$c$",fontsize=14)    
-plt.text(1.20,0.978,"$w$",fontsize=14)  
+plt.text(1.20,0.978,"${m}$",fontsize=14)  
 
-plt.text(0.97, 1.0015,"$\hat{c}_{t,2}(w_{t,1})$", fontsize=14) 
+plt.text(0.97, 1.0015,"$\hat{c}_{t,2}(\omega_{t,1})$", fontsize=14) 
 plt.text(0.988, 1.006,"${c}_{t,1}^{\#}$", fontsize=14) 
 plt.text(0.988, 1.019,"$\hat{c}_{t,1}^{\#}$", fontsize=14)    
 
-plt.text(1.064, 0.977,"$w_{t,1}$", fontsize=14) 
-plt.text(1.05, 0.977,"$\hat{w}_{t,2}$", fontsize=14) 
-plt.text(1.18, 0.977,"$\hat{w}_{t,1}$", fontsize=14)        
+plt.text(1.064, 0.977,"$\omega_{t,1}$", fontsize=14) 
+plt.text(1.05, 0.977,"$\hat{\omega}_{t,2}$", fontsize=14) 
+plt.text(1.18, 0.977,"$\hat{\omega}_{t,1}$", fontsize=14)        
 
 plt.plot([1, 1.064],[1.0068,1.0068],color="black",linestyle="--")
 plt.plot([1, 1.064],[1.0015, 1.0015],color="black",linestyle="--")
@@ -297,7 +315,7 @@ f.savefig(os.path.join(figures_dir, 'CurrConstrHidesFutKink.svg'))
 
 # ## Consumption function with and without a constraint and a risk
 
-# + code_folding=[0]
+# + {"code_folding": [0]}
 # This figure illustrates how the effect of risk is greater if there already exists a constraint. 
 
 # Initialize four types: unconstrained perfect foresight, unconstrained with risk, constrained perfect foresight, and constrained with risk. 
@@ -306,28 +324,32 @@ WwCR_unconstr = IndShockConsumerType(**init_lifecycle)
 WwCR_unconstr.delFromTimeInv('BoroCnstArt')
 WwCR_unconstr.addToTimeVary('BoroCnstArt')
 WwCR_unconstr.solve()
-WwCR_unconstr.unpack("cFunc")
+WwCR_unconstr.unpackcFunc()
+WwCR_unconstr.timeFwd()
 
 WwCR_risk = IndShockConsumerType(**init_lifecycle_risk2)
 WwCR_risk.delFromTimeInv('BoroCnstArt')
 WwCR_risk.addToTimeVary('BoroCnstArt')
 WwCR_risk.solve()
-WwCR_risk.unpack("cFunc")
+WwCR_risk.unpackcFunc()
+WwCR_risk.timeFwd()
 
 WwCR_constr = IndShockConsumerType(**init_lifecycle)
 WwCR_constr.cycles = 1 # Make this consumer live a sequence of periods exactly once
 WwCR_constr.delFromTimeInv('BoroCnstArt')
 WwCR_constr.addToTimeVary('BoroCnstArt')
-WwCR_constr.BoroCnstArt = [None,None,-6,None,None,None,None,None,None,None]
+WwCR_constr(BoroCnstArt = [None,None,-6,None,None,None,None,None,None,None])
 WwCR_constr.solve()
-WwCR_constr.unpack("cFunc")
+WwCR_constr.unpackcFunc()
+WwCR_constr.timeFwd()
 
 WwCR_constr_risk = IndShockConsumerType(**init_lifecycle_risk2)
 WwCR_constr_risk.delFromTimeInv('BoroCnstArt')
 WwCR_constr_risk.addToTimeVary('BoroCnstArt')
-WwCR_constr_risk.BoroCnstArt = [None,None,-6,None,None,None,None,None,None,None]
+WwCR_constr_risk(BoroCnstArt = [None,None,-6,None,None,None,None,None,None,None])
 WwCR_constr_risk.solve()
-WwCR_constr_risk.unpack("cFunc")
+WwCR_constr_risk.unpackcFunc()
+WwCR_constr_risk.timeFwd()
 
 # save the data in a txt file
 x = np.linspace(-8,-4,1000,endpoint=True)
@@ -352,7 +374,7 @@ plt.plot(x,y4,color="black",linestyle="--")
 plt.xlim(left=-8,right=-4.5)
 plt.ylim(0,0.30)
 plt.text(-8.15,0.305,"$c$",fontsize=14)    
-plt.text(-4.5,-0.02,"$w$",fontsize=14)  
+plt.text(-4.5,-0.02,"${m}$",fontsize=14)  
 plt.text(-6,0.25,"${c}_{t,0}$",fontsize=14)
 plt.text(-5.2,0.25,r"$\tilde{c}_{t,0}$",fontsize=14)
 plt.text(-7.45,0.02,"${c}_{t,1}$",fontsize=14)
@@ -367,9 +389,9 @@ plt.arrow(-7.25,0.025,0.45,0.0,head_width=0.005,head_length=0.05,facecolor='blac
 plt.plot([-6.5,-6.5],[0,0.145],color="black",linestyle=":")
 plt.plot([-5.88,-5.88],[0,0.2],color="black",linestyle=":")
 
-#plt.text(-6.2,-0.02,r"$\underline{w}_{t,1}$",fontsize=14)    
-plt.text(-6.6,-0.02,r"${w}_{t,1}$",fontsize=14)     
-plt.text(-5.95,-0.02,r"$\bar{w}_{t,1}$",fontsize=14) 
+#plt.text(-6.2,-0.02,r"$\underline{{m}}_{t,1}$",fontsize=14)    
+plt.text(-6.6,-0.02,r"${\omega}_{t,1}$",fontsize=14)     
+plt.text(-5.95,-0.02,r"$\bar{\omega}_{t,1}$",fontsize=14) 
 
 plt.tick_params(labelbottom=False, labelleft=False,left='off',right='off',bottom='off',top='off')    
 
@@ -377,3 +399,181 @@ plt.show()
 f.savefig(os.path.join(figures_dir, 'ConsWithWithoutConstrAndRisk.pdf'))
 f.savefig(os.path.join(figures_dir, 'ConsWithWithoutConstrAndRisk.png'))
 f.savefig(os.path.join(figures_dir, 'ConsWithWithoutConstrAndRisk.svg'))
+
+
+
+# ## An Immediate Constraint Can Hide A Future Risk
+
+# + {"code_folding": [0]}
+# This figure illustrates how the effect of a constraint can hide a future risk. 
+
+# Initialize three types: uncontrained, unconstrained with risk, and constrained with risk. 
+
+
+WwCR_unconstr = IndShockConsumerType(**init_lifecycle)
+WwCR_unconstr.delFromTimeInv('BoroCnstArt')
+WwCR_unconstr.addToTimeVary('BoroCnstArt')
+WwCR_unconstr.solve()
+WwCR_unconstr.unpackcFunc()
+WwCR_unconstr.timeFwd()
+
+WwCR_risk = IndShockConsumerType(**init_lifecycle_risk3)
+WwCR_risk.delFromTimeInv('BoroCnstArt')
+WwCR_risk.addToTimeVary('BoroCnstArt')
+WwCR_risk.solve()
+WwCR_risk.unpackcFunc()
+WwCR_risk.timeFwd()
+
+WwCR_constr = IndShockConsumerType(**init_lifecycle)
+WwCR_constr.delFromTimeInv('BoroCnstArt')
+WwCR_constr.addToTimeVary('BoroCnstArt')
+WwCR_constr(BoroCnstArt = [None,None,-6,None,None,None,None,None,None,None])
+WwCR_constr.solve()
+WwCR_constr.unpackcFunc()
+WwCR_constr.timeFwd()
+
+
+WwCR_constr_risk = IndShockConsumerType(**init_lifecycle_risk3)
+WwCR_constr_risk.delFromTimeInv('BoroCnstArt')
+WwCR_constr_risk.addToTimeVary('BoroCnstArt')
+WwCR_constr_risk(BoroCnstArt = [None,None,-6,None,None,None,None,None,None,None])
+WwCR_constr_risk.solve()
+WwCR_constr_risk.unpackcFunc()
+WwCR_constr_risk.timeFwd()
+
+# save the data in a txt file
+x = np.linspace(-8,-4,1000,endpoint=True)
+y1 = WwCR_unconstr.cFunc[1](x)
+y2 = WwCR_risk.cFunc[1](x)
+y3 = WwCR_constr.cFunc[1](x)
+y4 = WwCR_constr_risk.cFunc[1](x) 
+with open(os.path.join(figures_dir, 'ConstrHidesRisk.txt'),'w') as table:
+    for row in zip(x,y1,y2,y3,y4):
+        for cell in row:
+            table.write(str(cell) + ';')
+        table.write('\n')
+
+# Display the figure
+print('Figure 4: How An Immediate Constraint Can Hide A Future Risk')
+
+f = plt.figure()
+plt.plot(x,y1,color="black",linestyle=":",linewidth=3)
+plt.plot(x,y2,color="black",linewidth=3)
+plt.plot(x,y3,color="black",linestyle="--",linewidth=3)
+#plt.plot(x,y4,color="black",linestyle="--",linewidth=3)
+plt.xlim(left=-8,right=-5.5)
+plt.ylim(0,0.20)
+plt.text(-8.15,0.205,"$c$",fontsize=14)    
+plt.text(-5.55,-0.02,"${m}$",fontsize=14)  
+plt.plot([-6.58,-6.58],[0,0.1],color="black",linestyle=":")
+plt.plot([-6.48,-6.48],[0,0.15],color="black",linestyle=":")
+plt.text(-6.66,-0.02,r"${\omega}_{t,1}^{1}$",fontsize=14)     
+plt.text(-6.5,-0.02,r"${\omega}_{t,1}^{0}$",fontsize=14)     
+
+plt.text(-7.62,0.05,r"${c}^{1}_{t,0}$",fontsize=14)
+plt.text(-7.62,0.075,r"${c}^{0}_{t,0}$",fontsize=14)
+plt.text(-6.3,0.05,r"${c}^{1}_{t,1}$",fontsize=14)
+plt.text(-7.2,0.115,r"${c}^{0}_{t,1}$",fontsize=14)
+
+plt.arrow(-7.02,0.12,0.42,0,head_width=0.005,head_length=0.05,facecolor='black',length_includes_head='True')
+plt.arrow(-7.44,0.08,0.32,0,head_width=0.005,head_length=0.05,facecolor='black',length_includes_head='True')
+plt.arrow(-6.32,0.055,-0.32,0,head_width=0.005,head_length=0.05,facecolor='black',length_includes_head='True')
+plt.arrow(-7.44,0.055,0.45,0.0,head_width=0.005,head_length=0.05,facecolor='black',length_includes_head='True')
+
+plt.tick_params(labelbottom=False, labelleft=False,left='off',right='off',bottom='off',top='off')    
+
+plt.show()
+f.savefig(os.path.join(figures_dir, 'ConstrHidesRisk.pdf'))
+f.savefig(os.path.join(figures_dir, 'ConstrHidesRisk.png'))
+f.savefig(os.path.join(figures_dir, 'ConstrHidesRisk.svg'))
+
+
+
+# ## An Immediate Risk Can Hide A Future Risk
+
+# + {"code_folding": [0]}
+# This figure illustrates how the effect of a constraint can hide a future risk. 
+
+# Initialize two types: unconstrained with risk and unconstrained with two risks. 
+
+
+## unconstrained consumer
+#WwCR_unconstr = IndShockConsumerType(**init_lifecycle)
+#WwCR_unconstr.delFromTimeInv('BoroCnstArt')
+#WwCR_unconstr.addToTimeVary('BoroCnstArt')
+#WwCR_unconstr.solve()
+#WwCR_unconstr.unpackcFunc()
+#WwCR_unconstr.timeFwd()
+#
+## 4 is risk in period 4 (1)
+#WwCR_risk4 = IndShockConsumerType(**init_lifecycle_risk4)
+#WwCR_risk4.delFromTimeInv('BoroCnstArt')
+#WwCR_risk4.addToTimeVary('BoroCnstArt')
+#WwCR_risk4.solve()
+#WwCR_risk4.unpackcFunc()
+#WwCR_risk4.timeFwd()
+#
+## 5 is risk in period 3 (0.1)
+#WwCR_risk5 = IndShockConsumerType(**init_lifecycle_risk5)
+#WwCR_risk5.delFromTimeInv('BoroCnstArt')
+#WwCR_risk5.addToTimeVary('BoroCnstArt')
+#WwCR_risk5.solve()
+#WwCR_risk5.unpackcFunc()
+#WwCR_risk5.timeFwd()
+#
+## 6 is risk in period 3 and 4 (0.1, 1)
+#WwCR_risk6 = IndShockConsumerType(**init_lifecycle_risk6)
+#WwCR_risk6.delFromTimeInv('BoroCnstArt')
+#WwCR_risk6.addToTimeVary('BoroCnstArt')
+#WwCR_risk6.solve()
+#WwCR_risk6.unpackcFunc()
+#WwCR_risk6.timeFwd()
+#
+## save the data in a txt file
+#x = np.linspace(-8,-4,1000,endpoint=True)
+#y1 = WwCR_unconstr.cFunc[1](x)
+#y2 = WwCR_risk4.cFunc[1](x)
+#y3 = WwCR_risk5.cFunc[1](x) 
+#y4 = WwCR_risk6.cFunc[1](x) 
+#with open(os.path.join(figures_dir, 'RiskHidesRisk.txt'),'w') as table:
+#    for row in zip(x,y1,y2,y3,y4):
+#        for cell in row:
+#            table.write(str(cell) + ';')
+#        table.write('\n')
+#
+## Display the figure
+#print('Figure 5: How A Curren Risk Can Hide The Effects of A Future Risk')
+#
+#f = plt.figure()
+#plt.plot(x,y1,color="black",linewidth=3)
+#plt.plot(x,y3,color="black",linestyle="--",linewidth=3)
+#plt.plot(x,y2,color="black")
+#plt.plot(x,y4,color="black",linestyle="--")
+#plt.xlim(left=-8,right=-5.5)
+#plt.ylim(0,0.20)
+#plt.text(-8.15,0.205,"$c$",fontsize=14)    
+#plt.text(-5.55,-0.02,"${m}$",fontsize=14)  
+#
+#plt.text(-7.99,0.02,r"${c}^{0}_{t-1,0}$",fontsize=14)
+#plt.text(-7.38,0.01,r"${c}^{1}_{t-1,0}$",fontsize=14)
+#
+#plt.text(-7.25,0.03,r"${c}^{1}_{t-1,0}$",fontsize=14)
+#plt.text(-6.6,0.02,r"${c}^{2}_{t-1,0}$",fontsize=14)
+#
+#plt.arrow(-6.63,0.025,-0.1,0,head_width=0.005,head_length=0.05,facecolor='black',length_includes_head='True')
+#plt.arrow(-7.42,0.015,-0.1,0,head_width=0.005,head_length=0.05,facecolor='black',length_includes_head='True')
+#
+#plt.arrow(-7.72,0.025,0.1,0.0,head_width=0.005,head_length=0.05,facecolor='black',length_includes_head='True')
+#plt.arrow(-7.0,0.035,0.15,0.0,head_width=0.005,head_length=0.05,facecolor='black',length_includes_head='True')
+#
+#plt.plot([-7,-7],[0,0.2],color="black",linestyle=":")
+#plt.text(-7.04,-0.02,r"$\bar{m}$",fontsize=14)     
+#
+#plt.tick_params(labelbottom=False, labelleft=False,left='off',right='off',bottom='off',top='off')    
+#
+#plt.show()
+#f.savefig(os.path.join(figures_dir, 'RiskHidesRisk.pdf'))
+#f.savefig(os.path.join(figures_dir, 'RiskHidesRisk.png'))
+#f.savefig(os.path.join(figures_dir, 'RiskHidesRisk.svg'))
+
+
