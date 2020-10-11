@@ -1,5 +1,8 @@
+ %% Private
+
 
   \subsection{Consumption Concavity}\label{sec:def_CC}
+  %% Old: After defining consumption concavity (`property CC'), we show that such concavity  propagates recursively; that is, once established in some period $t$, it also holds in periods before $t$ under fairly general conditions. Lastly, we define what we mean by greater consumption concavity which allows us to compare consumption functions.
   We start by defining what we mean by consumption concavity (CC) and greater consumption concavity.
 
   \begin{defn}\label{defn:IntervalStrictCC} (Local Consumption Concavity.) \\ In relation to a
@@ -26,6 +29,7 @@
   \end{lemma}
   \noindent See Appendix \ref{app:recursive} for the proof. The basic insight of Lemma \ref{lem:recursive} is that as long as the future consumption function is concave for all realizations of $y_{t+1}$, then it is also concave today. Additionally, if the the future consumption function is strictly concave for at least one realization of ${y}_{t+1}$, then the consumption function is strictly concave also today.
 
+
   The last concept we define is when a value function exhibits `greater' concavity than another. This will allow us to compare two consumption functions and their respective concavity later.
   \begin{defn}\label{defn:MoreCC} (Greater Consumption Concavity.) \\ Consider two functions $V({m})$ and $\hat{V}({m})$ that both exhibit property CC with respect to the same $u(c)$ at a point ${m}$ for some interval $({m}_1,{m}_2)$ such that ${m}_1 < {m} < {m}_2$.  Then $\hat{V}({m})$ exhibits property `greater CC' compared to $V({m})$ if
     \begin{eqnarray}
@@ -37,6 +41,9 @@
 
   \noindent If $c''$ and $\hat{c}''$ exist everywhere between ${m}_1$ and ${m}_2$, greater concavity of $\hat{c}$ is equivalent to $\hat{c}''$ being weakly larger in absolute value than $c''$ everywhere in the range from ${m}_1$ to ${m}_2$. The strict version of the proposition would require the inequality to hold strictly over some interval between ${m}_1$ and ${m}_2$.
 
+
+
+
   \subsection{Counterclockwise Concavification}\label{sec:CountC}
   The next concept we introduce is a `counterclockwise concavification,' which describes an operation that makes the modified consumption function more concave than in the original situation. The idea is to think of the consumption function in the modified situation as being a twisted version of the consumption function in the baseline situation, where the kind of twisting allowed is a progressively larger increase in the MPC as the level of market resources gets lower. We call this a `counterclockwise concavification' to capture the sense that at any specific level of market resources, one can think of the increase in the MPC at lower levels of market resources as being a counterclockwise rotation of the lower portion of the consumption function around that level of resources.
 
@@ -44,12 +51,14 @@
     Function $\hat{c}({m})$ is a counterclockwise concavification of $c({m})$ around ${m}^{\#}$ if the following conditions hold:
     \begin{enumerate}
     \item $\hat{c}({m}) = c({m})$ for ${m} \geq {m}^{\#}$
+      %% Old: \item $\lim_{\wAlt \downarrow {m}^{\#}}  \left(\frac{\hat{c}_{t}'(\wAlt)}{c_{t}'(\wAlt)}\right) = 1$
     \item $\lim_{{m} \uparrow {m}^{\#}} \left(\frac{\hat{c}'({m})}{c'({m})}\right)  \geq 1$
     \item $\lim_{\mu \uparrow {m}} \left(\frac{\hat{c}'(\mu)}{c'(\mu)}\right)$ is weakly decreasing in ${m}$ for ${m} \leq {m}^{\#}$
     \item If $\lim_{{m} \uparrow {m}^{\#}} \left(\frac{\hat{c}'({m})}{c'({m})}\right)  = 1$, then $\lim_{{m} \uparrow {m}^{\#}} \left(\frac{\hat{c}''({m})}{c''({m})}\right) > 1$
     \end{enumerate}
   \end{defn}
   \noindent The limits in the definition are necessary to allow for the possibility of discrete drops in the MPC at potential `kink points' in the consumption functions. To understand counterclockwise concavification, it is useful to derive its implied properties.
+
 
   \begin{lemma}\label{lem:counterclockwise}(Properties of a Counterclockwise Concavification.) \\
     If $\hat{c}({m})$ is a counterclockwise concavification of $c({m})$ around ${m}^{\#}$ and $c''({m}) \leq 0$ for all ${m}$, then
@@ -81,10 +90,18 @@
 
   \noindent Figure \ref{fig:counterclockwise} illustrates two examples of counterclockwise concavifications: the introduction of a constraint or a risk. In both cases, we start from the situation with no risk or constraints (solid line). The constraint causes a counterclockwise concavification around a kink point ${m}^{\#}$. Below ${m}^{\#}$, consumption is lower and the MPC is greater. The introduction of a risk also generates a counterclockwise concavification of the original consumption function, but this time around $\infty$ as described in Lemma \ref{lem:ccrisk}. % For ${m} < \infty$, consumption is lower, the MPC is higher, and the consumption function is strictly more concave than in the original situation (solid line).
 
+
+
+
   \subsection{A Counterclockwise Concavification Increases Prudence}\label{sec:CCPrud}
   The section above defined a counterclockwise concavification which describes the effects of either a constraint or a risk on consumption concavity. This section shows the relationship between consumption concavity and prudence. Our method is to compare prudence in a \textit{baseline} case where the consumption function is $c({m})$ to prudence in a \textit{modified} situation in which the consumption function $\hat{c}({m})$ is a counterclockwise concavification of the baseline consumption function.
 
   The first result relates to the effects of a counterclockwise concavification on the absolute prudence of the value function, $-\frac{V'''({m})}{V''({m})}$.
+  %% Old: \begin{defn}\label{defn:prudence}(Absolute Prudence of the Value Function.) \\
+  %%   Old:   Absolute prudence of the value function is defined as $-\frac{V'''({m})}{V''({m})}$.
+  %%   Old: \end{defn}
+  %% Old:
+
 
   \begin{lemma}\label{lem:CCToPrud}  (A Counterclockwise Concavification Increases Prudence.) \\
     Consider an agent who has a utility function %of the HARA class \eqref{eq:HARA}
@@ -94,10 +111,17 @@
   \noindent See Appendix \ref{app:CCToPrud} for the proof. To understand the effects on prudence of a counterclockwise concavification, note that for a twice differentiable consumption function and thrice differentiable utility function, absolute prudence of the value function is defined as
   \begin{equation} -\frac{V'''({m})}{V''({m})} = - \frac{u'''(c({m}))}{u''(c({m}))}c'({m}) - \frac{c''({m})}{c'({m})} \label{eq:prudence}\end{equation}
   by the envelope condition. The results in Lemma \ref{lem:CCToPrud} follow directly. Lemma \ref{lem:CCToPrud} additionally handles cases where the consumption function is not necessarily twice differentiable.
+
   There are three channels through which a counterclockwise concavification heightens prudence. First, the increase in consumption concavity from the counterclockwise concavification itself heightens prudence. Second, if the absolute prudence of the utility function is non-increasing, then the reduction in consumption (for some states) from the counterclockwise concavification heightens prudence (at those states). And third, the higher marginal propensity to consume (MPC) from the counterclockwise concavification means that any given variation in market resources results in larger variation in consumption, increasing prudence. The channels operate separately, implying that a counterclockwise concavification heightens prudence \textit{even if absolute prudence is zero} as in the quadratic case.\footnote{cf.\ Nishiyama (\citeyear{nishiyama2012concavity})}
+
   Lemma \ref{lem:CCToPrud} only provides conditions for when the value function exhibits greater prudence, but not \textit{strictly} greater prudence. In particular, the value function associated with $\hat{c}({m})$ will in some cases (e.g., quadratic utility) have equal prudence most ${m}$ and strictly greater prudence only for some ${m}$. In Lemma \ref{lem:ccandstrictprud}, we provide conditions for when the value function has strictly greater prudence.
+
   \begin{lemma} \label{lem:ccandstrictprud}(A Counterclockwise Concavification Strictly Increases Prudence.)\\
     Consider an agent who has a utility function with $u' > 0$, $u'' < 0$, $u''' \geq 0$, and non-increasing absolute prudence ($-u'''/u''$). If $c({m})$ is concave and $\hat{c}({m})$ is a counterclockwise concavification of $c({m})$ around ${m}^{\#}$, then the value function associated with $\hat{c}({m})$ exhibits strictly greater prudence than the value function associated with $c({m})$ if the utility function satisfies $u''' > 0$ and ${m} < {m}^{\#}$ or the utility function is quadratic ($u''' = 0$) and $\frac{\hat{c}'({m})}{c'({m})}$ strictly declines at ${m}$.
   \end{lemma}
   \noindent See Appendix \ref{app:ccandstrictprud} for the proof. For prudent consumers ($u''' > 0$), the value function exhibits strictly greater prudence for all $m$ where the counterclockwise concavification affects consumption. This is because a reduction in consumption and higher marginal propensity to consume heighten prudence if the utility function has a positive third derivative and prudence is non-increasing. If the utility function instead is quadratic, the third derivative is zero and absolute prudence of the value function does not depend on the level of consumption or the marginal propensity to consume. In this case, the counterclockwise concavification only affects prudence at the kink points in the consumption function (where $\frac{\hat{c}'({m})}{c'({m})}$ strictly declines at ${m}$).
+
   We have now defined consumption concavity and the operation called a counterclockwise concavification. In particular, we have shown that a counterclockwise concavification heightens prudence, which is related the precautionary saving. The next section shows how the introduction of a liquidity constraint is a counterclockwise concavification before we use the tools derived in this section to provide the link between liquidity constraints and precautionary saving in Section \ref{sec:LCandPS}.
+
+
+
