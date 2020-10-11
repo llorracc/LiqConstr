@@ -64,148 +64,8 @@
   % {left}{top}{right}{bottom} %% Private : Large font for easy viewing and editing on small screen
 }{} %% Private : Large font for easy viewing and editing on small screen
 
-\begin{document}
-\centerline{\LARGE Appendix}
-\medskip
-
-
-
-  \section{Proof of Lemma \ref{lem:recursive}}\label{app:recursive}
-
-  \begin{proof}
-    First, to facilitate readability of the proof, we assume that $R = \beta = 1$ with no loss of generality. Our goal is to prove that $V({m}_{t}) \in CC$ if $V_{t+1}({a}_{t} + {y}_{t+1}) \in CC$ for all realizations of ${y}_{t+1}$. The proof proceeds in two steps. First, we show that property CC is preserved through the expectation operator (vertical aggregation), i.e.\ that $\Omega({a}_{t}) = \Ex_t[V_{t+1}({a}_{t} + {y}_{t+1})] \in CC$ if $V_{t+1}({a}_{t} + {y}_{t+1}) \in CC$ for all realizations of ${y}_{t+1}$. Second, we show that property CC is preserved through the value function operator (horizontal aggregation), i.e.\ that $V({m}_{t}) = \max_{s} u(c_t({m}_{t} - s)) + \Omega(s) \in CC$ if $\Omega(s) \in CC$. Throughout the proof, the first order condition holds with equality since no liquidity constraint applies at the end of period $t$. 
-    
-    \bigskip
-    \noindent \textbf{Step 1: Vertical aggregation} \\ 
-    \noindent We show that consumption concavity is preserved under vertical aggregation for three cases of the HARA utility function with $u''' \geq 0$ ($\alpha_1  \geq -1$) and non-increasing absolute prudence ($\alpha_1  \notin (-1,0)$). The three cases are
-    \begin{equation}\label{eq:HARAmu}u'(c) = \begin{cases} \left(\alpha_1 c + b\right)^{-1/\alpha_1 } & \alpha_1  \in (0,\infty) \text{ (CRRA)} \\
-	e^{-c/b} & \alpha_1  = 0 \text{ (CARA)}\\
-	\alpha_1 c + b & \alpha_1  = -1 \text{ (Quadratic)}\end{cases} \end{equation}
-    
-    \bigskip
-    \noindent \textbf{Case I ($\alpha_1  > 0$, CRRA.)} 	We will show that concavity is preserved under vertical aggregation for $c^{-1/\alpha_1 }$ to avoid clutter, but the results hold for all affine transformations, $\alpha_1 c + b$, with $\alpha_1 >0$. Concavity of $c_{t+1}({a}_{t} + {y}_{t+1})$ implies that
-    \begin{equation}c_{t+1}({a}_{t} + {y}_{t+1}) \geq pc_{t+1}({a}_1 + {y}_{t+1}) + (1-p) c_{t+1}({a}_2 + {y}_{t+1}) \label{eq:vert_crra_conc}\end{equation}
-    for all ${y}_{t+1} \in [\underline{y},\bar{y}]$ if ${a}_{t} = p{a}_1 + (1-p){a}_2$ with $p \in [0,1]$. Since this holds for all ${y}_{t+1}$, we know that
-    \[\left\{\Ex_t\left[c_{t+1}({a}_{t} + {y}_{t+1})^{-\frac{1}{a}}\right]\right\}^{-a} \geq \left\{\Ex_t\left[\left\{pc_{t+1}({a}_1 + {y}_{t+1}) + (1-p) c_{t+1}({a}_2 + {y}_{t+1})\right\}^{-\frac{1}{\alpha_1}}\right]\right\}^{-\alpha_1}\]
-    We now apply Minkowski's inequality (see e.g.\ \citealp[Theorem 3]{beckenbach1983inequalities}) which says that for $u,v \geq 0$ and a scalar $k < 1\ (k \neq 0)$
-    \[\left\{\Ex[(u + v)^{k}]\right\}^{1/k} \geq \left\{\Ex[u^{k}]\right\}^{1/k} + \left\{\Ex[v^{k}]\right\}^{1/k}.\]
-    %	
-    %	
-    %	\[\left\{\Ex[(u + v)^{-k}]\right\}^{-1/k} \geq \left\{\Ex[u^{-k}]\right\}^{-1/k} + \left\{\Ex[v^{-k}]\right\}^{-1/k}.\]
-    This implies that for $\alpha_1  \in (0,\infty)$ (CRRA)
-    \[\left\{\Ex[(u + v)^{-\frac{1}{\alpha_1 }}]\right\}^{-\alpha_1 } \geq \left\{\Ex[u^{-\frac{1}{\alpha_1 }}]\right\}^{-\alpha_1 } + \left\{\Ex[v^{-\frac{1}{\alpha_1 }}]\right\}^{-\alpha_1 }\]
-    if $u\geq 0$ and $v\geq 0$. Thus
-    \begin{align*}
-      &\left\{ \Ex_t \left[\left\{pc_{t+1}({a}_1 + {y}_{t+1}) + (1-p) c_{t+1}({a}_2 + {y}_{t+1})\right\}^{-\frac{1}{\alpha_1 }}\right]\right\}^{-\alpha_1 } \\ & \geq \left\{ \Ex_t \left[\left\{pc_{t+1}({a}_1 + {y}_{t+1})\right\}^{-\frac{1}{\alpha_1 }}\right]\right\}^{-\alpha_1 } + \left\{ \Ex_t \left[\left\{(1-p) c_{t+1}({a}_2 + {y}_{t+1})\right\}^{-\frac{1}{\alpha_1 }}\right]\right\}^{-\alpha_1 } \\
-      & = p\left\{ \Ex_t \left[\left\{c_{t+1}({a}_1 + {y}_{t+1})\right\}^{-\frac{1}{\alpha_1 }}\right]\right\}^{-\alpha_1 } +(1-p) \left\{ \Ex_t \left[\left\{ c_{t+1}({a}_2 + {y}_{t+1})\right\}^{-\frac{1}{\alpha_1 }}\right]\right\}^{-\alpha_1 } \\ & = p(\Omega'({a}_1))^{-\alpha_1 } + (1-p)(\Omega'({a}_2))^{-\alpha_1 }
-    \end{align*}
-    which implies that 
-    \[ (\Omega'({a}_{t}))^{-\alpha_1 } \geq p(\Omega'({a}_1))^{-\alpha_1 } + (1-p)(\Omega'({a}_2))^{-\alpha_1 }\]	
-    Thus, defining
-    $\chi_{t}({a}_{t}) = \{\Omega_{t}^{'}({a}_{t})\}^{-\alpha_1 }$, we get
-    \begin{align*}
-      \chi_{t}({a}_{t}) \geq p \chi_{t}({a}_{1}) + (1-p) \chi_{t}({a}_{2})
-    \end{align*}
-    for all ${a}_{t}$, where the inequality is strict if $c_{t+1}$ is strictly concave for at least one realization of ${y}_{t+1}$.
-
-    \bigskip
-    \noindent \textbf{Case II ($a = 0$, CARA)}. For the exponential case, property CC holds at ${a}_{t}$ if 
-    \begin{eqnarray*}
-      \exp(-\chi_{t}({a}_{t})/b) & = & \Ex_{t}[ \exp(-c_{t+1}({a}_{t}+{y}_{t+1})/b)]
-    \end{eqnarray*}
-    for some $\chi_{t}({a}_{t})$ which is strictly concave at ${a}_{t}$. We set $b = 1$ to reduce clutter, but results hold for $b \neq 1$. Consider first a case where $c_{t+1}$ is linear over the range of possible values of ${a}_{t}+{y}_{t+1}$, then 
-    \begin{eqnarray}
-      \chi_{t}({a}_{t}) & = & -\log \Ex_{t}[e^{-c_{t+1}({a}_{t}+{y}_{t+1})}] \nonumber 
-      \\& = & -\log \Ex_{t}[e^{-(c_{t+1}({a}_{t}+\bar{y})+({y}_{t+1}-\bar{y})c_{t+1}^{'})}] \nonumber
-      \\ & = & c_{t+1}({a}_{t}+\bar{y}) - \log \Ex_{t}[e^{-({y}_{t+1}-\bar{y}) c_{t+1}^{'}}] \label{eq:expcdrops}
-    \end{eqnarray}
-    which is linear in ${a}_{t}$ since the second term is a constant.  
-    
-    Now consider a value of ${a}_{t}$ for which $c_{t+1}({a}_{t}+{y}_{t+1})$ is strictly concave for at least one realization of ${y}_{t+1}$. Global weak concavity of $c_{t+1}$ tells us that for every ${y}_{t+1}$
-    \begin{eqnarray}
-      -c_{t+1}({a}_{t}+{y}_{t+1}) & \leq & -((1-p)c_{t+1}({a}_1+{y}_{t+1})+pc_{t+1}({a}_{2}+{y}_{t+1})) \nonumber
-      \\ \Ex_{t}[e^{-c_{t+1}({a}_{t}+{y}_{t+1})}] & \leq & \Ex_{t}[e^{-((1-p)c_{t+1}({a}_1+{y}_{t+1})+pc_{t+1}({a}_{2}+{y}_{t+1}))}]. \label{eq:expconc}
-    \end{eqnarray}
-    
-    Meanwhile, the arithmetic-geometric mean inequality states that for positive $u$ and $v$, if $\bar u = \Ex_t [ u]$ and $\bar v = \Ex_t [ v]$, then
-    \begin{equation*}
-      \Ex_t\left[( u/\bar u)^p ( v/\bar v)^{1-p}\right] 
-      \leq \Ex_t \left[p ( u/\bar u)+(1-p)( v/\bar v)\right] = 1, 
-    \end{equation*}
-    implying that 
-    \begin{equation*}
-      \Ex_t [ u^p  v^{1-p}] \leq \bar u^p \bar v^{1-p}, 
-    \end{equation*}
-    where the expression holds with equality only if $v$ is proportional to $u$.  Substituting in $u= e^{-c_{t+1}({a}_1 + {y}_{t+1})}$ and $v = e^{-c_{t+1}({a}_2 + {y}_{t+1})}$, this means that
-    \begin{eqnarray*}
-      \Ex_t [e^{-p c_{t+1}({a}_1 + {y}_{t+1}) - (1-p)c_{t+1}({a}_2 + {y}_{t+1})}] & \leq &
-                                                                                           \left\{ \Ex_t  [e^{- c_{t+1}({a}_1 + {y}_{t+1})} ] \right\}^p \left\{ \Ex_t  [e^{- c_{t+1}({a}_2 + {y}_{t+1})} ] \right\}^{1-p}
-    \end{eqnarray*}
-    and we can substitute for the LHS from \eqref{eq:expconc}, obtaining
-    \begin{eqnarray}
-      \Ex_{t}[e^{-c_{t+1}({a}_{t}+{y}_{t+1})}] & \leq &
-                                                        \left\{ \Ex_t  [e^{- c_{t+1}({a}_1 + {y}_{t+1})} ] \right\}^p 	\left\{ \Ex_t  [e^{- c_{t+1}({a}_2 + {y}_{t+1})} ] \right\}^{1-p} \nonumber
-      \\ 
-      \log \Ex_{t}[e^{-c_{t+1}({a}_{t}+{y}_{t+1})}] &\leq &
-                                                            p \log \Ex_t  [e^{-c_{t+1}({a}_1 + {y}_{t+1})} ] 
-                                                            + (1-p) \log \Ex_t  [e^{-c_{t+1}({a}_2 + {y}_{t+1})} ]  \label{eq:expineq2} 
-    \end{eqnarray}
-    which holds with equality only when $e^{-c_{t+1}({a}_{1}+{y}_{t+1})}/e^{-c_{t+1}({a}_{2}+{y}_{t+1})}$ is a constant. This will only happen if 	$c_{t+1}({a}_{1}+{y}_{t+1})-c_{t+1}({a}_{2}+{y}_{t+1})$ is constant, which (given that the MPC is strictly positive everywhere) requires 	$c_{t+1}({a}_{t}+{y}_{t+1})$ to be linear for ${y}_{t+1} \in (\underline{y},\bar{y})$. Hence, 
-    \begin{eqnarray*}
-      \chi_{t}({a}_{t}) & \geq & p \chi_{t}({a}_{1}) + (1-p) \chi_{t}({a}_{2}).
-    \end{eqnarray*}
-    where the inequality is strict for an ${a}_{t}$ from which $c_{t+1}$ is strictly concave for some realization of ${y}_{t+1}$.
-    
-    \bigskip
-    \noindent \textbf{Case III ($a = -1$, Quadratic)}.
-    In the quadratic case, linearity of marginal utility implies that
-    \begin{eqnarray*}
-      u'(\chi_{t}({a}_{t})) & = & \Ex_{t}[u'(c_{t+1}({a}_{t}+{y}_{t+1}))]
-      \\   \chi_{t}({a}_{t}) & = & \Ex_{t}[c_{t+1}({a}_{t}+{y}_{t+1})]
-    \end{eqnarray*}
-    so $\chi_{t}$ is simply the weighted sum of a set of
-    concave functions where the weights correspond to the probabilities of the various possible outcomes for ${y}_{t+1}$. The sum of concave functions is itself concave. And if additionally the consumption function is strictly concave at any point, the weighted sum is also strictly concave.
-    
-    
-    \bigskip
-    \noindent \textbf{Step 2: Horizontal aggregation:} \\
-    We now proceed with horizontal aggregation, namely how concavity is preserved through the value function operation. Assume that $\Omega_t({a}_{t}) \in CC$ at point ${a}_{t}$, then the first order condition implies that
-    \[\Omega_t'({a}_{t}) = u'(\chi_t({a}_{t}))\]
-    for some monotonically increasing $\chi_t({a}_{t})$ that satisfies
-    \begin{align}
-      \chi_t(p{a}_1 + (1-p){a}_2) \geq p\chi_t({a}_1) + (1-p)\chi_t({a}_2) \label{eq:hor_conc}
-    \end{align}
-    for any $0 < p < 1$, and ${a}_1 < {a}_{t} < {a}_2$. % ($|{a}_2 - {a}_1|< \delta$ for any $\delta > 0$). 
-    
-    In addition, we know that the first order condition holds with equality such that $\Omega_t'({a}_{t}) = u'(c_t({m}_{t})) = u'(\chi_t({a}_{t}))$ which implies that ${a}_{t} = \chi_t^{-1}(c_t)$. Using this equation, we get
-    \begin{align*}
-      \chi_t(p{a}_1 + (1-p){a}_2) &\geq p\chi_t({a}_1) + (1-p)\chi_t({a}_2) \\
-      p{a}_1 + (1-p){a}_2 &\geq \chi_t^{-1}(p\chi_t({a}_1) + (1-p)\chi_t({a}_2)) \\
-      p\chi_t^{-1}(c_1) + (1-p)\chi_t^{-1}(c_2) &\geq \chi_t^{-1}(pc_1 + (1-p)c_2)
-    \end{align*}
-    which implies that $\chi_t^{-1}$ is a convex function. 
-    
-    Use the budget constraint to define
-    \begin{align*}
-      {m}_{t} &= {a}_{t} + c_t \\ 
-      \wAlt(c_t) & = \chi^{-1}(c_t) + c_t
-    \end{align*} 
-    Now, since $\chi_t^{-1}$ is a convex function, and $\wAlt(c_t)$ is the sum of a convex and a linear function, it is also a convex function satisfying
-    \begin{align}
-      p\wAlt(c_1) + (1-p)\wAlt(c_2) &\geq \wAlt(pc_1 + (1-p)c_2) \nonumber \\
-      \wAlt^{-1}(p\wAlt(c_1) + (1-p)\wAlt(c_2)) &\geq pc_1 + (1-p)c_2 \nonumber \\
-      c(p{m}_1 + (1-p){m}_2) &\geq pc({m}_1) + (1-p)c({m}_2) \label{eq:hor_conc2}
-    \end{align} 
-    so $c$ is concave. 
-    
-    Note that the proof of horizontal aggregation works for any utility function with $u' > 0$ and $u'' < 0$ when $R$ = $\beta$ = 1. However, for the more general case where $R$ or $\beta$ are not equal to one, we need the HARA property that multiplying $u'$ by a constant corresponds to a linear transformation of $c$. 
-    
-    \bigskip
-    \noindent \textbf{Strict Consumption Concavity.}
-    When $V_{t+1}({m}_{t+1})$ exhibits the property strict CC for at least one ${m}_{t+1} \in [R{a}_{t} + \underline{y}, R{a}_{t} + \bar{y}]$, we know that $\chi_t({a}_{t})$ also exhibits the property strict CC from the proof of vertical aggregation. Then, equation \eqref{eq:hor_conc} holds with strict inequality, and this strict inequality goes through the proof of horizontal aggregation, implying that equation \eqref{eq:hor_conc2} holds with strict inequality. Hence, $c_t({m}_{t})$ is strictly concave if $c_{t+1}({a}_{t} + {y}_{t+1})$ is concave for all realizations of ${y}_{t+1}$ and strictly concave for at least one realization of ${y}_{t+1}$. 
-  \end{proof}
-
-\bibliography{LiqConstr,LiqConstr-Add,economics}\end{document}    
+  \begin{document}
+  
   \section{Proof of Lemma \ref{lem:counterclockwise}} \label{app:counterclockwise}
   \begin{proof} First, condition 2 and 4 in Definition \ref{defn:cconcavification} imply that $\hat{c}'({m}) > c'({m})$ for ${m} = {m}^{\#} - \epsilon$ for a small $\epsilon > 0$. Condition 3 then ensures that $\lim_{\mu \uparrow {m}} \hat{c}'(\mu) > \lim_{\mu \uparrow {m}} c'(\mu)$ holds for all ${m} \leq {m}^{\#}-\epsilon$ (equivalently ${m} < {m}^{\#}$). Second, condition 1 and the fact that $\lim_{\mu \uparrow {m}} \hat{c}'(\mu) > \lim_{\mu \uparrow {m}} c'(\mu)$ for ${m} < {m}^{\#}$ implies that $\lim_{\mu \uparrow {m}} \hat{c}(\mu) < \lim_{\mu \uparrow {m}}c(\mu)$ for ${m} < {m}^{\#}$. Third, condition 3 in Definition \ref{defn:cconcavification} implies that $$\lim_{\mu \uparrow {m}}\hat{c}''(\mu) \leq \lim_{\mu \uparrow {m}} c''(\mu)\frac{\hat{c}'(\mu)}{c'(\mu)}$$ for ${m} < {m}^{\#}$. Then $$\lim_{\mu \uparrow {m}} \hat{c}''(\mu) \leq \lim_{\mu \uparrow {m}} c''(\mu)$$ since $\lim_{\mu \uparrow {m}}\hat{c}'(\mu) > \lim_{\mu \uparrow {m}} c'(\mu)$ for ${m} < {m}^{\#}$. Note that the inequality is not strict since $c''(\mu)$ could be 0.  
   \end{proof}
@@ -264,6 +124,7 @@
     
   \end{proof}
 
+  \bibliography{LiqConstr,LiqConstr-Add,economics}\end{document}    
 
 
   \section{Proof of Lemma \ref{lem:ccandstrictprud}} \label{app:ccandstrictprud}
