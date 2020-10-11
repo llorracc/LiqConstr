@@ -1,5 +1,7 @@
 LiqConstr October 11, 2020 at 10:50am, prior-source-commit: dfbd2af
 
+prior-public-commit: 017752e
+
 Liquidity Constraints
 and Precautionary Saving
 October 11, 2020
@@ -61,22 +63,13 @@ Department of Economics, University of Oslo, email: martin.b.holm@outlook.com
 This paper supercedes NBER working paper no. 8496 from 2001. We are grateful to Mark Huggett for suggesting
 
 1 Introduction
-This is where we will put the “main message”.
-1. Result 1: Liquidity constraints cause consumption concavity.
-2. Implication: Liquidity constraints and risks are very similar, both cause consumption concavity - and consumption concavity is what causes prudence and precautionary saving.
-3. Hence, liquidity constraints also cause more precautionary saving to an immediate
-risk.
-4. At last, the most general results: the consumption function is concave in the
-presence of all future risks and constraints; thus precautionary saving is higher in
-a model with risks and constraints than in a setting where there are no constraints
-or risks.
-A large literature has shown that numerical models that take constraints and uncertainty seriously can yield different conclusions than those that characterize traditional
-models. For example, Kaplan, Moll, and Violante (2018) show that when sufficiently
-many households have high marginal propensities to consume (MPC’s), a major transmission channel of monetary policy is the ‘indirect income effect’ – a channel of minimal
-importance in traditional macro models. Similarly, Guerrieri and Lorenzoni (2017) and
-Bayer, Lütticke, Pham-Dao, and Tjaden (2019) show that tightened borrowing conditions
-and heightened income risk can help explain the consumption decline during the great
-recession.
+A large literature has shown that numerical models that take constraints and uncertainty
+seriously can yield different conclusions than those that characterize traditional models.
+For example, Kaplan, Moll, and Violante (2018) show that when sufficiently many households have high marginal propensities to consume (MPC’s), a major transmission channel
+of monetary policy is the ‘indirect income effect’ – a channel of minimal importance in
+traditional macro models. Similarly, Guerrieri and Lorenzoni (2017) and Bayer, Lütticke,
+Pham-Dao, and Tjaden (2019) show that tightened borrowing conditions and heightened
+income risk can help explain the consumption decline during the great recession.
 A drawback to numerical solutions is that it is often difficult to know why results
 come out the way they do. A leading example is in the complex relationship between
 precautionary saving behavior and liquidity constraints.1 At least since Zeldes (1984),
@@ -87,18 +80,7 @@ and precautionary saving are substitutes. In an early example, Samwick (1995) sh
 that unconstrained consumers with a precautionary saving motive in a retirement saving
 model behave in ways qualitatively and quantitatively similar to the behavior of liquidity
 constrained consumers facing no uncertainty.
-1 For the seminal numerical examination of some of the interactions between precautionary saving and liquidity
-constraints, see Deaton (1991).
-
-the current proof of one of our lemmas, Luigi Pistaferri, Misuka Otsuka, and to conference participants in the conferences
-“Macroeconomics and Household Borrowing” sponsored by the Finance and Consumption program and the European
-University in May 2005 and “Household Choice of Consumption, Housing, and Portfolio” at CAM in Copenhagen in June
-2005. Kimball is grateful to the National Institute on Aging for research support via grant P01-AG10179 to the University
-of Michigan.
-
-1
-
-This paper provides the theoretical tools to make sense of the interactions between
+This paper provides the theoretical tools to make sense of the interactions between
 liquidity constraints and precautionary saving. The main theoretical innovation is to
 conceptualize the effects of either constraints or risks in terms of consumption concavity.
 The advantage of understanding the effects in terms of consumption concavity is that
@@ -112,7 +94,21 @@ Furthermore, once consumption concavity is created, it propagates back to period
 t. Carroll and Kimball (1996) showed similar results for the effects of risks on consumption
 concavity. Hence, the two papers establish rigorously that both constraints and risks
 create a form of consumption concavity that propagates backward.
-Since prudence is heightened when the consumption function is more concave, it follows
+1 For the seminal numerical examination of some of the interactions between precautionary saving and liquidity
+constraints, see Deaton (1991).
+2 The connection between constraints and consumption concavity has been explored in more specific settings. See e.g.
+Park (2006) for CRRA utility, Seater (1997) for the case where time-discounting equals the interest rate, Nishiyama and
+Kato (2012) for quadratic utility, and Holm (2018) for the case with infinitely-lived households with HARA utility.
+
+the current proof of one of our lemmas, Luigi Pistaferri, Misuka Otsuka, and to conference participants in the conferences
+“Macroeconomics and Household Borrowing” sponsored by the Finance and Consumption program and the European
+University in May 2005 and “Household Choice of Consumption, Housing, and Portfolio” at CAM in Copenhagen in June
+2005. Kimball is grateful to the National Institute on Aging for research support via grant P01-AG10179 to the University
+of Michigan.
+
+1
+
+Since prudence is heightened when the consumption function is more concave, it follows
 immediately that when a liquidity constraint is added to a standard consumption problem,
 the resulting value function exhibits increased prudence around the level of wealth where
 the constraint becomes binding.3 Constraints induce precaution because constrained
@@ -136,19 +132,7 @@ consumption for a retired consumer with guaranteed income (e.g., ‘Social Secur
 implies that a legal constraint on borrowing can make the consumer run their wealth
 down to zero (thereafter setting consumption equal to income). Now consider modifying
 the model to incorporate the possibility of large medical expenses near the end of life (e.g.
-2 The connection between constraints and consumption concavity has been explored in more specific settings. See e.g.
-Park (2006) for CRRA utility, Seater (1997) for the case where time-discounting equals the interest rate, Nishiyama and
-Kato (2012) for quadratic utility, and Holm (2018) for the case with infinitely-lived households with HARA utility.
-3 A relationship between constraints and prudence has also been noted by Lee and Sawada (2007) and documented
-empirically in Lee and Sawada (2010).
-4 To be clear, the liquidity constraint we analyze here must be satisfied in each period (one-period bonds). This implies
-that the interactions between constraints and income volatility where some households may prefer to increase (credit card)
-debt today because they expect tighter credit conditions in the future are ruled out (Fulford, 2015; Druedahl and Jørgensen,
-2018).
-
-2
-
-nursing home fees; see Ameriks, Caplin, Laufer, and Van Nieuwerburgh, 2011). Under
+nursing home fees; see Ameriks, Caplin, Laufer, and Van Nieuwerburgh, 2011). Under
 reasonable assumptions, a consumer facing such a risk may save enough for precautionary
 reasons to render the no-borrowing constraint irrelevant.
 Although there is no general result for the effects of additional constraints or risks
@@ -161,7 +145,20 @@ risks and constraints,6 and since consumption concavity heightens prudence of th
 function, the precautionary saving motive is also stronger in the presence of all risks and
 constraints than in the case with no risks and constraints.
 Hence, we can summarize this paper as follows. The effects of liquidity constraints
-and risks are similar because both stem from the same source: a concavification of
+3 A relationship between constraints and prudence has also been noted by Lee and Sawada (2007) and documented
+empirically in Lee and Sawada (2010).
+4 To be clear, the liquidity constraint we analyze here must be satisfied in each period (one-period bonds). This implies
+that the interactions between constraints and income volatility where some households may prefer to increase (credit card)
+debt today because they expect tighter credit conditions in the future are ruled out (Fulford, 2015; Druedahl and Jørgensen,
+2018).
+5 More precisely, we show that there is no level of wealth at which the motive is weaker, and at least some levels at
+which it is strictly stronger.
+6 Again, there is no level of wealth at which the consumption function becomes less concave, and at least some levels
+of wealth at which it becomes strictly more concave.
+
+2
+
+and risks are similar because both stem from the same source: a concavification of
 the consumption function. The effects work independently, meaning that neither risks
 nor constraints are necessary to concavify the consumption function. And since a more
 concave consumption function exhibits heightened prudence, both constraints and risks
@@ -179,11 +176,6 @@ and heightens prudence of the value function. In Section ??, we show how liquidi
 constraints cause consumption concavity and thereby also prudence. And Section ??
 presents our results on the interactions between liquidity constraints and precautionary
 saving. The final section concludes.
-
-5 More precisely, we show that there is no level of wealth at which the motive is weaker, and at least some levels at
-which it is strictly stronger.
-6 Again, there is no level of wealth at which the consumption function becomes less concave, and at least some levels
-of wealth at which it becomes strictly more concave.
 
 3
 
