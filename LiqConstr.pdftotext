@@ -489,41 +489,45 @@ marginal propensity to consume (MPC) from the counterclockwise concavification m
 that any given variation in market resources results in larger variation in consumption,
 increasing prudence. The channels operate separately, implying that a counterclockwise
 concavification heightens prudence even if absolute prudence is zero as in the quadratic
-case.9
-Lemma 4 only provides conditions for when the value function exhibits greater prudence, but not strictly greater prudence. In particular, the value function associated with
-ĉ(m) will in some cases (e.g., quadratic utility) have equal prudence most m and strictly
-greater prudence only for some m. In Lemma 5, we provide conditions for when the value
-function has strictly greater prudence.
+case.9 Lemma 4 only provides conditions for when the value function exhibits greater
+prudence, but not strictly greater prudence. In particular, the value function associated
+with ĉ(m) will in some cases (e.g., quadratic utility) have equal prudence most m and
+strictly greater prudence only for some m. In Lemma 5, we provide conditions for when
+the value function has strictly greater prudence.
 Lemma 5. (A Counterclockwise Concavification Strictly Increases Prudence.)
 Consider an agent who has a utility function with u0 > 0, u00 < 0, u000 ≥ 0, and nonincreasing absolute prudence (−u000 /u00 ). If c(m) is concave and ĉ(m) is a counterclockwise
 concavification of c(m) around m# , then the value function associated with ĉ(m) exhibits
+strictly greater prudence than the value function associated with c(m) if the utility function
 9 cf.
 
 Nishiyama (2012)
 
 8
 
-strictly greater prudence than the value function associated with c(m) if the utility function
-0
-satisfies u000 > 0 and m < m# or the utility function is quadratic (u000 = 0) and ĉc0 (m)
-strictly
-(m)
+satisfies u000 > 0 and m < m# or the utility function is quadratic (u000 = 0) and
 declines at m.
+
+ĉ0 (m)
+c0 (m)
+
+strictly
+
 See Appendix D for the proof. For prudent consumers (u000 > 0), the value function
 exhibits strictly greater prudence for all m where the counterclockwise concavification
 affects consumption. This is because a reduction in consumption and higher marginal
-propensity to consume heighten prudence if the utility function has a positive third derivative and prudence is non-increasing. If the utility function instead is quadratic, the third
-derivative is zero and absolute prudence of the value function does not depend on the level
-of consumption or the marginal propensity to consume. In this case, the counterclockwise
-concavification
-only affects prudence at the kink points in the consumption function
-ĉ0 (m)
-(where c0 (m) strictly declines at m).
-We have now defined consumption concavity and the operation called a counterclockwise concavification. In particular, we have shown that a counterclockwise concavification
-heightens prudence, which is related the precautionary saving. The next section shows
-how the introduction of a liquidity constraint is a counterclockwise concavification before
-we use the tools derived in this section to provide the link between liquidity constraints
-and precautionary saving in Section 5.
+propensity to consume heighten prudence if the utility function has a positive third
+derivative and prudence is non-increasing. If the utility function instead is quadratic,
+the third derivative is zero and absolute prudence of the value function does not depend
+on the level of consumption or the marginal propensity to consume. In this case, the
+counterclockwise concavification
+only affects prudence at the kink points in the consumpĉ0 (m)
+tion function (where c0 (m) strictly declines at m). We have now defined consumption
+concavity and the operation called a counterclockwise concavification. In particular, we
+have shown that a counterclockwise concavification heightens prudence, which is related
+the precautionary saving. The next section shows how the introduction of a liquidity
+constraint is a counterclockwise concavification before we use the tools derived in this
+section to provide the link between liquidity constraints and precautionary saving in
+Section 5.
 
 4 Liquidity Constraints and Consumption Concavity
 This section shows under which conditions liquidity constraints cause consumption concavity. The main conceptual difficulty with liquidity constraints is that the effect of
@@ -539,23 +543,21 @@ that the introduction of the next constraint also heightens prudence of the valu
 Recall that we are working with a consumer whose horizon goes from 0 to T . We define a
 liquidity constraint dated t as a constraint that requires savings at the end of period t ∈
 (0, T ] to be non-negative (the assumption of non-negativity is without loss of generality
-as shown in Theorem 1).
-We first define what we mean by a kink point which is induced by a constraint. To
-have a distinct terminology for the effects of current-period and future-period constraints,
-we will use the word ‘binds’ to refer to the potential effects of a constraint in the period
-in which it applies and will use the term ‘impinges’ to describe the effect of a future
-constraint on current consumption.
-
-9
-
-Definition 5. (Kink Point.)
+as shown in Theorem 1). We first define what we mean by a kink point which is induced
+by a constraint. To have a distinct terminology for the effects of current-period and
+future-period constraints, we will use the word ‘binds’ to refer to the potential effects of
+a constraint in the period in which it applies and will use the term ‘impinges’ to describe
+the effect of a future constraint on current consumption.
+Definition 5. (Kink Point.)
 We define a kink point, ωt,n as the level of market resources at which constraint n stops
 binding or impinging on time t consumption.
-A kink point corresponds to a transition from a level of market resources where a current
-constraint binds or a future constraint impinges, to a level of market resources where that
-constraint no longer binds or impinges.
-The timing of a constraint relative to other existing constraints matters for the effects of
-the constraint. We therefore define an ordered set to keep track of the existing constraints.
+9
+
+A kink point corresponds to a transition from a level of market resources where a current
+constraint binds or a future constraint impinges, to a level of market resources where
+that constraint no longer binds or impinges. The timing of a constraint relative to other
+existing constraints matters for the effects of the constraint. We therefore define an
+ordered set to keep track of the existing constraints.
 Definition 6. (An Ordered Set of Relevant Constraints.)
 We define T as an ordered set of dates at which a relevant constraint exists. We define
 T [1] as the last period in which a constraint exists, T [2] as the date of the last period
@@ -565,12 +567,12 @@ order them from last to first because a constraint in period t only affects beha
 to period t (and t itself). The set of constraints from period t to T summarizes all
 relevant information in period t. Further, and as discussed below, the effect of imposing
 the next constraint in T on consumption is unambiguous only if one imposes constraints
-chronologically from last to first (and all constraints are of the no-borrowing type).
-For any t ∈ [0, T ), we define ct,n as the optimal consumption function in period t
-assuming that the first n constraints in T have been imposed. For example, ct,0 (m) is
-the consumption function in period t when no constraint has been imposed, ct,1 (m) is
-the consumption function in period t after the chronologically last constraint has been
-imposed, and so on. Ωt,n , Vt,n , and other functions are defined correspondingly.
+chronologically from last to first (and all constraints are of the no-borrowing type). For
+any t ∈ [0, T ), we define ct,n as the optimal consumption function in period t assuming that
+the first n constraints in T have been imposed. For example, ct,0 (m) is the consumption
+function in period t when no constraint has been imposed, ct,1 (m) is the consumption
+function in period t after the chronologically last constraint has been imposed, and so on.
+Ωt,n , Vt,n , and other functions are defined correspondingly.
 
 4.2 A Fixed Set of Constraints
 We first consider an initial situation in which a consumer is solving a perfect foresight
@@ -588,25 +590,25 @@ See Appendix E for the proof. When we have an ordered set of constraints, T , th
 introduction of the next constraint generates a counterclockwise concavification of the
 consumption function.
 
+4.3 Additional Constraints
+Lemma 6 analyzes the case where there is a preordained set of constraints T which
+were applied sequentially in reverse chronological order. We now examine how behavior
 10
 
-4.3 Additional Constraints
-Lemma 6 analyzes the case where there is a preordained set of constraints T which were
-applied sequentially in reverse chronological order. We now examine how behavior will be
-modified if we add a new date τ̂ to the set of dates at which the consumer is constrained.
-Call the new set of dates T̂ with N + 1 constraints (one more constraint than before),
-and call the consumption rules corresponding to the new set of dates ĉt,1 through ĉt,N +1 .
-Now call m the number of constraints in T at dates strictly greater than τ̂ . Then note
-that that ĉτ̂,m = cτ̂,m , because at dates after the date at which the new constraint (number
-m + 1) is imposed, consumption is the same as in the absence of the new constraint. Now
-recall that imposition of the constraint at τ̂ causes a counterclockwise concavification
-of the consumption function around a new kink point, ωτ̂,m+1 . That is, ĉτ̂,m+1 is a
-counterclockwise concavification of ĉτ̂,m = cτ̂,m .
-The most interesting observation, however, is that behavior under constraints T̂ in
-periods strictly before τ̂ cannot be described as a counterclockwise concavification of
-behavior under T . The reason is that the values of wealth at which the earlier constraints
-caused kink points in the consumption functions before period τ̂ will not generally
-correspond to kink points once the extra constraint has been added.
+will be modified if we add a new date τ̂ to the set of dates at which the consumer is
+constrained. Call the new set of dates T̂ with N +1 constraints (one more constraint than
+before), and call the consumption rules corresponding to the new set of dates ĉt,1 through
+ĉt,N +1 . Now call m the number of constraints in T at dates strictly greater than τ̂ . Then
+note that that ĉτ̂,m = cτ̂,m , because at dates after the date at which the new constraint
+(number m + 1) is imposed, consumption is the same as in the absence of the new
+constraint. Now recall that imposition of the constraint at τ̂ causes a counterclockwise
+concavification of the consumption function around a new kink point, ωτ̂,m+1 . That
+is, ĉτ̂,m+1 is a counterclockwise concavification of ĉτ̂,m = cτ̂,m . The most interesting
+observation, however, is that behavior under constraints T̂ in periods strictly before τ̂
+cannot be described as a counterclockwise concavification of behavior under T . The
+reason is that the values of wealth at which the earlier constraints caused kink points in
+the consumption functions before period τ̂ will not generally correspond to kink points
+once the extra constraint has been added. Figure 2 presents an example. The original T
 
 c
 ĉ#
@@ -632,28 +634,26 @@ points: ω̂t,1 and ω̂t,2 . Since we introduced the new constraint at a later 
 the future constraint affects the position of the kink induced by the current constraint and the modified consumption
 function ĉt,2 is not a counterclockwise concavification of ct,1 .
 
+contains only a single constraint, at the end of period t + 1, inducing a kink point at ωt,1
+in the consumption rule ct,1 . The expanded set of constraints T̂ adds one constraint at
+period t + 2. T̂ induces two kink points in the updated consumption rule ĉt,2 , at ω̂t,1 and
 11
 
-Figure 2 presents an example. The original T contains only a single constraint, at
-the end of period t + 1, inducing a kink point at ωt,1 in the consumption rule ct,1 . The
-expanded set of constraints T̂ adds one constraint at period t + 2. T̂ induces two kink
-points in the updated consumption rule ĉt,2 , at ω̂t,1 and ω̂t,2 . It is true that imposition of
-the new constraint causes consumption to be lower than before at every level of wealth
-below ω̂t,1 . However, this does not imply higher prudence of the value function at every
-m < ω̂t,1 . In particular, the original consumption function is strictly concave at ωt,1 ,
-while the new consumption function is linear at ωt,1 , so prudence is greater before than
-after imposition of the new constraint at ωt,1 .
-The intuition is straightforward. At levels of initial wealth below ω̂t,1 , the consumer
-had been planning to end period t + 2 with negative wealth. With the new constraint,
-the old plan of ending up with negative wealth is no longer feasible and the consumer will
-save more for any given level of current wealth below ω̂t,1 , including ωt,1 . But the reason
-ωt,1 was a kink point in the initial situation was that it was the level of wealth where
-consumption would have been equal to market resources in period t + 1. Now, because
-of the extra savings induced by the constraint in t + 2, the period t + 1 constraint will no
-longer bind for a consumer who begins period t with wealth ωt,1 . In other words, at wealth
-ωt,1 the extra savings induced by the new constraint prevents the original constraint from
-being relevant at ωt,1 .
-Notice, however, that all constraints that existed in T will remain relevant at some
+ω̂t,2 . It is true that imposition of the new constraint causes consumption to be lower than
+before at every level of wealth below ω̂t,1 . However, this does not imply higher prudence of
+the value function at every m < ω̂t,1 . In particular, the original consumption function is
+strictly concave at ωt,1 , while the new consumption function is linear at ωt,1 , so prudence
+is greater before than after imposition of the new constraint at ωt,1 . The intuition is
+straightforward. At levels of initial wealth below ω̂t,1 , the consumer had been planning to
+end period t + 2 with negative wealth. With the new constraint, the old plan of ending up
+with negative wealth is no longer feasible and the consumer will save more for any given
+level of current wealth below ω̂t,1 , including ωt,1 . But the reason ωt,1 was a kink point in
+the initial situation was that it was the level of wealth where consumption would have
+been equal to market resources in period t + 1. Now, because of the extra savings induced
+by the constraint in t + 2, the period t + 1 constraint will no longer bind for a consumer
+who begins period t with wealth ωt,1 . In other words, at wealth ωt,1 the extra savings
+induced by the new constraint prevents the original constraint from being relevant at
+ωt,1 . Notice, however, that all constraints that existed in T will remain relevant at some
 m under T̂ even after the new constraint is imposed - they just induce kink points at
 different levels of market resources than before (in Figure 2, the first constraint causes a
 kink at ω̂t,2 rather than ωt,1 ).
@@ -661,19 +661,18 @@ kink at ω̂t,2 rather than ωt,1 ).
 4.4 A More General Analysis
 The preceding analyses required income to be constant, the liquidity constraints to be of
 the no-borrowing type, and consumers to be impatient (βR < 1). We now relax these
-requirements.
-Under these more general circumstances, a constraint imposed in a given period can
-render constraints in either earlier or later periods irrelevant. For example, consider a
-consumer with CRRA utility and βR = 1 who earns income of 1 in each period, but who
-is required to arrive at the end of period T − 2 with savings of 5. Then a constraint that
-requires savings to be greater than zero at the end of period T − 3 will have no effect
-because the consumer is required by the constraint in period T − 2 to end period T − 3
-with savings greater than 4.
-Formally, consider now imposing the first constraint, which applies in period τ < T .
-The simplest case, analyzed before, was a constraint that requires the minimum level of
-end-of-period wealth to be aτ ≥ 0. Here we generalize this to aτ ≥ ςτ,1 where in principle
-we can allow borrowing by choosing ςτ,1 to be a negative number. Now for constraint 1
-calculate the kink points for prior periods from
+requirements. Under these more general circumstances, a constraint imposed in a given
+period can render constraints in either earlier or later periods irrelevant. For example,
+consider a consumer with CRRA utility and βR = 1 who earns income of 1 in each
+period, but who is required to arrive at the end of period T − 2 with savings of 5. Then
+a constraint that requires savings to be greater than zero at the end of period T − 3
+will have no effect because the consumer is required by the constraint in period T − 2
+to end period T − 3 with savings greater than 4. Formally, consider now imposing the
+first constraint, which applies in period τ < T . The simplest case, analyzed before, was
+a constraint that requires the minimum level of end-of-period wealth to be aτ ≥ 0. Here
+we generalize this to aτ ≥ ςτ,1 where in principle we can allow borrowing by choosing ςτ,1
+to be a negative number. Now for constraint 1 calculate the kink points for prior periods
+from
 0
 u0 (c#
 τ,1 ) = Rβu (cτ +1,0 (Rςτ,1 + yτ +1 ))
@@ -681,44 +680,43 @@ u0 (c#
 ωτ,1 = (Vτ,1
 ) (u (cτ,1 )).
 
-12
-
 (4)
 (5)
 
-In addition, for constraint 2 recursively calculate
+In addition, for constraint 2 recursively calculate
 ς τ −1,1 = (ςτ,1 − yτ,2 + c)/R
 
 (6)
 
 where ς τ −1,1 is the level of wealth that constraint 1 requires the agent to end period
 τ − 1 with and c is the lower bound for the value of consumption permitted by the model
-(independent of constraints).10
-Now assume that the first n constraints in T have been imposed, and consider imposing
-constraint number n + 1, which we assume applies at the end of period τ . The first thing
-to check is whether constraint number n + 1 is relevant given the already-imposed set of
-constraints. This is simple: A constraint that requires aτ ≥ ςτ,n+1 will be irrelevant if
-maxi∈[1,n] [ς τ,i ] ≥ ςτ,n+1 , i.e. if one of the existing constraints already implies that savings
-must be greater or equal to value required by the new constraint. If the constraint is
-irrelevant then the analysis proceeds simply by dropping this constraint and renumbering
-the constraints in T so that the former constraint n + 2 becomes constraint n + 1, n + 3
-becomes n + 2, and so on.
-Now consider the other possible problem: That constraint number n + 1 imposed in
-period τ will render irrelevant some of the constraints that have already been imposed.
-This too is simple to check: It will be true if the proposed ςτ,n+1 ≥ ςτ,i for any i ≤ n and
-for all m.11 The fix is again simple: Counting down from i = n, find the smallest value
-of i for which ςτ,n+1 ≥ ςτ,i . Then we know that constraint n + 1 has rendered constraints
-i through n irrelevant. The solution is to drop these constraints from T and start the
-analysis over again with the modified T .
-If this set of procedures is followed until the chronologically earliest relevant constraint
-has been imposed, the result will be a T that contains a set of constraints that can be
-analyzed as in the simpler case. In particular, proceeding from the final T [1] through
-T [N ], the imposition of each successive constraint in T now causes a counterclockwise
-concavification of the consumption function around successively lower values of wealth
-as progressively earlier constraints are applied and the result is again a piecewise linear
-and strictly concave consumption function with the number of kink points equal to the
-number of constraints that are relevant at any feasible level of wealth in period t.
-The preceding discussion establishes the following result:
+
+12
+
+(independent of constraints).10 Now assume that the first n constraints in T have been
+imposed, and consider imposing constraint number n + 1, which we assume applies at
+the end of period τ . The first thing to check is whether constraint number n + 1 is
+relevant given the already-imposed set of constraints. This is simple: A constraint that
+requires aτ ≥ ςτ,n+1 will be irrelevant if maxi∈[1,n] [ς τ,i ] ≥ ςτ,n+1 , i.e. if one of the existing
+constraints already implies that savings must be greater or equal to value required by
+the new constraint. If the constraint is irrelevant then the analysis proceeds simply
+by dropping this constraint and renumbering the constraints in T so that the former
+constraint n + 2 becomes constraint n + 1, n + 3 becomes n + 2, and so on. Now consider
+the other possible problem: That constraint number n + 1 imposed in period τ will render
+irrelevant some of the constraints that have already been imposed. This too is simple to
+check: It will be true if the proposed ςτ,n+1 ≥ ςτ,i for any i ≤ n and for all m.11 The
+fix is again simple: Counting down from i = n, find the smallest value of i for which
+ςτ,n+1 ≥ ςτ,i . Then we know that constraint n + 1 has rendered constraints i through n
+irrelevant. The solution is to drop these constraints from T and start the analysis over
+again with the modified T . If this set of procedures is followed until the chronologically
+earliest relevant constraint has been imposed, the result will be a T that contains a set
+of constraints that can be analyzed as in the simpler case. In particular, proceeding from
+the final T [1] through T [N ], the imposition of each successive constraint in T now causes
+a counterclockwise concavification of the consumption function around successively lower
+values of wealth as progressively earlier constraints are applied and the result is again
+a piecewise linear and strictly concave consumption function with the number of kink
+points equal to the number of constraints that are relevant at any feasible level of wealth
+in period t. The preceding discussion establishes the following result:
 Theorem 1. (Liquidity Constraints Cause Counterclockwise Concavification.)
 Consider an agent in period t who has a utility function with u0 > 0, u00 < 0, u000 ≥ 0,
 and non-increasing absolute prudence (−u000 /u00 ). Assume that the agent faces a set T of
@@ -727,7 +725,14 @@ around ωt,n+1 .
 Theorem 1 is a generalization of Lemma 6. Even if we relax the assumptions that income
 is constant and the agent is impatient, the imposition of an extra (more general) constraint
 increases absolute prudence of the value function as long as we are careful when we select
-the set T of relevant constraints.
+the set T of relevant constraints. For an agent that only faces liquidity constraints, but
+no risk, the shape of the consumption function is piecewise linear. Since the consumption
+function is piecewise linear, the new consumption function, ct,n+1 (m) is not necessarily
+strictly more concave than ct,n (m) for all m. This is where the concept of counterclockwise
+concavification is useful. Even though ct,n+1 (m) is not strictly more concave than ct,n (m)
+everywhere, it is a counterclockwise concavification and we can apply Lemma 4 and 5 to
+show that the introduction of the next liquidity constraint increases absolute prudence of
+the value function.
 10 For example, CRRA utility is well defined only on the positive real numbers, so for a CRRA utility consumer c = 0.
 In other cases, for example with exponential or quadratic cases, there is nothing to prevent consumption of −∞, so for
 those models c = −∞, unless there is a desire to restrict the model to positive values of consumption, in which case the
@@ -736,14 +741,7 @@ c ≥ 0 constraint will be implemented through the use of (6).
 
 13
 
-For an agent that only faces liquidity constraints, but no risk, the shape of the consumption function is piecewise linear. Since the consumption function is piecewise linear,
-the new consumption function, ct,n+1 (m) is not necessarily strictly more concave than
-ct,n (m) for all m. This is where the concept of counterclockwise concavification is useful.
-Even though ct,n+1 (m) is not strictly more concave than ct,n (m) everywhere, it is a
-counterclockwise concavification and we can apply Lemma 4 and 5 to show that the
-introduction of the next liquidity constraint increases absolute prudence of the value
-function.
-Corollary 1. (Liquidity Constraints Increase Prudence.)
+Corollary 1. (Liquidity Constraints Increase Prudence.)
 Consider an agent in period t who has a utility function with u0 > 0, u00 < 0, u000 ≥ 0, and
 non-increasing absolute prudence (−u000 /u00 ). Assume that the agent faces a set T of N
 relevant constraints. When n ≤ N − 1 constraints have been imposed, the imposition of
@@ -796,6 +794,7 @@ conditions are equivalent:
 for at least one [no] point ζ ∈ [ζ, ζ̄] and a given m.
 2. κ̂ > [=]κ for all ζ ∈ [ζ, ζ̄] and the same given m.
 Lemma 7 establishes that greater prudence is equivalent to inducing a greater precautionary premium. For our purpose, it means that our results above on the absolute prudence
+also imply that the precautionary premium is higher. Hence, a more prudent consumer
 12 A small technicality: Absolute prudence of value functions is infinite at kink points in the consumption function, so
 if both c(m) and ĉ(m) had a kink point at exactly the same m, the comparison of prudence would not yield a well-defined
 answer. Under these circumstances we will say that Â(m) ≥ A(m) if the decline in the MPC is greater for ĉ(m) at m than
@@ -803,16 +802,14 @@ for c(m).
 
 15
 
-also imply that the precautionary premium is higher. Hence, a more prudent consumer
-requires a higher compensation to be indifferent about facing the risk or not.13
-We now take up the question of how the introduction of a risk ζt+1 that will be realized
-at the beginning of period t + 1 affects consumption in period t in the presence and in
-the absence of a subsequent constraint. To simplify the discussion, consider a consumer
-for whom β = R = 1, with mean income y in period t + 1.
-Assume that the realization of the risk ζt+1 will be some value ζ with support [ζ,ζ̄],
-and signify a decision rule that takes account of the presence of the immediate risk by a
-∼. Further, define ω̄t,n+1 as the lowest level of market resources required for the liquidity
-constraint to never bind.
+requires a higher compensation to be indifferent about facing the risk or not.13 We now
+take up the question of how the introduction of a risk ζt+1 that will be realized at the
+beginning of period t + 1 affects consumption in period t in the presence and in the
+absence of a subsequent constraint. To simplify the discussion, consider a consumer for
+whom β = R = 1, with mean income y in period t + 1. Assume that the realization of
+the risk ζt+1 will be some value ζ with support [ζ,ζ̄], and signify a decision rule that takes
+account of the presence of the immediate risk by a ∼. Further, define ω̄t,n+1 as the lowest
+level of market resources required for the liquidity constraint to never bind.
 Definition 7. (Wealth Limit.)
 ω̄ t,n+1 is the level of wealth such that an agent who faces risk ζt+1 and n + 1 constraints
 saves enough to guarantee that constraint n + 1 will never bind in period t + 1. Its value
@@ -847,14 +844,14 @@ and the inequality is strict if wealth is less than the level that ensures that 
 never binds (mt < ω̄t,n+1 ).
 See Appendix F for the proof. Theorem 2 shows that the introduction of the next
 constraint induces the agent to save more for precautionary reasons in response to an
+immediate risk as long as there is a positive probability that the next constraint will
+bind. Theorem 2 can be generalized to period s < t if there is no risk or constraint
 13 Note that precautionary premia are not equivalent to precautionary saving effects because precautionary premia apply
 at a given level of consumption, while precautionary saving applies at a given level of wealth.
 
 16
 
-immediate risk as long as there is a positive probability that the next constraint will
-bind. Theorem 2 can be generalized to period s < t if there is no risk or constraint
-between period s and t by defining ω̄s,n+1 as the wealth level at which the agent will
+between period s and t by defining ω̄s,n+1 as the wealth level at which the agent will
 arrive in the beginning of period t with wealth ω̄t,n+1 .
 To illustrate the result in Theorem 2, Figure 3 shows an example of optimal consumption rules in period t under different combinations of an immediate risk (realized
 at the beginning of period t + 1) and a future constraint (applying at the end of period
@@ -889,12 +886,11 @@ constrained and unconstrained consumers, the introduction of the risk reduces th
 of consumption (the dashed loci are below their solid counterparts). The significance of
 Theorem 2 in this context is that for levels of wealth below ω̄ t,1 , the vertical distance
 between the solid and the dashed loci is greater for the constrained (thin line) than for
+the unconstrained (thick line) consumers because of the interaction between the liquidity
+constraint and the precautionary motive.
 17
 
-the unconstrained (thick line) consumers because of the interaction between the liquidity
-constraint and the precautionary motive.
-
-5.3 Additional Constraints or Risks?
+5.3 Additional Constraints or Risks?
 The result in Theorem 2 is limited to the effects of an additional constraint when a
 household faces income risk that is realized at the beginning of period t + 1. One might
 think that this could be generalized to a proposition that precautionary saving increases
@@ -922,9 +918,9 @@ the period-t constraint, the consumption rule imposing the constraint will be c0
 min[c0t,0 (m), m]. Now define the level of market resources below which the period t
 0
 0
+constraint binds for a consumer not facing the risk as ωt,1
 . For values of m ≥ ωt,1
 ,
-constraint binds for a consumer not facing the risk as ωt,1
 analysis of the effects of the risk is identical to analysis in the previous subsection. For
 1
 levels of market resources m < ωt,1
@@ -938,9 +934,12 @@ constrained before the risk was imposed and remain constrained afterwards. Hence
 immediate constraint hides the risk from view and the precautionary saving in response
 to the risk is higher in the absence of the constraint than in the presence of the constraint
 1
-.
 when m ≤ ωt,1
-
+.
+5.3.2 An Earlier Risk
+Consider now the question of how the addition of a risk ζt that will be realized at the
+beginning of period t affects the consumption function at the beginning of period t − 1, in
+the absence of any constraint at the beginning of period t. The question is whether we can
 18
 
 c
@@ -966,10 +965,6 @@ consumption function with one immediate constraint and one future risk in t + 1.
 has no effect on consumption when m < ωt−1
 because the immediate constraint hides the effect of the future risk.
 
-5.3.2 An Earlier Risk
-Consider now the question of how the addition of a risk ζt that will be realized at the
-beginning of period t affects the consumption function at the beginning of period t − 1, in
-the absence of any constraint at the beginning of period t. The question is whether we can
 say that the introduction of the risk ζt has a greater precautionary effect on consumption
 in the presence of the subsequent risk ζt+1 than in its absence?
 The answer again is “not necessarily.” To see why, we present an example in Appendix
@@ -983,12 +978,12 @@ later.
 5.4 All Risks and Constraints
 It might seem that the previous subsection implies that little useful can be said about the
 precautionary effects of introducing a new risk in the presence of preexisting constraints
-19
-
-and risks. It turns out, however, that there is one useful result about the introduction of
+and risks. It turns out, however, that there is one useful result about the introduction of
 all risks and constraints.
 Theorem 3. (Liquidity Constraints and Risks Increase Precautionary Saving.)
-Consider an agent who has a utility function with u0 > 0, u00 < 0, u000 > 0, and nonincreasing absolute prudence (−u000 /u00 ). Then the introduction of a risk ζt+1 has a
+Consider an agent who has a utility function with u0 > 0, u00 < 0, u000 > 0, and non19
+
+increasing absolute prudence (−u000 /u00 ). Then the introduction of a risk ζt+1 has a
 greater precautionary effect on period t consumption in the presence of all future risks
 and constraints than in the absence of any future risks and constraints, i.e.
 m
@@ -1029,13 +1024,11 @@ inducing consumers to save more for precautionary reasons.
 In addition, we provide an explanation of the apparently contradictory results that
 constraints in some cases intensify and in other cases weaken precautionary saving motives. The insight here is that the effect of introducing a constraint or risk depends on
 whether it weakens the effect of any pre-existing constraints or risks. If the new constraint
-20
-
-or risk does not interact in any way with existing constraints or risks, it intensifies the
+or risk does not interact in any way with existing constraints or risks, it intensifies the
 precautionary saving motive. If it ‘hides’ or moves the effect of any existing constraints or
 risks, it may weaken the precautionary saving motive at some levels of market resources.
 
-21
+20
 
 A Proof of Lemma 1
 Proof. First, to facilitate readability of the proof, we assume that R = β = 1 with
@@ -1133,7 +1126,7 @@ io−α1
 = p Et {ct+1 (a1 + yt+1 )} α1
 + (1 − p) Et {ct+1 (a2 + yt+1 )} α1
 = p(Ω0 (a1 ))−α1 + (1 − p)(Ω0 (a2 ))−α1
-22
+21
 
 which implies that
 (Ω0 (at ))−α1 ≥ p(Ω0 (a1 ))−α1 + (1 − p)(Ω0 (a2 ))−α1
@@ -1142,8 +1135,7 @@ io−α1
 Thus, defining χt (at ) = {Ωt (at )}−α1 , we get
 χt (at ) ≥ pχt (a1 ) + (1 − p)χt (a2 )
 for all at , where the inequality is strict if ct+1 is strictly concave for at least one realization
-of yt+1 .
-Case II (a = 0, CARA). For the exponential case, property CC holds at at if
+of yt+1 . Case II (a = 0, CARA). For the exponential case, property CC holds at at if
 exp(−χt (at )/b) = Et [exp(−ct+1 (at + yt+1 )/b)]
 for some χt (at ) which is strictly concave at at . We set b = 1 to reduce clutter, but results
 hold for b 6= 1. Consider first a case where ct+1 is linear over the range of possible values
@@ -1158,16 +1150,16 @@ of at + yt+1 , then
 
 (14)
 
-which is linear in at since the second term is a constant.
-Now consider a value of at for which ct+1 (at + yt+1 ) is strictly concave for at least one
-realization of yt+1 . Global weak concavity of ct+1 tells us that for every yt+1
+which is linear in at since the second term is a constant. Now consider a value of at for
+which ct+1 (at + yt+1 ) is strictly concave for at least one realization of yt+1 . Global weak
+concavity of ct+1 tells us that for every yt+1
 −ct+1 (at + yt+1 ) ≤ −((1 − p)ct+1 (a1 + yt+1 ) + pct+1 (a2 + yt+1 ))
 Et [e−ct+1 (at +yt+1 ) ] ≤ Et [e−((1−p)ct+1 (a1 +yt+1 )+pct+1 (a2 +yt+1 )) ].
 
 (15)
 
-Meanwhile, the arithmetic-geometric mean inequality states that for positive u and v,
-if ū = Et [u] and v̄ = Et [v], then
+Meanwhile, the arithmetic-geometric mean inequality states that for positive u and v, if
+ū = Et [u] and v̄ = Et [v], then
 
 
 Et (u/ū)p (v/v̄)1−p ≤ Et [p(u/ū) + (1 − p)(v/v̄)] = 1,
@@ -1193,7 +1185,8 @@ which holds with equality only when e−ct+1 (a1 +yt+1 ) /e−ct+1 (a2 +yt+1 ) i
 only happen if ct+1 (a1 + yt+1 ) − ct+1 (a2 + yt+1 ) is constant, which (given that the MPC is
 strictly positive everywhere) requires ct+1 (at + yt+1 ) to be linear for yt+1 ∈ (y, ȳ). Hence,
 χt (at ) ≥ pχt (a1 ) + (1 − p)χt (a2 ).
-23
+
+22
 
 where the inequality is strict for an at from which ct+1 is strictly concave for some
 realization of yt+1 .
@@ -1247,7 +1240,7 @@ c(pm1 + (1 − p)m2 ) ≥ pc(m1 ) + (1 − p)c(m2 )
 so c is concave.
 Note that the proof of horizontal aggregation works for any utility function with u0 > 0
 and u00 < 0 when R = β = 1. However, for the more general case where R or β are not
-24
+23
 
 equal to one, we need the HARA property that multiplying u0 by a constant corresponds
 to a linear transformation of c.
@@ -1300,7 +1293,7 @@ another derivative can run afoul of the possible discontinuity in c0 (m) that we
 below can arise from liquidity constraints. We therefore consider two cases: (i) c00 (m)
 exists and (ii) c00 (m) does not exist.
 
-25
+24
 
 Case I: (c00 (m) exists.)
 In the case where c00 (m) exists, we can take another derivative
@@ -1437,7 +1430,7 @@ f
 
 where the inequality holds since f 0 ≥ 0, g 0 ≥ 0, and g 00 ≤ 0.
 
-26
+25
 
 and right hand values of ĉ0 are different, we say that ĉ0 is decreasing if
 lim
@@ -1548,7 +1541,7 @@ ĉ
 −
 u00 (ĉ(m)
 ĉ0 (m)
-27
+26
 
 >−
 
@@ -1633,7 +1626,7 @@ u00 (ct+1 )
 βRu00 (ct+1 )R
 βRR
 R
-28
+27
 
 Furthermore, we know that
 R−1
@@ -1713,7 +1706,7 @@ and we can obtain ωτ −1,1 via the analogue to (24). Iteration generates the 
 and ω.,1 values back to period t.
 Now consider the behavior of a consumer in period τ − 1 with a level of wealth m <
 ωτ −1,1 . This consumer knows he will be constrained and will spend all of his resources next
-29
+28
 
 period, so at m his behavior will be identical to the behavior of a consumer whose entire
 horizon ends at time τ . As shown in step I, the MPC always declines with horizon. The
@@ -1772,7 +1765,7 @@ Precautionary Premia, κt,n and κt,n+1 , associated with the introduction of th
 must satisfy
 ct,n (m) = c̃t,n (m + κt,n )
 ct,n+1 (m) = c̃t,n+1 (m + κt,n+1 ).
-30
+29
 
 (25)
 (26)
@@ -1866,7 +1859,7 @@ c0t,n+1 > c0t,n , which is true for m < ωt,n+1 by Lemma 6.
 15 Since we know that liquidity constraints increase prudence (Corollary 1) and that prudence results in a positive
 precautionary premium (Lemma 7).
 
-31
+30
 
 For m ≥ ωt,n+1 , we know that c0t,n+1 = c0t,n so the first integral in (29) is always zero.
 For the second integral in (29) to be strictly positive, we need to show that κt,n+1 > κt,n .
@@ -1918,7 +1911,7 @@ with probability (1 − p).
 1−p
 If we write the consumption rule for the unconstrained consumer facing the risk as
 s̃T −1,0 , the key result is that in the limit as p ↓ 0, behavior of the two consumers becomes
-32
+31
 
 the same. That is, defining s̃T −1,0 (m) as the optimal saving rule for the consumer facing
 the risk,
@@ -1967,7 +1960,7 @@ and the minimum possible value of human wealth. Thus, the addition of a risk to 
 problem can rule out certain levels of wealth as feasible, and can also render either future
 or past constraints irrelevant, just as the imposition of a new constraint can.
 
-33
+32
 
 H Proof of Theorem 3
 Proof. To simplify notation and without loss of generality, we assume that when an
@@ -2034,7 +2027,7 @@ is then
 PT,1
 =∅
 
-34
+33
 
 since we know that cT,1 (m) is a counterclockwise concavification of cT,0 (m) around ωT,1
 but that the consumer is constrained below this point.
@@ -2073,13 +2066,11 @@ which is a counterclockwise concavification of cT −1,0 (m) around the minimum 
 wealth at which the first constraint will never impinge on time T −1 consumption, ω̄T1 −1,1 ,
 and the new set is
 PT1 −1,2 = {mT −1 |mT −1 ≤ ω̄T1 −1,1 ∧ c1T −1,2 (m) > mT −1 }.
-It is now time to add the next risk.
-The argument is similar.
-We still
-know that (strict) consumption concavity is recursively propagated and that
-limm→∞ c2T −2,2 (m) − cT −2,0 (m) = 0. Further, we can think of the addition of two
-risks over two periods as adding one risk that is realized over two periods. Hence, the
-results from Theorem 2 must hold also for the addition of multiple risks so we have
+It is now time to add the next risk. The argument is similar. We still know that (strict)
+consumption concavity is recursively propagated and that limm→∞ c2T −2,2 (m)−cT −2,0 (m) =
+0. Further, we can think of the addition of two risks over two periods as adding one risk
+that is realized over two periods. Hence, the results from Theorem 2 must hold also for
+the addition of multiple risks so we have
 c2T −2,2 (m) ≤ cT −2,2 (m) − cT −2,1 (m) + c2T −2,1 (m)
 ≤ cT −2,1 (m) − cT −2,1 (m) + cT −2,1 (m) = cT −2,1 (m) ≤ cT −2,0 (m).
 0
@@ -2087,7 +2078,7 @@ c2T −2,2 (m) ≤ cT −2,2 (m) − cT −2,1 (m) + c2T −2,1 (m)
 Hence, we again know that c02
 T −2,2 (m) ≥ cT −2,0 (m). cT −2,2 (m) is thus a counterclockwise
 
-35
+34
 
 concavification of cT −2,0 (m) around the level of wealth at minimum value of wealth when
 the last constraint will never bind. The new set is therefore
@@ -2123,7 +2114,7 @@ c̃t,n+1 (m) ≤ ct,n+1 (m) − k̃ ≤ ct,n (m) − k̃ ≤ ct,0 − k̃
 which implies that the arguments in the preceding section goes through also for CARA
 utility with this slight modification.
 
-36
+35
 
 References
 Ameriks, John, Andrew Caplin, Steven Laufer, and Stijn Van Nieuwerburgh (2011): “The Joy Of Giving Or Assisted Living? Using Strategic Surveys To
@@ -2160,7 +2151,7 @@ Importance of the Precautionary Saving Motive: Evidence from the 1995 SCF,”
 Manuscript, Board of Governors of the Federal Reserve System.
 Kimball, Miles S. (1990): “Precautionary Saving in the Small and in the Large,”
 Econometrica, 58, 53–73.
-37
+36
 
 Lee, Jeong-Joon, and Yasuyuki Sawada (2007): “The degree of precautionary
 saving: A reexamination,” Economics Letters, 96(2), 196–201.
@@ -2181,6 +2172,6 @@ problem,” Economics Letters, 54(2), 127–134.
 Zeldes, Stephen P. (1984): “Optimal Consumption with Stochastic Income,” Ph.D.
 thesis, Massachusetts Institute of Technology.
 
-38
+37
 
 
