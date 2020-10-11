@@ -168,7 +168,9 @@
 %% If web version, then just incorporate thanks at beginning of text instead of in frontmatter
 %% \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext} \\  {\centering \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}}{\pagebreak } % \end{Web}
 
-\ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext} \\  \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}{\pagebreak } % \end{Web}
+%% \ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext} \\  \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}{\pagebreak } % \end{Web}
+
+\ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext}}{}
 
 \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax
 \hypertarget{Introduction}{}
@@ -244,10 +246,7 @@
 \begin{verbatimwrite}{Sections/Setup-Intro} %% Private
   In this section we present the consumer framework underlying all results. We consider a finitely-lived consumer living from period $t$ to $T$ who faces some future risks and liquidity constraints. The consumer is maximizing the time-additive present discounted value of utility from consumption $u(c)$.  With interest and time preference factors $R \in (0,\infty)$ and $\beta \in (0,\infty)$, and labeling consumption $c$, stochastic labor income $y$, end-of-period assets ${a}$, liquidity constraint $\sConst$, and `market resources' (the sum of current income and spendable wealth from the past) ${m}_{t}$, the consumer's problem can be written as
 \end{verbatimwrite} %% Private 
-
 \begin{verbatimwrite}{Sections/Setup} %% Private
-  
-
   \begin{eqnarray*}
     V_{t}({m}_{t}) &=&
                        \max_{c} ~\Ex_{t}\left[\sum_{k=0}^{T-t}\beta^{k} u({c_{t+k}})\right]   \label{eq:valuefn} \\
@@ -727,6 +726,9 @@ In addition, we provide an explanation of the apparently contradictory results t
 
 \vfill\eject
 \appendix
+
+\centerline{\LARGE Appendix}
+\medskip
 
 \begin{verbatimwrite}{Sections/Proofs} %% Private
   
@@ -1268,8 +1270,7 @@ In addition, we provide an explanation of the apparently contradictory results t
 \end{verbatimwrite}\ifVerbatimWrite{\input{Sections/Proofs}}{} %% Private
 
 
-
-\clearpage\pagebreak
+\clearpage\pagebreak\vfill\eject
 
 \bibliography{LiqConstr,LiqConstr-Add,economics}\end{document}
 
