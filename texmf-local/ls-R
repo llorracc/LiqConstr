@@ -73,7 +73,11 @@ svg-math-and-subfigures-README.md
 svg-math-and-subfigures-README.md~
 svg-math-and-subfigures.cfg
 svg-math-and-subfigures.cfg~
+svg-math-and-subfigures.tex
 svg-set-size-to-1p0.mk4
+svg-set-size-to-1p1.mk4
+svg-set-size-to-1p2.mk4
+svg-set-size-to-1p2.mk4~
 
 ./tex/latex/tex4ht/auto:
 

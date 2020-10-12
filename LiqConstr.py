@@ -5,45 +5,12 @@
 #     text_representation:
 #       extension: .py
 #       format_name: light
-#       format_version: '1.3'
-#       jupytext_version: 0.8.3
+#       format_version: '1.4'
+#       jupytext_version: 1.2.1
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
 #     name: python3
-#   language_info:
-#     codemirror_mode:
-#       name: ipython
-#       version: 3
-#     file_extension: .py
-#     mimetype: text/x-python
-#     name: python
-#     nbconvert_exporter: python
-#     pygments_lexer: ipython3
-#     version: 3.6.6
-#   varInspector:
-#     cols:
-#       lenName: 16
-#       lenType: 16
-#       lenVar: 40
-#     kernels_config:
-#       python:
-#         delete_cmd_postfix: ''
-#         delete_cmd_prefix: 'del '
-#         library: var_list.py
-#         varRefreshCmd: print(var_dic_list())
-#       r:
-#         delete_cmd_postfix: ') '
-#         delete_cmd_prefix: rm(
-#         library: var_list.r
-#         varRefreshCmd: 'cat(var_dic_list()) '
-#     types_to_exclude:
-#     - module
-#     - function
-#     - builtin_function_or_method
-#     - instance
-#     - _Feature
-#     windo{m}_display: false
 # ---
 
 # # Liquidity Constraints and Precautionary Saving
@@ -55,7 +22,7 @@
 # | Path | Content | 
 # | --- | --- |
 # |./Figures/       | Figures created by the code |
-# | do_all.py | iPython-runnable |
+# | reproduce.sh | bash file to reproduce this notebook |
 # | LiqConstr.tex | LaTeX to create the paper |
 #
 #
@@ -127,9 +94,9 @@ from HARK.ConsumptionSaving.ConsIndShockModel import IndShockConsumerType
 # Common parameters for all models (the initialized lifecycle perfect foresight type with no borrowing constraint)
 
 # load default parameteres from the lifecycle model in the HARK toolbox
-from HARK.ConsumptionSaving.ConsumerParameters import init_lifecycle
+from HARK.ConsumptionSaving.ConsIndShockModel import init_lifecycle
 
-# remove all risk and growth factors, borrowing constraints, and set the solver to always use the cubic tool
+# remove all risk and growth factors, borrowing constraints, and set the solver to always use linear interpolation
 init_lifecycle["PermGroFac"] = [1,1,1,1,1,1,1,1,1,1]
 init_lifecycle["LivPrb"] = [1,1,1,1,1,1,1,1,1,1]
 init_lifecycle["DiscFac"] = 1/1.03
@@ -138,7 +105,7 @@ init_lifecycle["UnempPrb"] = 0
 init_lifecycle["TranShkStd"] = [0,0,0,0,0,0,0,0,0,0,0]
 init_lifecycle["PermShkStd"] = [0,0,0,0,0,0,0,0,0,0,0]
 init_lifecycle["BoroCnstArt"] = [None,None,None,None,None,None,None,None,None,None]
-init_lifecycle["CubicTool"] = True  
+init_lifecycle["CubicBool"] = False
 
 # add the second type of lifecycle agent with unemployment risk
 init_lifecycle_risk1 = dict(init_lifecycle)
@@ -148,7 +115,6 @@ init_lifecycle_risk1["UnempPrb"] = 0.05
 # the lifecycle type with only one-period transitory risk
 init_lifecycle_risk2 = dict(init_lifecycle)
 init_lifecycle_risk2["TranShkStd"] = [0,0.5,0,0,0,0,0,0,0,0,0]
-
 # the lifecycle type with only one-period future transitory risk
 init_lifecycle_risk3 = dict(init_lifecycle)
 init_lifecycle_risk3["TranShkStd"] = [0,0,0,0.5,0,0,0,0,0,0,0]
@@ -161,7 +127,6 @@ init_lifecycle_risk5["TranShkStd"] = [0,0.5,0,0,0,0,0,0,0,0,0]
 
 init_lifecycle_risk6 = dict(init_lifecycle)
 init_lifecycle_risk6["TranShkStd"] = [0,0.5,0.5,0,0,0,0,0,0,0,0]
-
 
 # -
 # ## Counterclockwise Concavification
@@ -178,23 +143,20 @@ CCC_unconstr = IndShockConsumerType(**init_lifecycle)
 CCC_unconstr.delFromTimeInv('BoroCnstArt')
 CCC_unconstr.addToTimeVary('BoroCnstArt')
 CCC_unconstr.solve()
-CCC_unconstr.unpackcFunc()
-CCC_unconstr.timeFwd()
+CCC_unconstr.unpack("cFunc")
 
 CCC_constraint = IndShockConsumerType(**init_lifecycle)
 CCC_constraint.delFromTimeInv('BoroCnstArt')
 CCC_constraint.addToTimeVary('BoroCnstArt')
-CCC_constraint(BoroCnstArt = [None,-1,None,None,None,None,None,None,None,None])       
+CCC_constraint.BoroCnstArt = [None,-1,None,None,None,None,None,None,None,None]
 CCC_constraint.solve()
-CCC_constraint.unpackcFunc()
-CCC_constraint.timeFwd()
+CCC_constraint.unpack("cFunc")
 
 CCC_risk = IndShockConsumerType(**init_lifecycle_risk1)
 CCC_risk.delFromTimeInv('BoroCnstArt')
 CCC_risk.addToTimeVary('BoroCnstArt')
 CCC_risk.solve()
-CCC_risk.unpackcFunc()
-CCC_risk.timeFwd()
+CCC_risk.unpack("cFunc")
 
 # save the data in a txt file for later plotting in Matlab
 x = np.linspace(-1,1,500,endpoint=True)
@@ -251,19 +213,17 @@ f.savefig(os.path.join(figures_dir, 'CounterclockwiseConcavifications.svg'))
 Bcons1 = IndShockConsumerType(**init_lifecycle)
 Bcons1.delFromTimeInv('BoroCnstArt')
 Bcons1.addToTimeVary('BoroCnstArt')
-Bcons1(BoroCnstArt = [None,0,None,None,None,None,None,None,None,None])       
+Bcons1.BoroCnstArt = [None,0,None,None,None,None,None,None,None,None]
 Bcons1.solve()
-Bcons1.unpackcFunc()
-Bcons1.timeFwd()
+Bcons1.unpack("cFunc")
 
 # Make and solve the consumer with more than one binding borrowing constraint
 BCons2 = IndShockConsumerType(**init_lifecycle)
 BCons2.delFromTimeInv('BoroCnstArt')
 BCons2.addToTimeVary('BoroCnstArt')
-BCons2(BoroCnstArt = [None,0,0.02,None,None,None,None,None,None,None])
+BCons2.BoroCnstArt = [None,0,0.02,None,None,None,None,None,None,None]
 BCons2.solve()
-BCons2.unpackcFunc()
-BCons2.timeFwd()    
+BCons2.unpack("cFunc")
 
 # save the data in a txt file
 x = np.linspace(1,1.2,500,endpoint=True)
@@ -324,32 +284,28 @@ WwCR_unconstr = IndShockConsumerType(**init_lifecycle)
 WwCR_unconstr.delFromTimeInv('BoroCnstArt')
 WwCR_unconstr.addToTimeVary('BoroCnstArt')
 WwCR_unconstr.solve()
-WwCR_unconstr.unpackcFunc()
-WwCR_unconstr.timeFwd()
+WwCR_unconstr.unpack("cFunc")
 
 WwCR_risk = IndShockConsumerType(**init_lifecycle_risk2)
 WwCR_risk.delFromTimeInv('BoroCnstArt')
 WwCR_risk.addToTimeVary('BoroCnstArt')
 WwCR_risk.solve()
-WwCR_risk.unpackcFunc()
-WwCR_risk.timeFwd()
+WwCR_risk.unpack("cFunc")
 
 WwCR_constr = IndShockConsumerType(**init_lifecycle)
 WwCR_constr.cycles = 1 # Make this consumer live a sequence of periods exactly once
 WwCR_constr.delFromTimeInv('BoroCnstArt')
 WwCR_constr.addToTimeVary('BoroCnstArt')
-WwCR_constr(BoroCnstArt = [None,None,-6,None,None,None,None,None,None,None])
+WwCR_constr.BoroCnstArt = [None,None,-6,None,None,None,None,None,None,None]
 WwCR_constr.solve()
-WwCR_constr.unpackcFunc()
-WwCR_constr.timeFwd()
+WwCR_constr.unpack("cFunc")
 
 WwCR_constr_risk = IndShockConsumerType(**init_lifecycle_risk2)
 WwCR_constr_risk.delFromTimeInv('BoroCnstArt')
 WwCR_constr_risk.addToTimeVary('BoroCnstArt')
-WwCR_constr_risk(BoroCnstArt = [None,None,-6,None,None,None,None,None,None,None])
+WwCR_constr_risk.BoroCnstArt = [None,None,-6,None,None,None,None,None,None,None]
 WwCR_constr_risk.solve()
-WwCR_constr_risk.unpackcFunc()
-WwCR_constr_risk.timeFwd()
+WwCR_constr_risk.unpack("cFunc")
 
 # save the data in a txt file
 x = np.linspace(-8,-4,1000,endpoint=True)
@@ -399,9 +355,6 @@ plt.show()
 f.savefig(os.path.join(figures_dir, 'ConsWithWithoutConstrAndRisk.pdf'))
 f.savefig(os.path.join(figures_dir, 'ConsWithWithoutConstrAndRisk.png'))
 f.savefig(os.path.join(figures_dir, 'ConsWithWithoutConstrAndRisk.svg'))
-
-
-
 # ## An Immediate Constraint Can Hide A Future Risk
 
 # + {"code_folding": [0]}
@@ -414,23 +367,21 @@ WwCR_unconstr = IndShockConsumerType(**init_lifecycle)
 WwCR_unconstr.delFromTimeInv('BoroCnstArt')
 WwCR_unconstr.addToTimeVary('BoroCnstArt')
 WwCR_unconstr.solve()
-WwCR_unconstr.unpackcFunc()
-WwCR_unconstr.timeFwd()
+WwCR_unconstr.unpack("cFunc")
 
+CCC_unconstr.unpack("cFunc")
 WwCR_risk = IndShockConsumerType(**init_lifecycle_risk3)
 WwCR_risk.delFromTimeInv('BoroCnstArt')
 WwCR_risk.addToTimeVary('BoroCnstArt')
 WwCR_risk.solve()
-WwCR_risk.unpackcFunc()
-WwCR_risk.timeFwd()
+WwCR_risk.unpack("cFunc")
 
 WwCR_constr = IndShockConsumerType(**init_lifecycle)
 WwCR_constr.delFromTimeInv('BoroCnstArt')
 WwCR_constr.addToTimeVary('BoroCnstArt')
 WwCR_constr(BoroCnstArt = [None,None,-6,None,None,None,None,None,None,None])
 WwCR_constr.solve()
-WwCR_constr.unpackcFunc()
-WwCR_constr.timeFwd()
+WwCR_constr.unpack("cFunc")
 
 
 WwCR_constr_risk = IndShockConsumerType(**init_lifecycle_risk3)
@@ -438,8 +389,7 @@ WwCR_constr_risk.delFromTimeInv('BoroCnstArt')
 WwCR_constr_risk.addToTimeVary('BoroCnstArt')
 WwCR_constr_risk(BoroCnstArt = [None,None,-6,None,None,None,None,None,None,None])
 WwCR_constr_risk.solve()
-WwCR_constr_risk.unpackcFunc()
-WwCR_constr_risk.timeFwd()
+WwCR_constr_risk.unpack("cFunc")
 
 # save the data in a txt file
 x = np.linspace(-8,-4,1000,endpoint=True)
@@ -502,32 +452,28 @@ f.savefig(os.path.join(figures_dir, 'ConstrHidesRisk.svg'))
 #WwCR_unconstr.delFromTimeInv('BoroCnstArt')
 #WwCR_unconstr.addToTimeVary('BoroCnstArt')
 #WwCR_unconstr.solve()
-#WwCR_unconstr.unpackcFunc()
-#WwCR_unconstr.timeFwd()
+#WwCR_unconstr.unpack("cFunc")
 #
 ## 4 is risk in period 4 (1)
 #WwCR_risk4 = IndShockConsumerType(**init_lifecycle_risk4)
 #WwCR_risk4.delFromTimeInv('BoroCnstArt')
 #WwCR_risk4.addToTimeVary('BoroCnstArt')
 #WwCR_risk4.solve()
-#WwCR_risk4.unpackcFunc()
-#WwCR_risk4.timeFwd()
+#WwCR_risk4.unpack("cFunc")
 #
 ## 5 is risk in period 3 (0.1)
 #WwCR_risk5 = IndShockConsumerType(**init_lifecycle_risk5)
 #WwCR_risk5.delFromTimeInv('BoroCnstArt')
 #WwCR_risk5.addToTimeVary('BoroCnstArt')
 #WwCR_risk5.solve()
-#WwCR_risk5.unpackcFunc()
-#WwCR_risk5.timeFwd()
+#WwCR_risk5.unpack("cFunc")
 #
 ## 6 is risk in period 3 and 4 (0.1, 1)
 #WwCR_risk6 = IndShockConsumerType(**init_lifecycle_risk6)
 #WwCR_risk6.delFromTimeInv('BoroCnstArt')
 #WwCR_risk6.addToTimeVary('BoroCnstArt')
 #WwCR_risk6.solve()
-#WwCR_risk6.unpackcFunc()
-#WwCR_risk6.timeFwd()
+#WwCR_risk6.unpack("cFunc")
 #
 ## save the data in a txt file
 #x = np.linspace(-8,-4,1000,endpoint=True)
@@ -575,5 +521,4 @@ f.savefig(os.path.join(figures_dir, 'ConstrHidesRisk.svg'))
 #f.savefig(os.path.join(figures_dir, 'RiskHidesRisk.pdf'))
 #f.savefig(os.path.join(figures_dir, 'RiskHidesRisk.png'))
 #f.savefig(os.path.join(figures_dir, 'RiskHidesRisk.svg'))
-
 
