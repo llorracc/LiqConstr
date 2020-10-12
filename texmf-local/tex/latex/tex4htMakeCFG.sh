@@ -16,6 +16,7 @@ echo "$cmd" ; eval "$cmd"
 cmd="cp `kpsewhich svg-set-size-to-1p0.mk4` $handoutName.mk4"
 #cp `kpsewhich svg-set-size-to-1p2.mk4` $handoutName.mk4
 #cmd="cp `kpsewhich svg-set-size-to-1p3x1p0.mk4` $handoutName.mk4".mk4
+cmd="cp `kpsewhich svg-set-size-to-1p2x1p0.mk4` $handoutName.mk4".mk4
 echo "$cmd" ; eval "$cmd"
 
 
