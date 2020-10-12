@@ -254,7 +254,7 @@
                        \max_{c} ~\Ex_{t}\left[\sum_{k=0}^{T-t}\beta^{k} u({c_{t+k}})\right]   \label{eq:valuefn} \\
                    & s.t. &  \nonumber
     \\              {m}_{t+1} & = & ({m}_{t}-c_{t})R+y_{t+1}  \\ 
-    {a}_{t} &=& {m}_{t} - c_t \\
+    {a}_{t} &=& {m}_{t} - {c}_{t} \\
     {a}_{t} &\geq& \sConst_t%% Private CDC20190605 moved R after w-c because it is increasingly common for R to be specified as a function of ({m}-c) and we want to be clear that we are NOT doing that 
                    \nonumber
   \end{eqnarray*}
@@ -269,7 +269,7 @@
   \begin{eqnarray*}  \label{eq:subphi}
     V_{t}({m}_{t}) & = & \max_{c} ~ u(c) + \Omega_{t}({m}_{t} - c).
   \end{eqnarray*}
-  %% Old: Throughout the paper, we distinguish between two different consumption functions, $c_t({m})$ and $\chi_t(s)$. $c_t({m})$ is the beginning-of-period consumption function and implicitly defined by the envelope conditions with respect to the current value function: $u'(c_t({m})) = V'({m})$. $\chi_t(s)$ is the end-of-period consumption function implicitly defined by the envelope condition with respect to expected value: $u'(\chi_t(s)) = \Omega_{t}'(s)$.
+  %% Old: Throughout the paper, we distinguish between two different consumption functions, ${c}_{t}({m})$ and $\chi_t(s)$. ${c}_{t}({m})$ is the beginning-of-period consumption function and implicitly defined by the envelope conditions with respect to the current value function: $u'({c}_{t}({m})) = V'({m})$. $\chi_t(s)$ is the end-of-period consumption function implicitly defined by the envelope condition with respect to expected value: $u'(\chi_t(s)) = \Omega_{t}'(s)$.
   Throughout, what we call `the consumption function' is the mapping from  market resources ${m}_{t}$ to consumption. In some of our results we consider utility functions of the HARA class
   \begin{equation}\label{eq:HARA}
     u(c) = \begin{cases} \frac{1}{\alpha_1 - 1}\left(\alpha_1 c + \alpha_2 \right)^{\frac{\alpha_1 -1}{\alpha_1 }} & \alpha_1  \neq 0,1 \\
@@ -315,15 +315,15 @@
   \noindent We now show that once a value function exhibits the property CC in some period $t+1$, it will also have the property CC in period $t$ and earlier under fairly general conditions. Lemma \ref{lem:recursive} formally provides conditions guaranteeing this recursive propagation.
 
   \begin{lemma}\label{lem:recursive}(Recursive Propagation of Consumption Concavity.) \\
-    Consider an agent with a HARA utility function satisfying $u' > 0$, $u'' < 0$, $u''' \geq 0$ and non-increasing absolute prudence ($-u'''/u''$). Assume that no liquidity constraint applies at the end of period $t$ and that the agent faces income risk $y_{t+1} \in [\underline{y},\bar{y}]$. If $V_{t+1}({m}_{t+1})$ exhibits property (local) CC for all ${m}_{t+1} \in [R{a}_{t} + \underline{y}, R{a}_{t} + \bar{y}]$, then $V_t({m}_{t})$ exhibits property (local) CC at the level of wealth ${m}_{t}$ such that optimal consumption yields ${a}_{t} = {m}_{t} - c_t({m}_{t})$.
+    Consider an agent with a HARA utility function satisfying $u' > 0$, $u'' < 0$, $u''' \geq 0$~and non-increasing absolute prudence ($-u'''/u''$). Assume that no liquidity constraint applies at the end of period $t$ and that the agent faces income risk $y_{t+1} \in [\underline{y},\bar{y}]$. If $V_{t+1}({m}_{t+1})$ exhibits property (local) CC for all ${m}_{t+1} \in [R{a}_{t} + \underline{y}, R{a}_{t} + \bar{y}]$, then $V_t({m}_{t})$ exhibits property (local) CC at the level of wealth ${m}_{t}$ such that optimal consumption yields ${a}_{t} = {m}_{t} - {c}_{t}({m}_{t})$.
     
     \medskip
-    \noindent If also $V_{t+1}({m}_{t+1})$ exhibits property strict (local) CC for at least one ${m}_{t+1} \in [R{a}_{t} + \underline{y}, R{a}_{t} + \bar{y}]$, then $V_t({m}_{t})$ exhibits property strict (local) CC at the level of wealth ${m}_{t}$ where optimal consumption yields ${a}_{t} = {m}_{t} - c_t({m}_{t})$.
+    \noindent If also $V_{t+1}({m}_{t+1})$ exhibits property strict (local) CC for at least one ${m}_{t+1} \in [R{a}_{t} + \underline{y}, R{a}_{t} + \bar{y}]$, then $V_t({m}_{t})$ exhibits property strict (local) CC at the level of wealth ${m}_{t}$ where optimal consumption yields ${a}_{t} = {m}_{t} - {c}_{t}({m}_{t})$.
   \end{lemma}
   \noindent See Appendix \ref{app:recursive} for the proof. The basic insight of Lemma \ref{lem:recursive} is that as long as the future consumption function is concave for all realizations of $y_{t+1}$, then it is also concave today. Additionally, if the the future consumption function is strictly concave for at least one realization of ${y}_{t+1}$, then the consumption function is strictly concave also today. 
 
 
-  The last concept we define is when a value function exhibits `greater' concavity than another. This will allow us to compare two consumption functions and their respective concavity later. 
+  The last circumstance we define is when a value function exhibits `greater' concavity than another. Later, this will allow us to compare two consumption functions and their respective concavity. 
   \begin{defn}\label{defn:MoreCC} (Greater Consumption Concavity.) \\ Consider two functions $V({m})$ and $\hat{V}({m})$ that both exhibit property CC with respect to the same $u(c)$ at a point ${m}$ for some interval $({m}_1,{m}_2)$ such that ${m}_1 < {m} < {m}_2$.  Then $\hat{V}({m})$ exhibits property `greater CC' compared to $V({m})$ if
     \begin{eqnarray}
       \hat{c}({m}) - \left(\frac{{m}_{2}-{m}}{{m}_{2}-{m}_{1}} \hat{c}({m}_{1})+\frac{{m}-{m}_{1}}{{m}_{2}-{m}_{1}}\hat{c}({m}_{2})\right) \geq c({m}) - \left(\frac{{m}_{2}-{m}}{{m}_{2}-{m}_{1}} c({m}_{1})+\frac{{m}-{m}_{1}}{{m}_{2}-{m}_{1}}c({m}_{2})\right) \label{eq:MoreCC}
@@ -368,7 +368,7 @@
     with $u' > 0$, $u'' < 0$, $u''' > 0$, and decreasing absolute prudence ($-u'''/u''$). Then the consumption function in the presence of a current income risk $\tilde{c}({m})$ is a counterclockwise concavification of the consumption function in the presence of no risk $c({m})$ around $\infty$. 
   \end{lemma}
   \begin{proof}
-    \citet{kimball:smallandlarge} shows that positive absolute prudence $-\frac{u'''}{u''}$ ensures that $\tilde{c}({m}) < c({m})$ for all ${m}$. Further, decreasing absolute prudence ensures that the conditions for Corollary 1 in \citet{carroll&kimball:concavity} are satisfied so that $\tilde{c}''({m}) < 0$ for all ${m}$. The two results imply that consumption is lower, the MPC is higher, and the consumption function is more concave everywhere in the case with risk than in the case with no risk. $\tilde{c}({m})$ is therefore a counterclockwise concavification of $c({m})$ around $\infty$. 
+    \citet{kimball:smallandlarge} shows that positive absolute prudence $-\frac{u'''}{u''}$ ensures that $\tilde{c}({m}) < c({m})$ for all ${m}$. Further, decreasing absolute prudence ensures that the conditions for Corollary 1 in \citet{carroll&kimball:concavity} are satisfied so that $\tilde{c}''({m}) < 0$~for all ${m}$. The two results imply that consumption is lower, the MPC is higher, and the consumption function is more concave everywhere in the case with risk than in the case with no risk. $\tilde{c}({m})$ is therefore a counterclockwise concavification of $c({m})$ around $\infty$. 
   \end{proof}
 
   \hypertarget{CounterclockwiseConcavifications}{}
@@ -410,7 +410,7 @@
   Lemma \ref{lem:CCToPrud} only provides conditions for when the value function exhibits greater prudence, but not \textit{strictly} greater prudence. In particular, the value function associated with $\hat{c}({m})$ will in some cases (e.g., quadratic utility) have equal prudence most ${m}$ and strictly greater prudence only for some ${m}$. In Lemma \ref{lem:ccandstrictprud}, we provide conditions for when the value function has strictly greater prudence.
 
   \begin{lemma} \label{lem:ccandstrictprud}(A Counterclockwise Concavification Strictly Increases Prudence.)\\
-    Consider an agent who has a utility function with $u' > 0$, $u'' < 0$, $u''' \geq 0$, and non-increasing absolute prudence ($-u'''/u''$). If $c({m})$ is concave and $\hat{c}({m})$ is a counterclockwise concavification of $c({m})$ around ${m}^{\#}$, then the value function associated with $\hat{c}({m})$ exhibits strictly greater prudence than the value function associated with $c({m})$ if the utility function satisfies $u''' > 0$ and ${m} < {m}^{\#}$ or the utility function is quadratic ($u''' = 0$) and $\frac{\hat{c}'({m})}{c'({m})}$ strictly declines at ${m}$.
+    Consider an agent who has a utility function with $u' > 0$, $u'' < 0$, $u''' \geq 0$, and non-increasing absolute prudence ($-u'''/u''$). If $c({m})$ is concave and $\hat{c}({m})$ is a counterclockwise concavification of $c({m})$ around ${m}^{\#}$, then the value function associated with $\hat{c}({m})$~exhibits strictly greater prudence than the value function associated with $c({m})$ if the utility function satisfies $u''' > 0$ and ${m} < {m}^{\#}$ or the utility function is quadratic ($u''' = 0$) and $\frac{\hat{c}'({m})}{c'({m})}$ strictly declines at ${m}$.
   \end{lemma}
   \noindent See Appendix \ref{app:ccandstrictprud} for the proof. For prudent consumers ($u''' > 0$), the value function exhibits strictly greater prudence for all $m$ where the counterclockwise concavification affects consumption. This is because a reduction in consumption and higher marginal propensity to consume heighten prudence if the utility function has a positive third derivative and prudence is non-increasing. If the utility function instead is quadratic, the third derivative is zero and absolute prudence of the value function does not depend on the level of consumption or the marginal propensity to consume. In this case, the counterclockwise concavification only affects prudence at the kink points in the consumption function (where $\frac{\hat{c}'({m})}{c'({m})}$ strictly declines at ${m}$).
 
@@ -458,9 +458,9 @@
   \begin{defn} (An Ordered Set of Relevant Constraints.) \\
     We define $\mathcal{T}$ as an ordered set of dates at which a relevant constraint exists. We define $\mathcal{T}[1]$ as the last period in which a constraint exists, $\mathcal{T}[2]$ as the date of the last period before $\mathcal{T}[1]$ in which a constraint exists, and so on.
   \end{defn}
-  \noindent $\mathcal{T}$ is the set of relevant constraints, ordered from the last to the first constraint. We order them from last to first because a constraint in period $t$ only affects behavior prior to period $t$ (and $t$ itself). The set of constraints from period $t$ to $T$ summarizes all relevant information in period $t$. Further, and as discussed below, the effect of imposing the next constraint in $\mathcal{T}$ on consumption is unambiguous only if one imposes constraints chronologically from last to first (and all constraints are of the no-borrowing type). 
+  \noindent $\mathcal{T}$~is the set of relevant constraints, ordered from the last to the first constraint. We order them from last to first because a constraint in period $t$ only affects behavior prior to period $t$ (in addition to $t$ itself). The set of constraints from period $t$ to $T$ summarizes all relevant information in period $t$. Further, and as discussed below, the effect of imposing the next constraint in $\mathcal{T}$ on consumption is unambiguous only if one imposes constraints chronologically from last to first (and all constraints are of the no-borrowing type). 
 
-  For any $t \in [0, T)$, we define $c_{t,n}$ as the optimal consumption function in period $t$ assuming that the first $n$ constraints in $\mathcal{T}$ have been imposed. For example, $c_{t,0}({m})$ is the consumption function in period $t$ when no constraint has been imposed, $c_{t,1}({m})$ is the consumption function in period $t$ after the chronologically last constraint has been imposed, and so on. $\Omega_{t,n}, V_{t,n}$, and other functions are defined correspondingly.
+  For any $t \in [0, T)$, we define $c_{t,n}$ as the optimal consumption function in period $t$ assuming that the first $n$ constraints in $\mathcal{T}$ have been imposed. For example, $c_{t,0}({m})$ is the consumption function in period $t$ when no constraints have been imposed, $c_{t,1}({m})$ is the consumption function in period $t$ after the chronologically last constraint has been imposed, and so on. $\Omega_{t,n}, V_{t,n}$, and other functions are defined correspondingly.
 
 
 
@@ -722,9 +722,9 @@
 
 \section{Conclusion}
 
-The central message of this paper is that the effects of liquidity constraints and future risks on precautionary saving are very similar because the introduction of either a liquidity constraints or a risk (or both) makes the consumption function more concave than the perfect foresight consumption function. Such an increase in concavity heightens prudence, inducing consumers to save more for precautionary reasons. 
+The central message of this paper is that the effects of liquidity constraints and of future risks on precautionary saving are similar because the introduction of either a liquidity constraints or a risk makes the consumption function more concave than the perfect foresight consumption function. Such an increase in concavity heightens prudence, inducing consumers at any affected level of wealth to save more for precautionary reasons. 
 
-In addition, we provide an explanation of the apparently contradictory results that constraints in some cases intensify and in other cases weaken precautionary saving motives. The insight here is that the effect of introducing a constraint or risk depends on whether it weakens the effect of any pre-existing constraints or risks. If the new constraint or risk does not interact in any way with existing constraints or risks, it intensifies the precautionary saving motive. If it `hides' or moves the effect of any existing constraints or risks, it may weaken the precautionary saving motive at some levels of market resources.
+In addition, we provide an explanation of apparently contradictory results: That constraints in some cases intensify and in other cases weaken those motives. The insight here is that the effect of introducing a constraint or risk depends on whether it weakens the effect of any pre-existing constraints or risks. If the new constraint or risk does not interact in any way with existing constraints or risks, it intensifies the precautionary saving motive. If it `hides' or moves the effect of any existing constraints or risks, it may weaken the precautionary saving motive at some levels of market resources.
 
 \vfill\eject
 \appendix
@@ -739,8 +739,7 @@ In addition, we provide an explanation of the apparently contradictory results t
 
   \section{Proof of Lemma \ref{lem:recursive}}\label{app:recursive}
 
-  \begin{proof}
-    First, to facilitate readability of the proof, we assume that $R = \beta = 1$ with no loss of generality. Our goal is to prove that $V({m}_{t}) \in CC$ if $V_{t+1}({a}_{t} + {y}_{t+1}) \in CC$ for all realizations of ${y}_{t+1}$. The proof proceeds in two steps. First, we show that property CC is preserved through the expectation operator (vertical aggregation), i.e.\ that $\Omega({a}_{t}) = \Ex_t[V_{t+1}({a}_{t} + {y}_{t+1})] \in CC$ if $V_{t+1}({a}_{t} + {y}_{t+1}) \in CC$ for all realizations of ${y}_{t+1}$. Second, we show that property CC is preserved through the value function operator (horizontal aggregation), i.e.\ that $V({m}_{t}) = \max_{s} u(c_t({m}_{t} - s)) + \Omega(s) \in CC$ if $\Omega(s) \in CC$. Throughout the proof, the first order condition holds with equality since no liquidity constraint applies at the end of period $t$. 
+  \begin{proof}~~First, to facilitate readability of the proof, we assume that $R = \beta = 1$ with no loss of generality. Our goal is to prove that $V({m}_{t}) \in CC$ if $V_{t+1}({a}_{t} + {y}_{t+1}) \in CC$ for all realizations of ${y}_{t+1}$. The proof proceeds in two steps. First, we show that property CC is preserved through the expectation operator (vertical aggregation), i.e.\ that $\Omega({a}_{t}) = \Ex_t[V_{t+1}({a}_{t} + {y}_{t+1})] \in CC$ if $V_{t+1}({a}_{t} + {y}_{t+1}) \in CC$ for all realizations of ${y}_{t+1}$. Second, we show that property CC is preserved through the value function operator (horizontal aggregation), i.e.\ that $V({m}_{t}) = \max_{s} u({c}_{t}({m}_{t} - s)) + \Omega(s) \in CC$ if $\Omega(s) \in CC$. Throughout the proof, the first order condition holds with equality since no liquidity constraint applies at the end of period $t$. 
     
     \bigskip
     \noindent \textbf{Step 1: Vertical aggregation} \\ 
@@ -846,7 +845,7 @@ In addition, we provide an explanation of the apparently contradictory results t
     \end{align}
     for any $0 < p < 1$, and ${a}_1 < {a}_{t} < {a}_2$. % ($|{a}_2 - {a}_1|< \delta$ for any $\delta > 0$). 
     
-    In addition, we know that the first order condition holds with equality such that $\Omega_t'({a}_{t}) = u'(c_t({m}_{t})) = u'(\chi_t({a}_{t}))$ which implies that ${a}_{t} = \chi_t^{-1}(c_t)$. Using this equation, we get
+    In addition, we know that the first order condition holds with equality such that $\Omega_t'({a}_{t}) = u'({c}_{t}({m}_{t})) = u'(\chi_t({a}_{t}))$ which implies that ${a}_{t} = \chi_t^{-1}({c}_{t})$. Using this equation, we get
     \begin{align*}
       \chi_t(p{a}_1 + (1-p){a}_2) &\geq p\chi_t({a}_1) + (1-p)\chi_t({a}_2) \\
       p{a}_1 + (1-p){a}_2 &\geq \chi_t^{-1}(p\chi_t({a}_1) + (1-p)\chi_t({a}_2)) \\
@@ -856,10 +855,10 @@ In addition, we provide an explanation of the apparently contradictory results t
     
     Use the budget constraint to define
     \begin{align*}
-      {m}_{t} &= {a}_{t} + c_t \\ 
-      \wAlt(c_t) & = \chi^{-1}(c_t) + c_t
+      {m}_{t} &= {a}_{t} + {c}_{t} \\ 
+      \wAlt({c}_{t}) & = \chi^{-1}({c}_{t}) + {c}_{t}
     \end{align*} 
-    Now, since $\chi_t^{-1}$ is a convex function, and $\wAlt(c_t)$ is the sum of a convex and a linear function, it is also a convex function satisfying
+    Now, since $\chi_t^{-1}$ is a convex function, and $\wAlt({c}_{t})$ is the sum of a convex and a linear function, it is also a convex function satisfying
     \begin{align}
       p\wAlt(c_1) + (1-p)\wAlt(c_2) &\geq \wAlt(pc_1 + (1-p)c_2) \nonumber \\
       \wAlt^{-1}(p\wAlt(c_1) + (1-p)\wAlt(c_2)) &\geq pc_1 + (1-p)c_2 \nonumber \\
@@ -871,7 +870,7 @@ In addition, we provide an explanation of the apparently contradictory results t
     
     \bigskip
     \noindent \textbf{Strict Consumption Concavity.}
-    When $V_{t+1}({m}_{t+1})$ exhibits the property strict CC for at least one ${m}_{t+1} \in [R{a}_{t} + \underline{y}, R{a}_{t} + \bar{y}]$, we know that $\chi_t({a}_{t})$ also exhibits the property strict CC from the proof of vertical aggregation. Then, equation \eqref{eq:hor_conc} holds with strict inequality, and this strict inequality goes through the proof of horizontal aggregation, implying that equation \eqref{eq:hor_conc2} holds with strict inequality. Hence, $c_t({m}_{t})$ is strictly concave if $c_{t+1}({a}_{t} + {y}_{t+1})$ is concave for all realizations of ${y}_{t+1}$ and strictly concave for at least one realization of ${y}_{t+1}$. 
+    When $V_{t+1}({m}_{t+1})$ exhibits the property strict CC for at least one ${m}_{t+1} \in [R{a}_{t} + \underline{y}, R{a}_{t} + \bar{y}]$, we know that $\chi_t({a}_{t})$ also exhibits the property strict CC from the proof of vertical aggregation. Then, equation \eqref{eq:hor_conc} holds with strict inequality, and this strict inequality goes through the proof of horizontal aggregation, implying that equation \eqref{eq:hor_conc2} holds with strict inequality. Hence, ${c}_{t}({m}_{t})$ is strictly concave if $c_{t+1}({a}_{t} + {y}_{t+1})$ is concave for all realizations of ${y}_{t+1}$ and strictly concave for at least one realization of ${y}_{t+1}$. 
   \end{proof}
 
 
