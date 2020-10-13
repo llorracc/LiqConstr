@@ -1,4 +1,4 @@
- % PrivateMsg
+ %% Private
 
 
 
@@ -107,9 +107,9 @@
     We now proceed with horizontal aggregation, namely how concavity is preserved through the value function operation. Assume that $\Omega_t({a}_{t}) \in CC$ at point ${a}_{t}$, then the first order condition implies that
     \[\Omega_t'({a}_{t}) = u'(\chi_t({a}_{t}))\]
     for some monotonically increasing $\chi_t({a}_{t})$ that satisfies
-    \begin{equation}\begin{gathered}\begin{aligned}
+    \begin{align}
       \chi_t(p{a}_1 + (1-p){a}_2) \geq p\chi_t({a}_1) + (1-p)\chi_t({a}_2) \label{eq:hor_conc}
-    \end{aligned}\end{gathered}\end{equation}
+    \end{align}
     for any $0 < p < 1$, and ${a}_1 < {a}_{t} < {a}_2$. % ($|{a}_2 - {a}_1|< \delta$ for any $\delta > 0$).
 
     In addition, we know that the first order condition holds with equality such that $\Omega_t'({a}_{t}) = u'(c_t({m}_{t})) = u'(\chi_t({a}_{t}))$ which implies that ${a}_{t} = \chi_t^{-1}(c_t)$. Using this equation, we get
@@ -126,11 +126,11 @@
       \wAlt(c_t) & = \chi^{-1}(c_t) + c_t
     \end{align*}
     Now, since $\chi_t^{-1}$ is a convex function, and $\wAlt(c_t)$ is the sum of a convex and a linear function, it is also a convex function satisfying
-    \begin{equation}\begin{gathered}\begin{aligned}
+    \begin{align}
       p\wAlt(c_1) + (1-p)\wAlt(c_2) &\geq \wAlt(pc_1 + (1-p)c_2) \nonumber \\
       \wAlt^{-1}(p\wAlt(c_1) + (1-p)\wAlt(c_2)) &\geq pc_1 + (1-p)c_2 \nonumber \\
       c(p{m}_1 + (1-p){m}_2) &\geq pc({m}_1) + (1-p)c({m}_2) \label{eq:hor_conc2}
-    \end{aligned}\end{gathered}\end{equation}
+    \end{align}
     so $c$ is concave.
 
     Note that the proof of horizontal aggregation works for any utility function with $u' > 0$ and $u'' < 0$ when $R$ = $\beta$ = 1. However, for the more general case where $R$ or $\beta$ are not equal to one, we need the HARA property that multiplying $u'$ by a constant corresponds to a linear transformation of $c$.
@@ -161,8 +161,8 @@
     In the case where $c''({m})$ exists, we can take another derivative
     \[V'''({m}) = u'''(c({m}))[c'({m})]^2 + u''(c({m}))c''({m})\]
     Absolute prudence of the value function is thus defined as
-    \begin{equation}\begin{gathered}\begin{aligned}-\frac{V'''({m})}{V''({m})} &= -\frac{u'''(c({m}))[c'({m})]^2 + u''(c({m}))c''({m})}{u''(c({m}))c'({m})} \nonumber \\
-      -\frac{V'''({m})}{V''({m})} &= -\frac{u'''(c({m}))}{u''(c({m}))}c'({m}) - \frac{c''({m})}{c'({m})}\label{eq:absprudence}\end{aligned}\end{gathered}\end{equation}
+    \begin{align}-\frac{V'''({m})}{V''({m})} &= -\frac{u'''(c({m}))[c'({m})]^2 + u''(c({m}))c''({m})}{u''(c({m}))c'({m})} \nonumber \\
+      -\frac{V'''({m})}{V''({m})} &= -\frac{u'''(c({m}))}{u''(c({m}))}c'({m}) - \frac{c''({m})}{c'({m})}\label{eq:absprudence}\end{align}
     From the assumption that $\hat{c}({m})$ is a counterclockwise concavification of $c({m})$, we know from Lemma \ref{lem:counterclockwise} that  $\hat{c}({m}) \leq c({m})$ and $\hat{c}'({m}) \geq c'({m})$. Furthermore, since $-\frac{u'''(c({m}))}{u''(c({m}))}$ is non-increasing, we know that $-\frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m}))} \geq -\frac{u'''(c({m}))}{u''(c({m}))}$. As a result, $-\frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m}))}\hat{c}'({m}) \geq -\frac{u'''(c({m}))}{u''(c({m}))}c'({m})$.
 
     The second part of the absolute prudence expression, $-\frac{c''({m})}{c'({m})}$, is a measure of the curvature of the consumption function. Since the consumption function is concave, $-\frac{c''({m})}{c'({m})}$ is a measure of the degree of concavity. Formally, if one has two functions, $f(x)$ and $g(x)$, that are both increasing and concave functions, then the concave transformation $g(f(x))$ always has more curvature than $f$.\footnote{To see this, compute \[-\frac{\frac{d^2}{dx^2} g(f(x))}{\frac{d}{dx}g(f(x))} = - \frac{g''f'}{g'} - \frac{f''}{f'} \geq - \frac{f''}{f'}\] where the inequality holds since $f' \geq 0$, $g' \geq 0$, and $g'' \leq 0$.} A counterclockwise concavification is an example of such a $g$. Hence, $-\frac{\hat{c}''({m})}{\hat{c}'({m})} \geq -\frac{c''({m})}{c'({m})}$. Then
@@ -191,10 +191,10 @@
       \frac{d}{d {m}}\left( \log(u''(\hat{c}({m})) - \log(u''(c({m})))\right) = \frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m}))}\hat{c}'({m}) -  \frac{u'''(c({m}))}{u''(c({m}))}c'({m}).
     \end{align*}
     This will be negative if
-    \begin{equation}\begin{gathered}\begin{aligned}
+    \begin{align}
       \frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m}))}\hat{c}'({m}) & \leq  \frac{u'''(c({m}))}{u''(c({m}))}c'({m}) \nonumber
       \\ \Rightarrow  -\frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m}))}\hat{c}'({m}) & \geq  -\frac{u'''(c({m}))}{u''(c({m}))} c'({m}) \label{eq:prudcond} .
-    \end{aligned}\end{gathered}\end{equation}
+    \end{align}
 
     Recall from Lemma \ref{lem:counterclockwise} that $\hat{c}'({m}) \geq c'({m})$ and $\hat{c}({m}) \leq c({m})$ so non-increasing absolute prudence of the utility function ensures that $-\frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m}))} \geq  -\frac{u'''(c({m}))}{u''(c({m}))}$. Hence the LHS is always greater or equal to the RHS of equation \eqref{eq:prudcond}.
 
@@ -361,7 +361,7 @@
                                              \psi_{t,n}({{m}}+\kappa_{t,n}) - \int^{{{m}}+\kappa_{t,n+1}}_{{{m}}+\kappa_{t,n}} (\tilde{c}_{t,n}^{\prime}(\mu)-c_{t,n}^{\prime}(\mu)) d\mu \nonumber
     \end{eqnarray}
     so the difference between precautionary saving for the consumer facing $n$ constraints and the one facing $n+1$ constraints at ${{m}}+\kappa_{t,n+1}$ is
-    \begin{equation}\begin{gathered}\begin{aligned}
+    \begin{align}
       \psi_{t,n+1}&({{m}}+\kappa_{t,n+1}) - \psi_{t,n}({{m}}+\kappa_{t,n+1}) = \nonumber\\
                   &= \psi_{t,n+1}({{m}}+\kappa_{t,n+1}) - \psi_{t,n}({{m}}+\kappa_{t,n}) + \psi_{t,n}({{m}}+\kappa_{t,n})- \psi_{t,n}({{m}}+\kappa_{t,n+1}) \nonumber
       \\ &=\int_{{{m}}}^{{{m}}+\kappa_{t,n+1}} c_{t,n+1}^{\prime}(\mu)d\mu - \int^{{{m}}+\kappa_{t,n}}_{{{m}}} c_{t,n}^{\prime}(\mu) d\mu + \int^{{{m}}+\kappa_{t,n+1}}_{{{m}}+\kappa_{t,n}} (\tilde{c}_{t,n}^{\prime}(\mu)-c_{t,n}^{\prime}(\mu)) d\mu \nonumber\\
@@ -369,7 +369,7 @@
                   &= \int_{{{m}}}^{{{m}}+\kappa_{t,n+1}}
                     (c_{t,n+1}^{\prime}(\mu)-c_{t,n}^{\prime}(\mu))d\mu +\int^{{{m}}+\kappa_{t,n+1}}_{{{m}}+\kappa_{t,n}}
                     \tilde{c}_{t,n}^{\prime}(\mu) d\mu \label{eq:psidiffint}
-    \end{aligned}\end{gathered}\end{equation}
+    \end{align}
 
 
     If we can show that \eqref{eq:psidiffint} is a positive
@@ -407,12 +407,12 @@
     For all levels of wealth below this limit (${{m}} < {\bar{\wAlt}}_{t+1,n+1}$), there exist realizations of $\zeta$ such that constraint $n+1$ will bind in period $t+1$. The agent will require a higher precautionary premia when facing constraint $n+1$ in addition to the $n$ constraints already in the set, implying that $\kappa_{t,n+1} > \kappa_{t,n}$. Equation \eqref{eq:psidiffint} is therefore strictly positive if ${{m}} < {\bar{\wAlt}}_{t+1,n+1}$ and we have proven Theorem \ref{thm:riskandconstraints}.
                                 %%                                 Old: \subsection*{The $n+1$'st constraint}
                                 %%                                 Old: Consider now the case where we have imposed $n$ constraints and are considering imposing constraint $n+1$ and where constraint $n+1$ applies at the end of some future period. Similar to the introduction of the first constraint, we need to show that the following equation is strictly positive:
-                                %%                                 Old: \begin{equation}\begin{gathered}\begin{aligned}
+                                %%                                 Old: \begin{align}
                                 %%                                 Old:   \psi_{t,n+1}&({{m}}+\kappa_{t,n+1}) - \psi_{t,n}({{m}}+\kappa_{t,n+1}) = \nonumber\\ &=\int_{{{m}}}^{{{m}}+\kappa_{t,n}} (c_{t,n+1}^{\prime}(\mu)-c_{t,n}^{\prime}(\mu))d\mu+\int^{{{m}}+\kappa_{t,n+1}}_{{{m}}+\kappa_{t,n}} \left(c_{t,n+1}^{\prime}(\mu)+(\tilde{c}_{t,n}^{\prime}(\mu)-c_{t,n}^{\prime}(\mu)) \right) d\mu \nonumber \\
                   %%                   Old:   &= \int_{{{m}}}^{{{m}}+\kappa_{t,n+1}}
                                                 %%                                                 Old:   (c_{t,n+1}^{\prime}(\mu)-c_{t,n}^{\prime}(\mu))d\mu +\int^{{{m}}+\kappa_{t,n+1}}_{{{m}}+\kappa_{t,n}}
                                                 %%                                                 Old:   \tilde{c}_{t,n}^{\prime}(\mu) d\mu \label{eq:psidiffint2}
-                                                %%                                                 Old: \end{aligned}\end{gathered}\end{equation}
+                                                %%                                                 Old: \end{align}
                                                 %%                                                 Old: The sufficient conditions for \eqref{eq:psidiffint2} to be strictly positive are
                                                 %%                                                 Old: \begin{enumerate}
                                                 %%                                                 Old:  \item $\kappa_{t,n+1} > 0$ or $\kappa_{t,n} > 0$, and $c_{t,n+1}'(\mu) > c_{t,n}'(\mu)$
@@ -491,9 +491,9 @@
     We know that either the introduction of risk or a introduction of a constraint results in a counterclockwise concavification of the original consumption function. However, this is only true when we introduce risks in the absence of constraints (Lemma \ref{lem:ccrisk}) and when we introduce constraints in the absence of risk (see Theorem \ref{thm:lcip2}). In this proof, we therefore need to show that the introduction of all risks and constraints is a counterclockwise concavification of the linear case with no risks and constraints.
 
     Here is our proof strategy. We define a set
-    \begin{equation}\begin{gathered}\begin{aligned}
+    \begin{align}
       \mathcal{P}_{t,n}^{m-1} = \{ {m} | c_{t,n}^{m-1}({m})-c_{t,n}^{m}({m})>c_{t,0}({m})-c^{1}_{t,0}({m}) \} \label{eq:whatcanbesaid_proof}
-    \end{aligned}\end{gathered}\end{equation}
+    \end{align}
     where Theorem \ref{thm:CCandPS} holds in period $t$ when we introduce a risk at the beginning of period $t+1$. This is defined as the set where precautionary saving induced by a risk that is realized at the beginning of period $t+1$ is greater in the presence of all risks and constraints than in the unconstrained case.
 
     In order to show that the set $\mathcal{P}_{t,n}^{m-1}$ is non-empty, we build it up recursively, starting from period $T$ and adding one constraint or one risk  for each time period. The key to the proof is to understand that the introduction of risks or constraints will never fully reverse the effects of all other risks and constraints, even though they sometimes reduce absolute prudence for some levels of wealth because risks and constraints can mask the effects of future risks and constraints. Hence, the new consumption function must still be a counterclockwise concavification of the consumption function with no risks and constraints for some levels of wealth.

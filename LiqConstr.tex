@@ -3,7 +3,7 @@
 \input{\ResourcesDir/owner} % Determines whether to reference llorracc or econ-ark versions
 
 \providecommand{\texname}{LiqConstr}% Keyname for the bibtex entry corresponding to this paper
-\usepackage{vmargin} % PrivateMsg
+\usepackage{vmargin} %% Private
 \usepackage{\econtexSetup}\usepackage{\econtexShortcuts}
 
 \usepackage[en-US]{datetime2}\DTMlangsetup{showdayofmonth=true} % Allow timestamps
@@ -21,18 +21,18 @@
 \providecommand{\versn}{} % Version; like, web or pdf or journal submission 
 \ifthenelse{\boolean{ifWeb}}{  \renewcommand{\ushort}{\underline}\renewcommand{\versn}{Web} }{} % ushort does not work in tex4ht {Web}
 
-% PrivateMsg: The stuff below switches on and off the creation of the files in the "Sections" subdirectory
+%% Private: The stuff below switches on and off the creation of the files in the "Sections" subdirectory
 %% Sections was useful when constructing the paper so that individual parts could be edited independently
 %% It is now a legacy and is preserved mainly as a template for how to do this for future projects
-\newboolean{verbatimwriteOn}        % PrivateMsg
-%\setboolean{verbatimwriteOn}{true}  % PrivateMsg
-\setboolean{verbatimwriteOn}{false} % PrivateMsg
-\newcommand{\ifVerbatimWrite}{\ifthenelse{\boolean{verbatimwriteOn}}} % PrivateMsg
-\ifVerbatimWrite{}{ % PrivateMsg 
-  \renewenvironment{verbatimwrite}[1]{} % PrivateMsg 
-} % PrivateMsg
+\newboolean{verbatimwriteOn}        %% Private
+%\setboolean{verbatimwriteOn}{true}  %% Private
+\setboolean{verbatimwriteOn}{false} %% Private
+\newcommand{\ifVerbatimWrite}{\ifthenelse{\boolean{verbatimwriteOn}}} %% Private
+\ifVerbatimWrite{}{ %% Private 
+  \renewenvironment{verbatimwrite}[1]{} %% Private 
+} %% Private
 
-\newenvironment{Private}{} % PrivateMsg 
+\newenvironment{Private}{} %% Private 
 
 \providecommand{\wAlt}{\omega}
 \providecommand{\sConst}{\varsigma}
@@ -54,17 +54,17 @@
 
 \renewcommand{\cite}{\citeyear}
 
-\setmarginsrb{1in}{1in}{1in}{1.4in}{0pt}{0pt}{0pt}{.3in} % PrivateMsg : Large font for easy viewing and editing on small screen 
-% {left}{top}{right}{bottom} % PrivateMsg
+\setmarginsrb{1in}{1in}{1in}{1.4in}{0pt}{0pt}{0pt}{.3in} %% Private : Large font for easy viewing and editing on small screen 
+% {left}{top}{right}{bottom} %% Private
 
-\provideboolean{bigdouble}    % PrivateMsg : Large font for easy viewing and editing on small screen
-\setboolean{bigdouble}{true}  % PrivateMsg : Large font for easy viewing and editing on small screen
-\setboolean{bigdouble}{false} % PrivateMsg : Large font for easy viewing and editing on small screen
+\provideboolean{bigdouble}    %% Private : Large font for easy viewing and editing on small screen
+\setboolean{bigdouble}{true}  %% Private : Large font for easy viewing and editing on small screen
+\setboolean{bigdouble}{false} %% Private : Large font for easy viewing and editing on small screen
 
-\ifthenelse{\boolean{bigdouble}}{ % Margins must be set before begin document command  % PrivateMsg : Large font for easy viewing and editing on small screen
-  \setmarginsrb{0.40in}{0.8in}{0.40in}{0.8in}{0pt}{0pt}{0pt}{0.2in} % PrivateMsg : Large font for easy viewing and editing on small screen
-  % {left}{top}{right}{bottom} % PrivateMsg : Large font for easy viewing and editing on small screen
-}{} % PrivateMsg : Large font for easy viewing and editing on small screen
+\ifthenelse{\boolean{bigdouble}}{ % Margins must be set before begin document command  %% Private : Large font for easy viewing and editing on small screen
+  \setmarginsrb{0.40in}{0.8in}{0.40in}{0.8in}{0pt}{0pt}{0pt}{0.2in} %% Private : Large font for easy viewing and editing on small screen
+  % {left}{top}{right}{bottom} %% Private : Large font for easy viewing and editing on small screen
+}{} %% Private : Large font for easy viewing and editing on small screen
 
 \begin{document}\bibliographystyle{\econtexBibStyle}
 
@@ -104,9 +104,9 @@
 
 \hypertarget{Abstract}{}
 \begin{abstract}
-  %%% \begin{verbatimwrite}{./\texname-abstract.metadata} % PrivateMsg
+  %%% \begin{verbatimwrite}{./\texname-abstract.metadata} %% Private
   We provide the analytical explanation of strong interactions between precautionary saving and liquidity constraints that are regularly observed in numerical solutions to consumption/saving models.  The effects of constraints and of uncertainty spring from the same cause: counterclockwise concavification of the consumption function, which can be induced either by constraints or by uncertainty.  Such concavification propagates back to consumption functions in prior periods.  But, surprisingly, once a linear consumption function has been concavified by the presence of either risks or constraints, the introduction of \textit{additional} concavifiers in a given period can \textit{reduce} the precautionary motive in earlier periods at some levels of wealth.  
-  %%% \end{verbatimwrite}\ifVerbatimWrite{\input{./\texname-abstract.metadata}}{} % PrivateMsg
+  %%% \end{verbatimwrite}\ifVerbatimWrite{\input{./\texname-abstract.metadata}}{} %% Private
 \end{abstract}
 
 
@@ -177,7 +177,7 @@
 \hypertarget{Introduction}{}
 \section{Introduction}\label{sec:Intro}
 
-\begin{verbatimwrite}{./Sections/Intro.tex} % PrivateMsg
+\begin{verbatimwrite}{./Sections/Intro.tex} %% Private
   %% Old: Numerical solutions have now supplanted analytical methods for modeling consumption/saving choices, because analytical solutions are not available for realistic descriptions of utility, uncertainty, and constraints.
   A large literature has shown that numerical models that take constraints and uncertainty seriously can yield different conclusions than those that characterize traditional models. For example, \citet{kmvHANK} show that when sufficiently many households have high marginal propensities to consume (MPC's), a major transmission channel of monetary policy is the `indirect income effect' -- a channel of minimal importance in traditional macro models. Similarly, \citet{glLiq} and \citet{blPrecautionary} show that tightened borrowing conditions and heightened income risk can help explain the consumption decline during the great recession. 
   %% Old: Further, \citet{kmpHandbook} show that numerically realistic models can match the empirical finding that the drop in consumption spending during the great recession was heavily concentrated in the middle class.
@@ -219,13 +219,13 @@
 
   %% Old: The link between constraints and consumption concavity is closely related to \citet{carroll&kimball:concavity}'s demonstration that, within the HARA utility class, the introduction of uncertainty causes the consumption function to become strictly concave (in the absence of constraints) for all but a few knife-edge combinations of utility function and the structure of risk.
 
-  \end{verbatimwrite}\ifVerbatimWrite{\input{./Sections/Intro.tex}}{} % PrivateMsg
+  \end{verbatimwrite}\ifVerbatimWrite{\input{./Sections/Intro.tex}}{} %% Private
 
   \hypertarget{MainMessage}{}
 
-  \begin{verbatimwrite}{./Highlighted/MainMessage} % PrivateMsg
+  \begin{verbatimwrite}{./Highlighted/MainMessage} %% Private
     Hence, we can summarize this paper as follows. The effects of liquidity constraints and risks are similar because both stem from the same source: a concavification of the consumption function. The effects work independently, meaning that neither risks nor constraints are necessary to concavify the consumption function. And since a more concave consumption function exhibits heightened prudence, both constraints and risks strengthen the precautionary saving motive. In addition, we explain the apparently contradictory results that constraints and risks in some cases intensify, but in other cases weaken the precautionary saving motive. The central insight is that the effect of introducing an additional constraint or risk depends on whether it weakens the effects of any pre-existing constraints or risks. If it does not interact with any pre-existing constraints or risks, it intensifies the precautionary saving motive. If it does interact, it may weaken the precautionary saving motive at some levels of wealth. 
-  \end{verbatimwrite}\ifVerbatimWrite{\input{./Highlights/MainMessage.tex}}{} % PrivateMsg
+  \end{verbatimwrite}\ifVerbatimWrite{\input{./Highlights/MainMessage.tex}}{} %% Private
 
   %% Old: Taken together, this paper and \citet{carroll&kimball:concavity} establish rigorously the sense in which liquidity constraints and risks are substitutes: Their effects spring from the fact that introduction of either a constraint or a risk or both will `concavify' the consumption function.\footnote{See \citet{fernandez-corugedo:softlc} for a related demonstration that `soft' liquidity constraints bear an even closer resemblance to precautionary behavior. \citet{MendelsonAmihud:consumption} provide an impressive treatment of a similar problem.} %To illustrate this point, we provide an example of a specific kind of uncertainty that (under CRRA utility, in the limit) induces a consumption function that is point-wise identical to the consumption function that would be induced by the addition of a liquidity constraint.
 
@@ -245,30 +245,30 @@
 \hypertarget{SetupIntro}{}
 \section{The Setup}\label{sec:Setup}
 % \subfile{Sections/Setup}
-\begin{verbatimwrite}{./Sections/Setup-Intro} % PrivateMsg
+\begin{verbatimwrite}{./Sections/Setup-Intro} %% Private
   In this section we present the consumer framework underlying all results. We consider a finitely-lived consumer living from period $t$ to $T$ who faces some future risks and liquidity constraints. The consumer is maximizing the time-additive present discounted value of utility from consumption $u(c)$.  With interest and time preference factors $R \in (0,\infty)$ and $\beta \in (0,\infty)$, and labeling consumption $c$, stochastic labor income $y$, end-of-period assets ${a}$, liquidity constraint $\sConst$, and `market resources' (the sum of current income and spendable wealth from the past) ${m}_{t}$, the consumer's problem can be written as
-\end{verbatimwrite} % PrivateMsg 
-\begin{verbatimwrite}{./Sections/Setup} % PrivateMsg
-  \begin{equation*}\begin{gathered}\begin{aligned}
-    V_{t}({m}_{t})  & = 
+\end{verbatimwrite} %% Private 
+\begin{verbatimwrite}{./Sections/Setup} %% Private
+  \begin{eqnarray*}
+    V_{t}({m}_{t}) &=&
                        \max_{c} ~\Ex_{t}\left[\sum_{k=0}^{T-t}\beta^{k} u({c_{t+k}})\right]   \label{eq:valuefn} \\
                    & s.t. &  \nonumber
-    \\              {m}_{t+1}  & = ({m}_{t}-c_{t})R+y_{t+1}  \\ 
-    {a}_{t}  & =  {m}_{t} - {c}_{t} \\
-    {a}_{t} &\geq& \sConst_t% PrivateMsg CDC20190605 moved R after w-c because it is increasingly common for R to be specified as a function of ({m}-c) and we want to be clear that we are NOT doing that 
+    \\              {m}_{t+1} & = & ({m}_{t}-c_{t})R+y_{t+1}  \\ 
+    {a}_{t} &=& {m}_{t} - {c}_{t} \\
+    {a}_{t} &\geq& \sConst_t%% Private CDC20190605 moved R after w-c because it is increasingly common for R to be specified as a function of ({m}-c) and we want to be clear that we are NOT doing that 
                    \nonumber
-  \end{aligned}\end{gathered}\end{equation*}
+  \end{eqnarray*}
 
   As usual, the recursive nature of the problem makes this equivalent to the Bellman equation
-  \begin{equation*}\begin{gathered}\begin{aligned}  \label{eq:recursiveV}
-    V_{t}({m}_{t})  & = \max_{c} ~ u(c) + \Ex_{t} [{\beta}
+  \begin{eqnarray*}  \label{eq:recursiveV}
+    V_{t}({m}_{t}) & = & \max_{c} ~ u(c) + \Ex_{t} [{\beta}
                          V_{t+1}(%
                          ({m}_{t} - c){R} + {y}_{t+1})].
-  \end{aligned}\end{gathered}\end{equation*}
+  \end{eqnarray*}
   We define $\Omega_t({a}_{t}) = \Ex_t [ \beta V_{t+1}(R {a}_{t} + y_{t+1})]$ as the end-of-period value function and rewrite the problem as\footnote{For notational simplicity we express the value function $V_t({m})$ and the expected discounted value function $\Omega_{t}(s)$ as functions simply of wealth and savings, but implicitly these functions reflect the entire information set as of time t; if, for example, the income process is not i.i.d., then information on lagged income or income shocks could be important in determining current optimal consumption.  In the remainder of the paper the dependence of functions on the entire information set as of time $t$ will be unobtrusively indicated, as here, by the presence of the $t$ subscript. For example, we will call the policy rule in period $t$ which indicates the optimal value of consumption $c_{t}({m})$. In contrast, because we assume that the utility function is the same from period to period, the utility function has no $t$ subscript.}
-  \begin{equation*}\begin{gathered}\begin{aligned}  \label{eq:subphi}
-    V_{t}({m}_{t})  & = \max_{c} ~ u(c) + \Omega_{t}({m}_{t} - c).
-  \end{aligned}\end{gathered}\end{equation*}
+  \begin{eqnarray*}  \label{eq:subphi}
+    V_{t}({m}_{t}) & = & \max_{c} ~ u(c) + \Omega_{t}({m}_{t} - c).
+  \end{eqnarray*}
   %% Old: Throughout the paper, we distinguish between two different consumption functions, ${c}_{t}({m})$ and $\chi_t(s)$. ${c}_{t}({m})$ is the beginning-of-period consumption function and implicitly defined by the envelope conditions with respect to the current value function: $u'({c}_{t}({m})) = V'({m})$. $\chi_t(s)$ is the end-of-period consumption function implicitly defined by the envelope condition with respect to expected value: $u'(\chi_t(s)) = \Omega_{t}'(s)$.
   Throughout, what we call `the consumption function' is the mapping from  market resources ${m}_{t}$ to consumption. In some of our results we consider utility functions of the HARA class
   \begin{equation}\label{eq:HARA}
@@ -277,7 +277,7 @@
       \log(c + \alpha_2 ) & \alpha_1  = 1 \end{cases} \end{equation}
   with $\alpha_2  > \max\{- \alpha_1 c,0\}$. Note that that \eqref{eq:HARA} also covers the case with quadratic utility ($\alpha_1 = -1$).
 
-\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/Setup}}{} % PrivateMsg
+\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/Setup}}{} %% Private
 
 % \bibliography{LiqConstr,LiqConstr-Add,economics}\end{document}
 
@@ -285,13 +285,13 @@
 
 
 \hypertarget{PrudAndCCIntro}{}
-\begin{verbatimwrite}{./Sections/PrudAndCC-Intro} % PrivateMsg
+\begin{verbatimwrite}{./Sections/PrudAndCC-Intro} %% Private
   This section provides a set of tools necessary to prove our main results. We first define what we mean by consumption concavity and show that consumption concavity, once established, propagates back to prior periods. Next, we define an operation we call a `counterclockwise concavification' which describes how either a liquidity constraint or a risk affects the consumption function. The advantage of defining a counterclockwise concavification in such general terms is that we can show that it heightens prudence of the value function irrespective of the source of concavification. Since the relationship between prudence and precautionary saving has already been established in the literature \citep{kimball:smallandlarge}, the tools in this section allow us to establish how liquidity constraints affect precautionary saving in the subsequent sections. 
-\end{verbatimwrite} % PrivateMsg 
+\end{verbatimwrite} %% Private 
 
 
 \hypertarget{PrudAndCC}{}
-\begin{verbatimwrite}{./Sections/PrudAndCC} % PrivateMsg
+\begin{verbatimwrite}{./Sections/PrudAndCC} %% Private
 
 
   \subsection{Consumption Concavity}\label{sec:def_CC}
@@ -325,9 +325,9 @@
 
   The last circumstance we define is when a value function exhibits `greater' concavity than another. Later, this will allow us to compare two consumption functions and their respective concavity. 
   \begin{defn}\label{defn:MoreCC} (Greater Consumption Concavity.) \\ Consider two functions $V({m})$ and $\hat{V}({m})$ that both exhibit property CC with respect to the same $u(c)$ at a point ${m}$ for some interval $({m}_1,{m}_2)$ such that ${m}_1 < {m} < {m}_2$.  Then $\hat{V}({m})$ exhibits property `greater CC' compared to $V({m})$ if
-    \begin{equation}\begin{gathered}\begin{aligned}
+    \begin{eqnarray}
       \hat{c}({m}) - \left(\frac{{m}_{2}-{m}}{{m}_{2}-{m}_{1}} \hat{c}({m}_{1})+\frac{{m}-{m}_{1}}{{m}_{2}-{m}_{1}}\hat{c}({m}_{2})\right) \geq c({m}) - \left(\frac{{m}_{2}-{m}}{{m}_{2}-{m}_{1}} c({m}_{1})+\frac{{m}-{m}_{1}}{{m}_{2}-{m}_{1}}c({m}_{2})\right) \label{eq:MoreCC}
-    \end{aligned}\end{gathered}\end{equation}
+    \end{eqnarray}
     for all ${m} \in ({m}_{1},{m}_{2})$, and property `strictly' greater CC if \eqref{eq:MoreCC}
     holds as a strict inequality.
   \end{defn}
@@ -419,23 +419,23 @@
 
 
 
-\end{verbatimwrite} % PrivateMsg
+\end{verbatimwrite} %% Private
 
 
 \hypertarget{LCandCCIntro}{}
 
 \section{Liquidity Constraints and Consumption Concavity}\label{sec:LCandCC} 
 
-\begin{verbatimwrite}{./Sections/LCandCC-Intro} % PrivateMsg
+\begin{verbatimwrite}{./Sections/LCandCC-Intro} %% Private
   This section shows under which conditions liquidity constraints cause consumption concavity. The main conceptual difficulty with liquidity constraints is that the effect of introducing a new constraint depends on already existing constraints. To get around this issue, we introduce the concept of an \textit{ordered} set of \textit{relevant} constraints. This allows us to add constraints in such a way that the next constraint does not affect behavior related to pre-existing constraints. Our main result (Theorem \ref{thm:lcip2}) is that the introduction of the next constraint from the ordered set of relevant constraints causes a counterclockwise concavification of the consumption function. It then follows from the results in Section \ref{sec:PrudAndCC} that the introduction of the next constraint also heightens prudence of the value function. 
-\end{verbatimwrite} % PrivateMsg 
+\end{verbatimwrite} %% Private 
 
 
 \hypertarget{LCandCC}{}
 
 
 
-\begin{verbatimwrite}{./Sections/LCandCC} % PrivateMsg
+\begin{verbatimwrite}{./Sections/LCandCC} %% Private
   
 
 
@@ -521,14 +521,14 @@
   Under these more general circumstances, a constraint imposed in a given period can render constraints in either earlier or later periods irrelevant.  For example, consider a consumer with CRRA utility and $\beta R=1$ who earns income of 1 in each period, but who is required to arrive at the end of period $T-2$ with savings of 5.  Then a constraint that requires savings to be greater than zero at the end of period $T-3$ will have no effect because the consumer is required by the constraint in period $T-2$ to end period $T-3$ with savings greater than 4. 
 
   Formally, consider now imposing the first constraint, which applies in period $\tau < T$.  The simplest case, analyzed before, was a constraint that requires the minimum level of end-of-period wealth to be ${a}_{\tau} \geq 0$.  Here we generalize this to ${a}_{\tau} \geq \sConst_{\tau,1}$ where in principle we can allow borrowing by choosing $\sConst_{\tau,1}$ to be a negative number. Now for constraint $1$ calculate the kink points for prior periods from
-  \begin{equation}\begin{gathered}\begin{aligned}
-    u'(c_{\tau,1}^{\#})  & = R\beta u'(c_{\tau+1,0}(R\sConst_{\tau,1}+{y}_{\tau + 1}))
-    \\ \wAlt_{\tau,1}  & = (V_{\tau,1}')^{-1}(u'(c_{\tau,1}^{\#})).
-  \end{aligned}\end{gathered}\end{equation}
+  \begin{eqnarray}
+    u'(c_{\tau,1}^{\#}) & = & R\beta u'(c_{\tau+1,0}(R\sConst_{\tau,1}+{y}_{\tau + 1}))
+    \\ \wAlt_{\tau,1} & = & (V_{\tau,1}')^{-1}(u'(c_{\tau,1}^{\#})).
+  \end{eqnarray}
   In addition, for constraint $2$ recursively calculate
-  \begin{equation}\begin{gathered}\begin{aligned}
-    \underline{\sConst}_{\tau-1,1}  & = (\sConst_{\tau,1}-{y}_{\tau,2}+\underline{c})/R  \label{eq:cgt0}
-  \end{aligned}\end{gathered}\end{equation}
+  \begin{eqnarray}
+    \underline{\sConst}_{\tau-1,1} & = & (\sConst_{\tau,1}-{y}_{\tau,2}+\underline{c})/R  \label{eq:cgt0}
+  \end{eqnarray}
   where $\underline{\sConst}_{\tau-1,1}$ is the level of wealth that constraint $1$ requires the agent to end period $\tau-1$ with and $\underline{c}$ is the lower bound for the value of consumption permitted by the model (independent of constraints).\footnote{For example, CRRA utility is well defined only on the positive real numbers, so for a CRRA utility consumer $\underline{c}=0$.  In other cases, for example with exponential or quadratic cases, there is nothing to prevent consumption of $-\infty$, so for those models $\underline{c}=-\infty$, unless there is a desire to restrict the model to positive values of consumption, in which case the $c\geq 0$ constraint will be implemented through the use of \eqref{eq:cgt0}.}
 
   Now assume that the first $n$ constraints in $\mathcal{T}$ have been imposed, and consider imposing constraint number $n+1$, which we assume applies at the end of period $\tau$.  The first thing to check is whether constraint number $n+1$ is relevant given the already-imposed set of constraints. This is simple: A constraint that requires ${a}_{\tau} \geq \sConst_{\tau,n+1}$ will be irrelevant if $\max_{i \in [1,n]} [\underline{\sConst}_{\tau,i}] \geq \sConst_{\tau,n+1}$, i.e.\ if one of the existing constraints already implies that savings must be greater or equal to value required by the new constraint.  If the constraint is irrelevant then the analysis proceeds simply by dropping this constraint and renumbering the constraints in $\mathcal{T}$ so that the former constraint $n+2$ becomes constraint $n+1$, $n+3$ becomes $n+2$, and so on.
@@ -570,7 +570,7 @@
 
 
   \newpage
-\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/LCandCC}}{} % PrivateMsg
+\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/LCandCC}}{} %% Private
 
 \section{Liquidity Constraints and Precautionary Saving}
 \label{sec:LCandPS}
@@ -578,31 +578,31 @@
 
 
 \hypertarget{LCandPSIntro}{}
-\begin{verbatimwrite}{./Sections/LCandPS-Intro} % PrivateMsg
+\begin{verbatimwrite}{./Sections/LCandPS-Intro} %% Private
   The preceding sections established the relationship between liquidity constraints, consumption concavity, and prudence. This section derives the last step to understand the relationship between liquidity constraints and precautionary saving. First, we explain how prudence of the value function affects precautionary saving. Theorem \ref{thm:riskandconstraints} then shows how the introduction of an additional constraint induces agents to increase precautionary saving when they face a \textit{current} risk. The results in Theorem \ref{thm:riskandconstraints} cannot be generalized to an added risk or liquidity constraint in a later time period because it may hide or alter the effects of current constraints or risks and thereby affect local precautionary saving. The main conceptual issue with having both risks and constraints is that the trick with the \textit{relevant} constraints applied in Section \ref{sec:LCandCC} no longer applies in a setting with risk because constraints may be relevant for some sample paths. However, we still derive our most general result in Theorem \ref{thm:CCandPS}: the introduction of an additional risk results in more precautionary saving in the presence of \textit{all} future risks and constraints than in the case with no future risks and constraints. %In other words (Corollary \ref{cor:CCRISK}), the consumption function is concave in the presence of all future risks and constraints. 
   
   %% Old: The main step in the proof was to be careful in defining an ordered set of relevant constraints. We are now going to be explicit about the effects of current risk on precautionary saving in the presence of all future risks and constraints. 
   
   
-\end{verbatimwrite} % PrivateMsg 
+\end{verbatimwrite} %% Private 
 
 
 \hypertarget{LCandPS}{}
 
 
 
-\begin{verbatimwrite}{./Sections/LCandPS} % PrivateMsg
+\begin{verbatimwrite}{./Sections/LCandPS} %% Private
 
   \subsection{Notation}\label{subsec:PrudAndCPP}
 
   We begin by defining two marginal value functions $V'({m})$ and $\hat{V}'({m})$ which are convex, downward sloping, and continuous in wealth, ${m}$. We consider a risk $\zeta$ with support $[\underline{\zeta},\bar{\zeta}]$, and follow \citet{kimball:smallandlarge} by defining the Compensating Precautionary Premia (CPP) as the values $\kappa$ and $\hat{\kappa}$ such that
-  \begin{equation}\begin{gathered}\begin{aligned}
-    V'({m})  & = \Ex[V'({m} + \zeta + \kappa)] \label{eq:mudef}
-    \\ \hat{V}'({m})  & = \Ex[\hat{V}'({m} + \zeta + \hat{\kappa})] \notag.
-  \end{aligned}\end{gathered}\end{equation}
+  \begin{eqnarray}
+    V'({m}) & = & \Ex[V'({m} + \zeta + \kappa)] \label{eq:mudef}
+    \\ \hat{V}'({m}) & = & \Ex[\hat{V}'({m} + \zeta + \hat{\kappa})] \label{eq:checkmudef}.
+  \end{eqnarray}
   The CPP can be interpreted as the additional resources an agent requires to be indifferent between accepting the risk and not accepting the risk. The relevant part of \citet{pratt:smallandlarge}'s Theorem 1 as reinterpreted using \citet{kimball:smallandlarge}'s Lemma (p. 57) can be restated as
   \begin{lemma}\label{lemma:kimpratt}
-    Let $A({m})$ and $\hat{A}({m})$ be absolute prudence of the value functions $V$ and $\hat{V}$ respectively at ${m}$,\footnote{A small technicality: Absolute prudence of value functions is infinite at kink points in the consumption function, so if both $c({m})$ and $\hat{c}({m})$ had a 		kink point at exactly the same ${m}$, the comparison of prudence would not yield a well-defined answer. Under these circumstances we will say that $\hat{A}({m}) \geq A({m})$ if the decline in the MPC is greater for $\hat{c}({m})$ at ${m}$ than for $c({m})$. } and let $\kappa$ and $\hat{\kappa}$ be the respective compensating precautionary premia associated with imposition of a given risk $\zeta$ as per  \eqref{eq:mudef}. Then the following conditions are equivalent:
+    Let $A({m})$ and $\hat{A}({m})$ be absolute prudence of the value functions $V$ and $\hat{V}$ respectively at ${m}$,\footnote{A small technicality: Absolute prudence of value functions is infinite at kink points in the consumption function, so if both $c({m})$ and $\hat{c}({m})$ had a 		kink point at exactly the same ${m}$, the comparison of prudence would not yield a well-defined answer. Under these circumstances we will say that $\hat{A}({m}) \geq A({m})$ if the decline in the MPC is greater for $\hat{c}({m})$ at ${m}$ than for $c({m})$. } and let $\kappa$ and $\hat{\kappa}$ be the respective compensating precautionary premia associated with imposition of a given risk $\zeta$ as per \eqref{eq:mudef} and \eqref{eq:checkmudef}. Then the following conditions are equivalent:
     \begin{enumerate}
     \item $\hat{A}({m} + \zeta+\kappa) \geq A({m} + \zeta+\kappa)$ for all $\zeta \in [\underline{\zeta},\bar{\zeta}]$ and $\hat{A}({m} + \zeta+\kappa) > A({m} + \zeta+\kappa)$ for at least one [no] point $\zeta \in [\underline{\zeta},\bar{\zeta}]$ and a given ${m}$.
     \item $\hat{\kappa} > [=] \kappa$ for all $\zeta \in [\underline{\zeta},\bar{\zeta}]$ and the same given ${m}$.
@@ -617,13 +617,13 @@
   \begin{defn}(Wealth Limit.)\\
     %%%	\begin{enumerate}
     %%   Old: \item ${\underline{\wAlt}}_{t,n+1}$ is the level of wealth such that an agent who faces risk $\zeta_{t+1}$ and $n+1$ constraints saves so little that constraint $n+1$ will always bind in period $t+1$, defined as
-    %%   Old:   \begin{equation}\begin{gathered}\begin{aligned}
-                  %%                   Old:     {\underline{\wAlt}}_{t,n+1}  & = \left(\tilde{V}_{t,n+1}'\right)^{-1}(\tilde{\Omega}_{t,n+1}^{\prime}(\wAlt_{t+1,n+1}-({y}+\bar{\zeta}))).
-                                                                                  %%                                                                                   Old:   \end{aligned}\end{gathered}\end{equation}
+    %%   Old:   \begin{eqnarray}
+                  %%                   Old:     {\underline{\wAlt}}_{t,n+1} & = & \left(\tilde{V}_{t,n+1}'\right)^{-1}(\tilde{\Omega}_{t,n+1}^{\prime}(\wAlt_{t+1,n+1}-({y}+\bar{\zeta}))).
+                                                                                  %%                                                                                   Old:   \end{eqnarray}
     ${\bar{\wAlt}}_{t,n+1}$ is the level of wealth such that an agent who faces risk $\zeta_{t+1}$ and $n+1$ constraints saves enough to guarantee that constraint $n+1$ will never bind in period $t+1$.  Its value is given by:
-    \begin{equation}\begin{gathered}\begin{aligned}
-      {\bar{\wAlt}}_{t,n+1}  & = \left(\tilde{V}_{t,n+1}'\right)^{-1}(\tilde{\Omega}_{t,n+1}^{\prime}(\wAlt_{t+1,n+1}-({y}+\underline{\zeta}))) \label{eq:tildeomegabar}
-    \end{aligned}\end{gathered}\end{equation}
+    \begin{eqnarray}
+      {\bar{\wAlt}}_{t,n+1} & = & \left(\tilde{V}_{t,n+1}'\right)^{-1}(\tilde{\Omega}_{t,n+1}^{\prime}(\wAlt_{t+1,n+1}-({y}+\underline{\zeta}))) \label{eq:tildeomegabar}
+    \end{eqnarray}
     How to read this limit: $\wAlt_{t+1,n+1}$ is the level of wealth at which constraint $n+1$ makes the transition from binding to not binding in period $t+1$. $\wAlt_{t+1,n+1} - ({y} + \underline{\zeta})$ is the level of wealth in period $t+1$ that ensures that constraint $n+1$ does not bind in period $t+1$ even with the worst possible draw, $\underline{\zeta}$.
                                   %%                                   Old: \end{enumerate}
   \end{defn}
@@ -684,10 +684,10 @@
 
   Consider now the question of how the addition of a risk $\zeta_{t}$ that will be realized at the beginning of period $t$ affects the consumption function at the beginning of period $t-1$, in the absence of any constraint at the beginning of period $t$. The question is whether we can say that the introduction of the risk $\zeta_{t}$ has a greater precautionary effect on consumption in the presence of the subsequent risk $\zeta_{t+1}$ than in its absence?
 
-  %% Old: \begin{equation}\begin{gathered}\begin{aligned}
+  %% Old: \begin{eqnarray}
             %%             Old:   \label{eq:earlierrisk}
             %%             Old:   c_{t-1,0}^{1}({m})-c_{t-1,0}^{2}({m}) & \geq & c_{t-1,0}^0({m})-c^{1}_{t-1,0}({m});
-                                                                                 %%                                                                                  Old: \end{aligned}\end{gathered}\end{equation}
+                                                                                 %%                                                                                  Old: \end{eqnarray}
                                                                                  %%                                                                                  Old: that is, does 
 
   The answer again is ``not necessarily.''  To see why, we present an example in Appendix \ref{app:similar} of a CRRA utility problem in which in a certain limit the introduction of a risk produced an effect on the consumption function that is indistinguishable from the effect of a liquidity constraint.  If the risk $\zeta_{t}$ is of this liquidity-constraint-indistinguishable form, then the logic of the previous subsection applies: For some levels of wealth, the introduction of the risk at $t$ can weaken the precautionary effect of any risks at $t+1$ or later.
@@ -700,9 +700,9 @@
 
   \begin{theorem}\label{thm:CCandPS}\textit{(Liquidity Constraints and Risks Increase Precautionary Saving.) \\}
     Consider an agent who has a utility function with $u'> 0$, $u''< 0$, $u''' > 0$, and non-increasing absolute prudence ($-u'''/u''$). Then the introduction of a risk $\zeta_{t+1}$ has a greater precautionary effect on period $t$ consumption in the presence of all future risks and constraints than in the absence of any future risks and constraints, i.e.
-    \begin{equation}\begin{gathered}\begin{aligned}
-      c_{t,n}^{m-1}({m}) - c_{t,n}^{m}({m})  & > c_{t,0}^0({m})-c^{1}_{t,0}({m}) \label{eq:whatcanbesaid}
-    \end{aligned}\end{gathered}\end{equation}
+    \begin{eqnarray}
+      c_{t,n}^{m-1}({m}) - c_{t,n}^{m}({m}) & > & c_{t,0}^0({m})-c^{1}_{t,0}({m}) \label{eq:whatcanbesaid}
+    \end{eqnarray}
     at levels of period-$t$ market resources ${m}$ such that in the absence of the new risk the consumer is not constrained in the current period $(c_{t,n}^{m-1}({m}) > {m})$ and in the presence of the risk there is a positive probability that some future constraint will bind.
   \end{theorem}
 
@@ -719,7 +719,7 @@
 
 
 
-\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/LCandPS}}{} % PrivateMsg
+\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/LCandPS}}{} %% Private
 
 \section{Conclusion}
 
@@ -733,7 +733,7 @@ In addition, we provide an explanation of apparently contradictory results: That
 \centerline{\LARGE Appendix}
 \medskip
 
-\begin{verbatimwrite}{./Sections/Proofs} % PrivateMsg
+\begin{verbatimwrite}{./Sections/Proofs} %% Private
   
 
 
@@ -753,21 +753,21 @@ In addition, we provide an explanation of apparently contradictory results: That
     \noindent \textbf{Case I ($\alpha_1  > 0$, CRRA.)} 	We will show that concavity is preserved under vertical aggregation for $c^{-1/\alpha_1 }$ to avoid clutter, but the results hold for all affine transformations, $\alpha_1 c + b$, with $\alpha_1 >0$. Concavity of $c_{t+1}({a}_{t} + {y}_{t+1})$ implies that
     \begin{equation}c_{t+1}({a}_{t} + {y}_{t+1}) \geq pc_{t+1}({a}_1 + {y}_{t+1}) + (1-p) c_{t+1}({a}_2 + {y}_{t+1}) \label{eq:vert_crra_conc}\end{equation}
     for all ${y}_{t+1} \in [\underline{y},\bar{y}]$ if ${a}_{t} = p{a}_1 + (1-p){a}_2$ with $p \in [0,1]$. Since this holds for all ${y}_{t+1}$, we know that
-    \begin{equation}\begin{gathered}\begin{aligned}\left\{\Ex_t\left[c_{t+1}({a}_{t} + {y}_{t+1})^{-\frac{1}{a}}\right]\right\}^{-a} \geq \left\{\Ex_t\left[\left\{pc_{t+1}({a}_1 + {y}_{t+1}) + (1-p) c_{t+1}({a}_2 + {y}_{t+1})\right\}^{-\frac{1}{\alpha_1}}\right]\right\}^{-\alpha_1}\end{aligned}\end{gathered}\end{equation}
+    \[\left\{\Ex_t\left[c_{t+1}({a}_{t} + {y}_{t+1})^{-\frac{1}{a}}\right]\right\}^{-a} \geq \left\{\Ex_t\left[\left\{pc_{t+1}({a}_1 + {y}_{t+1}) + (1-p) c_{t+1}({a}_2 + {y}_{t+1})\right\}^{-\frac{1}{\alpha_1}}\right]\right\}^{-\alpha_1}\]
     We now apply Minkowski's inequality (see e.g.\ \citealp[Theorem 3]{beckenbach1983inequalities}) which says that for $u,v \geq 0$ and a scalar $k < 1\ (k \neq 0)$
-    \begin{equation}\begin{gathered}\begin{aligned}\left\{\Ex[(u + v)^{k}]\right\}^{1/k} \geq \left\{\Ex[u^{k}]\right\}^{1/k} + \left\{\Ex[v^{k}]\right\}^{1/k}.\end{aligned}\end{gathered}\end{equation}
+    \[\left\{\Ex[(u + v)^{k}]\right\}^{1/k} \geq \left\{\Ex[u^{k}]\right\}^{1/k} + \left\{\Ex[v^{k}]\right\}^{1/k}.\]
     %	
     %	
-    %	\begin{equation}\begin{gathered}\begin{aligned}\left\{\Ex[(u + v)^{-k}]\right\}^{-1/k} \geq \left\{\Ex[u^{-k}]\right\}^{-1/k} + \left\{\Ex[v^{-k}]\right\}^{-1/k}.\end{aligned}\end{gathered}\end{equation}
+    %	\[\left\{\Ex[(u + v)^{-k}]\right\}^{-1/k} \geq \left\{\Ex[u^{-k}]\right\}^{-1/k} + \left\{\Ex[v^{-k}]\right\}^{-1/k}.\]
     This implies that for $\alpha_1  \in (0,\infty)$ (CRRA)
-    \begin{equation}\begin{gathered}\begin{aligned}\left\{\Ex[(u + v)^{-\frac{1}{\alpha_1 }}]\right\}^{-\alpha_1 } \geq \left\{\Ex[u^{-\frac{1}{\alpha_1 }}]\right\}^{-\alpha_1 } + \left\{\Ex[v^{-\frac{1}{\alpha_1 }}]\right\}^{-\alpha_1 }\end{aligned}\end{gathered}\end{equation}
+    \[\left\{\Ex[(u + v)^{-\frac{1}{\alpha_1 }}]\right\}^{-\alpha_1 } \geq \left\{\Ex[u^{-\frac{1}{\alpha_1 }}]\right\}^{-\alpha_1 } + \left\{\Ex[v^{-\frac{1}{\alpha_1 }}]\right\}^{-\alpha_1 }\]
     if $u\geq 0$ and $v\geq 0$. Thus
     \begin{align*}
       &\left\{ \Ex_t \left[\left\{pc_{t+1}({a}_1 + {y}_{t+1}) + (1-p) c_{t+1}({a}_2 + {y}_{t+1})\right\}^{-\frac{1}{\alpha_1 }}\right]\right\}^{-\alpha_1 } \\ & \geq \left\{ \Ex_t \left[\left\{pc_{t+1}({a}_1 + {y}_{t+1})\right\}^{-\frac{1}{\alpha_1 }}\right]\right\}^{-\alpha_1 } + \left\{ \Ex_t \left[\left\{(1-p) c_{t+1}({a}_2 + {y}_{t+1})\right\}^{-\frac{1}{\alpha_1 }}\right]\right\}^{-\alpha_1 } \\
       & = p\left\{ \Ex_t \left[\left\{c_{t+1}({a}_1 + {y}_{t+1})\right\}^{-\frac{1}{\alpha_1 }}\right]\right\}^{-\alpha_1 } +(1-p) \left\{ \Ex_t \left[\left\{ c_{t+1}({a}_2 + {y}_{t+1})\right\}^{-\frac{1}{\alpha_1 }}\right]\right\}^{-\alpha_1 } \\ & = p(\Omega'({a}_1))^{-\alpha_1 } + (1-p)(\Omega'({a}_2))^{-\alpha_1 }
     \end{align*}
     which implies that 
-    \begin{equation}\begin{gathered}\begin{aligned} (\Omega'({a}_{t}))^{-\alpha_1 } \geq p(\Omega'({a}_1))^{-\alpha_1 } + (1-p)(\Omega'({a}_2))^{-\alpha_1 }\end{aligned}\end{gathered}\end{equation}	
+    \[ (\Omega'({a}_{t}))^{-\alpha_1 } \geq p(\Omega'({a}_1))^{-\alpha_1 } + (1-p)(\Omega'({a}_2))^{-\alpha_1 }\]	
     Thus, defining
     $\chi_{t}({a}_{t}) = \{\Omega_{t}^{'}({a}_{t})\}^{-\alpha_1 }$, we get
     \begin{align*}
@@ -778,22 +778,22 @@ In addition, we provide an explanation of apparently contradictory results: That
     \bigskip
     
     \noindent \textbf{Case II ($a = 0$, CARA)}. For the exponential case, property CC holds at ${a}_{t}$ if 
-    \begin{equation*}\begin{gathered}\begin{aligned}
-      \exp(-\chi_{t}({a}_{t})/b)  & = \Ex_{t}[ \exp(-c_{t+1}({a}_{t}+{y}_{t+1})/b)]
-    \end{aligned}\end{gathered}\end{equation*}
+    \begin{eqnarray*}
+      \exp(-\chi_{t}({a}_{t})/b) & = & \Ex_{t}[ \exp(-c_{t+1}({a}_{t}+{y}_{t+1})/b)]
+    \end{eqnarray*}
     for some $\chi_{t}({a}_{t})$ which is strictly concave at ${a}_{t}$. We set $b = 1$ to reduce clutter, but results hold for $b \neq 1$. Consider first a case where $c_{t+1}$ is linear over the range of possible values of ${a}_{t}+{y}_{t+1}$, then 
-    \begin{equation}\begin{gathered}\begin{aligned}
-      \chi_{t}({a}_{t})  & = -\log \Ex_{t}[e^{-c_{t+1}({a}_{t}+{y}_{t+1})}] \nonumber 
-      \\ & = -\log \Ex_{t}[e^{-(c_{t+1}({a}_{t}+\bar{y})+({y}_{t+1}-\bar{y})c_{t+1}^{'})}] \nonumber
-      \\  & = c_{t+1}({a}_{t}+\bar{y}) - \log \Ex_{t}[e^{-({y}_{t+1}-\bar{y}) c_{t+1}^{'}}] \label{eq:expcdrops}
-    \end{aligned}\end{gathered}\end{equation}
+    \begin{eqnarray}
+      \chi_{t}({a}_{t}) & = & -\log \Ex_{t}[e^{-c_{t+1}({a}_{t}+{y}_{t+1})}] \nonumber 
+      \\& = & -\log \Ex_{t}[e^{-(c_{t+1}({a}_{t}+\bar{y})+({y}_{t+1}-\bar{y})c_{t+1}^{'})}] \nonumber
+      \\ & = & c_{t+1}({a}_{t}+\bar{y}) - \log \Ex_{t}[e^{-({y}_{t+1}-\bar{y}) c_{t+1}^{'}}] \label{eq:expcdrops}
+    \end{eqnarray}
     which is linear in ${a}_{t}$ since the second term is a constant.  
     
     Now consider a value of ${a}_{t}$ for which $c_{t+1}({a}_{t}+{y}_{t+1})$ is strictly concave for at least one realization of ${y}_{t+1}$. Global weak concavity of $c_{t+1}$ tells us that for every ${y}_{t+1}$
-    \begin{equation}\begin{gathered}\begin{aligned}
-      -c_{t+1}({a}_{t}+{y}_{t+1}) & \leq  -((1-p)c_{t+1}({a}_1+{y}_{t+1})+pc_{t+1}({a}_{2}+{y}_{t+1})) \nonumber
-      \\ \Ex_{t}[e^{-c_{t+1}({a}_{t}+{y}_{t+1})}] & \leq  \Ex_{t}[e^{-((1-p)c_{t+1}({a}_1+{y}_{t+1})+pc_{t+1}({a}_{2}+{y}_{t+1}))}]. \label{eq:expconc}
-    \end{aligned}\end{gathered}\end{equation}
+    \begin{eqnarray}
+      -c_{t+1}({a}_{t}+{y}_{t+1}) & \leq & -((1-p)c_{t+1}({a}_1+{y}_{t+1})+pc_{t+1}({a}_{2}+{y}_{t+1})) \nonumber
+      \\ \Ex_{t}[e^{-c_{t+1}({a}_{t}+{y}_{t+1})}] & \leq & \Ex_{t}[e^{-((1-p)c_{t+1}({a}_1+{y}_{t+1})+pc_{t+1}({a}_{2}+{y}_{t+1}))}]. \label{eq:expconc}
+    \end{eqnarray}
     
     Meanwhile, the arithmetic-geometric mean inequality states that for positive $u$ and $v$, if $\bar u = \Ex_t [ u]$ and $\bar v = \Ex_t [ v]$, then
     \begin{equation*}
@@ -805,33 +805,33 @@ In addition, we provide an explanation of apparently contradictory results: That
       \Ex_t [ u^p  v^{1-p}] \leq \bar u^p \bar v^{1-p}, 
     \end{equation*}
     where the expression holds with equality only if $v$ is proportional to $u$.  Substituting in $u= e^{-c_{t+1}({a}_1 + {y}_{t+1})}$ and $v = e^{-c_{t+1}({a}_2 + {y}_{t+1})}$, this means that
-    \begin{equation*}\begin{gathered}\begin{aligned}
-      \Ex_t [e^{-p c_{t+1}({a}_1 + {y}_{t+1}) - (1-p)c_{t+1}({a}_2 + {y}_{t+1})}] & \leq 
+    \begin{eqnarray*}
+      \Ex_t [e^{-p c_{t+1}({a}_1 + {y}_{t+1}) - (1-p)c_{t+1}({a}_2 + {y}_{t+1})}] & \leq &
                                                                                            \left\{ \Ex_t  [e^{- c_{t+1}({a}_1 + {y}_{t+1})} ] \right\}^p \left\{ \Ex_t  [e^{- c_{t+1}({a}_2 + {y}_{t+1})} ] \right\}^{1-p}
-    \end{aligned}\end{gathered}\end{equation*}
+    \end{eqnarray*}
     and we can substitute for the LHS from \eqref{eq:expconc}, obtaining
-    \begin{equation}\begin{gathered}\begin{aligned}
-      \Ex_{t}[e^{-c_{t+1}({a}_{t}+{y}_{t+1})}] & \leq 
+    \begin{eqnarray}
+      \Ex_{t}[e^{-c_{t+1}({a}_{t}+{y}_{t+1})}] & \leq &
                                                         \left\{ \Ex_t  [e^{- c_{t+1}({a}_1 + {y}_{t+1})} ] \right\}^p 	\left\{ \Ex_t  [e^{- c_{t+1}({a}_2 + {y}_{t+1})} ] \right\}^{1-p} \nonumber
       \\ 
-      \log \Ex_{t}[e^{-c_{t+1}({a}_{t}+{y}_{t+1})}] &\leq 
+      \log \Ex_{t}[e^{-c_{t+1}({a}_{t}+{y}_{t+1})}] &\leq &
                                                             p \log \Ex_t  [e^{-c_{t+1}({a}_1 + {y}_{t+1})} ] 
                                                             + (1-p) \log \Ex_t  [e^{-c_{t+1}({a}_2 + {y}_{t+1})} ]  \label{eq:expineq2} 
-    \end{aligned}\end{gathered}\end{equation}
+    \end{eqnarray}
     which holds with equality only when $e^{-c_{t+1}({a}_{1}+{y}_{t+1})}/e^{-c_{t+1}({a}_{2}+{y}_{t+1})}$ is a constant. This will only happen if 	$c_{t+1}({a}_{1}+{y}_{t+1})-c_{t+1}({a}_{2}+{y}_{t+1})$ is constant, which (given that the MPC is strictly positive everywhere) requires 	$c_{t+1}({a}_{t}+{y}_{t+1})$ to be linear for ${y}_{t+1} \in (\underline{y},\bar{y})$. Hence, 
-    \begin{equation*}\begin{gathered}\begin{aligned}
+    \begin{eqnarray*}
       \chi_{t}({a}_{t}) & \geq & p \chi_{t}({a}_{1}) + (1-p) \chi_{t}({a}_{2}).
-    \end{aligned}\end{gathered}\end{equation*}
+    \end{eqnarray*}
     where the inequality is strict for an ${a}_{t}$ from which $c_{t+1}$ is strictly concave for some realization of ${y}_{t+1}$.
     
     \bigskip
     
     \noindent \textbf{Case III ($a = -1$, Quadratic)}.
     In the quadratic case, linearity of marginal utility implies that
-    \begin{equation*}\begin{gathered}\begin{aligned}
-      u'(\chi_{t}({a}_{t}))  & = \Ex_{t}[u'(c_{t+1}({a}_{t}+{y}_{t+1}))]
-      \\   \chi_{t}({a}_{t})  & = \Ex_{t}[c_{t+1}({a}_{t}+{y}_{t+1})]
-    \end{aligned}\end{gathered}\end{equation*}
+    \begin{eqnarray*}
+      u'(\chi_{t}({a}_{t})) & = & \Ex_{t}[u'(c_{t+1}({a}_{t}+{y}_{t+1}))]
+      \\   \chi_{t}({a}_{t}) & = & \Ex_{t}[c_{t+1}({a}_{t}+{y}_{t+1})]
+    \end{eqnarray*}
     so $\chi_{t}$ is simply the weighted sum of a set of
     concave functions where the weights correspond to the probabilities of the various possible outcomes for ${y}_{t+1}$. The sum of concave functions is itself concave. And if additionally the consumption function is strictly concave at any point, the weighted sum is also strictly concave.
     
@@ -839,11 +839,11 @@ In addition, we provide an explanation of apparently contradictory results: That
     \bigskip
     \noindent \textbf{Step 2: Horizontal aggregation:} \\
     We now proceed with horizontal aggregation, namely how concavity is preserved through the value function operation. Assume that $\Omega_t({a}_{t}) \in CC$ at point ${a}_{t}$, then the first order condition implies that
-    \begin{equation}\begin{gathered}\begin{aligned}\Omega_t'({a}_{t}) = u'(\chi_t({a}_{t}))\end{aligned}\end{gathered}\end{equation}
+    \[\Omega_t'({a}_{t}) = u'(\chi_t({a}_{t}))\]
     for some monotonically increasing $\chi_t({a}_{t})$ that satisfies
-    \begin{equation}\begin{gathered}\begin{aligned}
+    \begin{align}
       \chi_t(p{a}_1 + (1-p){a}_2) \geq p\chi_t({a}_1) + (1-p)\chi_t({a}_2) \label{eq:hor_conc}
-    \end{aligned}\end{gathered}\end{equation}
+    \end{align}
     for any $0 < p < 1$, and ${a}_1 < {a}_{t} < {a}_2$. % ($|{a}_2 - {a}_1|< \delta$ for any $\delta > 0$). 
     
     In addition, we know that the first order condition holds with equality such that $\Omega_t'({a}_{t}) = u'({c}_{t}({m}_{t})) = u'(\chi_t({a}_{t}))$ which implies that ${a}_{t} = \chi_t^{-1}({c}_{t})$. Using this equation, we get
@@ -860,11 +860,11 @@ In addition, we provide an explanation of apparently contradictory results: That
       \wAlt({c}_{t}) & = \chi^{-1}({c}_{t}) + {c}_{t}
     \end{align*} 
     Now, since $\chi_t^{-1}$ is a convex function, and $\wAlt({c}_{t})$ is the sum of a convex and a linear function, it is also a convex function satisfying
-    \begin{equation}\begin{gathered}\begin{aligned}
+    \begin{align}
       p\wAlt(c_1) + (1-p)\wAlt(c_2) &\geq \wAlt(pc_1 + (1-p)c_2) \nonumber \\
       \wAlt^{-1}(p\wAlt(c_1) + (1-p)\wAlt(c_2)) &\geq pc_1 + (1-p)c_2 \nonumber \\
       c(p{m}_1 + (1-p){m}_2) &\geq pc({m}_1) + (1-p)c({m}_2) \label{eq:hor_conc2}
-    \end{aligned}\end{gathered}\end{equation} 
+    \end{align} 
     so $c$ is concave. 
     
     Note that the proof of horizontal aggregation works for any utility function with $u' > 0$ and $u'' < 0$ when $R$ = $\beta$ = 1. However, for the more general case where $R$ or $\beta$ are not equal to one, we need the HARA property that multiplying $u'$ by a constant corresponds to a linear transformation of $c$. 
@@ -883,7 +883,7 @@ In addition, we provide an explanation of apparently contradictory results: That
   \section{Proof of Lemma \ref{lem:CCToPrud}} \label{app:CCToPrud}
   \begin{proof}
     By the envelope theorem, we know that 
-    \begin{equation}\begin{gathered}\begin{aligned} V'({m}) = u'(c({m}))\end{aligned}\end{gathered}\end{equation}
+    \[ V'({m}) = u'(c({m}))\]
     Differentiating with respect to ${m}$ yields
     \begin{equation}\label{eq:diff2}
       V''({m}) = u''(c({m}))c'({m})
@@ -893,13 +893,13 @@ In addition, we provide an explanation of apparently contradictory results: That
     \bigskip
     \noindent \textbf{\textit{Case I:}} ($c''({m})$ exists.)\\
     In the case where $c''({m})$ exists, we can take another derivative
-    \begin{equation}\begin{gathered}\begin{aligned}V'''({m}) = u'''(c({m}))[c'({m})]^2 + u''(c({m}))c''({m})\end{aligned}\end{gathered}\end{equation}
+    \[V'''({m}) = u'''(c({m}))[c'({m})]^2 + u''(c({m}))c''({m})\]
     Absolute prudence of the value function is thus defined as
-    \begin{equation}\begin{gathered}\begin{aligned}-\frac{V'''({m})}{V''({m})} &= -\frac{u'''(c({m}))[c'({m})]^2 + u''(c({m}))c''({m})}{u''(c({m}))c'({m})} \nonumber \\
-      -\frac{V'''({m})}{V''({m})} &= -\frac{u'''(c({m}))}{u''(c({m}))}c'({m}) - \frac{c''({m})}{c'({m})}\label{eq:absprudence}\end{aligned}\end{gathered}\end{equation}
+    \begin{align}-\frac{V'''({m})}{V''({m})} &= -\frac{u'''(c({m}))[c'({m})]^2 + u''(c({m}))c''({m})}{u''(c({m}))c'({m})} \nonumber \\
+      -\frac{V'''({m})}{V''({m})} &= -\frac{u'''(c({m}))}{u''(c({m}))}c'({m}) - \frac{c''({m})}{c'({m})}\label{eq:absprudence}\end{align}
     From the assumption that $\hat{c}({m})$ is a counterclockwise concavification of $c({m})$, we know from Lemma \ref{lem:counterclockwise} that  $\hat{c}({m}) \leq c({m})$ and $\hat{c}'({m}) \geq c'({m})$. Furthermore, since $-\frac{u'''(c({m}))}{u''(c({m}))}$ is non-increasing, we know that $-\frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m}))} \geq -\frac{u'''(c({m}))}{u''(c({m}))}$. As a result, $-\frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m}))}\hat{c}'({m}) \geq -\frac{u'''(c({m}))}{u''(c({m}))}c'({m})$. 
     
-    The second part of the absolute prudence expression, $-\frac{c''({m})}{c'({m})}$, is a measure of the curvature of the consumption function. Since the consumption function is concave, $-\frac{c''({m})}{c'({m})}$ is a measure of the degree of concavity. Formally, if one has two functions, $f(x)$ and $g(x)$, that are both increasing and concave functions, then the concave transformation $g(f(x))$ always has more curvature than $f$.\footnote{To see this, compute \begin{equation}\begin{gathered}\begin{aligned}-\frac{\frac{d^2}{dx^2} g(f(x))}{\frac{d}{dx}g(f(x))} = - \frac{g''f'}{g'} - \frac{f''}{f'} \geq - \frac{f''}{f'}\end{aligned}\end{gathered}\end{equation} where the inequality holds since $f' \geq 0$, $g' \geq 0$, and $g'' \leq 0$.} A counterclockwise concavification is an example of such a $g$. Hence, $-\frac{\hat{c}''({m})}{\hat{c}'({m})} \geq -\frac{c''({m})}{c'({m})}$. Then
+    The second part of the absolute prudence expression, $-\frac{c''({m})}{c'({m})}$, is a measure of the curvature of the consumption function. Since the consumption function is concave, $-\frac{c''({m})}{c'({m})}$ is a measure of the degree of concavity. Formally, if one has two functions, $f(x)$ and $g(x)$, that are both increasing and concave functions, then the concave transformation $g(f(x))$ always has more curvature than $f$.\footnote{To see this, compute \[-\frac{\frac{d^2}{dx^2} g(f(x))}{\frac{d}{dx}g(f(x))} = - \frac{g''f'}{g'} - \frac{f''}{f'} \geq - \frac{f''}{f'}\] where the inequality holds since $f' \geq 0$, $g' \geq 0$, and $g'' \leq 0$.} A counterclockwise concavification is an example of such a $g$. Hence, $-\frac{\hat{c}''({m})}{\hat{c}'({m})} \geq -\frac{c''({m})}{c'({m})}$. Then
     \begin{align*}
       -\frac{\hat{V}'''({m})}{\hat{V}''({m})} &= -\frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m}))}\hat{c}'({m}) - \frac{\hat{c}''({m})}{\hat{c}'({m})} \\ 
                                               &\geq -\frac{u'''(c({m}))}{u''(c({m}))}c'({m}) - \frac{c''({m})}{c'({m})} = -\frac{V'''({m})}{V''({m})}
@@ -909,26 +909,26 @@ In addition, we provide an explanation of apparently contradictory results: That
     
     \noindent \textbf{\textit{Case II:}} ($c''({m})$ does not exist.)\\
     Informally, if nonexistence is caused by a constraint binding at ${m}$, the effect will be a discrete decline in the marginal propensity to consume at ${m}$, which can be thought of as $c''({m}) = -\infty$, implying positive infinite prudence at that point (see \eqref{eq:absprudence}). Formally, if $c''({m})$ does not exist, greater prudence of $\hat{V}$ than $V$ is given by $\frac{\hat{V}''({m})}{V''({m})}$ being a decreasing function of ${m}$. This is defined as
-    \begin{equation}\begin{gathered}\begin{aligned}\frac{\hat{V}''({m})}{V''({m})} \equiv 
+    \[\frac{\hat{V}''({m})}{V''({m})} \equiv 
       \left(\frac{u''(\hat c({m}))}{u''(c({m}))} \right)
-      \left(\frac{\hat{c}'({m})}{c'({m})}\right)\end{aligned}\end{gathered}\end{equation}
+      \left(\frac{\hat{c}'({m})}{c'({m})}\right)\]
     The second factor, $\frac{\hat{c}'({m})}{c'({m})}$, is weakly decreasing in ${m}$ by the property of a counterclockwise concavification. At any specific value of ${m}$ where
     $\hat{c}''({m})$ does not exist because the left and right hand
     values of $\hat{c}'$ are different, we say that $\hat{c}'$
     is decreasing if
-    \begin{equation}\begin{gathered}\begin{aligned}
-      \lim_{{m}^{-} \rightarrow {m}} \hat{c}'({m})  & > \lim_{{m}^{+} \rightarrow {m}} \hat{c}'({m}).
-    \end{aligned}\end{gathered}\end{equation}
+    \begin{eqnarray}
+      \lim_{{m}^{-} \rightarrow {m}} \hat{c}'({m}) & > & \lim_{{m}^{+} \rightarrow {m}} \hat{c}'({m}).
+    \end{eqnarray}
     
     As for the first factor, note that nonexistence of 	$\hat{V}'''({m})$ and/or $\hat{c}''({m})$ do not spring from nonexistence of either $u'''(c)$ or $\lim_{{m} \uparrow {m}} \hat{c}'({m})$ (for our purposes, when the left and right derivatives of $\hat{c}({m})$ differ at a point, the relevant derivative is the one coming from the left; rather than carry around the cumbersome limit notation, read the following derivation as applying to the left derivative).  To discover whether $\frac{\hat {V}''({m})}{V''({m})}$ is decreasing we differentiate $\log\left(\frac{u''(\hat{c}({m}))}{ u''(c({m}))}\right)$ (recall that the log is a monotonically decreasing transformation so the derivative of the log of a function always has the same sign as the derivative of the function):
     \begin{align*}
       \frac{d}{d {m}}\left( \log(u''(\hat{c}({m})) - \log(u''(c({m})))\right) = \frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m}))}\hat{c}'({m}) -  \frac{u'''(c({m}))}{u''(c({m}))}c'({m}).
     \end{align*}
     This will be negative if
-    \begin{equation}\begin{gathered}\begin{aligned}
+    \begin{align}
       \frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m}))}\hat{c}'({m}) & \leq  \frac{u'''(c({m}))}{u''(c({m}))}c'({m}) \nonumber
       \\ \Rightarrow  -\frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m}))}\hat{c}'({m}) & \geq  -\frac{u'''(c({m}))}{u''(c({m}))} c'({m}) \label{eq:prudcond} .
-    \end{aligned}\end{gathered}\end{equation}
+    \end{align}
     
     Recall from Lemma \ref{lem:counterclockwise} that $\hat{c}'({m}) \geq c'({m})$ and $\hat{c}({m}) \leq c({m})$ so non-increasing absolute prudence of the utility function ensures that $-\frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m}))} \geq  -\frac{u'''(c({m}))}{u''(c({m}))}$. Hence the LHS is always greater or equal to the RHS of equation \eqref{eq:prudcond}. 
     
@@ -943,9 +943,9 @@ In addition, we provide an explanation of apparently contradictory results: That
     \bigskip
     
     \noindent \textbf{\textit{Case I:}} ($ u ''' > 0$.) \\
-    If $u''' > 0$, a counterclockwise concavification around ${m}^{\#}$ implies that $\hat{c}({m}) < c({m})$ and $\hat{c}'({m}) > c'({m})$ for all ${m} < {m}^{\#}$. Then \begin{equation}\begin{gathered}\begin{aligned}-\frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m})}\hat{c}'({m}) > -\frac{u'''({c}({m}))}{u''({c}({m}))}{c}'({m}) \text{ for } {m} < {m}^{\#} \end{aligned}\end{gathered}\end{equation}
+    If $u''' > 0$, a counterclockwise concavification around ${m}^{\#}$ implies that $\hat{c}({m}) < c({m})$ and $\hat{c}'({m}) > c'({m})$ for all ${m} < {m}^{\#}$. Then \[-\frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m})}\hat{c}'({m}) > -\frac{u'''({c}({m}))}{u''({c}({m}))}{c}'({m}) \text{ for } {m} < {m}^{\#} \]
     Note that this condition is sufficient to prove Lemma \ref{lem:ccandstrictprud} for the case where $c''({m})$ does not exist since it then satisfies \eqref{eq:prudcond}. In the case where $c''({m})$ does exist, we know that 
-    \begin{equation}\begin{gathered}\begin{aligned}-\frac{\hat{c}''({m})}{\hat{c}'({m})} \geq -\frac{{c}''({m})}{{c}'({m})} \text{ for } {m} < {m}^{\#}\end{aligned}\end{gathered}\end{equation}
+    \[-\frac{\hat{c}''({m})}{\hat{c}'({m})} \geq -\frac{{c}''({m})}{{c}'({m})} \text{ for } {m} < {m}^{\#}\]
     from the proof of Lemma \ref{lem:CCToPrud}. Hence,
     \begin{align*}- \frac{\hat{V}'''({m})}{\hat{V}''({m})} &= -\frac{u'''(\hat{c}({m}))}{u''(\hat{c}({m})}\hat{c}'({m}) - \frac{\hat{c}''({m})}{\hat{c}'({m})}
       \\
@@ -976,23 +976,23 @@ In addition, we provide an explanation of apparently contradictory results: That
   
   \begin{proof}
     The marginal propensity to consume in period $t$ can be obtained from the MPC in period $t+1$ from the Euler equation
-    \begin{equation*}\begin{gathered}\begin{aligned}
-      u'(c_{t}({m}_{t})) & =  \beta R u'(c_{t+1}(R({m}_{t}-c_{t}({m}_{t}))+{y})).
-    \end{aligned}\end{gathered}\end{equation*}
+    \begin{eqnarray*}
+      u'(c_{t}({m}_{t})) & =  & \beta R u'(c_{t+1}(R({m}_{t}-c_{t}({m}_{t}))+{y})).
+    \end{eqnarray*}
     Differentiating both sides with respect to ${m}_{t}$ and omitting arguments to reduce
     clutter we obtain
-    \begin{equation*}\begin{gathered}\begin{aligned}
-      u^{\prime\prime}(c_{t})c_{t}^{\prime} & =  \beta R u^{\prime\prime}(c_{t+1})c_{t+1}^{\prime}R(1-c_{t}^{\prime}) \nonumber
-      \\ \nonumber (u^{\prime\prime}(c_{t}) + \beta R u^{\prime\prime}(c_{t+1})c_{t+1}^{\prime}R)c_{t}^{\prime}  & = \beta R u^{\prime\prime}(c_{t+1})Rc_{t+1}^{\prime}
-      \\ \frac{c_{t+1}^{\prime}}{c_{t}^{\prime}}    & = \frac{u^{\prime\prime}(c_{t}) + \beta R u^{\prime\prime}(c_{t+1})c_{t+1}^{\prime}R}{\beta R u^{\prime\prime}(c_{t+1})R} \label{eq:mpcPF} \\
-      \frac{c_{t+1}^{\prime}}{c_{t}^{\prime}}    & = \frac{u^{\prime\prime}(c_{t})}{\beta R u^{\prime\prime}(c_{t+1})R} + c_{t+1}^{\prime} %\\ \frac{c_{t+1}^{\prime}}{c_{t}^{\prime}}  & >  1 
-    \end{aligned}\end{gathered}\end{equation*}
+    \begin{eqnarray*}
+      u^{\prime\prime}(c_{t})c_{t}^{\prime} & =  & \beta R u^{\prime\prime}(c_{t+1})c_{t+1}^{\prime}R(1-c_{t}^{\prime}) \nonumber
+      \\ \nonumber (u^{\prime\prime}(c_{t}) + \beta R u^{\prime\prime}(c_{t+1})c_{t+1}^{\prime}R)c_{t}^{\prime} & = & \beta R u^{\prime\prime}(c_{t+1})Rc_{t+1}^{\prime}
+      \\ \frac{c_{t+1}^{\prime}}{c_{t}^{\prime}}   & = & \frac{u^{\prime\prime}(c_{t}) + \beta R u^{\prime\prime}(c_{t+1})c_{t+1}^{\prime}R}{\beta R u^{\prime\prime}(c_{t+1})R} \label{eq:mpcPF} \\
+      \frac{c_{t+1}^{\prime}}{c_{t}^{\prime}}   & = & \frac{u^{\prime\prime}(c_{t})}{\beta R u^{\prime\prime}(c_{t+1})R} + c_{t+1}^{\prime} %\\ \frac{c_{t+1}^{\prime}}{c_{t}^{\prime}} & > &  1 
+    \end{eqnarray*}
     Since $\beta R < 1$ ensures that $c_{t} > c_{t+1}$, we know that
-    \begin{equation}\begin{gathered}\begin{aligned}\frac{u^{\prime\prime}(c_{t})}{\beta R u^{\prime\prime}(c_{t+1})R} \geq  \frac{u^{\prime\prime}(c_{t+1})}{\beta R u^{\prime\prime}(c_{t+1})R} = \frac{1}{\beta R R} > \frac{1}{R}\end{aligned}\end{gathered}\end{equation}
+    \[\frac{u^{\prime\prime}(c_{t})}{\beta R u^{\prime\prime}(c_{t+1})R} \geq  \frac{u^{\prime\prime}(c_{t+1})}{\beta R u^{\prime\prime}(c_{t+1})R} = \frac{1}{\beta R R} > \frac{1}{R}\]
     Furthermore, we know that
-    \begin{equation}\begin{gathered}\begin{aligned}c_{t}^{\prime} \geq \frac{R-1}{R}\end{aligned}\end{gathered}\end{equation}
+    \[c_{t}^{\prime} \geq \frac{R-1}{R}\]
     since $\frac{R-1}{R}$ is the MPC for an infinitely-lived agent with $\beta R = 1$. Hence, 
-    \begin{equation}\begin{gathered}\begin{aligned}\frac{c_{t+1}^{\prime}}{c_{t}^{\prime}} = \left(\frac{u^{\prime\prime}(c_{t})}{\beta R u^{\prime\prime}(c_{t+1})R} + c_{t}^{\prime} \right) > \frac{1}{R} + \frac{R-1}{R} = 1\end{aligned}\end{gathered}\end{equation}
+    \[\frac{c_{t+1}^{\prime}}{c_{t}^{\prime}} = \left(\frac{u^{\prime\prime}(c_{t})}{\beta R u^{\prime\prime}(c_{t+1})R} + c_{t}^{\prime} \right) > \frac{1}{R} + \frac{R-1}{R} = 1\]
     and it follows that $c_{t}^{\prime} <  c_{t+1}^{\prime}$.
   \end{proof}
   
@@ -1005,23 +1005,23 @@ In addition, we provide an explanation of apparently contradictory results: That
     We now prove Lemma \ref{lem:pfclc} by first showing that the consumption function including the constraint at the end of period $\tau$ is a counterclockwise concavification of the unconstrained consumption function in period $\tau$. Next, we show how the constraint further implies that the consumption function including the constraint is a counterclockwise concavification of the unconstrained consumption function in periods prior to $\tau$. 
     
     We first define $\tau = \mathcal{T}[1]$ as the time period of the constraint. Note first that consumption is unaffected by the constraint for all periods after $\tau$, i.e. $c_{\tau+k,1}=c_{\tau+k,0}$ for any $k > 0$. For period $\tau$, we can calculate the level of consumption at which the constraint binds by realizing that a consumer for whom the constraint binds will save nothing and therefore arrive in the next period with no wealth. Further, the maximum amount of consumption at which the constraint binds will satisfy the Euler equation (only points where the constraint is strictly binding violate the Euler equation; the point on the cusp does not). Thus, we define $c_{\tau,1}^{\#}$ as the maximum level of consumption in period $\tau$ at which the agent leaves no wealth for the next period, i.e.\ the constraint stops binding:
-    \begin{equation*}\begin{gathered}\begin{aligned}
+    \begin{eqnarray*}
       \label{eq:ctau1}
-      u'(c_{\tau,1}^{\#})    & = \beta R u'(c_{\tau+1,0}({y}))
-      \\   c_{\tau,1}^{\#}        & = (u')^{-1}\left(\beta R u'(c_{\tau+1,0}({y}))\right),
-    \end{aligned}\end{gathered}\end{equation*}
+      u'(c_{\tau,1}^{\#})   & = & \beta R u'(c_{\tau+1,0}({y}))
+      \\   c_{\tau,1}^{\#}       & = & (u')^{-1}\left(\beta R u'(c_{\tau+1,0}({y}))\right),
+    \end{eqnarray*}
     and the level of wealth at which the constraint stops binding can be obtained from
-    \begin{equation}\begin{gathered}\begin{aligned}
+    \begin{eqnarray}
       \label{eq:omegaFromc}
-      \wAlt_{\tau,1}  & = \left(V'_{\tau,1}\right)^{-1}(u'(c_{\tau,1}^{\#}))  .
-    \end{aligned}\end{gathered}\end{equation}
+      \wAlt_{\tau,1} & = & \left(V'_{\tau,1}\right)^{-1}(u'(c_{\tau,1}^{\#}))  .
+    \end{eqnarray}
     
     Below this level of wealth, we have $c_{\tau,1}({m}) = {m}$ so the MPC is one, while above it we have $c_{\tau,1}({m}) = c_{\tau,0}({m})$ where the MPC equals the constant MPC for an unconstrained perfect foresight optimization problem with a horizon of $T-\tau$. Thus, $c_{\tau,1}$ satisfies our definition of a counterclockwise concavification of $c_{\tau,0}$ around $\wAlt_{\tau,1}$.  
     
     Further, we can obtain the value of period $\tau-1$ consumption at which the period $\tau$ constraint stops impinging on period $\tau-1$ behavior from
-    \begin{equation*}\begin{gathered}\begin{aligned}
-      u'(c_{\tau-1,1}^{\#})    & = \beta R u'(c_{\tau,1}^{\#}) \label{eq:ctaum1}
-    \end{aligned}\end{gathered}\end{equation*}
+    \begin{eqnarray*}
+      u'(c_{\tau-1,1}^{\#})   & = & \beta R u'(c_{\tau,1}^{\#}) \label{eq:ctaum1}
+    \end{eqnarray*}
     and we can obtain $\wAlt_{\tau-1,1}$ via the analogue to \eqref{eq:omegaFromc}. Iteration generates the remaining $c_{.,1}^{\#}$ and $\wAlt_{.,1}$ values back to period $t$. 
     
     Now consider the behavior of a consumer in period $\tau-1$ with a level of wealth ${m}<\wAlt_{\tau-1,1}$.  This consumer knows he will be constrained and will spend all of his resources next period, so at ${m}$ his behavior will be identical to the behavior of a consumer whose entire horizon ends at time $\tau$.  As shown in step I, the MPC always declines with horizon. The MPC for this consumer is therefore strictly greater than the MPC of the unconstrained consumer whose horizon ends at $T > \tau$.  Thus, in each period before $\tau+1$, the consumption function $c_{.,1}$ generated by imposition of the constraint constitutes a counterclockwise concavification of the unconstrained consumption function around the kink point $\wAlt_{.,1}$. 
@@ -1032,16 +1032,16 @@ In addition, we provide an explanation of apparently contradictory results: That
   where the second equality follows because a consumer with total resources $y$, constant income, and $\beta R < 1$ will be constrained. But note that by the definition of $c^{\#}_{\tau,n}$, we obtain
   $$	u'(c_{\tau,n}^{\#})  =  (R \beta)^{\mathcal{T}[n]-\tau} u'({y})  <  R \beta u'({y}) = u'(c_{\tau,n+1}^{\#})$$
   where $\mathcal{T}[n]-\tau$ denotes the time remaining to the $n$'th constraint. From the assumption of decreasing marginal utility, we therefore know that
-  \begin{equation*}\begin{gathered}\begin{aligned}
+  \begin{eqnarray*}
     c_{\tau,n}^{\#} & \geq & c_{\tau,n+1}^{\#}.
-  \end{aligned}\end{gathered}\end{equation*}
+  \end{eqnarray*}
   This means that the constraint is relevant: The pre-existing constraint $n$ does not force the consumer to do so much saving in period $\tau$ that the $n+1$'st constraint fails to bind.
   
   The prior-period levels of consumption and wealth at which constraint $n+1$ stops impinging on consumption can again be calculated recursively from
-  \begin{equation*}\begin{gathered}\begin{aligned}
-    u'(c_{\tau,n+1}^{\#})  & = R\beta u'(c_{\tau+1,n}({y}))
-    \\  \wAlt_{\tau,n+1}  & = \left(V'_{\tau,n}\right)^{-1}(u'(c_{\tau,n+1}^{\#})).
-  \end{aligned}\end{gathered}\end{equation*}
+  \begin{eqnarray*}
+    u'(c_{\tau,n+1}^{\#}) & = & R\beta u'(c_{\tau+1,n}({y}))
+    \\  \wAlt_{\tau,n+1} & = & \left(V'_{\tau,n}\right)^{-1}(u'(c_{\tau,n+1}^{\#})).
+  \end{eqnarray*}
 
   Furthermore, once again we can think of the constraint as terminating
   the horizon of a finite-horizon consumer in an earlier period than it
@@ -1066,36 +1066,36 @@ In addition, we provide an explanation of apparently contradictory results: That
                   %%                   Old: \end{lemma}
 
     Our proof proceeds by constructing the behavior of consumers facing the risk from the behavior of the corresponding perfect foresight consumers.  We consider matters from the perspective of some level of wealth ${{m}}$ for the perfect foresight consumers.  Because the same marginal utility function $u'$ applies to all four consumption rules, the Compensating Precautionary Premia, $\kappa_{t,n}$ and $\kappa_{t,n+1}$, associated with the introduction of the risk $\zeta_{t+1}$  must satisfy
-    \begin{equation}\begin{gathered}\begin{aligned}
-      c_{t,n}({{m}})  & = \tilde{c}_{t,n}({{m}}+\kappa_{t,n}) \notag
-      \\ c_{t,n+1}({{m}})  & = \tilde{c}_{t,n+1}({{m}}+\kappa_{t,n+1}). \label{eq:hateqtildehat}\end{aligned}\end{gathered}\end{equation}
+    \begin{eqnarray}
+      c_{t,n}({{m}}) & = & \tilde{c}_{t,n}({{m}}+\kappa_{t,n}) \label{eq:hateqtildehat2}
+      \\ c_{t,n+1}({{m}}) & = & \tilde{c}_{t,n+1}({{m}}+\kappa_{t,n+1}). \label{eq:hateqtildehat}\end{eqnarray}
     Define the amounts of precautionary saving induced by the risk $\zeta_{t+1}$ at an arbitrary level of wealth ${m}$ in the two cases as
-    \begin{equation}\begin{gathered}\begin{aligned}
-      \psi_{t,n}({m})  & = c_{t,n}({m})-\tilde{c}_{t,n}({m})
-      \\   \psi_{t,n+1}({m})  & = c_{t,n+1}({m})-\tilde{c}_{t,n+1}({m})
-    \end{aligned}\end{gathered}\end{equation}
+    \begin{eqnarray}
+      \psi_{t,n}({m}) & = & c_{t,n}({m})-\tilde{c}_{t,n}({m})
+      \\   \psi_{t,n+1}({m}) & = & c_{t,n+1}({m})-\tilde{c}_{t,n+1}({m})
+    \end{eqnarray}
     where the mnemonic is that the first two letters of the Greek letter psi stand
     for {\bf p}recautionary {\bf s}aving.
 
-    We can rewrite the last (resp. the first) equation of \eqref{eq:hateqtildehat} as
-    \begin{equation*}\begin{gathered}\begin{aligned}
+    We can rewrite \eqref{eq:hateqtildehat} (resp. \eqref{eq:hateqtildehat2}) as
+    \begin{eqnarray*}
       c_{t,n+1}({m}) = c_{t,n+1}({{m}}+\kappa_{t,n+1})+\int_{{{m}}+\kappa_{t,n+1}}^{{{m}}} c_{t,n+1}^{\prime}(\mu) d\mu  = \tilde{c}_{t,n+1}({{m}}+\kappa_{t,n+1})
       \psi_{t,2}({{m}}+\kappa_{t,2}) \equiv 
-    \end{aligned}\end{gathered}\end{equation*}
+    \end{eqnarray*}
     which implies that
-    \begin{equation*}\begin{gathered}\begin{aligned}
-      \psi_{t,n+1}({{m}}+\kappa_{t,n+1})  & = 
+    \begin{eqnarray*}
+      \psi_{t,n+1}({{m}}+\kappa_{t,n+1}) & = & 
                                                c_{t,n+1}({{m}}+\kappa_{t,n+1})-\tilde{c}_{t,n+1}({{m}}+\kappa_{t,n+1}) = \int^{{{m}}+\kappa_{t,n+1}}_{{{m}}} c_{t,n+1}^{\prime}(\mu) d\mu,
       \\ %\psi_{t,1}({{m}}+\kappa_{t,1}) \equiv 
-      \psi_{t,n}({{m}}+\kappa_{t,n})  & =  c_{t,n}({{m}}+\kappa_{t,n})-\tilde{c}_{t,n}({{m}}+\kappa_{t,n}) = \int^{{{m}}+\kappa_{t,n}}_{{{m}}} c_{t,n}^{\prime}(\mu) d\mu 
-    \end{aligned}\end{gathered}\end{equation*}
+      \psi_{t,n}({{m}}+\kappa_{t,n}) & = &  c_{t,n}({{m}}+\kappa_{t,n})-\tilde{c}_{t,n}({{m}}+\kappa_{t,n}) = \int^{{{m}}+\kappa_{t,n}}_{{{m}}} c_{t,n}^{\prime}(\mu) d\mu 
+    \end{eqnarray*}
     and 
-    \begin{equation}\begin{gathered}\begin{aligned}
-      \psi_{t,n}({{m}}+\kappa_{t,n+1})  & = 
+    \begin{eqnarray}
+      \psi_{t,n}({{m}}+\kappa_{t,n+1}) & = & 
                                              \psi_{t,n}({{m}}+\kappa_{t,n}) - \int^{{{m}}+\kappa_{t,n+1}}_{{{m}}+\kappa_{t,n}} (\tilde{c}_{t,n}^{\prime}(\mu)-c_{t,n}^{\prime}(\mu)) d\mu \nonumber
-    \end{aligned}\end{gathered}\end{equation}
+    \end{eqnarray}
     so the difference between precautionary saving for the consumer facing $n$ constraints and the one facing $n+1$ constraints at ${{m}}+\kappa_{t,n+1}$ is 
-    \begin{equation}\begin{gathered}\begin{aligned}
+    \begin{align}
       \psi_{t,n+1}&({{m}}+\kappa_{t,n+1}) - \psi_{t,n}({{m}}+\kappa_{t,n+1}) = \nonumber\\ 
                   &= \psi_{t,n+1}({{m}}+\kappa_{t,n+1}) - \psi_{t,n}({{m}}+\kappa_{t,n}) + \psi_{t,n}({{m}}+\kappa_{t,n})- \psi_{t,n}({{m}}+\kappa_{t,n+1}) \nonumber
       \\ &=\int_{{{m}}}^{{{m}}+\kappa_{t,n+1}} c_{t,n+1}^{\prime}(\mu)d\mu - \int^{{{m}}+\kappa_{t,n}}_{{{m}}} c_{t,n}^{\prime}(\mu) d\mu + \int^{{{m}}+\kappa_{t,n+1}}_{{{m}}+\kappa_{t,n}} (\tilde{c}_{t,n}^{\prime}(\mu)-c_{t,n}^{\prime}(\mu)) d\mu \nonumber\\
@@ -1103,7 +1103,7 @@ In addition, we provide an explanation of apparently contradictory results: That
                   &= \int_{{{m}}}^{{{m}}+\kappa_{t,n+1}}
                     (c_{t,n+1}^{\prime}(\mu)-c_{t,n}^{\prime}(\mu))d\mu +\int^{{{m}}+\kappa_{t,n+1}}_{{{m}}+\kappa_{t,n}}
                     \tilde{c}_{t,n}^{\prime}(\mu) d\mu \label{eq:psidiffint}
-    \end{aligned}\end{gathered}\end{equation}
+    \end{align}
 
 
     If we can show that \eqref{eq:psidiffint} is a positive
@@ -1126,27 +1126,27 @@ In addition, we provide an explanation of apparently contradictory results: That
     
     
     First define the perfect foresight consumption functions as
-    \begin{equation}\begin{gathered}\begin{aligned}
-      c(\kappa_{t,n}+\zeta)  & = c_{t+1,n}(\overbrace{{s}_{t,n}}^{={a}_{t,n+1}}+{y}+\kappa_{t,n}+\zeta) \label{eq:cnoconstr}
-      \\  {c}(\kappa_{t,n+1}+\zeta)  & = c_{t+1,n+1}({s}_{t,n+1}+{y}+\kappa_{t,n+1}+\zeta)\notag.
-    \end{aligned}\end{gathered}\end{equation}	
+    \begin{eqnarray}
+      c(\kappa_{t,n}+\zeta) & = & c_{t+1,n}(\overbrace{{s}_{t,n}}^{={a}_{t,n+1}}+{y}+\kappa_{t,n}+\zeta) \label{eq:cnoconstr}
+      \\  {c}(\kappa_{t,n+1}+\zeta) & = & c_{t+1,n+1}({s}_{t,n+1}+{y}+\kappa_{t,n+1}+\zeta)\label{eq:gravecnoconstr}.
+    \end{eqnarray}	
     where ${a}_{t,n} = {a}_{t,n+1}$ since ${m} \geq \wAlt_{t,n+1}$. Recall also the definitions of $\kappa_{t,n}$ and $\kappa_{t,n+1}$:
-    \begin{equation*}\begin{gathered}\begin{aligned}
-      u'({c}_{t,n})  & = \Ex_{t}[u'(c(\kappa_{t,n}+\zeta))]
-      \\  u'({c}_{t,n+1})  & = \Ex_{t}[u'({c}(\kappa_{t,n+1}+\zeta))].
-    \end{aligned}\end{gathered}\end{equation*}
+    \begin{eqnarray*}
+      u'({c}_{t,n}) & = & \Ex_{t}[u'(c(\kappa_{t,n}+\zeta))]
+      \\  u'({c}_{t,n+1}) & = & \Ex_{t}[u'({c}(\kappa_{t,n+1}+\zeta))].
+    \end{eqnarray*}
 
     Now recall that Lemma~\ref{lemma:kimpratt} tells us that if absolute prudence of $u'(c(\kappa_{t,n}+\zeta))$ is identical to absolute prudence of $u'({c}(\kappa_{t,n+1}+\zeta))$ for every realization of $\zeta$, then $\kappa_{t,n}=\kappa_{t,n+1}$. This is true if ${m}_{t+1} \geq \wAlt_{t+1,n+1}$ for all possible realizations of $\zeta \in (\underline{\zeta}, \bar{\zeta})$, i.e. that the agent is unconstrained for all realizations of the risk. We defined this limit as ${m}_{t+1} \geq {\bar{\wAlt}}_{t+1,n+1}$. We therefore know that $\kappa_{t,n+1}  = \kappa_{t,n}$ if ${{m}} \geq {\bar{\wAlt}}_{t+1,n+1}$. 
     
     For all levels of wealth below this limit (${{m}} < {\bar{\wAlt}}_{t+1,n+1}$), there exist realizations of $\zeta$ such that constraint $n+1$ will bind in period $t+1$. The agent will require a higher precautionary premia when facing constraint $n+1$ in addition to the $n$ constraints already in the set, implying that $\kappa_{t,n+1} > \kappa_{t,n}$. Equation \eqref{eq:psidiffint} is therefore strictly positive if ${{m}} < {\bar{\wAlt}}_{t+1,n+1}$ and we have proven Theorem \ref{thm:riskandconstraints}. 
                                 %%                                 Old: \subsection*{The $n+1$'st constraint}
                                 %%                                 Old: Consider now the case where we have imposed $n$ constraints and are considering imposing constraint $n+1$ and where constraint $n+1$ applies at the end of some future period. Similar to the introduction of the first constraint, we need to show that the following equation is strictly positive:
-                                %%                                 Old: \begin{equation}\begin{gathered}\begin{aligned}
+                                %%                                 Old: \begin{align}
                                 %%                                 Old:   \psi_{t,n+1}&({{m}}+\kappa_{t,n+1}) - \psi_{t,n}({{m}}+\kappa_{t,n+1}) = \nonumber\\ &=\int_{{{m}}}^{{{m}}+\kappa_{t,n}} (c_{t,n+1}^{\prime}(\mu)-c_{t,n}^{\prime}(\mu))d\mu+\int^{{{m}}+\kappa_{t,n+1}}_{{{m}}+\kappa_{t,n}} \left(c_{t,n+1}^{\prime}(\mu)+(\tilde{c}_{t,n}^{\prime}(\mu)-c_{t,n}^{\prime}(\mu)) \right) d\mu \nonumber \\
                   %%                   Old:   &= \int_{{{m}}}^{{{m}}+\kappa_{t,n+1}}
                                                 %%                                                 Old:   (c_{t,n+1}^{\prime}(\mu)-c_{t,n}^{\prime}(\mu))d\mu +\int^{{{m}}+\kappa_{t,n+1}}_{{{m}}+\kappa_{t,n}}
                                                 %%                                                 Old:   \tilde{c}_{t,n}^{\prime}(\mu) d\mu \label{eq:psidiffint2}
-                                                %%                                                 Old: \end{aligned}\end{gathered}\end{equation}
+                                                %%                                                 Old: \end{align}
                                                 %%                                                 Old: The sufficient conditions for \eqref{eq:psidiffint2} to be strictly positive are
                                                 %%                                                 Old: \begin{enumerate}
                                                 %%                                                 Old:  \item $\kappa_{t,n+1} > 0$ or $\kappa_{t,n} > 0$, and $c_{t,n+1}'(\mu) > c_{t,n}'(\mu)$
@@ -1155,15 +1155,15 @@ In addition, we provide an explanation of apparently contradictory results: That
                                                 %%                                                 Old:  Now since $u'''>0$, we know that $\kappa_{t,n} > 0$ from Jensen's inequality and Lemma \ref{lemma:kimpratt}. The first integral in \eqref{eq:psidiffint2} is therefore strictly positive as long as $c_{t,n+1}' > c_{t,n}'$, which is true for ${{m}} < \wAlt_{t,n+1}$ (Theorem \ref{thm:pfclc}). 
                                                 %%                                                 Old:  
                                                 %%                                                 Old:  For ${{m}} \geq \wAlt_{t,n+1}$, we know that $c_{t,n+1}' = c_{t,n}'$ so the first integral in \eqref{eq:psidiffint2} is always zero. For the second integral in \eqref{eq:psidiffint2} to be strictly positive, we need to show that $\kappa_{t,n+1} > \kappa_{t,n}$. Recall the definition of $\kappa_{t,n}$ and $\kappa_{t,n+1}$:
-                                                %%                                                 Old:  \begin{equation*}\begin{gathered}\begin{aligned}
-                                                %%                                                 Old:   u'({c}_{t,n})  & = \Ex_{t}[u'(c(\kappa_{t,n}+\zeta))]
-                                                                                                                              %%                                                                                                                               Old:   \\  u'({c}_{t,n+1})  & = \Ex_{t}[u'(\hat{c}(\kappa_{t,n+1}+\zeta))],
-                                                                                                                                                                                                                                                                                                %%                                                                                                                                                                                                                                                                                                 Old:  \end{aligned}\end{gathered}\end{equation*}
+                                                %%                                                 Old:  \begin{eqnarray*}
+                                                %%                                                 Old:   u'({c}_{t,n}) & = & \Ex_{t}[u'(c(\kappa_{t,n}+\zeta))]
+                                                                                                                              %%                                                                                                                               Old:   \\  u'({c}_{t,n+1}) & = & \Ex_{t}[u'(\hat{c}(\kappa_{t,n+1}+\zeta))],
+                                                                                                                                                                                                                                                                                                %%                                                                                                                                                                                                                                                                                                 Old:  \end{eqnarray*}
                                                                                                                                                                                                                                                                                                 %%                                                                                                                                                                                                                                                                                                 Old:  where the two consumption functions are defined as
-                                                                                                                                                                                                                                                                                                %%                                                                                                                                                                                                                                                                                                 Old:  \begin{equation}\begin{gathered}\begin{aligned}
-                                                                                                                                                                                                                                                                                                %%                                                                                                                                                                                                                                                                                                 Old:   c(\kappa_{t,n}+\zeta)  & = c_{t+1,n}(\overbrace{{s}_{t,n}}^{={s}_{t,n+1}}+{y}+\kappa_{t,n}+\zeta) \label{eq:cnoconstr2}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      %%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       Old:   \\  \hat{c}(\kappa_{t,n+1}+\zeta)  & = c_{t+1,n+1}({s}_{t,n+1}+{y}+\kappa_{t,n+1}+\zeta)\label{eq:gravecnoconstr2}.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              %%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               Old:  \end{aligned}\end{gathered}\end{equation}
+                                                                                                                                                                                                                                                                                                %%                                                                                                                                                                                                                                                                                                 Old:  \begin{eqnarray}
+                                                                                                                                                                                                                                                                                                %%                                                                                                                                                                                                                                                                                                 Old:   c(\kappa_{t,n}+\zeta) & = & c_{t+1,n}(\overbrace{{s}_{t,n}}^{={s}_{t,n+1}}+{y}+\kappa_{t,n}+\zeta) \label{eq:cnoconstr2}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      %%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       Old:   \\  \hat{c}(\kappa_{t,n+1}+\zeta) & = & c_{t+1,n+1}({s}_{t,n+1}+{y}+\kappa_{t,n+1}+\zeta)\label{eq:gravecnoconstr2}.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              %%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               Old:  \end{eqnarray}
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               %%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               Old:	Now recall that Lemma~\ref{lemma:kimpratt} tells us that if absolute prudence of $u'(c(\kappa_{t,n}+\zeta))$ is identical to absolute prudence of $u'(\hat{c}(\kappa_{t,n+1}+\zeta))$ for every realization of $\zeta$, then $\kappa_{t,n}=\kappa_{t,n+1}$. This can only be true if ${m}_{t+1} \geq \wAlt_{t+1,n+1}$ for any realization of $\zeta \in (\underline{\zeta}, \bar{\zeta})$. We defined this limit as ${m}_{t+1} \geq {\bar{\wAlt}}_{t,n+1}$. We therefore know that $\kappa_{t,n+1}  = \kappa_{t,n}$ if ${{m}} \geq {\bar{\wAlt}}_{t,n+1}$ and $\kappa_{t,n+1} > \kappa_{t,n}$ if ${{m}} < {\bar{\wAlt}}_{t,n+1}$. Equation \eqref{eq:psidiffint2} is therefore strictly positive if ${{m}} < {\bar{\wAlt}}_{t,n+1}$ and we have proven Theorem \ref{thm:riskandconstraints}.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               %%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
   \end{proof}
@@ -1200,19 +1200,19 @@ In addition, we provide an explanation of apparently contradictory results: That
   for every ${m}_{T-1}$.
 
   To see this, start with the Euler equations for the two consumers given wealth ${m}$,
-  \begin{equation}\begin{gathered}\begin{aligned}
-    u'({m}-{a}_{T-1,1}({m}))  & = u'({a}_{T-1,1}({m})+1) \label{eq:euler1}
-    \\   u'({m}-\tilde{s}_{T-1,0}({m}))  & = p u'(\tilde{s}_{T-1,0}({m}))+(1-p) u'(\tilde{s}_{T-1,0}({m})+1). \notag
-  \end{aligned}\end{gathered}\end{equation}
+  \begin{eqnarray}
+    u'({m}-{a}_{T-1,1}({m})) & = & u'({a}_{T-1,1}({m})+1) \label{eq:euler1}
+    \\   u'({m}-\tilde{s}_{T-1,0}({m})) & = & p u'(\tilde{s}_{T-1,0}({m}))+(1-p) u'(\tilde{s}_{T-1,0}({m})+1). \label{eq:euler2}
+  \end{eqnarray}
 
-  Consider first the case where ${m}$ is large enough that the constraint does not bind for the constrained consumer, ${m}>1$.  In this case the limit of the Euler equation for the second consumer is identical to the Euler equation for the first consumer (because for ${m}>1$ savings are positive for the consumer facing the risk, implying that the limit of the first $u'$ term on the RHS of the second line of \eqref{eq:euler1} is finite). Thus the limit of the second equation in \eqref{eq:euler1} is the first equation in \eqref{eq:euler1} for ${m}>1$.
+  Consider first the case where ${m}$ is large enough that the constraint does not bind for the constrained consumer, ${m}>1$.  In this case the limit of the Euler equation for the second consumer is identical to the Euler equation for the first consumer (because for ${m}>1$ savings are positive for the consumer facing the risk, implying that the limit of the first $u'$ term on the RHS of \eqref{eq:euler2} is finite). Thus the limit of \eqref{eq:euler2} is \eqref{eq:euler1} for ${m}>1$.
 
   Now consider the case where ${m} < 1$ so that the first consumer would be constrained.  This consumer spends her entire resources ${m}$, and by the definition of the constraint we know that 
-  \begin{equation}\begin{gathered}\begin{aligned}
+  \begin{eqnarray}
     u'({m}) > u'(1). \label{eq:upw}
-  \end{aligned}\end{gathered}\end{equation}
+  \end{eqnarray}
 
-  Now consider the consumer facing the risk. If this consumer were to save exactly zero and then experienced the bad shock in period $T$, she would have an infinite marginal utility (the Inada condition). This cannot satisfy the Euler-equation as long as ${m}>0$. Therefore we know that for any $p>0$ and any ${m}>0$ the consumer will save some positive amount. For a fixed ${m}$, hypothesize that there is some $\delta>0$ such that no matter how small $p$ became the consumer would always choose to save at least $\delta$. But for any $\delta$, the limit of the RHS of the second line of \eqref{eq:euler1} is $u'(1+\delta)$. We know from concavity of the utility function that $u'(1+\delta) < u'(1)$ and we know from~\eqref{eq:upw} that $u'({m}) > u'(1) > u'(1+\delta)$, so as $p \downarrow 0$ there must always come a point at which the consumer can improve her total utility by shifting some resources from the future to the present, i.e. by saving less.  Since this argument holds for any $\delta>0$ it demonstrates that as $p$ goes to zero there is no positive level of saving that would make the consumer better off. But saving of zero or a negative amount is ruled out by the Inada condition at $u'(0)$.  Hence saving must approach, but never equal, zero as $p \downarrow 0$.
+  Now consider the consumer facing the risk. If this consumer were to save exactly zero and then experienced the bad shock in period $T$, she would have an infinite marginal utility (the Inada condition). This cannot satisfy the Euler-equation as long as ${m}>0$. Therefore we know that for any $p>0$ and any ${m}>0$ the consumer will save some positive amount. For a fixed ${m}$, hypothesize that there is some $\delta>0$ such that no matter how small $p$ became the consumer would always choose to save at least $\delta$. But for any $\delta$, the limit of the RHS of \eqref{eq:euler2} is $u'(1+\delta)$. We know from concavity of the utility function that $u'(1+\delta) < u'(1)$ and we know from~\eqref{eq:upw} that $u'({m}) > u'(1) > u'(1+\delta)$, so as $p \downarrow 0$ there must always come a point at which the consumer can improve her total utility by shifting some resources from the future to the present, i.e. by saving less.  Since this argument holds for any $\delta>0$ it demonstrates that as $p$ goes to zero there is no positive level of saving that would make the consumer better off. But saving of zero or a negative amount is ruled out by the Inada condition at $u'(0)$.  Hence saving must approach, but never equal, zero as $p \downarrow 0$.
 
   Thus, we have shown that for ${m} \leq 1 $ and for ${m} > 1$ in the limit as $p \downarrow 0$ the consumer facing the risk but no constraint behaves identically to the consumer facing the constraint but no risk. This argument can be generalized to show that for the CRRA utility consumer, spending must always be strictly less than the sum of current wealth and the minimum possible value of human wealth.  Thus, the addition of a risk to the problem can rule out certain levels of wealth as feasible, and can also render either future or past constraints irrelevant, just as the imposition of a new constraint can. 
 
@@ -1225,9 +1225,9 @@ In addition, we provide an explanation of apparently contradictory results: That
     We know that either the introduction of risk or a introduction of a constraint results in a counterclockwise concavification of the original consumption function. However, this is only true when we introduce risks in the absence of constraints (Lemma \ref{lem:ccrisk}) and when we introduce constraints in the absence of risk (see Theorem \ref{thm:lcip2}). In this proof, we therefore need to show that the introduction of all risks and constraints is a counterclockwise concavification of the linear case with no risks and constraints.
     
     Here is our proof strategy. We define a set 
-    \begin{equation}\begin{gathered}\begin{aligned}
+    \begin{align}
       \mathcal{P}_{t,n}^{m-1} = \{ {m} | c_{t,n}^{m-1}({m})-c_{t,n}^{m}({m})>c_{t,0}({m})-c^{1}_{t,0}({m}) \} \label{eq:whatcanbesaid_proof}
-    \end{aligned}\end{gathered}\end{equation}
+    \end{align}
     where Theorem \ref{thm:CCandPS} holds in period $t$ when we introduce a risk at the beginning of period $t+1$. This is defined as the set where precautionary saving induced by a risk that is realized at the beginning of period $t+1$ is greater in the presence of all risks and constraints than in the unconstrained case.
     
     In order to show that the set $\mathcal{P}_{t,n}^{m-1}$ is non-empty, we build it up recursively, starting from period $T$ and adding one constraint or one risk  for each time period. The key to the proof is to understand that the introduction of risks or constraints will never fully reverse the effects of all other risks and constraints, even though they sometimes reduce absolute prudence for some levels of wealth because risks and constraints can mask the effects of future risks and constraints. Hence, the new consumption function must still be a counterclockwise concavification of the consumption function with no risks and constraints for some levels of wealth. 
@@ -1238,11 +1238,11 @@ In addition, we provide an explanation of apparently contradictory results: That
     where we add the last condition, $c_{t,n}^{m-1}({m}) > w$ to avoid the possibility that some constraint binds such that the agent does not increase precautionary saving. In words: $\mathcal{P}_{t,n}^{m-1}$ is the set where the consumption function is a counterclockwise concavification of $c_{t,0}({m})$ and no constraint is strictly binding. We construct the set recursively for two different cases: CARA and all other type of utility functions. We start with the non-CARA utility functions. 
     
     First add the last constraint. The set $\mathcal{P}^{0}_{T,1}$ is then 
-    \begin{equation}\begin{gathered}\begin{aligned}\mathcal{P}^{0}_{T,1} = \emptyset \end{aligned}\end{gathered}\end{equation} %%\begin{equation}\begin{gathered}\begin{aligned}\left\{ w| {m} < \omega_{T,1}  \right\}\end{aligned}\end{gathered}\end{equation}
+    \[\mathcal{P}^{0}_{T,1} = \emptyset \] %%\[\left\{ w| {m} < \omega_{T,1}  \right\}\]
     since we know that $c_{T,1}({m})$ is a counterclockwise concavification of $c_{T,0}({m})$ around $\wAlt_{T,1}$ but that the consumer is constrained below this point.
     
     We next add the risk at the beginning of period $T$. To construct the new set, we note three things. First, by Lemma \ref{lem:recursive},  (strict) consumption concavity is recursively propagated for all values of wealth where there is a positive probability that the constraint can bind, i.e. 
-    \begin{equation}\begin{gathered}\begin{aligned}\{{m}_{T-1} | \wAlt_{T-1,1} \in \left[{m}_{T-1} - c_{T-1,1}^1({m}_{T-1}) + {y}_{T} + \underline{\zeta} ,{m}_{T-1} - c_{T-1,1}^1({m}_{T-1}) + {y}_{T} + \bar{\zeta}\right] \}\end{aligned}\end{gathered}\end{equation}
+    \[\{{m}_{T-1} | \wAlt_{T-1,1} \in \left[{m}_{T-1} - c_{T-1,1}^1({m}_{T-1}) + {y}_{T} + \underline{\zeta} ,{m}_{T-1} - c_{T-1,1}^1({m}_{T-1}) + {y}_{T} + \bar{\zeta}\right] \}\]
     has property strict CC, while it has non-strict property $CC$ for all possible values of ${m}_{T-1}$. Further, we know from Theorem \ref{thm:riskandconstraints} (rearrange equation \eqref{eq:ineq}) that
     \begin{align*}{c}_{T-1,1}^1({m})  & \leq c_{T-1,1}({m}) - c_{T-1,0}({m}) + {c}_{T-1,0}^1({m}) \\ &\leq c_{T-1,0}({m}) - c_{T-1,0}({m}) + c_{T-1,0}({m}) = c_{T-1,0}({m}).\end{align*}
     Third, we know that $c_{T-1,1}^{1}({m})' \geq c_{T-1,0}'({m})$ since ${c}_{T-1,1}^1({m}) < c_{T-1,0}({m})$ for ${m} \leq \wAlt_{T-1,1}^1$, $\lim_{{m}\rightarrow \infty} c_{T-1,1}^1({m}) - c_{T-1,0}({m}) = 0$, and that $c_{t,1}^1({m})$ is concave while $c_{t,0}({m})$ is linear. Hence, $c_{T-1,1}^1$ is a counterclockwise concavification of $c_{T-1,0}$ around the minimum value of wealth when the constraint will never bind and the new set is
@@ -1251,16 +1251,16 @@ In addition, we provide an explanation of apparently contradictory results: That
     We can now add the next constraint. The consumption function now has two kink points, $\wAlt_{T-1,1}^1$ and $\wAlt_{T-1,2}^1$. We know again from Lemma \ref{lem:recursive} that consumption concavity is preserved when we add a constraint, and strict consumption concavity is preserved for all values of wealth at which a future constraint might bind. Further, we know from Theorem \ref{thm:riskandconstraints} that 
     \begin{align*}c_{T-1,2}^1({m}) &\leq c_{T-1,2}({m}) - c_{T-1,1}({m}) + c_{T-1,1}^1({m}) \\ &\leq c_{T-1,1}({m}) - c_{T-1,1}({m}) + c_{T-1,1}({m}) = c_{T-1,1}({m}) \leq c_{T-1,0}({m}). \end{align*}
     Third, $c_{T-1,2}^1({m}) < c_{T-1,0}({m})$,  $\lim_{{m}\rightarrow\infty} c_{T-1,2}^1({m}) - c_{T-1,0}({m}) = 0$, and we know that if $c_{T-1,2}^1({m})$ is concave while $c_{T-1,0}({m})$ is linear, then $c_{T-1,2}'^{1}({m}) \geq c_{T-1,0}'({m})$. $c_{T-1,2}^1({m})$ which is a counterclockwise concavification of $c_{T-1,0}({m})$ around the minimum level of wealth at which the first constraint will never impinge on time $T-1$ consumption, $\bar{\wAlt}_{T-1,1}^1$, and the new set is
-    \begin{equation}\begin{gathered}\begin{aligned}\mathcal{P}_{T-1,2}^1 = \{{m}_{T-1}| {m}_{T-1} \leq \bar{\wAlt}_{T-1,1}^1 \wedge c_{T-1,2}^1({m}) > {m}_{T-1} \}.\end{aligned}\end{gathered}\end{equation}
+    \[\mathcal{P}_{T-1,2}^1 = \{{m}_{T-1}| {m}_{T-1} \leq \bar{\wAlt}_{T-1,1}^1 \wedge c_{T-1,2}^1({m}) > {m}_{T-1} \}.\]
     
     It is now time to add the next risk. The argument is similar. We still know that (strict) consumption concavity is recursively propagated and that $\lim_{{m}\rightarrow \infty} c_{T-2,2}^2({m}) - c_{T-2,0}({m}) = 0$. Further, we can think of the addition of two risks over two periods as adding one risk that is realized over two periods. Hence, the results from Theorem \ref{thm:riskandconstraints} must hold also for the addition of multiple risks so we have
     \begin{align*}c_{T-2,2}^2({m}) &\leq c_{T-2,2}({m}) - c_{T-2,1}({m}) + c_{T-2,1}^2({m}) \\ &\leq c_{T-2,1}({m}) - c_{T-2,1}({m}) + c_{T-2,1}({m}) = c_{T-2,1}({m}) \leq c_{T-2,0}({m}). \end{align*}
     Hence, we again know that $c_{T-2,2}'^{2}({m}) \geq c_{T-2,0}'({m})$. $c_{T-2,2}^2({m})$ is thus a counterclockwise concavification of $c_{T-2,0}({m})$ around the level of wealth at minimum value of wealth when the last constraint will never bind. The new set is therefore
-    \begin{equation}\begin{gathered}\begin{aligned}\mathcal{P}_{T-2,2}^2 = \{{m}_{T-2} | {m}_{T-2} - c_{T-2,2}^2({m}_{T-2}) + {y}_{T-1} + \zeta_{T-1} \in \mathcal{P}_{T-1,2}^1 \wedge c_{T-2,2}^{2}({m}) < {m} \}.\end{aligned}\end{gathered}\end{equation}
+    \[\mathcal{P}_{T-2,2}^2 = \{{m}_{T-2} | {m}_{T-2} - c_{T-2,2}^2({m}_{T-2}) + {y}_{T-1} + \zeta_{T-1} \in \mathcal{P}_{T-1,2}^1 \wedge c_{T-2,2}^{2}({m}) < {m} \}.\]
     
     
     Doing this recursively and defining $\bar{\wAlt}_{t,1}^{m-1}$ as the minimum value of wealth beyond which constraint $1$ will never bind, the set of wealth levels at which Theorem \ref{thm:CCandPS} holds can be defined as
-    \begin{equation}\begin{gathered}\begin{aligned}\mathcal{P}_{t,n}^{m-1} = \{{m}_{t} | {m}_{t} \leq \bar{\wAlt}_{t,1}^{m-1} \wedge c_{t,n}^{m-1}({m}) > {m} \}\end{aligned}\end{gathered}\end{equation}
+    \[\mathcal{P}_{t,n}^{m-1} = \{{m}_{t} | {m}_{t} \leq \bar{\wAlt}_{t,1}^{m-1} \wedge c_{t,n}^{m-1}({m}) > {m} \}\]
     In words, precautionary saving is higher if there is a positive probability that some future constraint could bind and the consumer is not constrained today. 
     
     The last requirement is to define the set also for the CARA utility function. The problem with CARA utility is that $\lim_{{m}\rightarrow \infty} c_{t,n}^{m-1}({m}) - c_{t,0}({m}) = - k^{m-1} \leq 0$ where $k^{m-1}$ is some positive constant. We can therefore not use the same arguments as in the preceding proof. However, by realizing that equation \eqref{eq:ineq} in the CARA case can be defined as
@@ -1274,7 +1274,7 @@ In addition, we provide an explanation of apparently contradictory results: That
     
   \end{proof}
 
-\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/Proofs}}{} % PrivateMsg
+\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/Proofs}}{} %% Private
 
 
 \clearpage\pagebreak\vfill\eject
