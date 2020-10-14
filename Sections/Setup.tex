@@ -1,11 +1,11 @@
- % PrivateMsg
+ %% Private
   \begin{eqnarray*}
     V_{t}({m}_{t}) &=&
                        \max_{c} ~\Ex_{t}\left[\sum_{k=0}^{T-t}\beta^{k} u({c_{t+k}})\right]   \label{eq:valuefn} \\
                    & s.t. &  \nonumber
     \\              {m}_{t+1} & = & ({m}_{t}-c_{t})R+y_{t+1}  \\
     {a}_{t} &=& {m}_{t} - c_t \\
-    {a}_{t} &\geq& \sConst_t% PrivateMsg CDC20190605 moved R after w-c because it is increasingly common for R to be specified as a function of ({m}-c) and we want to be clear that we are NOT doing that
+    {a}_{t} &\geq& \sConst_t%% Private CDC20190605 moved R after w-c because it is increasingly common for R to be specified as a function of ({m}-c) and we want to be clear that we are NOT doing that
                    \nonumber
   \end{eqnarray*}
 
