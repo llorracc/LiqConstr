@@ -3,7 +3,7 @@
 \input{\ResourcesDir/owner} % Determines whether to reference llorracc or econ-ark versions
 
 \providecommand{\texname}{LiqConstr}% Keyname for the bibtex entry corresponding to this paper
-\usepackage{vmargin} %% Private
+\usepackage{vmargin} % PrivateMsg
 \usepackage{\econtexSetup}\usepackage{\econtexShortcuts}
 
 \usepackage[en-US]{datetime2}\DTMlangsetup{showdayofmonth=true} % Allow timestamps
@@ -21,18 +21,18 @@
 \providecommand{\versn}{} % Version; like, web or pdf or journal submission 
 \ifthenelse{\boolean{ifWeb}}{  \renewcommand{\ushort}{\underline}\renewcommand{\versn}{Web} }{} % ushort does not work in tex4ht {Web}
 
-%% Private: The stuff below switches on and off the creation of the files in the "Sections" subdirectory
+% PrivateMsg: The stuff below switches on and off the creation of the files in the "Sections" subdirectory
 %% Sections was useful when constructing the paper so that individual parts could be edited independently
 %% It is now a legacy and is preserved mainly as a template for how to do this for future projects
-\newboolean{verbatimwriteOn}        %% Private
-%\setboolean{verbatimwriteOn}{true}  %% Private
-\setboolean{verbatimwriteOn}{false} %% Private
-\newcommand{\ifVerbatimWrite}{\ifthenelse{\boolean{verbatimwriteOn}}} %% Private
-\ifVerbatimWrite{}{ %% Private 
-  \renewenvironment{verbatimwrite}[1]{} %% Private 
-} %% Private
+\newboolean{verbatimwriteOn}        % PrivateMsg
+%\setboolean{verbatimwriteOn}{true}  % PrivateMsg
+\setboolean{verbatimwriteOn}{false} % PrivateMsg
+\newcommand{\ifVerbatimWrite}{\ifthenelse{\boolean{verbatimwriteOn}}} % PrivateMsg
+\ifVerbatimWrite{}{ % PrivateMsg 
+  \renewenvironment{verbatimwrite}[1]{} % PrivateMsg 
+} % PrivateMsg
 
-\newenvironment{Private}{} %% Private 
+\newenvironment{Private}{} % PrivateMsg 
 
 \providecommand{\wAlt}{\omega}
 \providecommand{\sConst}{\varsigma}
@@ -54,17 +54,17 @@
 
 \renewcommand{\cite}{\citeyear}
 
-\setmarginsrb{1in}{1in}{1in}{1.4in}{0pt}{0pt}{0pt}{.3in} %% Private : Large font for easy viewing and editing on small screen 
-% {left}{top}{right}{bottom} %% Private
+\setmarginsrb{1in}{1in}{1in}{1.4in}{0pt}{0pt}{0pt}{.3in} % PrivateMsg : Large font for easy viewing and editing on small screen 
+% {left}{top}{right}{bottom} % PrivateMsg
 
-\provideboolean{bigdouble}    %% Private : Large font for easy viewing and editing on small screen
-\setboolean{bigdouble}{true}  %% Private : Large font for easy viewing and editing on small screen
-\setboolean{bigdouble}{false} %% Private : Large font for easy viewing and editing on small screen
+\provideboolean{bigdouble}    % PrivateMsg : Large font for easy viewing and editing on small screen
+\setboolean{bigdouble}{true}  % PrivateMsg : Large font for easy viewing and editing on small screen
+\setboolean{bigdouble}{false} % PrivateMsg : Large font for easy viewing and editing on small screen
 
-\ifthenelse{\boolean{bigdouble}}{ % Margins must be set before begin document command  %% Private : Large font for easy viewing and editing on small screen
-  \setmarginsrb{0.40in}{0.8in}{0.40in}{0.8in}{0pt}{0pt}{0pt}{0.2in} %% Private : Large font for easy viewing and editing on small screen
-  % {left}{top}{right}{bottom} %% Private : Large font for easy viewing and editing on small screen
-}{} %% Private : Large font for easy viewing and editing on small screen
+\ifthenelse{\boolean{bigdouble}}{ % Margins must be set before begin document command  % PrivateMsg : Large font for easy viewing and editing on small screen
+  \setmarginsrb{0.40in}{0.8in}{0.40in}{0.8in}{0pt}{0pt}{0pt}{0.2in} % PrivateMsg : Large font for easy viewing and editing on small screen
+  % {left}{top}{right}{bottom} % PrivateMsg : Large font for easy viewing and editing on small screen
+}{} % PrivateMsg : Large font for easy viewing and editing on small screen
 
 \begin{document}\bibliographystyle{\econtexBibStyle}
 
@@ -104,12 +104,12 @@
 
 \hypertarget{Abstract}{}
 \begin{abstract}
-  %%% \begin{verbatimwrite}{./\texname-abstract.metadata} %% Private
+  %%% \begin{verbatimwrite}{./\texname-abstract.metadata} % PrivateMsg
   % OLD ABSTRACT:
 %  We provide the analytical explanation of strong interactions between precautionary saving and liquidity constraints that are regularly observed in numerical solutions to consumption/saving models.  The effects of constraints and of uncertainty spring from the same cause: counterclockwise concavification of the consumption function, which can be induced either by constraints or by uncertainty.  Such concavification propagates back to consumption functions in prior periods.  But, surprisingly, once a linear consumption function has been concavified by the presence of either risks or constraints, the introduction of \textit{additional} concavifiers in a given period can \textit{reduce} the precautionary motive in earlier periods at some levels of wealth.  
   
   We provide the analytical explanation of the interactions between precautionary saving and liquidity constraints. The effects of liquidity constraints and risks are similar because both stem from the same source: a concavification of the consumption function. Since a more concave consumption function exhibits heightened prudence, both constraints and risks strengthen the precautionary saving motive. In addition, we explain the apparently contradictory results that constraints and risks in some cases intensify, but in other cases weaken the precautionary saving motive. The central insight is that the effect of introducing an additional constraint or risk depends on whether it interacts with pre-existing constraints or risks. If it does not interact with any pre-existing constraints or risks, it intensifies the precautionary motive. If it does interact, it may \textit{reduce} the precautionary motive in earlier periods at some levels of wealth. 
-  %%% \end{verbatimwrite}\ifVerbatimWrite{\input{./\texname-abstract.metadata}}{} %% Private
+  %%% \end{verbatimwrite}\ifVerbatimWrite{\input{./\texname-abstract.metadata}}{} % PrivateMsg
 \end{abstract}
 
 
@@ -180,7 +180,7 @@
 \hypertarget{Introduction}{}
 \section{Introduction}\label{sec:Intro}
 
-\begin{verbatimwrite}{./Sections/Intro.tex} %% Private
+\begin{verbatimwrite}{./Sections/Intro.tex} % PrivateMsg
   %% Old: Numerical solutions have now supplanted analytical methods for modeling consumption/saving choices, because analytical solutions are not available for realistic descriptions of utility, uncertainty, and constraints.
   A large literature has shown that numerical models that take constraints and uncertainty seriously can yield different conclusions than those that characterize traditional models. For example, \citet{kmvHANK} show that when sufficiently many households have high marginal propensities to consume (MPC's), a major transmission channel of monetary policy is the `indirect income effect' -- a channel of minimal importance in traditional macro models. Similarly, \citet{glLiq} and \citet{blPrecautionary} show that tightened borrowing conditions and heightened income risk can help explain the consumption decline during the great recession. 
   %% Old: Further, \citet{kmpHandbook} show that numerically realistic models can match the empirical finding that the drop in consumption spending during the great recession was heavily concentrated in the middle class.
@@ -222,13 +222,13 @@
 
   %% Old: The link between constraints and consumption concavity is closely related to \citet{carroll&kimball:concavity}'s demonstration that, within the HARA utility class, the introduction of uncertainty causes the consumption function to become strictly concave (in the absence of constraints) for all but a few knife-edge combinations of utility function and the structure of risk.
 
-  \end{verbatimwrite}\ifVerbatimWrite{\input{./Sections/Intro.tex}}{} %% Private
+  \end{verbatimwrite}\ifVerbatimWrite{\input{./Sections/Intro.tex}}{} % PrivateMsg
 
   \hypertarget{MainMessage}{}
 
-  \begin{verbatimwrite}{./Highlighted/MainMessage} %% Private
+  \begin{verbatimwrite}{./Highlighted/MainMessage} % PrivateMsg
     Hence, we can summarize this paper as follows. The effects of liquidity constraints and risks are similar because both stem from the same source: a concavification of the consumption function. The effects work independently, meaning that neither risks nor constraints are necessary to concavify the consumption function. And since a more concave consumption function exhibits heightened prudence, both constraints and risks strengthen the precautionary saving motive. In addition, we explain the apparently contradictory results that constraints and risks in some cases intensify, but in other cases weaken the precautionary saving motive. The central insight is that the effect of introducing an additional constraint or risk depends on whether it weakens the effects of any pre-existing constraints or risks. If it does not interact with any pre-existing constraints or risks, it intensifies the precautionary saving motive. If it does interact, it may weaken the precautionary saving motive at some levels of wealth. 
-  \end{verbatimwrite}\ifVerbatimWrite{\input{./Highlights/MainMessage.tex}}{} %% Private
+  \end{verbatimwrite}\ifVerbatimWrite{\input{./Highlights/MainMessage.tex}}{} % PrivateMsg
 
   %% Old: Taken together, this paper and \citet{carroll&kimball:concavity} establish rigorously the sense in which liquidity constraints and risks are substitutes: Their effects spring from the fact that introduction of either a constraint or a risk or both will `concavify' the consumption function.\footnote{See \citet{fernandez-corugedo:softlc} for a related demonstration that `soft' liquidity constraints bear an even closer resemblance to precautionary behavior. \citet{MendelsonAmihud:consumption} provide an impressive treatment of a similar problem.} %To illustrate this point, we provide an example of a specific kind of uncertainty that (under CRRA utility, in the limit) induces a consumption function that is point-wise identical to the consumption function that would be induced by the addition of a liquidity constraint.
 
@@ -248,17 +248,17 @@
 \hypertarget{SetupIntro}{}
 \section{The Setup}\label{sec:Setup}
 % \subfile{Sections/Setup}
-\begin{verbatimwrite}{./Sections/Setup-Intro} %% Private
+\begin{verbatimwrite}{./Sections/Setup-Intro} % PrivateMsg
   In this section we present the consumer framework underlying all results. We consider a finitely-lived consumer living from period $t$ to $T$ who faces some future risks and liquidity constraints. The consumer is maximizing the time-additive present discounted value of utility from consumption $u(c)$.  With interest and time preference factors $R \in (0,\infty)$ and $\beta \in (0,\infty)$, and labeling consumption $c$, stochastic labor income $y$, end-of-period assets ${a}$, liquidity constraint $\sConst$, and `market resources' (the sum of current income and spendable wealth from the past) ${m}_{t}$, the consumer's problem can be written as
-\end{verbatimwrite} %% Private 
-\begin{verbatimwrite}{./Sections/Setup} %% Private
+\end{verbatimwrite} % PrivateMsg 
+\begin{verbatimwrite}{./Sections/Setup} % PrivateMsg
   \begin{eqnarray*}
     V_{t}({m}_{t}) &=&
                        \max_{c} ~\Ex_{t}\left[\sum_{k=0}^{T-t}\beta^{k} u({c_{t+k}})\right]   \label{eq:valuefn} \\
                    & s.t. &  \nonumber
     \\              {m}_{t+1} & = & ({m}_{t}-c_{t})R+y_{t+1}  \\ 
     {a}_{t} &=& {m}_{t} - {c}_{t} \\
-    {a}_{t} &\geq& \sConst_t%% Private CDC20190605 moved R after w-c because it is increasingly common for R to be specified as a function of ({m}-c) and we want to be clear that we are NOT doing that 
+    {a}_{t} &\geq& \sConst_t% PrivateMsg CDC20190605 moved R after w-c because it is increasingly common for R to be specified as a function of ({m}-c) and we want to be clear that we are NOT doing that 
                    \nonumber
   \end{eqnarray*}
 
@@ -280,7 +280,7 @@
       \log(c + \alpha_2 ) & \alpha_1  = 1 \end{cases} \end{equation}
   with $\alpha_2  > \max\{- \alpha_1 c,0\}$. Note that that \eqref{eq:HARA} also covers the case with quadratic utility ($\alpha_1 = -1$).
 
-\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/Setup}}{} %% Private
+\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/Setup}}{} % PrivateMsg
 
 % \bibliography{LiqConstr,LiqConstr-Add,economics}\end{document}
 
@@ -288,13 +288,13 @@
 
 
 \hypertarget{PrudAndCCIntro}{}
-\begin{verbatimwrite}{./Sections/PrudAndCC-Intro} %% Private
+\begin{verbatimwrite}{./Sections/PrudAndCC-Intro} % PrivateMsg
   This section provides a set of tools necessary to prove our main results. We first define what we mean by consumption concavity and show that consumption concavity, once established, propagates back to prior periods. Next, we define an operation we call a `counterclockwise concavification' which describes how either a liquidity constraint or a risk affects the consumption function. The advantage of defining a counterclockwise concavification in such general terms is that we can show that it heightens prudence of the value function irrespective of the source of concavification. Since the relationship between prudence and precautionary saving has already been established in the literature \citep{kimball:smallandlarge}, the tools in this section allow us to establish how liquidity constraints affect precautionary saving in the subsequent sections. 
-\end{verbatimwrite} %% Private 
+\end{verbatimwrite} % PrivateMsg 
 
 
 \hypertarget{PrudAndCC}{}
-\begin{verbatimwrite}{./Sections/PrudAndCC} %% Private
+\begin{verbatimwrite}{./Sections/PrudAndCC} % PrivateMsg
 
 
   \subsection{Consumption Concavity}\label{sec:def_CC}
@@ -422,23 +422,23 @@
 
 
 
-\end{verbatimwrite} %% Private
+\end{verbatimwrite} % PrivateMsg
 
 
 \hypertarget{LCandCCIntro}{}
 
 \section{Liquidity Constraints and Consumption Concavity}\label{sec:LCandCC} 
 
-\begin{verbatimwrite}{./Sections/LCandCC-Intro} %% Private
+\begin{verbatimwrite}{./Sections/LCandCC-Intro} % PrivateMsg
   This section shows under which conditions liquidity constraints cause consumption concavity. The main conceptual difficulty with liquidity constraints is that the effect of introducing a new constraint depends on already existing constraints. To get around this issue, we introduce the concept of an \textit{ordered} set of \textit{relevant} constraints. This allows us to add constraints in such a way that the next constraint does not affect behavior related to pre-existing constraints. Our main result (Theorem \ref{thm:lcip2}) is that the introduction of the next constraint from the ordered set of relevant constraints causes a counterclockwise concavification of the consumption function. It then follows from the results in Section \ref{sec:PrudAndCC} that the introduction of the next constraint also heightens prudence of the value function. 
-\end{verbatimwrite} %% Private 
+\end{verbatimwrite} % PrivateMsg 
 
 
 \hypertarget{LCandCC}{}
 
 
 
-\begin{verbatimwrite}{./Sections/LCandCC} %% Private
+\begin{verbatimwrite}{./Sections/LCandCC} % PrivateMsg
   
 
 
@@ -573,7 +573,7 @@
 
 
 %  \newpage
-\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/LCandCC}}{} %% Private
+\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/LCandCC}}{} % PrivateMsg
 
 \section{Liquidity Constraints and Precautionary Saving}
 \label{sec:LCandPS}
@@ -581,20 +581,20 @@
 
 
 \hypertarget{LCandPSIntro}{}
-\begin{verbatimwrite}{./Sections/LCandPS-Intro} %% Private
+\begin{verbatimwrite}{./Sections/LCandPS-Intro} % PrivateMsg
   The preceding sections established the relationship between liquidity constraints, consumption concavity, and prudence. This section derives the last step to understand the relationship between liquidity constraints and precautionary saving. First, we explain how prudence of the value function affects precautionary saving. Theorem \ref{thm:riskandconstraints} then shows how the introduction of an additional constraint induces agents to increase precautionary saving when they face a \textit{current} risk. The results in Theorem \ref{thm:riskandconstraints} cannot be generalized to an added risk or liquidity constraint in a later time period because it may hide or alter the effects of current constraints or risks and thereby affect local precautionary saving. The main conceptual issue with having both risks and constraints is that the trick with the \textit{relevant} constraints applied in Section \ref{sec:LCandCC} no longer applies in a setting with risk because constraints may be relevant for some sample paths. However, we still derive our most general result in Theorem \ref{thm:CCandPS}: the introduction of an additional risk results in more precautionary saving in the presence of \textit{all} future risks and constraints than in the case with no future risks and constraints. %In other words (Corollary \ref{cor:CCRISK}), the consumption function is concave in the presence of all future risks and constraints. 
   
   %% Old: The main step in the proof was to be careful in defining an ordered set of relevant constraints. We are now going to be explicit about the effects of current risk on precautionary saving in the presence of all future risks and constraints. 
   
   
-\end{verbatimwrite} %% Private 
+\end{verbatimwrite} % PrivateMsg 
 
 
 \hypertarget{LCandPS}{}
 
 
 
-\begin{verbatimwrite}{./Sections/LCandPS} %% Private
+\begin{verbatimwrite}{./Sections/LCandPS} % PrivateMsg
 
   \subsection{Notation}\label{subsec:PrudAndCPP}
 
@@ -722,7 +722,7 @@
 
 
 
-\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/LCandPS}}{} %% Private
+\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/LCandPS}}{} % PrivateMsg
 
 \section{Conclusion}
 
@@ -736,7 +736,7 @@ In addition, we provide an explanation of apparently contradictory results: That
 \centerline{\LARGE Appendix}
 \medskip
 
-\begin{verbatimwrite}{./Sections/Proofs} %% Private
+\begin{verbatimwrite}{./Sections/Proofs} % PrivateMsg
   
 
 
@@ -1277,7 +1277,7 @@ In addition, we provide an explanation of apparently contradictory results: That
     
   \end{proof}
 
-\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/Proofs}}{} %% Private
+\end{verbatimwrite}\ifVerbatimWrite{\input{Sections/Proofs}}{} % PrivateMsg
 
 
 \clearpage\pagebreak\vfill\eject
