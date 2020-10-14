@@ -105,7 +105,10 @@
 \hypertarget{Abstract}{}
 \begin{abstract}
   %%% \begin{verbatimwrite}{./\texname-abstract.metadata} %% Private
-  We provide the analytical explanation of strong interactions between precautionary saving and liquidity constraints that are regularly observed in numerical solutions to consumption/saving models.  The effects of constraints and of uncertainty spring from the same cause: counterclockwise concavification of the consumption function, which can be induced either by constraints or by uncertainty.  Such concavification propagates back to consumption functions in prior periods.  But, surprisingly, once a linear consumption function has been concavified by the presence of either risks or constraints, the introduction of \textit{additional} concavifiers in a given period can \textit{reduce} the precautionary motive in earlier periods at some levels of wealth.  
+  % OLD ABSTRACT:
+%  We provide the analytical explanation of strong interactions between precautionary saving and liquidity constraints that are regularly observed in numerical solutions to consumption/saving models.  The effects of constraints and of uncertainty spring from the same cause: counterclockwise concavification of the consumption function, which can be induced either by constraints or by uncertainty.  Such concavification propagates back to consumption functions in prior periods.  But, surprisingly, once a linear consumption function has been concavified by the presence of either risks or constraints, the introduction of \textit{additional} concavifiers in a given period can \textit{reduce} the precautionary motive in earlier periods at some levels of wealth.  
+  
+  We provide the analytical explanation of the interactions between precautionary saving and liquidity constraints. The effects of liquidity constraints and risks are similar because both stem from the same source: a concavification of the consumption function. Since a more concave consumption function exhibits heightened prudence, both constraints and risks strengthen the precautionary saving motive. In addition, we explain the apparently contradictory results that constraints and risks in some cases intensify, but in other cases weaken the precautionary saving motive. The central insight is that the effect of introducing an additional constraint or risk depends on whether it interacts with pre-existing constraints or risks. If it does not interact with any pre-existing constraints or risks, it intensifies the precautionary motive. If it does interact, it may \textit{reduce} the precautionary motive in earlier periods at some levels of wealth. 
   %%% \end{verbatimwrite}\ifVerbatimWrite{\input{./\texname-abstract.metadata}}{} %% Private
 \end{abstract}
 
@@ -173,7 +176,7 @@
 
 \ifthenelse{\boolean{ifWeb}}{\thankstext}{}
 
-\noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax
+%\noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax
 \hypertarget{Introduction}{}
 \section{Introduction}\label{sec:Intro}
 
@@ -240,7 +243,7 @@
   %% Old: The rest of the paper is structured as follows. To fix notation and ideas, the next section sets out our general theoretical framework. The third section shows that concavity of the consumption function heightens prudence.  The fourth section shows how concavity, whether induced by constraints or uncertainty, propagates to previous periods. Section 5 shows how the introduction of a constraint creates a precautionary saving motive. The sixth section shows when the introduction of additional liquidity constraints beyond the first constraint increases the precautionary motive at any given level of wealth.  The fact that this does not always occur means that the introduction of constraints or uncertainty can weaken the effects of pre-existing constraints or uncertainty. The final section concludes.
 
 
-\clearpage\pagebreak
+%\clearpage\pagebreak
 
 \hypertarget{SetupIntro}{}
 \section{The Setup}\label{sec:Setup}
@@ -338,7 +341,7 @@
 
 
   \subsection{Counterclockwise Concavification}\label{sec:CountC}
-  The next concept we introduce is a `counterclockwise concavification,' which describes an operation that makes the modified consumption function more concave than in the original situation. The idea is to think of the consumption function in the modified situation as being a twisted version of the consumption function in the baseline situation, where the kind of twisting allowed is a progressively larger increase in the MPC as the level of market resources gets lower. We call this a `counterclockwise concavification' to capture the sense that at any specific level of market resources, one can think of the increase in the MPC at lower levels of market resources as being a counterclockwise rotation of the lower portion of the consumption function around that level of resources.
+  The next concept we introduce is a `counterclockwise concavification,' which describes an operation that makes the modified consumption function more concave than in the original situation. The idea is to think of the consumption function in the modified situation as being a twisted version of the consumption function in the baseline situation, where the kind of twisting allowed is a progressively larger increase in the MPC as the level of market resources gets lower. We call this a `counterclockwise concavification' to describe the sense that at any specific level of market resources, one can think of the increase in the MPC at lower levels of market resources as being a counterclockwise rotation of the lower portion of the consumption function around that level of resources.
 
   \begin{defn}\label{defn:cconcavification}(Counterclockwise Concavification.) \\
     Function $\hat{c}({m})$ is a counterclockwise concavification of $c({m})$ around ${m}^{\#}$ if the following conditions hold:
@@ -406,7 +409,7 @@
   by the envelope condition. The results in Lemma \ref{lem:CCToPrud} follow directly. Lemma \ref{lem:CCToPrud} additionally handles cases where the consumption function is not necessarily twice differentiable. 
 
 
-  There are three channels through which a counterclockwise concavification heightens prudence. First, the increase in consumption concavity from the counterclockwise concavification itself heightens prudence. Second, if the absolute prudence of the utility function is non-increasing, then the reduction in consumption (for some states) from the counterclockwise concavification heightens prudence (at those states). And third, the higher marginal propensity to consume (MPC) from the counterclockwise concavification means that any given variation in market resources results in larger variation in consumption, increasing prudence. The channels operate separately, implying that a counterclockwise concavification heightens prudence \textit{even if absolute prudence is zero} (as in the quadratic case).\footnote{cf.\ Nishiyama (\citeyear{nishiyama2012concavity})}
+  There are three channels through which a counterclockwise concavification heightens prudence. First, the increase in consumption concavity from the counterclockwise concavification itself heightens prudence. Second, if absolute prudence of the utility function is non-increasing, then the reduction in consumption (for some states) from the counterclockwise concavification heightens prudence (at those states). And third, the higher marginal propensity to consume (MPC) from the counterclockwise concavification means that any given variation in market resources results in larger variation in consumption, increasing prudence. The channels operate separately, implying that a counterclockwise concavification heightens prudence \textit{even if absolute prudence is zero} as in the quadratic case.\footnote{cf.\ Nishiyama (\citeyear{nishiyama2012concavity})}
 
   Lemma \ref{lem:CCToPrud} only provides conditions for when the value function exhibits greater prudence, but not \textit{strictly} greater prudence. In particular, the value function associated with $\hat{c}({m})$ will in some cases (e.g., quadratic utility) have equal prudence for most ${m}$ and strictly greater prudence only for some ${m}$. In Lemma \ref{lem:ccandstrictprud}, we provide conditions for when the value function has strictly greater prudence.
 
@@ -459,7 +462,7 @@
   \begin{defn} (An Ordered Set of Relevant Constraints.) \\
     We define $\mathcal{T}$ as an ordered set of dates at which a relevant constraint exists. We define $\mathcal{T}[1]$ as the last period in which a constraint exists, $\mathcal{T}[2]$ as the date of the last period before $\mathcal{T}[1]$ in which a constraint exists, and so on.
   \end{defn}
-  \noindent $\mathcal{T}$~is the set of relevant constraints, ordered from the last to the first constraint. We order them from last to first because a constraint in period $t$ only affects behavior prior to period $t$ (in addition to $t$ itself). The set of constraints from period $t$ to $T$ summarizes all relevant information in period $t$. Further, and as discussed below, the effect of imposing the next constraint in $\mathcal{T}$ on consumption is unambiguous only if one imposes constraints chronologically from last to first (and all constraints are of the no-borrowing type). 
+  \noindent $\mathcal{T}$~is the set of relevant constraints, ordered from the last to the first constraint. We order them from last to first because a constraint in period $t$ only affects behavior prior to period $t$ (in addition to $t$ itself). The set of constraints from period $t$ to $T$ summarizes all relevant information in period $t$. Further, and as discussed below, the effect of imposing the next constraint in $\mathcal{T}$ on consumption is unambiguous only if one imposes constraints chronologically from last to first. 
 
   For any $t \in [0, T)$, we define $c_{t,n}$ as the optimal consumption function in period $t$ assuming that the first $n$ constraints in $\mathcal{T}$ have been imposed. For example, $c_{t,0}({m})$ is the consumption function in period $t$ when no constraints have been imposed, $c_{t,1}({m})$ is the consumption function in period $t$ after the chronologically last constraint has been imposed, and so on. $\Omega_{t,n}, V_{t,n}$, and other functions are defined correspondingly.
 
@@ -569,7 +572,7 @@
   %% Old: Finally, consider adding a new constraint to the problem and call the new set of constraints $\hat{\mathcal{T}}$.  Suppose the new constraint applies in period $\hat{\tau}$.  Then the analysis of the new situation will be like the analysis of an added constraint in the simpler case in section \ref{subsec:IncreaseNumConstr} if the new constraint is relevant given the constraints that apply after period $\hat{\tau}$ and the new constraint does not render any of those later constraints irrelevant. If the new constraint fails either of these tests, the analysis of $\hat{\mathcal{T}}$ can proceed from the ground up as described above.
 
 
-  \newpage
+%  \newpage
 \end{verbatimwrite}\ifVerbatimWrite{\input{Sections/LCandCC}}{} %% Private
 
 \section{Liquidity Constraints and Precautionary Saving}
