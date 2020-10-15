@@ -109,8 +109,10 @@ init_lifecycle["CubicBool"] = False
 
 # add the second type of lifecycle agent with unemployment risk
 init_lifecycle_risk1 = dict(init_lifecycle)
-init_lifecycle_risk1["IncUnemp"] = 0.1955
+init_lifecycle_risk1["IncUnemp"] = 0.205
 init_lifecycle_risk1["UnempPrb"] = 0.05
+
+# 0.1955 and 0.05 to get a situation very similar to the constraint case asymptotically
 
 # the lifecycle type with only one-period transitory risk
 init_lifecycle_risk2 = dict(init_lifecycle)
@@ -174,7 +176,7 @@ print('Figure 1: Counterclockwise Concavifications')
 f = plt.figure()
 plt.plot(x,y,color="black")
 plt.plot(x,y2,color="black",linestyle="--")
-plt.plot(x,y3,color="black",linestyle="--")
+plt.plot(x,y3,color="black",linestyle=":", linewidth=3)
 plt.tick_params(labelbottom=False, labelleft=False,left='off',right='off',bottom='off',top='off')    
 
 plt.text(-1.2,1.0,"$c$",fontsize=14)    
@@ -184,9 +186,9 @@ plt.plot([-0.23, -0.23],[0.45,0.87],color="black",linestyle=":",linewidth=1)
 plt.ylim(0.465,1.0)
 
 plt.arrow(-0.6,0.755,0.1,0,head_width=0.01,width=0.001,facecolor='black',length_includes_head='True')
-plt.arrow(-0.04,0.757,-0.1,0,head_width=0.01,width=0.001,facecolor='black',length_includes_head='True')
+plt.arrow(0.52,0.865,-0.1,0,head_width=0.01,width=0.001,facecolor='black',length_includes_head='True')
 
-plt.text(-0.02,0.75,"Risk",fontsize=10)
+plt.text(0.545,0.86,"Risk",fontsize=10)
 plt.text(-0.95,0.75,"Constraint",fontsize=10)
 
 
