@@ -1,3 +1,4 @@
+ %% Private
 
   \subsection{Notation}\label{subsec:PrudAndCPP}
 
@@ -21,11 +22,17 @@
   Assume that the realization of the risk $\zeta_{t+1}$ will be some value $\zeta$ with support [$\underline{\zeta}$,$\bar{\zeta}$], and signify a decision rule that takes account of the presence of the immediate risk by a $\sim$. Further, define $\bar{\wAlt}_{t,n+1}$ as the lowest level of market resources required for the liquidity constraint to never bind.
 
   \begin{defn}(Wealth Limit.)\\
+    %%%	\begin{enumerate}
+    %%   Old: \item ${\underline{\wAlt}}_{t,n+1}$ is the level of wealth such that an agent who faces risk $\zeta_{t+1}$ and $n+1$ constraints saves so little that constraint $n+1$ will always bind in period $t+1$, defined as
+    %%   Old:   \begin{eqnarray}
+                  %%                   Old:     {\underline{\wAlt}}_{t,n+1} & = & \left(\tilde{V}_{t,n+1}'\right)^{-1}(\tilde{\Omega}_{t,n+1}^{\prime}(\wAlt_{t+1,n+1}-({y}+\bar{\zeta}))).
+                                                                                  %%                                                                                   Old:   \end{eqnarray}
     ${\bar{\wAlt}}_{t,n+1}$ is the level of wealth such that an agent who faces risk $\zeta_{t+1}$ and $n+1$ constraints saves enough to guarantee that constraint $n+1$ will never bind in period $t+1$.  Its value is given by:
     \begin{eqnarray}
       {\bar{\wAlt}}_{t,n+1} & = & \left(\tilde{V}_{t,n+1}'\right)^{-1}(\tilde{\Omega}_{t,n+1}^{\prime}(\wAlt_{t+1,n+1}-({y}+\underline{\zeta}))) \label{eq:tildeomegabar}
     \end{eqnarray}
     How to read this limit: $\wAlt_{t+1,n+1}$ is the level of wealth at which constraint $n+1$ makes the transition from binding to not binding in period $t+1$. $\wAlt_{t+1,n+1} - ({y} + \underline{\zeta})$ is the level of wealth in period $t+1$ that ensures that constraint $n+1$ does not bind in period $t+1$ even with the worst possible draw, $\underline{\zeta}$.
+                                  %%                                   Old: \end{enumerate}
   \end{defn}
 
   \noindent We must be careful to check that $\wAlt_{t+1,n+1}-({y}+\underline{\zeta})$ is inside the set of feasible values of ${a}_{t}$ (e.g.\ positive for consumers with CRRA utility). If this is not true for some level of market resources, then the constraint is irrelevant because the restriction imposed by the risk is more stringent than the restriction imposed by the constraint.
@@ -63,6 +70,7 @@
 
   To describe these examples, we need a last bit of notation.  Define $c_{t,n}^{m}$ as the consumption function in period $t$ assuming that the first $n$ constraints and the first $m$ risks have been imposed, counting risks, like constraints, backwards from period $T$. All other functions are defined correspondingly. We will continue to use the notation $\tilde{c}_{t,n}$ to designate the effects of imposition of a single immediate risk realized at the beginning of period $t+1$.
 
+  %% Old: Suppose now there are $m$ future risks that will be realized between $t$ and $T$. One might hope to show that, at any ${m}$, the precautionary effect of imposing all risks in the presence of all constraints would be greater than the effect of imposing all risks in the absence of any constraints. Such a hope, however, would be in vain.  In fact, even the considerably weaker condition, involving only the single risk $\zeta_{t+1}$ and all constraints, $c_{t,n}^{0}({m}) - c_{t,n}^{1}({m}) \geq c_{t,0}^{0}({m}) - c_{t,0}^{1}({m}),$ can fail to hold for some ${m}$.
 
 
 
@@ -83,6 +91,11 @@
 
   Consider now the question of how the addition of a risk $\zeta_{t}$ that will be realized at the beginning of period $t$ affects the consumption function at the beginning of period $t-1$, in the absence of any constraint at the beginning of period $t$. The question is whether we can say that the introduction of the risk $\zeta_{t}$ has a greater precautionary effect on consumption in the presence of the subsequent risk $\zeta_{t+1}$ than in its absence?
 
+  %% Old: \begin{eqnarray}
+            %%             Old:   \label{eq:earlierrisk}
+            %%             Old:   c_{t-1,0}^{1}({m})-c_{t-1,0}^{2}({m}) & \geq & c_{t-1,0}^0({m})-c^{1}_{t-1,0}({m});
+                                                                                 %%                                                                                  Old: \end{eqnarray}
+                                                                                 %%                                                                                  Old: that is, does
 
   The answer again is ``not necessarily.''  To see why, we present an example in Appendix \ref{app:similar} of a CRRA utility problem in which in a certain limit the introduction of a risk produced an effect on the consumption function that is indistinguishable from the effect of a liquidity constraint.  If the risk $\zeta_{t}$ is of this liquidity-constraint-indistinguishable form, then the logic of the previous subsection applies: For some levels of wealth, the introduction of the risk at $t$ can weaken the precautionary effect of any risks at $t+1$ or later.
 
