@@ -3,9 +3,7 @@
 
 
 
-  %% Old: Once the ordered set of constraints is defined, we discuss the idea of introducing an additional constraint to the set. The introduction of an additional constraint is problematic because it can hide or render irrelevant constraints that already exist in the set. However, by restricting the analysis to the \textit{relevant} set of constraints, we are able to
 
-  %% Old: We now move on to the sources of consumption concavity. In our setting, there are two sources of consumption concavity: risk and constraints. The properties of consumption under risk have already been derived in \citet{carroll&kimball:concavity}. We therefore restrict our attention to showing how liquidity constraints make the consumption function concave. Once the relationship between liquidity constraints and consumption concavity is established, we use the results on consumption concavity and prudence to show under which conditions liquidity constraints heighten prudence.
 
   \subsection{Liquidity Constraints and Kink Points}\label{sec:LCandKinks}
   Recall that we are working with a consumer whose horizon goes from $0$ to $T$. We define a liquidity constraint dated $t$ as a constraint that requires savings at the \textit{end of period} $t \in (0, T]$ to be non-negative (the assumption of non-negativity is without loss of generality as shown in Theorem \ref{thm:lcip2}).
@@ -79,7 +77,6 @@
   \subsection{A More General Analysis}
   \label{subsubsec:MoreGenConstr}
   The preceding analyses required income to be constant, the liquidity constraints to be of the no-borrowing type, and consumers to be impatient ($\beta R < 1$).  We now relax these requirements.
-  %% Old: We now want to allow time variation in the level of income ${y}_{t}$ and in the location of the liquidity constraint .  We also drop the restriction that $\beta R < 1$, allowing the consumer to desire consumption growth over time.
 
   Under these more general circumstances, a constraint imposed in a given period can render constraints in either earlier or later periods irrelevant.  For example, consider a consumer with CRRA utility and $\beta R=1$ who earns income of 1 in each period, but who is required to arrive at the end of period $T-2$ with savings of 5.  Then a constraint that requires savings to be greater than zero at the end of period $T-3$ will have no effect because the consumer is required by the constraint in period $T-2$ to end period $T-3$ with savings greater than 4.
 
@@ -109,16 +106,10 @@
 
 
 
-  %% Old: \begin{theorem}\label{thm:lcip2} (Liquidity Constraints Increase Prudence.) \\
-  %%   Old:   Consider an agent in period $t$ who has a utility function with $u' > 0$, $u'' < 0$, $u''' \geq 0$, and non-increasing absolute prudence ($-u'''/u''$). Assume that the agent faces a set $\mathcal{T}$ of $N$ relevant constraints. When $n \leq N-1$ constraints have been imposed, the imposition of constraint $n+1$ strictly increases absolute prudence of the agent's value function if the utility function satisfies $u''' > 0$ and ${m}_{t} < \wAlt_{t,n+1}$ or if $u''' = 0$ and $\frac{c'_{t,n+1}}{c'_{t,n}}$ strictly declines at ${m}$.
-  %%   Old: \end{theorem}
 
   \noindent Theorem \ref{thm:lcip2} is a generalization of Lemma \ref{lem:LcAndCc}. Even if we relax the assumptions that income is constant and the agent is impatient, the imposition of an extra (more general) constraint increases absolute prudence of the value function as long as we are careful when we select the set $\mathcal{T}$ of relevant constraints.
 
   For an agent that only faces liquidity constraints, but no risk, the shape of the consumption function is piecewise linear.
-  %% Old: \begin{corollary}(Piecewise Linear Consumption Function.) \\
-  %%   Old:   Consider an agent who has a utility function with $u'> 0$ and $u'' < 0$, faces constant income ${y}$, and is impatient. Assume that the agent faces a set $\mathcal{T}$ of $N$  constraints. When $n \leq N$ constraints have been imposed, $c_{t,n}({m})$ is a piecewise linear increasing concave function with kink points at successively larger values of wealth at which future constraints stop impinging on current consumption.
-  %%   Old: \end{corollary}
   Since the consumption function is piecewise linear, the new consumption function, $c_{t,n+1}({m})$ is not necessarily strictly more concave than $c_{t,n}({m})$ for all ${m}$. This is where the concept of counterclockwise concavification is useful. Even though $c_{t,n+1}({m})$ is not strictly more concave than $c_{t,n}({m})$ everywhere, it is a counterclockwise concavification and we can apply Lemma \ref{lem:CCToPrud} and \ref{lem:ccandstrictprud} to show that the introduction of the next liquidity constraint increases absolute prudence of the value function.
 
   \begin{corollary}\label{cor:lcip} (Liquidity Constraints Increase Prudence.) \\
@@ -129,7 +120,6 @@
   \end{proof}
   \noindent %In the subsequent discussions, we consider cases where we relax the assumptions underlying Corollary \ref{cor:lcip}. We first consider the case where we add an extra constraint to the set of constraints. Next, we consider the cases with time-varying deterministic income, general constraints, and no assumption on time discounting.
 
-  %% Old: Finally, consider adding a new constraint to the problem and call the new set of constraints $\hat{\mathcal{T}}$.  Suppose the new constraint applies in period $\hat{\tau}$.  Then the analysis of the new situation will be like the analysis of an added constraint in the simpler case in section \ref{subsec:IncreaseNumConstr} if the new constraint is relevant given the constraints that apply after period $\hat{\tau}$ and the new constraint does not render any of those later constraints irrelevant. If the new constraint fails either of these tests, the analysis of $\hat{\mathcal{T}}$ can proceed from the ground up as described above.
 
 
   \newpage
